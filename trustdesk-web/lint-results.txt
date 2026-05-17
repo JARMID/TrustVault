@@ -1,0 +1,197 @@
+
+> trustdesk-web@0.0.0 lint
+> eslint .
+
+
+D:\TrustDesk\trustdesk-web\src\components\layout\Layout.tsx
+  27:7  error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free         @typescript-eslint/ban-ts-comment
+  32:7  error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free         @typescript-eslint/ban-ts-comment
+  55:6  warning  React Hook useEffect has missing dependencies: 'cursorX' and 'cursorY'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\TrustDesk\trustdesk-web\src\components\ui\Avatar.tsx
+  8:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\TrustDesk\trustdesk-web\src\components\ui\CommandPalette.tsx
+  74:7   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\TrustDesk\trustdesk-web\src\components\ui\CommandPalette.tsx:74:7
+  72 |   useEffect(() => {
+  73 |     if (isOpen) {
+> 74 |       setQuery('');
+     |       ^^^^^^^^ Avoid calling setState() directly within an effect
+  75 |       setSelectedIndex(0);
+  76 |       setTimeout(() => inputRef.current?.focus(), 100);
+  77 |     }  react-hooks/set-state-in-effect
+  80:19  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\TrustDesk\trustdesk-web\src\components\ui\CommandPalette.tsx:80:19
+  78 |   }, [isOpen]);
+  79 |
+> 80 |   useEffect(() => setSelectedIndex(0), [query]);
+     |                   ^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  81 |
+  82 |   // Keyboard nav
+  83 |   useEffect(() => {                         react-hooks/set-state-in-effect
+
+D:\TrustDesk\trustdesk-web\src\components\ui\ScrollAnimations.tsx
+   31:34  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-explicit-any
+  162:8   error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\components\ui\ScrollAnimations.tsx:162:8
+  160 |   const particles = Array.from({ length: 15 }, (_, i) => ({
+  161 |     id: i,
+> 162 |     x: Math.random() * 100,
+      |        ^^^^^^^^^^^^^ Cannot call impure function
+  163 |     y: Math.random() * 100,
+  164 |     size: Math.random() * 3 + 1,
+  165 |     duration: Math.random() * 20 + 15,                         react-hooks/purity
+  163:8   error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\components\ui\ScrollAnimations.tsx:163:8
+  161 |     id: i,
+  162 |     x: Math.random() * 100,
+> 163 |     y: Math.random() * 100,
+      |        ^^^^^^^^^^^^^ Cannot call impure function
+  164 |     size: Math.random() * 3 + 1,
+  165 |     duration: Math.random() * 20 + 15,
+  166 |     delay: Math.random() * 10,                                                      react-hooks/purity
+  164:11  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\components\ui\ScrollAnimations.tsx:164:11
+  162 |     x: Math.random() * 100,
+  163 |     y: Math.random() * 100,
+> 164 |     size: Math.random() * 3 + 1,
+      |           ^^^^^^^^^^^^^ Cannot call impure function
+  165 |     duration: Math.random() * 20 + 15,
+  166 |     delay: Math.random() * 10,
+  167 |   }));                                                      react-hooks/purity
+  165:15  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\components\ui\ScrollAnimations.tsx:165:15
+  163 |     y: Math.random() * 100,
+  164 |     size: Math.random() * 3 + 1,
+> 165 |     duration: Math.random() * 20 + 15,
+      |               ^^^^^^^^^^^^^ Cannot call impure function
+  166 |     delay: Math.random() * 10,
+  167 |   }));
+  168 |   return (                                                                   react-hooks/purity
+  166:12  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\components\ui\ScrollAnimations.tsx:166:12
+  164 |     size: Math.random() * 3 + 1,
+  165 |     duration: Math.random() * 20 + 15,
+> 166 |     delay: Math.random() * 10,
+      |            ^^^^^^^^^^^^^ Cannot call impure function
+  167 |   }));
+  168 |   return (
+  169 |     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>  react-hooks/purity
+
+D:\TrustDesk\trustdesk-web\src\components\ui\Toast.tsx
+  21:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\TrustDesk\trustdesk-web\src\pages\Dashboard.tsx
+  346:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  350:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\TrustDesk\trustdesk-web\src\pages\Ekyc.tsx
+  2:18  error  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+  3:76  error  'AlertTriangle' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Labels.tsx
+  3:22  error  'X' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Landing.tsx
+    4:142  error  'Terminal' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  110:28   error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-explicit-any
+  219:16   error  Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+D:\TrustDesk\trustdesk-web\src\pages\Landing.tsx:219:16
+  217 |             {/* Center Links */}
+  218 |             <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
+> 219 |               {[
+      |                ^
+> 220 |                 { label: 'Features', action: () => featuresRef.current?.scrollIntoView({ behavior: 'smooth' }) },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 221 |                 { label: 'Platform', action: () => document.getElementById('platform-section')?.scrollIntoView({ behavior: 'smooth' }) },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 222 |                 { label: 'Pricing', action: () => navigate('/pricing') },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 223 |                 { label: 'Docs', action: () => navigate('/docs') },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 224 |               ].map((link) => (
+      | ^^^^^^^^^^^^^^^^ Cannot access ref value during render
+  225 |                 <button
+  226 |                   key={link.label}
+  227 |                   onClick={link.action}      react-hooks/refs
+  219:16   error  Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+D:\TrustDesk\trustdesk-web\src\pages\Landing.tsx:219:16
+  217 |             {/* Center Links */}
+  218 |             <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
+> 219 |               {[
+      |                ^
+> 220 |                 { label: 'Features', action: () => featuresRef.current?.scrollIntoView({ behavior: 'smooth' }) },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 221 |                 { label: 'Platform', action: () => document.getElementById('platform-section')?.scrollIntoView({ behavior: 'smooth' }) },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 222 |                 { label: 'Pricing', action: () => navigate('/pricing') },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 223 |                 { label: 'Docs', action: () => navigate('/docs') },
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 224 |               ].map((link) => (
+      | ^^^^^^^^^^^^^^^^^^^^ Cannot access ref value during render
+  225 |                 <button
+  226 |                   key={link.label}
+  227 |                   onClick={link.action}  react-hooks/refs
+
+D:\TrustDesk\trustdesk-web\src\pages\NotFound.tsx
+  133:61  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\pages\NotFound.tsx:133:61
+  131 |           style={{ marginTop: 48, fontSize: '0.7rem', color: '#334155', fontFamily: 'monospace' }}
+  132 |         >
+> 133 |           ERR::SECTOR_NOT_FOUND — Audit log #TD-{Math.floor(Math.random() * 90000 + 10000)}
+      |                                                             ^^^^^^^^^^^^^ Cannot call impure function
+  134 |         </motion.p>
+  135 |       </motion.div>
+  136 |     </div>  react-hooks/purity
+
+D:\TrustDesk\trustdesk-web\src\pages\Triage.tsx
+  84:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\TrustDesk\trustdesk-web\src\pages\dashboard\Bugs.tsx
+  2:10  error  'Zap' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\dashboard\GeoLocal.tsx
+  3:68  error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 26 problems (25 errors, 1 warning)
+
