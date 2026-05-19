@@ -82,12 +82,24 @@ const FintechHeroWidget: React.FC = () => {
             rotateZ: mousePos.x * 0.3,
           }}
           transition={{ type: 'spring' as const, stiffness: 120, damping: 18 }}
-          style={{ width: '340px', height: '210px', transformStyle: 'preserve-3d', position: 'relative' }}
+          style={{ 
+            width: '340px', 
+            height: '210px', 
+            transformStyle: 'preserve-3d', 
+            WebkitTransformStyle: 'preserve-3d',
+            position: 'relative' 
+          }}
         >
           {/* Front */}
           <div style={{
-            position: 'absolute', inset: 0, backfaceVisibility: 'hidden',
-            borderRadius: '20px', padding: '24px',
+            position: 'absolute', 
+            inset: 0, 
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'translateZ(1px)',
+            WebkitTransform: 'translateZ(1px)',
+            borderRadius: '20px', 
+            padding: '24px',
             background: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
             border: '1px solid rgba(255,255,255,0.12)',
             boxShadow: '0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
@@ -150,7 +162,12 @@ const FintechHeroWidget: React.FC = () => {
 
           {/* Back */}
           <div style={{
-            position: 'absolute', inset: 0, backfaceVisibility: 'hidden', transform: 'rotateY(180deg)',
+            position: 'absolute', 
+            inset: 0, 
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg) translateZ(1px)',
+            WebkitTransform: 'rotateY(180deg) translateZ(1px)',
             borderRadius: '20px',
             background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
             border: '1px solid rgba(255,255,255,0.1)',

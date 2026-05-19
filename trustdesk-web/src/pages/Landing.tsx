@@ -297,11 +297,11 @@ const LandingInner: React.FC = () => {
 
                 {/* Right — Fintech Hero Widget */}
                 <motion.div
-                  initial={{ opacity: 0, x: 60 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ position: 'relative', minHeight: '540px', width: '100%', display: 'none' }}
-                  className="lg:!block"
+                  style={{ position: 'relative', minHeight: '500px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  className="mt-8 lg:mt-0"
                 >
                   <FintechHeroWidget />
                 </motion.div>

@@ -49,7 +49,7 @@ const VaultCard: React.FC = () => (
         <Lock size={12} className="text-brand-primary" />
         <span className="text-[0.65rem] text-brand-primary font-mono tracking-[0.15em] font-bold">AES-256 SECURED</span>
       </div>
-      <div className="w-[42px] h-[30px] rounded-md bg-gradient-to-br from-yellow-400 via-amber-600 to-yellow-600 opacity-90 shadow-[0_2px_10px_rgba(245,158,11,0.3)]" />
+      <div className="w-[42px] h-[30px] rounded-md bg-gradient-to-br from-teal-300 via-teal-500 to-teal-700 opacity-90 shadow-[0_2px_10px_rgba(0,198,174,0.3)]" />
     </div>
     
     <div className="relative z-10 mt-6">

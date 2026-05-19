@@ -17,10 +17,10 @@
   --text-tertiary: #475569;    /* Slate 600 */
   --text-inverse: #020617;     /* Slate 950 */
 
-  /* Brand — TrustVault Navy & Gold */
-  --brand-primary: #00C6AE;      /* Gold 600 */
-  --brand-primary-light: #00E8CC;/* Yellow 400 */
-  --brand-primary-dark: #009e8b; /* Gold 700 */
+  /* Brand — TrustVault Navy & Teal */
+  --brand-primary: #00C6AE;      /* Teal 600 */
+  --brand-primary-light: #00E8CC;/* Teal 400 */
+  --brand-primary-dark: #009e8b; /* Teal 700 */
   --brand-primary-glow: rgba(0, 198, 174, 0.25);
   --brand-primary-bg: rgba(0, 198, 174, 0.06);
 
