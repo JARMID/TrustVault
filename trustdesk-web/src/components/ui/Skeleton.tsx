@@ -31,7 +31,7 @@ const Skeleton: React.FC<SkeletonProps> = ({ width = '100%', height = 16, border
 /* Preset skeleton layouts */
 
 export const SkeletonCard: React.FC<{ lines?: number }> = ({ lines = 3 }) => (
-  <div className="glass-card" style={{ padding: 24 }}>
+  <div className="liquid-glass-card mesh-bg" style={{ padding: 24 }}>
     <div className="flex items-center gap-3 mb-4">
       <Skeleton width={44} height={44} borderRadius={12} />
       <div style={{ flex: 1 }}>
@@ -46,7 +46,7 @@ export const SkeletonCard: React.FC<{ lines?: number }> = ({ lines = 3 }) => (
 );
 
 export const SkeletonChart: React.FC = () => (
-  <div className="glass-card" style={{ padding: 24 }}>
+  <div className="liquid-glass-card mesh-bg" style={{ padding: 24 }}>
     <div className="flex justify-between items-center mb-6">
       <div>
         <Skeleton width={180} height={16} style={{ marginBottom: 8 }} />
@@ -59,7 +59,7 @@ export const SkeletonChart: React.FC = () => (
 );
 
 export const SkeletonTable: React.FC<{ rows?: number }> = ({ rows = 5 }) => (
-  <div className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
+  <div className="liquid-glass-card mesh-bg" style={{ padding: 0, overflow: 'hidden' }}>
     <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-subtle)' }}>
       <Skeleton width={200} height={16} style={{ marginBottom: 6 }} />
       <Skeleton width={300} height={10} />
@@ -108,3 +108,6 @@ export const SkeletonDashboard: React.FC = () => (
 );
 
 export default Skeleton;
+
+
+

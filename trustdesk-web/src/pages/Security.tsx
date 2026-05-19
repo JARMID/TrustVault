@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldAlert, Terminal, Lock, AlertTriangle, CheckCircle, Database } from 'lucide-react';
+import { ShieldAlert, Terminal, Lock, AlertTriangle, CheckCircle, Database, Activity, Server } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const cV = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.07 } } };
+const iV = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } } };
 
 const MOCK_LOGS = [
   "[SYS] Kernel memory integrity verified. Hash: 0x4A2B9C",
   "[NET] Incoming traffic spiked from IP 192.168.1.44 (Blocked - Rate Limit Exceeded)",
   "[AUTH] Cryptographic key rotation triggered for User_ID: 88219",
   "[OWASP] Scanner completed. 0 critical vulnerabilities found.",
-  "[SYS] Database backup encrypted and synced to cold storage."
+  "[SYS] Database backup encrypted and synced to cold storage.",
+  "[AUTH] Admin session heartbeat â€” uptime: 99.997%",
+  "[NET] SSL certificate renewed for api.trustvault.dz",
+  "[SYS] Firewall rule #447 applied â€” blocked 312 suspicious IPs",
+];
+
+const THREAT_STATS = [
+  { label: 'Blocked Threats', value: '1,247', trend: '+12%', color: 'var(--accent-danger)' },
+  { label: 'Active Monitors', value: '38', trend: 'stable', color: 'var(--brand-primary)' },
+  { label: 'Uptime', value: '99.997%', trend: '+0.001%', color: '#16A34A' },
+  { label: 'Avg Response', value: '12ms', trend: '-3ms', color: 'var(--brand-primary)' },
 ];
 
 const Security: React.FC = () => {
@@ -16,10 +29,13 @@ const Security: React.FC = () => {
 
   useEffect(() => {
     let index = 0;
+    // Push initial logs
+    setLogs(MOCK_LOGS.slice(0, 3).map(l => l + ` [TS: ${new Date().toISOString()}]`));
+    
     const logInterval = setInterval(() => {
       setLogs(prev => {
         const newLogs = [...prev, MOCK_LOGS[index % MOCK_LOGS.length] + ` [TS: ${new Date().toISOString()}]`];
-        return newLogs.slice(-8); // Keep last 8 logs
+        return newLogs.slice(-8);
       });
       index++;
     }, 2500);
@@ -28,147 +44,192 @@ const Security: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6 h-full">
-      <header className="flex justify-between items-end">
-        <div>
-          <h1 className="text-h1 mb-2">Security & Audit</h1>
-          <p className="text-secondary font-mono text-sm">Real-time compliance validation and cryptographic events monitor.</p>
-        </div>
-        
-        <button 
-          onClick={() => setIsLockedDown(!isLockedDown)}
-          className={`flex items-center gap-2 px-6 py-3 rounded-lg font-bold font-mono transition-all duration-300 ${
-            isLockedDown 
-              ? 'bg-transparent border border-brand-primary text-brand-primary' 
-              : 'bg-error text-white hover:bg-error/80 shadow-[0_0_20px_rgba(244,63,94,0.4)]'
-          }`}
-        >
-          <ShieldAlert size={20} />
-          {isLockedDown ? 'LIFT LOCKDOWN' : 'INITIATE SYSTEM LOCKDOWN'}
-        </button>
-      </header>
+    <div style={{ position: 'relative' }}>
+      {/* Ambient background glows */}
+      <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(0, 198, 174,0.04) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', bottom: '-15%', right: '-10%', width: '45vw', height: '45vw', background: 'radial-gradient(circle, rgba(239, 68, 68,0.03) 0%, transparent 70%)', filter: 'blur(100px)', pointerEvents: 'none', zIndex: 0 }} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 min-h-0">
-        
-        {/* Live Terminal Log */}
-        <div className="lg:col-span-2 glass-card p-0 flex flex-col overflow-hidden relative">
-          <div className="bg-black/50 p-3 border-b border-white/5 flex items-center gap-2">
-            <Terminal size={16} className="text-brand-primary" />
-            <span className="text-xs font-mono text-secondary">LIVE_AUDIT_STREAM_v2.1.4</span>
+      <motion.div variants={cV} initial="hidden" animate="show" style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        {/* Header */}
+        <div className="flex justify-between items-end" style={{ marginBottom: '32px' }}>
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <h1 className="text-h1 gradient-text">Security & Audit</h1>
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full" style={{ background: 'rgba(0, 198, 174,0.06)', border: '1px solid rgba(0, 198, 174,0.12)' }}>
+                <Activity size={12} style={{ color: 'var(--brand-primary)' }} />
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--brand-primary)', letterSpacing: '0.08em' }}>LIVE</span>
+              </div>
+            </div>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Real-time compliance validation and cryptographic events monitor.</p>
           </div>
-          <div className="p-6 flex-1 overflow-y-auto font-mono text-sm space-y-2">
-            {logs.map((log, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                className={`${log.includes('Blocked') || log.includes('Exception') ? 'text-error' : 'text-[#38bdf8]'}`}
-              >
-                &gt; {log}
-              </motion.div>
-            ))}
-            <div className="animate-pulse text-secondary">&gt; _</div>
-          </div>
-          
-          {/* Lockdown Overlay */}
-          <AnimatePresence>
-            {isLockedDown && (
-              <motion.div 
-                initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-                animate={{ opacity: 1, backdropFilter: 'blur(4px)' }}
-                exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-                className="absolute inset-0 bg-error/10 z-10 flex items-center justify-center border-2 border-error rounded-xl overflow-hidden"
-              >
-                {/* CRT scanline glitch layer */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)' }}></div>
-                <motion.div 
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: 'spring', bounce: 0.5 }}
-                  className="text-center relative z-20"
+
+          <button
+            onClick={() => setIsLockedDown(!isLockedDown)}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 24px', borderRadius: '12px', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', transition: 'all 0.3s', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em',
+              background: isLockedDown ? 'transparent' : 'var(--accent-danger)', color: isLockedDown ? 'var(--brand-primary)' : 'white',
+              border: isLockedDown ? '1px solid rgba(0, 198, 174,0.3)' : 'none',
+              boxShadow: isLockedDown ? 'none' : '0 4px 20px rgba(239, 68, 68,0.3)',
+            }}
+          >
+            <ShieldAlert size={18} />
+            {isLockedDown ? 'LIFT LOCKDOWN' : 'INITIATE SYSTEM LOCKDOWN'}
+          </button>
+        </div>
+
+        {/* Threat Stats Row */}
+        <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(4, 1fr)', marginBottom: '24px' }}>
+          {THREAT_STATS.map((stat, i) => (
+            <motion.div key={i} variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: '20px' }}>
+              <div className="flex items-center justify-between" style={{ marginBottom: '8px' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--text-tertiary)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{stat.label}</span>
+                <span style={{ fontSize: '0.6rem', fontWeight: 600, color: stat.color, fontFamily: 'var(--font-mono)', padding: '2px 6px', borderRadius: '4px', background: `${stat.color}10` }}>{stat.trend}</span>
+              </div>
+              <p style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', letterSpacing: '-0.02em' }}>{stat.value}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Main content: Terminal + Side Panels */}
+        <div className="grid gap-6" style={{ gridTemplateColumns: '2fr 1fr' }}>
+
+          {/* Live Terminal Log */}
+          <motion.div variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
+            <div className="flex items-center gap-2" style={{ padding: '12px 16px', background: 'var(--bg-inset)', borderBottom: '1px solid var(--border-subtle)' }}>
+              <Terminal size={14} style={{ color: 'var(--brand-primary)' }} />
+              <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', fontWeight: 600 }}>LIVE_AUDIT_STREAM_v2.1.4</span>
+              <div style={{ marginLeft: 'auto', display: 'flex', gap: '4px' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-danger)' }} />
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--brand-primary)' }} />
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-success)' }} />
+              </div>
+            </div>
+            <div style={{ padding: '20px', fontFamily: 'var(--font-mono)', fontSize: '0.78rem', minHeight: '300px', background: 'var(--bg-inset)' }}>
+              {logs.map((log, i) => (
+                <motion.div
+                  key={`${i}-${log.slice(-20)}`}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  style={{
+                    color: log.includes('Blocked') || log.includes('Exception') ? 'var(--accent-danger)' : 'var(--brand-primary)',
+                    marginBottom: '6px', lineHeight: 1.6,
+                  }}
                 >
-                  <AlertTriangle size={64} className="text-error mx-auto mb-4 animate-[pulse_1s_infinite]" />
-                  <h2 className="text-2xl font-bold text-white tracking-widest" style={{ textShadow: '0 0 10px #EF4444' }}>SYSTEM LOCKED DECREE 44</h2>
-                  <p className="text-error font-mono mt-2">All incoming network requests are currently dropping.</p>
+                  <span style={{ color: 'var(--text-tertiary)', marginRight: '6px' }}>&gt;</span> {log}
                 </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+              ))}
+              <div style={{ color: 'var(--text-tertiary)', animation: 'pulse 2s infinite' }}>&gt; _</div>
+            </div>
 
-        {/* Status Panels */}
-        <div className="flex flex-col gap-6">
-          <div className="glass-card p-6 flex-1">
-            <h3 className="text-sm font-mono text-secondary mb-4 flex items-center gap-2">
-              <Lock size={16} /> CRYPTOGRAPHIC STATUS
-            </h3>
-            <div className="space-y-4">
-              {/* Staggered list for status checks */}
-              <motion.div 
-                initial="hidden" 
-                animate="visible" 
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-                }}
-                className="space-y-4"
-              >
+            {/* Lockdown Overlay */}
+            <AnimatePresence>
+              {isLockedDown && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(239, 68, 68,0.06)', backdropFilter: 'blur(4px)', border: '2px solid rgba(239, 68, 68,0.3)', borderRadius: '16px', overflow: 'hidden' }}
+                >
+                  <div style={{ position: 'absolute', inset: 0, opacity: 0.08, pointerEvents: 'none', backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(239, 68, 68,0.2) 2px, rgba(239, 68, 68,0.2) 4px)' }} />
+                  <motion.div
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring' as const, bounce: 0.4 }}
+                    style={{ textAlign: 'center', position: 'relative', zIndex: 20 }}
+                  >
+                    <AlertTriangle size={56} style={{ color: 'var(--accent-danger)', margin: '0 auto 16px', filter: 'drop-shadow(0 0 12px rgba(239, 68, 68,0.4))' }} className="animate-pulse" />
+                    <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-danger)', letterSpacing: '0.12em', marginBottom: '8px' }}>SYSTEM LOCKED</h2>
+                    <p style={{ fontSize: '0.8rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>All incoming network requests are currently dropping.</p>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Status Panels */}
+          <div className="flex flex-col gap-6">
+            {/* Cryptographic Status */}
+            <motion.div variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: '24px' }}>
+              <h3 style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600, letterSpacing: '0.06em' }}>
+                <Lock size={14} style={{ color: 'var(--brand-primary)' }} /> CRYPTOGRAPHIC STATUS
+              </h3>
+              <div className="flex flex-col gap-3">
                 {[
                   { label: 'TLS Handshakes', val: '100% Validated', ok: true },
                   { label: 'Key Rotation', val: '24h Complete', ok: true },
                   { label: 'Cipher Suite', val: 'AES-256-GCM', ok: true },
                 ].map((item, i) => (
-                  <motion.div 
-                    variants={{
-                      hidden: { opacity: 0, x: 20 },
-                      visible: { opacity: 1, x: 0 }
-                    }}
-                    key={i} 
-                    className="flex justify-between items-center p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-white/10 transition-colors"
-                  >
-                    <span className="text-sm text-white">{item.label}</span>
+                  <div key={i} className="flex justify-between items-center" style={{ padding: '12px 14px', background: 'var(--bg-inset)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 500, color: 'var(--text-primary)' }}>{item.label}</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono text-secondary">{item.val}</span>
-                      {item.ok ? <CheckCircle size={14} className="text-success shadow-[0_0_10px_#10B981]" /> : <AlertTriangle size={14} className="text-warning shadow-[0_0_10px_#F59E0B]" />}
+                      <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)' }}>{item.val}</span>
+                      {item.ok ? (
+                        <CheckCircle size={14} style={{ color: '#16A34A', filter: 'drop-shadow(0 0 4px rgba(22,163,74,0.3))' }} />
+                      ) : (
+                        <AlertTriangle size={14} style={{ color: 'var(--brand-primary)' }} />
+                      )}
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
-            </div>
-          </div>
+              </div>
+            </motion.div>
 
-          <div className="glass-card p-6 flex-1">
-             <h3 className="text-sm font-mono text-secondary mb-4 flex items-center gap-2">
-              <Database size={16} /> COMPLIANCE METRICS
-            </h3>
-            <div className="flex items-center justify-center h-32">
-               {/* Decorative radial circles replacing a complex chart for simplicity */}
-               <div className="relative flex items-center justify-center">
-                 <div className="w-24 h-24 rounded-full border-4 border-white/5 inset-0 absolute animate-[spin_10s_linear_infinite]" />
-                 <div className="w-24 h-24 rounded-full border-4 border-transparent border-t-brand-primary border-l-brand-primary absolute shadow-[0_0_15px_rgba(59,130,246,0.3)] animate-[spin_4s_ease-in-out_infinite]" />
-                 
-                 {/* Inner pulsing orb */}
-                 <div className="absolute w-16 h-16 bg-brand-primary/10 rounded-full blur-md animate-[pulse_2s_infinite]" />
-                 
-                 <div className="text-center z-10">
-                   <motion.div 
-                     initial={{ scale: 0.8, opacity: 0 }}
-                     animate={{ scale: 1, opacity: 1 }}
-                     transition={{ delay: 0.4, type: "spring" }}
-                     className="text-xl font-bold text-white shadow-glow"
-                   >
-                     100%
-                   </motion.div>
-                   <div className="text-[10px] font-mono text-brand-primary">OWASP TOP 10</div>
-                 </div>
-               </div>
-            </div>
+            {/* Compliance Metrics */}
+            <motion.div variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: '24px' }}>
+              <h3 style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600, letterSpacing: '0.06em' }}>
+                <Database size={14} style={{ color: 'var(--brand-primary)' }} /> COMPLIANCE METRICS
+              </h3>
+              <div className="flex items-center justify-center" style={{ height: '120px' }}>
+                <div style={{ position: 'relative', width: '100px', height: '100px' }}>
+                  <svg width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="var(--border-subtle)" strokeWidth="6" />
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="var(--brand-primary)" strokeWidth="6" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 42} 0`} transform="rotate(-90 50 50)" style={{ filter: 'drop-shadow(0 0 8px rgba(0, 198, 174,0.3))' }} />
+                  </svg>
+                  <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+                    <motion.span
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.4, type: 'spring' as const }}
+                      style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}
+                    >100%</motion.span>
+                    <span style={{ fontSize: '0.55rem', color: 'var(--brand-primary)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>OWASP TOP 10</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Infrastructure */}
+            <motion.div variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: '24px' }}>
+              <h3 style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-tertiary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600, letterSpacing: '0.06em' }}>
+                <Server size={14} style={{ color: 'var(--brand-primary)' }} /> INFRASTRUCTURE
+              </h3>
+              <div className="flex flex-col gap-3">
+                {[
+                  { label: 'API Gateway', status: 'Healthy', color: '#16A34A' },
+                  { label: 'Database Cluster', status: 'Healthy', color: '#16A34A' },
+                  { label: 'CDN Edge', status: '3 nodes', color: 'var(--brand-primary)' },
+                ].map((item, i) => (
+                  <div key={i} className="flex justify-between items-center" style={{ padding: '10px 14px', background: 'var(--bg-inset)', borderRadius: '10px', border: '1px solid var(--border-subtle)' }}>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 500, color: 'var(--text-primary)' }}>{item.label}</span>
+                    <div className="flex items-center gap-2">
+                      <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: item.color, boxShadow: `0 0 6px ${item.color}40` }} />
+                      <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: item.color, fontWeight: 600 }}>{item.status}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
-
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 export default Security;
+
+
+
+
+
+

@@ -212,3 +212,4 @@ export interface DbAuditLog {
   metadata: Record<string, unknown> | null;
   created_at: string;
 }
+

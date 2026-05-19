@@ -1,63 +1,60 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import {
-  Wallet as WalletIcon, CreditCard, Send, ArrowUpRight, ArrowDownRight, Plus,
-  TrendingUp, Eye, EyeOff, ChevronRight, Snowflake, MoreVertical, Shield, Lock,
-  ArrowRight, Receipt, Zap, Building, QrCode
+  Send, ArrowUpRight, ArrowDownRight, Plus,
+  TrendingUp, Eye, EyeOff, ChevronRight, Snowflake, MoreVertical, Lock,
+  Receipt, Zap, Building, QrCode, Copy, CheckCircle
 } from 'lucide-react';
 import { useWallet } from '../hooks/useWallet';
 import { useToast } from '../components/ui/Toast';
+import { useNavigate } from 'react-router-dom';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.06 } },
 };
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+  show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } },
 };
 
-/* ── Quick Action Button ── */
+/* â”€â”€ Quick Action Button â”€â”€ */
 const QuickAction: React.FC<{
   icon: React.ReactNode; label: string; color: string; onClick?: () => void;
 }> = ({ icon, label, color, onClick }) => (
   <motion.button
-    whileHover={{ y: -6, scale: 1.02 }}
+    whileHover={{ y: -4, scale: 1.02 }}
     whileTap={{ scale: 0.96 }}
     onClick={onClick}
     style={{
-      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px',
-      padding: '24px 16px', borderRadius: '20px', cursor: 'pointer',
-      background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.04)',
-      backdropFilter: 'blur(12px)',
-      boxShadow: '0 8px 24px -8px rgba(0,0,0,0.2)',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', minWidth: '100px', flex: 1,
+      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
+      padding: '20px 14px', borderRadius: '16px', cursor: 'pointer',
+      background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)',
+      boxShadow: 'var(--shadow-card)',
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)', minWidth: '90px', flex: 1,
     }}
     onMouseOver={(e) => {
-      e.currentTarget.style.background = `linear-gradient(180deg, ${color}15 0%, rgba(255,255,255,0.02) 100%)`;
-      e.currentTarget.style.borderColor = `${color}30`;
-      e.currentTarget.style.boxShadow = `0 12px 30px -10px ${color}40`;
+      e.currentTarget.style.borderColor = `${color}40`;
+      e.currentTarget.style.boxShadow = `0 8px 24px -8px ${color}25`;
     }}
     onMouseOut={(e) => {
-      e.currentTarget.style.background = 'rgba(255,255,255,0.015)';
-      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)';
-      e.currentTarget.style.boxShadow = '0 8px 24px -8px rgba(0,0,0,0.2)';
+      e.currentTarget.style.borderColor = 'var(--border-subtle)';
+      e.currentTarget.style.boxShadow = 'var(--shadow-card)';
     }}
   >
     <div style={{
-      width: '52px', height: '52px', borderRadius: '16px',
-      background: `linear-gradient(135deg, rgba(255,255,255,0.05), ${color}20)`,
-      border: `1px solid ${color}30`,
+      width: '48px', height: '48px', borderRadius: '14px',
+      background: `${color}10`, border: `1px solid ${color}20`,
       display: 'flex', alignItems: 'center', justifyContent: 'center', color,
-      boxShadow: `inset 0 0 12px ${color}10`,
     }}>
       {icon}
     </div>
-    <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)' }}>{label}</span>
+    <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-primary)' }}>{label}</span>
   </motion.button>
 );
 
-/* ── Card Widget ── */
+/* â”€â”€ Card Widget â”€â”€ */
 const VirtualCardWidget: React.FC<{
   card: { id: string; last4: string; brand: string; label: string; color: string; status: string; expiry_month: number; expiry_year: number; spending_limit: number | null; spent_this_month: number };
   onFreeze: (id: string) => void;
@@ -69,16 +66,16 @@ const VirtualCardWidget: React.FC<{
   return (
     <motion.div
       variants={itemVariants}
-      whileHover={{ y: -6, scale: 1.02 }}
+      whileHover={{ y: -4, scale: 1.01 }}
       style={{
         background: isFrozen
-          ? 'linear-gradient(135deg, #1a1a2e 0%, #0f172a 100%)'
-          : `linear-gradient(135deg, ${card.color} 0%, ${card.color}cc 40%, #050a12 100%)`,
+          ? 'linear-gradient(135deg, var(--text-tertiary) 0%, var(--text-tertiary) 100%)'
+          : `linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 60%, #2D2F85 100%)`,
         borderRadius: '20px', padding: '28px',
-        border: isFrozen ? '1px solid rgba(100,116,139,0.2)' : '1px solid rgba(255,255,255,0.1)',
-        boxShadow: isFrozen ? 'none' : `0 20px 40px -15px ${card.color}50`,
+        border: 'none',
+        boxShadow: isFrozen ? 'var(--shadow-md)' : '0 16px 40px -12px rgba(0, 198, 174,0.35)',
         position: 'relative', overflow: 'hidden', minWidth: '280px', cursor: 'pointer',
-        filter: isFrozen ? 'saturate(0.4)' : 'none',
+        filter: isFrozen ? 'saturate(0.6)' : 'none',
       }}
     >
       {/* Glass Reflection */}
@@ -90,43 +87,43 @@ const VirtualCardWidget: React.FC<{
       {isFrozen && (
         <div style={{
           position: 'absolute', top: '12px', right: '12px',
-          background: 'rgba(100,116,139,0.2)', borderRadius: '8px', padding: '4px 10px',
-          display: 'flex', alignItems: 'center', gap: '4px',
+          background: 'rgba(255,255,255,0.15)', borderRadius: '8px', padding: '4px 10px',
+          display: 'flex', alignItems: 'center', gap: '4px', backdropFilter: 'blur(8px)',
         }}>
-          <Snowflake size={10} style={{ color: '#94A3B8' }} />
-          <span style={{ fontSize: '0.6rem', fontWeight: 700, color: '#94A3B8', letterSpacing: '0.1em' }}>FROZEN</span>
+          <Snowflake size={10} style={{ color: 'white' }} />
+          <span style={{ fontSize: '0.6rem', fontWeight: 700, color: 'white', letterSpacing: '0.1em' }}>FROZEN</span>
         </div>
       )}
       <div className="flex justify-between items-start" style={{ marginBottom: '28px' }}>
         <div className="flex items-center gap-2">
-          <Lock size={10} style={{ color: '#00C6AE' }} />
-          <span style={{ fontSize: '0.55rem', color: '#00C6AE', fontFamily: "var(--font-mono)", letterSpacing: '0.08em' }}>AES-256</span>
+          <Lock size={10} style={{ color: 'rgba(255,255,255,0.7)' }} />
+          <span style={{ fontSize: '0.55rem', color: 'rgba(255,255,255,0.7)', fontFamily: "var(--font-mono)", letterSpacing: '0.08em' }}>SECURED</span>
         </div>
-        <div style={{ width: '34px', height: '24px', borderRadius: '4px', background: 'linear-gradient(135deg, #D4A853, #B8902D)', opacity: 0.85 }} />
+        <div style={{ width: '34px', height: '24px', borderRadius: '4px', background: 'linear-gradient(135deg, #00C6AE, #009e8b)', opacity: 0.85 }} />
       </div>
       <div style={{ fontSize: '1rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.5)', marginBottom: '20px' }}>
-        <span style={{ opacity: 0.3 }}>••••</span>{' '}<span style={{ opacity: 0.3 }}>••••</span>{' '}<span style={{ opacity: 0.3 }}>••••</span>{' '}
+        <span style={{ opacity: 0.3 }}>â€¢â€¢â€¢â€¢</span>{' '}<span style={{ opacity: 0.3 }}>â€¢â€¢â€¢â€¢</span>{' '}<span style={{ opacity: 0.3 }}>â€¢â€¢â€¢â€¢</span>{' '}
         <span style={{ opacity: 0.9, color: 'white' }}>{card.last4}</span>
       </div>
       <div className="flex justify-between items-end">
         <div>
-          <div style={{ fontSize: '0.5rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2px' }}>{card.label}</div>
+          <div style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2px' }}>{card.label}</div>
           <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'white' }}>
             {String(card.expiry_month).padStart(2, '0')}/{String(card.expiry_year).slice(-2)}
           </div>
         </div>
-        <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#00C6AE', fontFamily: 'var(--font-display)' }}>
+        <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'rgba(255,255,255,0.85)', fontFamily: 'var(--font-display)' }}>
           {card.brand.toUpperCase()}
         </span>
       </div>
       {card.spending_limit && (
         <div style={{ marginTop: '16px' }}>
-          <div className="flex justify-between" style={{ fontSize: '0.6rem', color: '#64748B', marginBottom: '4px' }}>
+          <div className="flex justify-between" style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.5)', marginBottom: '4px' }}>
             <span>{card.spent_this_month.toLocaleString()} DZD spent</span>
             <span>{card.spending_limit.toLocaleString()} DZD limit</span>
           </div>
-          <div style={{ width: '100%', height: '3px', borderRadius: '2px', background: 'rgba(255,255,255,0.06)' }}>
-            <div style={{ width: `${spendPct}%`, height: '100%', borderRadius: '2px', background: spendPct > 80 ? '#EF4444' : '#00C6AE', transition: 'width 0.5s ease' }} />
+          <div style={{ width: '100%', height: '3px', borderRadius: '2px', background: 'rgba(255,255,255,0.15)' }}>
+            <div style={{ width: `${spendPct}%`, height: '100%', borderRadius: '2px', background: spendPct > 80 ? 'var(--accent-danger)' : 'var(--accent-success)', transition: 'width 0.5s ease' }} />
           </div>
         </div>
       )}
@@ -136,8 +133,9 @@ const VirtualCardWidget: React.FC<{
           onClick={(e) => { e.stopPropagation(); isFrozen ? onUnfreeze(card.id) : onFreeze(card.id); }}
           style={{
             padding: '5px 10px', borderRadius: '6px', fontSize: '0.6rem', fontWeight: 600,
-            background: isFrozen ? 'rgba(16,185,129,0.1)' : 'rgba(100,116,139,0.1)',
-            color: isFrozen ? '#10B981' : '#94A3B8', border: `1px solid ${isFrozen ? 'rgba(16,185,129,0.2)' : 'rgba(100,116,139,0.2)'}`,
+            background: isFrozen ? 'rgba(52,211,153,0.15)' : 'rgba(255,255,255,0.1)',
+            color: isFrozen ? 'var(--accent-success)' : 'rgba(255,255,255,0.8)',
+            border: `1px solid ${isFrozen ? 'rgba(52,211,153,0.3)' : 'rgba(255,255,255,0.15)'}`,
             cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px',
           }}
         >
@@ -148,8 +146,8 @@ const VirtualCardWidget: React.FC<{
           whileTap={{ scale: 0.9 }}
           style={{
             padding: '5px 10px', borderRadius: '6px', fontSize: '0.6rem', fontWeight: 600,
-            background: 'rgba(255,255,255,0.03)', color: '#64748B', border: '1px solid rgba(255,255,255,0.06)',
-            cursor: 'pointer',
+            background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)',
+            border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer',
           }}
         >
           <MoreVertical size={10} />
@@ -159,20 +157,25 @@ const VirtualCardWidget: React.FC<{
   );
 };
 
-/* ── Main Wallet Page ── */
+/* â”€â”€ Main Wallet Page â”€â”€ */
 const WalletPage: React.FC = () => {
   const { wallets, cards, transactions, totalBalance, freezeCard, unfreezeCard } = useWallet();
   const { addToast } = useToast();
+  const navigate = useNavigate();
   const [balanceVisible, setBalanceVisible] = useState(true);
+  const [copiedIban, setCopiedIban] = useState(false);
 
   const recentTxns = transactions.slice(0, 8);
 
+  const handleCopyIban = () => {
+    navigator.clipboard.writeText('DZ58 0001 0000 0000 1234 5678 90');
+    setCopiedIban(true);
+    addToast({ type: 'success', title: 'Copied!', message: 'IBAN copied to clipboard' });
+    setTimeout(() => setCopiedIban(false), 2000);
+  };
+
   return (
     <div style={{ position: 'relative' }}>
-      {/* Ambient background glows */}
-      <div style={{ position: 'absolute', top: '-100px', left: '-10%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(0,198,174,0.08) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0 }} />
-      <div style={{ position: 'absolute', bottom: '-20%', right: '-5%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(129,140,248,0.05) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0 }} />
-      
       <motion.div variants={containerVariants} initial="hidden" animate="show" style={{ maxWidth: '1440px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         {/* Header */}
         <div className="flex justify-between items-end mb-8 relative z-10">
@@ -191,8 +194,7 @@ const WalletPage: React.FC = () => {
       </div>
 
       {/* Balance Hero */}
-      <motion.div variants={itemVariants} className="glass-card" style={{ padding: '32px', marginBottom: '28px', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0,198,174,0.05), transparent 70%)', pointerEvents: 'none' }} />
+      <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: '32px', marginBottom: '28px', position: 'relative', overflow: 'hidden' }}>
         <div className="flex justify-between items-start" style={{ marginBottom: '8px' }}>
           <div>
             <div className="flex items-center gap-3 mb-2">
@@ -211,37 +213,51 @@ const WalletPage: React.FC = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                style={{ fontSize: '2.8rem', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1 }}
+                style={{ fontSize: '2.8rem', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1, color: 'var(--text-primary)' }}
               >
-                {balanceVisible ? `${totalBalance.toLocaleString()} DZD` : '•••••• DZD'}
+                {balanceVisible ? `${totalBalance.toLocaleString()} DZD` : 'â€¢â€¢â€¢â€¢â€¢â€¢ DZD'}
               </motion.h2>
             </AnimatePresence>
             <div className="flex items-center gap-2 mt-2">
-              <div className="flex items-center gap-1" style={{ color: '#34D399', fontSize: '0.8rem', fontWeight: 600 }}>
+              <div className="flex items-center gap-1" style={{ color: 'var(--accent-success)', fontSize: '0.8rem', fontWeight: 600 }}>
                 <TrendingUp size={14} /> +12.4%
               </div>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)' }}>vs last month</span>
             </div>
           </div>
-          <div className="flex items-center gap-2" style={{ padding: '8px 14px', borderRadius: '12px', background: 'rgba(0,198,174,0.06)', border: '1px solid rgba(0,198,174,0.12)' }}>
-            <Shield size={13} style={{ color: '#00C6AE' }} />
-            <span style={{ fontSize: '0.65rem', fontWeight: 600, color: '#00E8CC', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>VAULT SECURED</span>
-          </div>
+
+          {/* IBAN badge */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleCopyIban}
+            className="flex items-center gap-2"
+            style={{
+              padding: '8px 14px', borderRadius: '12px',
+              background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)',
+              cursor: 'pointer', transition: 'all 0.2s',
+            }}
+          >
+            {copiedIban ? <CheckCircle size={13} style={{ color: 'var(--accent-success)' }} /> : <Copy size={13} style={{ color: 'var(--text-tertiary)' }} />}
+            <span style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em' }}>
+              DZ58 â€¢â€¢â€¢â€¢ 5678 90
+            </span>
+          </motion.button>
         </div>
 
         {/* Sub-wallets */}
         <div className="flex gap-4" style={{ marginTop: '24px' }}>
           {wallets.map((w) => (
             <motion.div whileHover={{ y: -2 }} key={w.id} style={{
-              padding: '16px 20px', borderRadius: '16px', flex: 1,
-              background: w.is_primary ? 'rgba(0,198,174,0.08)' : 'rgba(255,255,255,0.02)',
-              border: `1px solid ${w.is_primary ? 'rgba(0,198,174,0.2)' : 'rgba(255,255,255,0.04)'}`,
-              boxShadow: w.is_primary ? '0 8px 24px -8px rgba(0,198,174,0.2)' : 'none',
-              backdropFilter: 'blur(8px)', cursor: 'pointer',
+              padding: '16px 20px', borderRadius: '14px', flex: 1,
+              background: w.is_primary ? 'var(--brand-primary-bg)' : 'var(--bg-inset)',
+              border: `1px solid ${w.is_primary ? 'rgba(0, 198, 174,0.15)' : 'var(--border-subtle)'}`,
+              boxShadow: w.is_primary ? '0 4px 16px rgba(0, 198, 174,0.08)' : 'none',
+              cursor: 'pointer', transition: 'all 0.2s',
             }}>
-              <div style={{ fontSize: '0.65rem', color: w.is_primary ? '#00E8CC' : 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px', fontWeight: w.is_primary ? 600 : 500 }}>{w.name}</div>
-              <div style={{ fontSize: '1.2rem', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
-                {balanceVisible ? w.balance.toLocaleString() : '••••••'}
+              <div style={{ fontSize: '0.65rem', color: w.is_primary ? 'var(--brand-primary)' : 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px', fontWeight: w.is_primary ? 600 : 500 }}>{w.name}</div>
+              <div style={{ fontSize: '1.2rem', fontWeight: 700, fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>
+                {balanceVisible ? w.balance.toLocaleString() : 'â€¢â€¢â€¢â€¢â€¢â€¢'}
                 <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', marginLeft: '4px' }}>{w.currency}</span>
               </div>
             </motion.div>
@@ -251,12 +267,12 @@ const WalletPage: React.FC = () => {
 
       {/* Quick Actions */}
       <motion.div variants={itemVariants} className="flex gap-4 mb-8">
-        <QuickAction icon={<Send size={20} />} label="Send Money" color="#00C6AE" />
-        <QuickAction icon={<ArrowDownRight size={20} />} label="Request" color="#818CF8" />
-        <QuickAction icon={<Plus size={20} />} label="Top Up" color="#10B981" />
-        <QuickAction icon={<Receipt size={20} />} label="Pay Bills" color="#F59E0B" />
-        <QuickAction icon={<Building size={20} />} label="Bank Transfer" color="#A78BFA" />
-        <QuickAction icon={<QrCode size={20} />} label="QR Pay" color="#EC4899" />
+        <QuickAction icon={<Send size={20} />} label="Send Money" color="var(--brand-primary)" onClick={() => navigate('/app/send')} />
+        <QuickAction icon={<ArrowDownRight size={20} />} label="Request" color="#00B8A9" />
+        <QuickAction icon={<Plus size={20} />} label="Top Up" color="var(--accent-success)" />
+        <QuickAction icon={<Receipt size={20} />} label="Pay Bills" color="var(--brand-primary)" />
+        <QuickAction icon={<Building size={20} />} label="Bank Transfer" color="var(--brand-primary)" />
+        <QuickAction icon={<QrCode size={20} />} label="QR Pay" color="var(--accent-danger)" />
       </motion.div>
 
       {/* Cards + Transactions Grid */}
@@ -274,8 +290,14 @@ const WalletPage: React.FC = () => {
               <VirtualCardWidget
                 key={card.id}
                 card={card}
-                onFreeze={freezeCard}
-                onUnfreeze={unfreezeCard}
+                onFreeze={(id) => {
+                  freezeCard(id);
+                  addToast({ type: 'warning', title: 'Card Frozen', message: `Card â€¢â€¢${card.last4} has been frozen.` });
+                }}
+                onUnfreeze={(id) => {
+                  unfreezeCard(id);
+                  addToast({ type: 'success', title: 'Card Activated', message: `Card â€¢â€¢${card.last4} is now active.` });
+                }}
               />
             ))}
           </div>
@@ -285,11 +307,15 @@ const WalletPage: React.FC = () => {
         <motion.div variants={itemVariants}>
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-h3">Recent Activity</h3>
-            <button className="btn btn-ghost" style={{ fontSize: '0.75rem', padding: '6px 12px' }}>
+            <button
+              className="btn btn-ghost"
+              style={{ fontSize: '0.75rem', padding: '6px 12px' }}
+              onClick={() => navigate('/app/transactions')}
+            >
               View All <ChevronRight size={14} />
             </button>
           </div>
-          <div className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
+          <div className="liquid-glass-card mesh-bg" style={{ padding: 0, overflow: 'hidden' }}>
             {recentTxns.map((txn, i) => (
               <motion.div
                 key={txn.id}
@@ -302,35 +328,35 @@ const WalletPage: React.FC = () => {
                   borderBottom: i < recentTxns.length - 1 ? '1px solid var(--border-subtle)' : 'none',
                   cursor: 'pointer', transition: 'background 0.2s',
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.02)')}
+                onMouseOver={(e) => (e.currentTarget.style.background = 'var(--bg-inset)')}
                 onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}
               >
                 <div className="flex items-center gap-3">
                   <div style={{
                     width: '36px', height: '36px', borderRadius: '10px',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: txn.amount > 0 ? 'rgba(16,185,129,0.1)' : 'rgba(0,198,174,0.06)',
-                    color: txn.amount > 0 ? '#10B981' : '#00C6AE',
-                    border: `1px solid ${txn.amount > 0 ? 'rgba(16,185,129,0.15)' : 'rgba(0,198,174,0.1)'}`,
+                    background: txn.amount > 0 ? 'var(--accent-success-bg)' : 'var(--brand-primary-bg)',
+                    color: txn.amount > 0 ? 'var(--accent-success)' : 'var(--brand-primary)',
+                    border: `1px solid ${txn.amount > 0 ? 'var(--accent-success-glow)' : 'rgba(0, 198, 174,0.12)'}`,
                   }}>
                     {txn.amount > 0 ? <ArrowDownRight size={15} /> : <ArrowUpRight size={15} />}
                   </div>
                   <div>
                     <p style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.2 }}>{txn.description}</p>
                     <p style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)' }}>
-                      {txn.counterparty || txn.category} · {new Date(txn.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                      {txn.counterparty || txn.category} Â· {new Date(txn.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                     </p>
                   </div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
                   <p style={{
                     fontSize: '0.82rem', fontWeight: 700, fontFamily: 'var(--font-mono)',
-                    color: txn.amount > 0 ? '#34D399' : 'var(--text-primary)',
+                    color: txn.amount > 0 ? '#16A34A' : 'var(--text-primary)',
                   }}>
                     {txn.amount > 0 ? '+' : ''}{txn.amount.toLocaleString()} {txn.currency}
                   </p>
                   {txn.status === 'pending' && (
-                    <span style={{ fontSize: '0.6rem', color: '#F59E0B', fontWeight: 700 }}>PENDING</span>
+                    <span className="badge badge-warning" style={{ fontSize: '0.6rem' }}>PENDING</span>
                   )}
                 </div>
               </motion.div>
@@ -344,3 +370,9 @@ const WalletPage: React.FC = () => {
 };
 
 export default WalletPage;
+
+
+
+
+
+

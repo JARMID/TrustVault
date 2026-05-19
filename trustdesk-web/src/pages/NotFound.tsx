@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, ArrowLeft, Home } from 'lucide-react';
-/* Stable audit ID — generated once at module load, never during render */
+/* Stable audit ID â€” generated once at module load, never during render */
 const AUDIT_ID = Math.floor(Math.random() * 90000 + 10000);
 
 const NotFound: React.FC = () => {
@@ -68,7 +68,7 @@ const NotFound: React.FC = () => {
               border: '1px solid rgba(239, 68, 68, 0.3)',
             }}
           />
-          <Shield size={36} style={{ color: '#F87171' }} />
+          <Shield size={36} style={{ color: 'var(--accent-danger)' }} />
         </motion.div>
 
         {/* 404 number */}
@@ -78,7 +78,7 @@ const NotFound: React.FC = () => {
           transition={{ delay: 0.3 }}
           style={{
             fontSize: '6rem', fontWeight: 900, letterSpacing: '-0.06em', lineHeight: 1,
-            background: 'linear-gradient(135deg, #F87171 0%, #EF4444 50%, #991B1B 100%)',
+            background: 'linear-gradient(135deg, #F87171 0%, var(--accent-danger) 50%, #991B1B 100%)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             marginBottom: 12,
           }}
@@ -89,7 +89,7 @@ const NotFound: React.FC = () => {
         <h2 style={{ fontSize: '1.3rem', fontWeight: 600, marginBottom: 8, letterSpacing: '-0.02em' }}>
           Sector Not Found
         </h2>
-        <p style={{ fontSize: '0.85rem', color: '#64748B', lineHeight: 1.7, marginBottom: 40 }}>
+        <p style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', lineHeight: 1.7, marginBottom: 40 }}>
           The resource you're trying to access doesn't exist or has been moved to a restricted zone. 
           Verify the URL or return to the command center.
         </p>
@@ -101,12 +101,12 @@ const NotFound: React.FC = () => {
             style={{
               display: 'flex', alignItems: 'center', gap: 8, padding: '12px 24px',
               borderRadius: 10, border: '1px solid rgba(255,255,255,0.1)',
-              background: 'rgba(255,255,255,0.03)', color: '#94A3B8',
+              background: 'rgba(255,255,255,0.03)', color: 'var(--text-tertiary)',
               cursor: 'pointer', fontSize: '0.85rem', fontWeight: 500, fontFamily: 'inherit',
               transition: 'all 0.2s',
             }}
             onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; e.currentTarget.style.color = '#fff'; }}
-            onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#94A3B8'; }}
+            onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'var(--text-tertiary)'; }}
           >
             <ArrowLeft size={16} /> Go Back
           </button>
@@ -115,7 +115,7 @@ const NotFound: React.FC = () => {
             style={{
               display: 'flex', alignItems: 'center', gap: 8, padding: '12px 24px',
               borderRadius: 10, border: '1px solid rgba(0, 212, 255, 0.3)',
-              background: 'rgba(0, 212, 255, 0.1)', color: '#00d4ff',
+              background: 'rgba(0, 212, 255, 0.1)', color: 'var(--brand-primary)',
               cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'inherit',
               transition: 'all 0.3s',
             }}
@@ -133,7 +133,7 @@ const NotFound: React.FC = () => {
           transition={{ delay: 0.8 }}
           style={{ marginTop: 48, fontSize: '0.7rem', color: '#334155', fontFamily: 'monospace' }}
         >
-          ERR::SECTOR_NOT_FOUND — Audit log #TD-{auditId}
+          ERR::SECTOR_NOT_FOUND â€” Audit log #TD-{auditId}
         </motion.p>
       </motion.div>
     </div>
@@ -141,3 +141,6 @@ const NotFound: React.FC = () => {
 };
 
 export default NotFound;
+
+
+

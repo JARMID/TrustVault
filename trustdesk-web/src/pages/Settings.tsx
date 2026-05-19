@@ -53,7 +53,7 @@ const Settings: React.FC = () => {
         </div>
 
         {/* Settings Content */}
-        <div className="flex-1 glass-card overflow-y-auto" style={{ padding: '32px' }}>
+        <div className="flex-1 liquid-glass-card mesh-bg overflow-y-auto" style={{ padding: '32px' }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -72,13 +72,13 @@ const Settings: React.FC = () => {
                     
                     <div className="flex flex-col gap-4">
                       {[
-                        { name: 'Production Logging Key', status: 'ACTIVE', key: '••••••••••••••••••••••••••••' },
-                        { name: 'Staging Environment Key', status: 'ACTIVE', key: '••••••••••••••••••••••••••••' },
+                        { name: 'Production Logging Key', status: 'ACTIVE', key: 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢' },
+                        { name: 'Staging Environment Key', status: 'ACTIVE', key: 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢' },
                       ].map((apiKey, i) => (
                         <div key={i} className="p-4 rounded-lg" style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-subtle)' }}>
                           <div className="flex justify-between items-center mb-3">
                             <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>{apiKey.name}</span>
-                            <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: 600, color: '#34D399', background: 'rgba(16, 185, 129, 0.1)', padding: '3px 10px', borderRadius: '20px' }}>{apiKey.status}</span>
+                            <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', fontWeight: 600, color: 'var(--accent-success)', background: 'rgba(16, 185, 129, 0.1)', padding: '3px 10px', borderRadius: '20px' }}>{apiKey.status}</span>
                           </div>
                           <div className="flex gap-3">
                             <div className="flex-1 relative">
@@ -121,7 +121,7 @@ const Settings: React.FC = () => {
                             <div style={{ fontSize: '0.75rem', fontFamily: 'monospace', color: 'var(--text-tertiary)' }}>{webhook.url}</div>
                           </div>
                           <div className="flex items-center gap-3">
-                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', boxShadow: '0 0 8px rgba(16, 185, 129, 0.5)' }} />
+                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-success)', boxShadow: '0 0 8px rgba(16, 185, 129, 0.5)' }} />
                             <ChevronRight size={16} style={{ color: 'var(--text-tertiary)' }} />
                           </div>
                         </div>
@@ -188,7 +188,7 @@ const Settings: React.FC = () => {
                           <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{item.label}</span>
                           <div className="flex items-center gap-2">
                             <span style={{ fontSize: '0.8rem', fontFamily: 'monospace', fontWeight: 600, color: 'white' }}>{item.value}</span>
-                            <CheckCircle size={14} style={{ color: '#10B981' }} />
+                            <CheckCircle size={14} style={{ color: 'var(--accent-success)' }} />
                           </div>
                         </div>
                       ))}
@@ -215,11 +215,11 @@ const Settings: React.FC = () => {
                         { label: 'Email Notifications', desc: 'triage-agent@trustvault.io', enabled: true, icon: Mail },
                         { label: 'Push Notifications', desc: 'TrustVault Mobile (2 devices)', enabled: true, icon: Smartphone },
                         { label: 'Slack Integration', desc: '#soc-critical-alerts channel', enabled: true, icon: Bell },
-                        { label: 'SMS Alerts', desc: 'Critical alerts only (+213 •••• 4291)', enabled: false, icon: AlertTriangle },
+                        { label: 'SMS Alerts', desc: 'Critical alerts only (+213 â€¢â€¢â€¢â€¢ 4291)', enabled: false, icon: AlertTriangle },
                       ].map((item, i) => (
                         <div key={i} className="flex items-center justify-between p-4 rounded-lg" style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-subtle)' }}>
                           <div className="flex items-center gap-4">
-                            <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: item.enabled ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: item.enabled ? '#10B981' : 'var(--text-tertiary)' }}>
+                            <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: item.enabled ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255,255,255,0.03)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: item.enabled ? 'var(--accent-success)' : 'var(--text-tertiary)' }}>
                               <item.icon size={18} />
                             </div>
                             <div>
@@ -228,7 +228,7 @@ const Settings: React.FC = () => {
                             </div>
                           </div>
                           {item.enabled ? 
-                            <ToggleRight size={28} style={{ color: '#10B981', cursor: 'pointer' }} /> : 
+                            <ToggleRight size={28} style={{ color: 'var(--accent-success)', cursor: 'pointer' }} /> : 
                             <ToggleLeft size={28} style={{ color: 'var(--text-tertiary)', cursor: 'pointer' }} />
                           }
                         </div>
@@ -242,10 +242,10 @@ const Settings: React.FC = () => {
                     <h2 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'white', marginBottom: '16px' }}>Escalation Rules</h2>
                     <div className="flex flex-col gap-3">
                       {[
-                        { severity: 'CRITICAL', action: 'Immediate push + SMS + Slack', delay: '0 min', color: '#EF4444' },
-                        { severity: 'HIGH', action: 'Push + Slack notification', delay: '2 min', color: '#F59E0B' },
-                        { severity: 'MEDIUM', action: 'Email + Slack', delay: '15 min', color: '#3B82F6' },
-                        { severity: 'LOW', action: 'Email digest (hourly)', delay: '60 min', color: '#6366F1' },
+                        { severity: 'CRITICAL', action: 'Immediate push + SMS + Slack', delay: '0 min', color: 'var(--accent-danger)' },
+                        { severity: 'HIGH', action: 'Push + Slack notification', delay: '2 min', color: 'var(--brand-primary)' },
+                        { severity: 'MEDIUM', action: 'Email + Slack', delay: '15 min', color: 'var(--brand-primary)' },
+                        { severity: 'LOW', action: 'Email digest (hourly)', delay: '60 min', color: 'var(--brand-primary)' },
                       ].map((rule, i) => (
                         <div key={i} className="flex items-center justify-between p-3 rounded-lg" style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-subtle)' }}>
                           <div className="flex items-center gap-3">
@@ -279,9 +279,9 @@ const Settings: React.FC = () => {
                         <p style={{ fontSize: '0.85rem', fontWeight: 600, color: 'white', marginBottom: '12px' }}>Color Theme</p>
                         <div className="flex gap-3">
                           {[
-                            { name: 'Obsidian', bg: '#0B0E14', accent: '#3B82F6', active: true },
-                            { name: 'Midnight', bg: '#0f172a', accent: '#8B5CF6', active: false },
-                            { name: 'Stealth', bg: '#111111', accent: '#10B981', active: false },
+                            { name: 'Obsidian', bg: 'var(--bg-primary)', accent: 'var(--brand-primary)', active: true },
+                            { name: 'Midnight', bg: 'var(--bg-secondary)', accent: 'var(--brand-primary)', active: false },
+                            { name: 'Stealth', bg: '#111111', accent: 'var(--accent-success)', active: false },
                           ].map((theme) => (
                             <div key={theme.name} className="flex flex-col items-center gap-2 cursor-pointer group" style={{ flex: 1 }}>
                               <div style={{
@@ -339,3 +339,7 @@ const Settings: React.FC = () => {
 };
 
 export default Settings;
+
+
+
+

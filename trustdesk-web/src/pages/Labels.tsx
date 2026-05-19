@@ -13,12 +13,12 @@ interface Label {
 }
 
 const INITIAL_LABELS: Label[] = [
-  { id: '1', name: 'High Risk', color: '#EF4444', description: 'Requires immediate attention and escalation', count: 42 },
-  { id: '2', name: 'Verified', color: '#10B981', description: 'User identity has been fully verified', count: 128 },
-  { id: '3', name: 'Suspicious', color: '#F59E0B', description: 'Flagged for manual review by SOC team', count: 31 },
-  { id: '4', name: 'Bot Activity', color: '#8B5CF6', description: 'Automated script patterns detected', count: 17 },
-  { id: '5', name: 'VIP', color: '#3B82F6', description: 'Priority client requiring white-glove handling', count: 56 },
-  { id: '6', name: 'Archived', color: '#64748B', description: 'Resolved alerts moved to cold storage', count: 203 },
+  { id: '1', name: 'High Risk', color: 'var(--accent-danger)', description: 'Requires immediate attention and escalation', count: 42 },
+  { id: '2', name: 'Verified', color: 'var(--accent-success)', description: 'User identity has been fully verified', count: 128 },
+  { id: '3', name: 'Suspicious', color: 'var(--brand-primary)', description: 'Flagged for manual review by SOC team', count: 31 },
+  { id: '4', name: 'Bot Activity', color: 'var(--brand-primary)', description: 'Automated script patterns detected', count: 17 },
+  { id: '5', name: 'VIP', color: 'var(--brand-primary)', description: 'Priority client requiring white-glove handling', count: 56 },
+  { id: '6', name: 'Archived', color: 'var(--text-tertiary)', description: 'Resolved alerts moved to cold storage', count: 203 },
 ];
 
 const containerVariants = {
@@ -54,7 +54,7 @@ export default function Labels() {
       const newLabel: Label = {
         id: Math.random().toString(36).substr(2, 9),
         name: editForm.name || 'New Label',
-        color: editForm.color || '#3b82f6',
+        color: editForm.color || 'var(--brand-primary)',
         description: editForm.description || '',
         count: 0,
       };
@@ -66,7 +66,7 @@ export default function Labels() {
   };
 
   const startEdit = (label: Label) => { setEditingId(label.id); setIsAdding(false); setEditForm(label); };
-  const startAdd = () => { setIsAdding(true); setEditingId(null); setEditForm({ name: '', color: '#3b82f6', description: '' }); };
+  const startAdd = () => { setIsAdding(true); setEditingId(null); setEditForm({ name: '', color: 'var(--brand-primary)', description: '' }); };
 
   const inputStyle: React.CSSProperties = {
     width: '100%', background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border-subtle)',
@@ -81,8 +81,8 @@ export default function Labels() {
           <div className="flex items-center gap-3 mb-2">
             <h1 className="text-h1">Label Management</h1>
             <div className="flex items-center gap-2 px-3 py-1 rounded-full" style={{ background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)' }}>
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#6366F1', boxShadow: '0 0 8px #6366F1' }} />
-              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#818CF8', letterSpacing: '0.05em' }}>{labels.length} ACTIVE</span>
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--brand-primary)', boxShadow: '0 0 8px #6366F1' }} />
+              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--brand-primary)', letterSpacing: '0.05em' }}>{labels.length} ACTIVE</span>
             </div>
           </div>
           <p className="text-sm" style={{ color: 'var(--text-secondary)', maxWidth: 500 }}>
@@ -97,12 +97,12 @@ export default function Labels() {
       {/* KPI Cards */}
       <div className="grid grid-cols-4 gap-6 mb-8">
         {[
-          { label: 'Total Labels', value: labels.length.toString(), icon: <Tags size={20} />, color: '#6366F1' },
-          { label: 'Tagged Entities', value: totalTagged.toLocaleString(), icon: <Hash size={20} />, color: '#3B82F6' },
-          { label: 'Coverage Rate', value: '94.7%', icon: <Shield size={20} />, color: '#10B981' },
-          { label: 'Auto-Tagged', value: '67%', icon: <Activity size={20} />, color: '#F59E0B' },
+          { label: 'Total Labels', value: labels.length.toString(), icon: <Tags size={20} />, color: 'var(--brand-primary)' },
+          { label: 'Tagged Entities', value: totalTagged.toLocaleString(), icon: <Hash size={20} />, color: 'var(--brand-primary)' },
+          { label: 'Coverage Rate', value: '94.7%', icon: <Shield size={20} />, color: 'var(--accent-success)' },
+          { label: 'Auto-Tagged', value: '67%', icon: <Activity size={20} />, color: 'var(--brand-primary)' },
         ].map((k, i) => (
-          <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '20px 24px' }} whileHover={{ y: -3 }}>
+          <motion.div key={i} variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: '20px 24px' }} whileHover={{ y: -3 }}>
             <div className="flex justify-between items-start mb-3">
               <div style={{
                 width: 44, height: 44, borderRadius: 12,
@@ -119,10 +119,10 @@ export default function Labels() {
       {/* Create Form */}
       <AnimatePresence>
         {isAdding && (
-          <motion.div initial={{ opacity: 0, height: 0, marginBottom: 0 }} animate={{ opacity: 1, height: 'auto', marginBottom: 24 }} exit={{ opacity: 0, height: 0, marginBottom: 0 }} className="glass-card overflow-hidden" style={{ padding: 0 }}>
+          <motion.div initial={{ opacity: 0, height: 0, marginBottom: 0 }} animate={{ opacity: 1, height: 'auto', marginBottom: 24 }} exit={{ opacity: 0, height: 0, marginBottom: 0 }} className="liquid-glass-card mesh-bg overflow-hidden" style={{ padding: 0 }}>
             <div style={{ padding: '16px 24px', borderBottom: '1px solid var(--border-subtle)' }} className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <Plus size={16} style={{ color: '#6366F1' }} />
+                <Plus size={16} style={{ color: 'var(--brand-primary)' }} />
                 <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>Create New Label</span>
               </div>
               <button onClick={() => setIsAdding(false)} className="btn btn-ghost" style={{ fontSize: '0.75rem', padding: '4px 12px', borderRadius: 6 }}><X size={14} /></button>
@@ -135,8 +135,8 @@ export default function Labels() {
               <div className="w-full md:w-36">
                 <label style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6, letterSpacing: '0.05em', textTransform: 'uppercase' }}>Color</label>
                 <div className="flex items-center gap-2" style={{ ...inputStyle, padding: '8px 14px' }}>
-                  <input type="color" value={editForm.color || '#3b82f6'} onChange={e => setEditForm({ ...editForm, color: e.target.value })} className="w-6 h-6 rounded cursor-pointer border-0 p-0 bg-transparent" />
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', textTransform: 'uppercase' }}>{editForm.color || '#3b82f6'}</span>
+                  <input type="color" value={editForm.color || 'var(--brand-primary)'} onChange={e => setEditForm({ ...editForm, color: e.target.value })} className="w-6 h-6 rounded cursor-pointer border-0 p-0 bg-transparent" />
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', textTransform: 'uppercase' }}>{editForm.color || 'var(--brand-primary)'}</span>
                 </div>
               </div>
               <div className="flex-1 w-full">
@@ -154,7 +154,7 @@ export default function Labels() {
       {/* Main Content Grid */}
       <div className="grid gap-6 mb-8" style={{ gridTemplateColumns: '1fr 360px' }}>
         {/* Label Table */}
-        <motion.div variants={itemVariants} className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
+        <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: 0, overflow: 'hidden' }}>
           <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-subtle)' }} className="flex justify-between items-center">
             <div>
               <h3 className="text-h3" style={{ marginBottom: 2 }}>Active Labels</h3>
@@ -183,7 +183,7 @@ export default function Labels() {
                       <div className="w-full md:w-28">
                         <label style={{ display: 'block', fontSize: '0.65rem', fontWeight: 600, color: 'var(--text-tertiary)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Color</label>
                         <div className="flex items-center gap-2" style={{ ...inputStyle, padding: '6px 12px' }}>
-                          <input type="color" value={editForm.color || '#3b82f6'} onChange={e => setEditForm({ ...editForm, color: e.target.value })} className="w-5 h-5 rounded cursor-pointer border-0 p-0 bg-transparent" />
+                          <input type="color" value={editForm.color || 'var(--brand-primary)'} onChange={e => setEditForm({ ...editForm, color: e.target.value })} className="w-5 h-5 rounded cursor-pointer border-0 p-0 bg-transparent" />
                         </div>
                       </div>
                       <div className="flex-1 w-full">
@@ -212,10 +212,10 @@ export default function Labels() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onClick={() => startEdit(label)} style={{ padding: 8, background: 'rgba(255,255,255,0.05)', borderRadius: 8, color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }} className="hover:bg-white/10 transition-colors">
+                        <button onClick={() => startEdit(label)} style={{ padding: 8, background: 'rgba(255,255,255,0.05)', borderRadius: 8, color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }} className="hover:bg-surface-hover transition-colors">
                           <Edit2 size={14} />
                         </button>
-                        <button onClick={() => handleDelete(label.id)} style={{ padding: 8, background: 'rgba(239,68,68,0.08)', borderRadius: 8, color: '#F87171', border: '1px solid rgba(239,68,68,0.15)' }} className="hover:bg-red-500/15 transition-colors">
+                        <button onClick={() => handleDelete(label.id)} style={{ padding: 8, background: 'rgba(239, 68, 68,0.08)', borderRadius: 8, color: 'var(--accent-danger)', border: '1px solid rgba(239, 68, 68,0.15)' }} className="hover:bg-red-500/15 transition-colors">
                           <Trash2 size={14} />
                         </button>
                       </div>
@@ -236,7 +236,7 @@ export default function Labels() {
         {/* Right Sidebar */}
         <div className="flex flex-col gap-6">
           {/* Pie Chart Distribution */}
-          <motion.div variants={itemVariants} className="glass-card" style={{ padding: 24 }}>
+          <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: 24 }}>
             <h3 className="text-h3" style={{ marginBottom: 4 }}>Tag Distribution</h3>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-tertiary)', marginBottom: 16 }}>Entities per classification</p>
             <div style={{ height: 180 }}>
@@ -263,13 +263,13 @@ export default function Labels() {
           </motion.div>
 
           {/* Quick Info */}
-          <motion.div variants={itemVariants} className="glass-card" style={{ padding: '20px 24px' }}>
+          <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: '20px 24px' }}>
             <h3 style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: 16 }}>Label Policies</h3>
             <div className="flex flex-col gap-3">
               {[
-                { label: 'Auto-assign on scan', value: 'Enabled', icon: <Activity size={14} />, color: '#10B981' },
-                { label: 'Max labels per entity', value: '5', icon: <Layers size={14} />, color: '#3B82F6' },
-                { label: 'Retention policy', value: '90 days', icon: <Shield size={14} />, color: '#F59E0B' },
+                { label: 'Auto-assign on scan', value: 'Enabled', icon: <Activity size={14} />, color: 'var(--accent-success)' },
+                { label: 'Max labels per entity', value: '5', icon: <Layers size={14} />, color: 'var(--brand-primary)' },
+                { label: 'Retention policy', value: '90 days', icon: <Shield size={14} />, color: 'var(--brand-primary)' },
               ].map(m => (
                 <div key={m.label} className="flex items-center justify-between" style={{ padding: '10px 12px', background: 'rgba(0,0,0,0.2)', borderRadius: 8, border: '1px solid var(--border-subtle)' }}>
                   <div className="flex items-center gap-3">
@@ -286,3 +286,7 @@ export default function Labels() {
     </motion.div>
   );
 }
+
+
+
+

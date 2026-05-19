@@ -50,7 +50,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     );
   }, [query, commands]);
 
-  // Group by category
   const grouped = useMemo(() => {
     const groups: Record<string, CommandItem[]> = {};
     for (const cmd of filtered) {
@@ -60,7 +59,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     return groups;
   }, [filtered]);
 
-  // Flatten for index tracking
   const flatList = useMemo(() => {
     const items: CommandItem[] = [];
     for (const cat of ['navigation', 'actions', 'settings']) {
@@ -71,18 +69,14 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuery('');
       setSelectedIndex(0);
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [isOpen]);
 
-  // Reset selected index whenever search query changes
-  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setSelectedIndex(0); }, [query]);
 
-  // Keyboard nav
   useEffect(() => {
     if (!isOpen) return;
     const handler = (e: KeyboardEvent) => {
@@ -95,7 +89,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
     return () => window.removeEventListener('keydown', handler);
   }, [isOpen, flatList, selectedIndex, onClose]);
 
-  // Scroll active item into view
   useEffect(() => {
     if (listRef.current) {
       const active = listRef.current.querySelector('[data-active="true"]');
@@ -119,37 +112,39 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             transition={{ duration: 0.15 }}
             onClick={onClose}
             style={{
-              position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
-              backdropFilter: 'blur(4px)', zIndex: 200,
+              position: 'fixed', inset: 0,
+              background: 'rgba(0,0,0,0.75)',
+              backdropFilter: 'blur(8px)',
+              zIndex: 200,
             }}
           />
 
           {/* Palette */}
           <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.96 }}
+            initial={{ opacity: 0, y: -16, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.96 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, y: -16, scale: 0.97 }}
+            transition={{ type: 'spring' as const, stiffness: 400, damping: 30 }}
             style={{
-              position: 'fixed', top: '15%', left: '50%',
+              position: 'fixed', top: '14%', left: '50%',
               transform: 'translateX(-50%)',
-              width: '580px', maxWidth: '90vw',
-              background: 'rgba(11,14,20,0.98)',
-              backdropFilter: 'blur(24px)',
-              borderRadius: '16px',
-              border: '1px solid rgba(255,255,255,0.08)',
-              boxShadow: '0 25px 80px rgba(0,0,0,0.6), 0 0 60px rgba(59,130,246,0.05)',
+              width: '600px', maxWidth: '92vw',
+              background: 'rgba(5,5,5,0.96)',
+              backdropFilter: 'blur(32px)',
+              borderRadius: '18px',
+              border: '1px solid var(--border-white-5)',
+              boxShadow: '0 32px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.03), 0 0 60px var(--brand-primary-glow)',
               overflow: 'hidden',
               zIndex: 201,
             }}
           >
             {/* Search Input */}
             <div style={{
-              padding: '16px 20px',
-              borderBottom: '1px solid rgba(255,255,255,0.06)',
-              display: 'flex', alignItems: 'center', gap: '12px',
+              padding: '18px 22px',
+              borderBottom: '1px solid var(--border-white-5)',
+              display: 'flex', alignItems: 'center', gap: '14px',
             }}>
-              <Search size={18} style={{ color: '#475569', flexShrink: 0 }} />
+              <Search size={17} style={{ color: 'var(--text-tertiary)', flexShrink: 0 }} />
               <input
                 ref={inputRef}
                 value={query}
@@ -157,13 +152,16 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                 placeholder="Type a command or search..."
                 style={{
                   flex: 1, background: 'transparent', border: 'none', outline: 'none',
-                  color: 'white', fontSize: '0.95rem', fontFamily: "'Inter', sans-serif",
+                  color: 'var(--text-primary)', fontSize: '0.9rem',
+                  fontFamily: 'var(--font-sans)', letterSpacing: '-0.01em',
                 }}
               />
               <div style={{
                 padding: '3px 8px', borderRadius: '6px',
-                background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)',
-                color: '#64748B', fontSize: '0.65rem', fontFamily: 'monospace',
+                background: 'var(--bg-inset)',
+                border: '1px solid var(--border-white-5)',
+                color: 'var(--text-tertiary)', fontSize: '0.6rem',
+                fontFamily: 'var(--font-mono)', letterSpacing: '0.06em',
               }}>
                 ESC
               </div>
@@ -175,18 +173,22 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             }}>
               {flatList.length === 0 ? (
                 <div style={{
-                  padding: '40px', textAlign: 'center', color: '#475569',
+                  padding: '48px 20px', textAlign: 'center', color: 'var(--text-tertiary)',
                 }}>
-                  <Search size={30} style={{ opacity: 0.2, marginBottom: '12px' }} />
-                  <p style={{ fontSize: '0.85rem' }}>No results found for "{query}"</p>
+                  <Search size={28} style={{ opacity: 0.15, margin: '0 auto 12px' }} />
+                  <p style={{ fontSize: '0.82rem', fontFamily: 'var(--font-sans)' }}>
+                    No results for "<span style={{ color: 'var(--text-secondary)' }}>{query}</span>"
+                  </p>
                 </div>
               ) : (
                 Object.entries(grouped).map(([cat, items]) => (
-                  <div key={cat}>
+                  <div key={cat} style={{ marginBottom: '4px' }}>
                     <div style={{
-                      padding: '8px 12px 6px',
-                      fontSize: '0.65rem', fontWeight: 600, color: '#475569',
-                      fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.08em',
+                      padding: '8px 12px 4px',
+                      fontSize: '0.6rem', fontWeight: 600,
+                      color: 'var(--text-tertiary)',
+                      fontFamily: 'var(--font-mono)',
+                      textTransform: 'uppercase', letterSpacing: '0.1em',
                     }}>
                       {CATEGORY_LABELS[cat] || cat}
                     </div>
@@ -195,38 +197,52 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                       const isActive = globalIdx === selectedIndex;
                       const Icon = cmd.icon;
                       return (
-                        <div
+                        <motion.div
                           key={cmd.id}
                           data-active={isActive}
                           onClick={cmd.action}
                           onMouseEnter={() => setSelectedIndex(globalIdx)}
+                          animate={{
+                            background: isActive ? 'var(--brand-primary-bg)' : 'transparent',
+                          }}
+                          transition={{ duration: 0.12 }}
                           style={{
                             display: 'flex', alignItems: 'center', gap: '12px',
-                            padding: '10px 12px', borderRadius: '10px',
-                            background: isActive ? 'rgba(59,130,246,0.1)' : 'transparent',
-                            border: isActive ? '1px solid rgba(59,130,246,0.15)' : '1px solid transparent',
-                            cursor: 'pointer', transition: 'all 0.15s',
+                            padding: '9px 12px', borderRadius: '10px',
+                            border: isActive
+                              ? '1px solid var(--border-brand)'
+                              : '1px solid transparent',
+                            cursor: 'pointer',
                           }}
                         >
                           <div style={{
                             width: '32px', height: '32px', borderRadius: '8px',
-                            background: isActive ? 'rgba(59,130,246,0.15)' : 'rgba(255,255,255,0.04)',
-                            border: `1px solid ${isActive ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.06)'}`,
+                            background: isActive ? 'var(--bg-inset)' : 'var(--bg-inset)',
+                            border: `1px solid ${isActive ? 'var(--border-brand)' : 'var(--border-white-5)'}`,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            flexShrink: 0,
+                            flexShrink: 0, transition: 'border-color 0.15s',
                           }}>
-                            <Icon size={15} style={{ color: isActive ? '#60A5FA' : '#64748B' }} />
+                            <Icon size={14} style={{ color: isActive ? 'var(--brand-primary)' : 'var(--text-tertiary)' }} />
                           </div>
                           <div style={{ flex: 1 }}>
-                            <div style={{ fontSize: '0.82rem', fontWeight: 500, color: isActive ? 'white' : '#CBD5E1' }}>
+                            <div style={{
+                              fontSize: '0.82rem', fontWeight: 500,
+                              color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
+                              fontFamily: 'var(--font-sans)',
+                            }}>
                               {cmd.label}
                             </div>
-                            <div style={{ fontSize: '0.68rem', color: '#475569' }}>
+                            <div style={{
+                              fontSize: '0.68rem', color: 'var(--text-tertiary)',
+                              fontFamily: 'var(--font-sans)',
+                            }}>
                               {cmd.description}
                             </div>
                           </div>
-                          {isActive && <ArrowRight size={14} style={{ color: '#475569' }} />}
-                        </div>
+                          {isActive && (
+                            <ArrowRight size={13} style={{ color: 'var(--brand-primary)', flexShrink: 0 }} />
+                          )}
+                        </motion.div>
                       );
                     })}
                   </div>
@@ -236,16 +252,18 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
 
             {/* Footer */}
             <div style={{
-              padding: '10px 20px',
-              borderTop: '1px solid rgba(255,255,255,0.04)',
-              display: 'flex', alignItems: 'center', gap: '16px',
-              fontSize: '0.65rem', color: '#475569', fontFamily: 'monospace',
+              padding: '10px 22px',
+              borderTop: '1px solid var(--border-white-5)',
+              display: 'flex', alignItems: 'center', gap: '18px',
+              fontSize: '0.6rem', color: 'var(--text-tertiary)',
+              fontFamily: 'var(--font-mono)', letterSpacing: '0.04em',
             }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <Command size={10} /> <span>K to open</span>
+                <Command size={9} /> <span>K to open</span>
               </span>
-              <span>↑↓ to navigate</span>
-              <span>↵ to select</span>
+              <span>↑↓ navigate</span>
+              <span>↵ select</span>
+              <span style={{ marginLeft: 'auto', opacity: 0.5 }}>TrustVault OS</span>
             </div>
           </motion.div>
         </>
@@ -255,3 +273,5 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
 };
 
 export default CommandPalette;
+
+

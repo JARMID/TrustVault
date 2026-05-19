@@ -70,3 +70,4 @@ export const mockMonthlyFlow = [
   { month: 'Apr', income: 145_000, expenses: 105_800 },
   { month: 'May', income: 190_000, expenses: 78_300 },
 ];
+

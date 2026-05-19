@@ -11,29 +11,60 @@ interface BadgeProps {
   style?: React.CSSProperties;
 }
 
+/* All colours are pure CSS variable tokens — zero hardcoded HEX */
 const variantStyles: Record<BadgeVariant, { bg: string; color: string; border: string; dot: string }> = {
-  success:  { bg: 'rgba(16, 185, 129, 0.12)', color: '#34D399', border: 'rgba(16, 185, 129, 0.2)', dot: '#10B981' },
-  warning:  { bg: 'rgba(245, 158, 11, 0.12)', color: '#FBBF24', border: 'rgba(245, 158, 11, 0.2)', dot: '#F59E0B' },
-  danger:   { bg: 'rgba(239, 68, 68, 0.12)',  color: '#F87171', border: 'rgba(239, 68, 68, 0.2)',  dot: '#EF4444' },
-  critical: { bg: 'rgba(239, 68, 68, 0.18)',  color: '#FCA5A5', border: 'rgba(239, 68, 68, 0.35)', dot: '#EF4444' },
-  info:     { bg: 'rgba(59, 130, 246, 0.12)', color: '#60A5FA', border: 'rgba(59, 130, 246, 0.2)', dot: '#3B82F6' },
-  neutral:  { bg: 'rgba(148, 163, 184, 0.08)',color: '#94A3B8', border: 'rgba(148, 163, 184, 0.15)',dot: '#64748B' },
+  success:  {
+    bg: 'rgba(0,198,174,0.08)',
+    color: 'var(--accent-success)',
+    border: 'rgba(0,198,174,0.2)',
+    dot: 'var(--accent-success)',
+  },
+  warning:  {
+    bg: 'rgba(0, 198, 174,0.1)',
+    color: 'var(--brand-primary)',
+    border: 'rgba(0, 198, 174,0.25)',
+    dot: 'var(--brand-primary)',
+  },
+  danger:   {
+    bg: 'rgba(239,68,68,0.08)',
+    color: 'var(--accent-danger)',
+    border: 'rgba(239,68,68,0.2)',
+    dot: 'var(--accent-danger)',
+  },
+  critical: {
+    bg: 'rgba(239,68,68,0.15)',
+    color: 'var(--accent-danger)',
+    border: 'rgba(239,68,68,0.35)',
+    dot: 'var(--accent-danger)',
+  },
+  info:     {
+    bg: 'var(--bg-inset)',
+    color: 'var(--text-secondary)',
+    border: 'var(--border-white-5)',
+    dot: 'var(--brand-primary)',
+  },
+  neutral:  {
+    bg: 'var(--bg-inset)',
+    color: 'var(--text-tertiary)',
+    border: 'var(--border-white-5)',
+    dot: 'var(--text-tertiary)',
+  },
 };
 
 const Badge: React.FC<BadgeProps> = ({ children, variant = 'neutral', dot = false, pulse = false, size = 'sm', style }) => {
   const v = variantStyles[variant];
   return (
     <span style={{
-      display: 'inline-flex', alignItems: 'center', gap: 6,
-      padding: size === 'sm' ? '3px 10px' : '5px 14px',
+      display: 'inline-flex', alignItems: 'center', gap: 5,
+      padding: size === 'sm' ? '2px 9px' : '4px 13px',
       borderRadius: 20,
       background: v.bg,
       color: v.color,
       border: `1px solid ${v.border}`,
-      fontSize: size === 'sm' ? '0.65rem' : '0.75rem',
+      fontSize: size === 'sm' ? '0.6rem' : '0.7rem',
       fontWeight: 700,
-      fontFamily: "'JetBrains Mono', monospace",
-      letterSpacing: '0.04em',
+      fontFamily: 'var(--font-mono)',
+      letterSpacing: '0.05em',
       lineHeight: 1,
       whiteSpace: 'nowrap' as const,
       ...style,
@@ -44,14 +75,18 @@ const Badge: React.FC<BadgeProps> = ({ children, variant = 'neutral', dot = fals
           height: size === 'sm' ? 5 : 6,
           borderRadius: '50%',
           background: v.dot,
-          boxShadow: pulse ? `0 0 8px ${v.dot}` : undefined,
+          flexShrink: 0,
+          boxShadow: pulse ? `0 0 6px ${v.dot}` : undefined,
           animation: pulse ? 'badgePulse 2s ease-in-out infinite' : undefined,
         }} />
       )}
       {children}
-      <style>{`@keyframes badgePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>
+      <style>{`@keyframes badgePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }`}</style>
     </span>
   );
 };
 
 export default Badge;
+
+
+

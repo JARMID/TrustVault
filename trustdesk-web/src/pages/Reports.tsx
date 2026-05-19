@@ -36,13 +36,13 @@ const monthlyTrend = [
 ];
 
 const categoryBreakdown = [
-  { category: 'Card Fraud', count: 487, color: '#EF4444' },
-  { category: 'Wire Fraud', count: 312, color: '#F59E0B' },
-  { category: 'ATO Attack', count: 256, color: '#8B5CF6' },
-  { category: 'Identity Theft', count: 198, color: '#3B82F6' },
+  { category: 'Card Fraud', count: 487, color: 'var(--accent-danger)' },
+  { category: 'Wire Fraud', count: 312, color: 'var(--brand-primary)' },
+  { category: 'ATO Attack', count: 256, color: 'var(--brand-primary)' },
+  { category: 'Identity Theft', count: 198, color: 'var(--brand-primary)' },
   { category: 'Phishing', count: 167, color: '#06B6D4' },
-  { category: 'Chargeback Abuse', count: 445, color: '#64748B' },
-  { category: 'Suspicious Transfer', count: 289, color: '#EC4899' },
+  { category: 'Chargeback Abuse', count: 445, color: 'var(--text-tertiary)' },
+  { category: 'Suspicious Transfer', count: 289, color: 'var(--accent-danger)' },
 ];
 
 const radarMetrics = [
@@ -60,7 +60,7 @@ const hourlyPattern = Array.from({ length: 24 }, (_, i) => ({
 }));
 
 const auditLog = [
-  { id: 'RPT-001', title: 'Monthly Security Digest — November 2025', generated: '2025-12-01', pages: 24, status: 'Ready' },
+  { id: 'RPT-001', title: 'Monthly Security Digest â€” November 2025', generated: '2025-12-01', pages: 24, status: 'Ready' },
   { id: 'RPT-002', title: 'Quarterly Fraud Analysis Q3 2025', generated: '2025-10-05', pages: 42, status: 'Ready' },
   { id: 'RPT-003', title: 'Annual Compliance Audit 2024', generated: '2025-01-15', pages: 68, status: 'Ready' },
   { id: 'RPT-004', title: 'Fire Safety Drill Assessment', generated: '2025-11-18', pages: 12, status: 'Draft' },
@@ -68,10 +68,10 @@ const auditLog = [
 ];
 
 const kpis = [
-  { label: 'Total Fraud Alerts (YTD)', value: '4,352', trend: '+8.4%', up: true, icon: <AlertTriangle size={20} />, color: '#F59E0B' },
-  { label: 'Avg Resolution Time', value: '12.3m', trend: '-18%', up: false, icon: <Clock size={20} />, color: '#10B981' },
-  { label: 'SLA Compliance', value: '98.2%', trend: '+2.1%', up: false, icon: <Shield size={20} />, color: '#3B82F6' },
-  { label: 'Reports Generated', value: '47', trend: '+12', up: true, icon: <FileText size={20} />, color: '#8B5CF6' },
+  { label: 'Total Fraud Alerts (YTD)', value: '4,352', trend: '+8.4%', up: true, icon: <AlertTriangle size={20} />, color: 'var(--brand-primary)' },
+  { label: 'Avg Resolution Time', value: '12.3m', trend: '-18%', up: false, icon: <Clock size={20} />, color: 'var(--accent-success)' },
+  { label: 'SLA Compliance', value: '98.2%', trend: '+2.1%', up: false, icon: <Shield size={20} />, color: 'var(--brand-primary)' },
+  { label: 'Reports Generated', value: '47', trend: '+12', up: true, icon: <FileText size={20} />, color: 'var(--brand-primary)' },
 ];
 
 const Reports: React.FC = () => {
@@ -101,7 +101,7 @@ const Reports: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-4 gap-6 mb-8">
         {kpis.map((k, i) => (
-          <motion.div key={i} variants={itemVariants} className="glass-card" style={{ padding: '20px 24px' }} whileHover={{ y: -3 }}>
+          <motion.div key={i} variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: '20px 24px' }} whileHover={{ y: -3 }}>
             <div className="flex justify-between items-start mb-3">
               <div style={{
                 width: 44, height: 44, borderRadius: 12,
@@ -113,7 +113,7 @@ const Reports: React.FC = () => {
                 style={{
                   fontSize: '0.75rem', fontWeight: 600, padding: '2px 8px', borderRadius: 20,
                   background: k.up ? 'rgba(245,158,11,0.1)' : 'rgba(16,185,129,0.1)',
-                  color: k.up ? '#FBBF24' : '#34D399'
+                  color: k.up ? 'var(--brand-primary-light)' : 'var(--accent-success)'
                 }}
               >
                 {k.up ? <TrendingUp size={12} /> : <TrendingDown size={12} />} {k.trend}
@@ -128,7 +128,7 @@ const Reports: React.FC = () => {
       {/* Charts Row 1 */}
       <div className="grid gap-6 mb-8" style={{ gridTemplateColumns: '1fr 380px' }}>
         {/* Alert trend */}
-        <motion.div variants={itemVariants} className="glass-card" style={{ padding: 24 }}>
+        <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: 24 }}>
           <div className="flex justify-between items-center mb-6">
             <div>
               <h3 className="text-h3" style={{ marginBottom: 4 }}>Fraud Alert Volume Trend</h3>
@@ -136,11 +136,11 @@ const Reports: React.FC = () => {
             </div>
             <div className="flex gap-4 items-center">
               <div className="flex items-center gap-2">
-                <div style={{ width: 10, height: 3, borderRadius: 2, background: '#3B82F6' }} />
+                <div style={{ width: 10, height: 3, borderRadius: 2, background: 'var(--brand-primary)' }} />
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)' }}>Alerts</span>
               </div>
               <div className="flex items-center gap-2">
-                <div style={{ width: 10, height: 3, borderRadius: 2, background: '#10B981' }} />
+                <div style={{ width: 10, height: 3, borderRadius: 2, background: 'var(--accent-success)' }} />
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)' }}>Resolved</span>
               </div>
             </div>
@@ -150,40 +150,40 @@ const Reports: React.FC = () => {
               <AreaChart data={monthlyTrend}>
                 <defs>
                   <linearGradient id="gradAlerts" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.25} />
-                    <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
+                    <stop offset="5%" stopColor="var(--brand-primary)" stopOpacity={0.25} />
+                    <stop offset="95%" stopColor="var(--brand-primary)" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="gradResolved2" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#10B981" stopOpacity={0.2} />
-                    <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
+                    <stop offset="5%" stopColor="var(--accent-success)" stopOpacity={0.2} />
+                    <stop offset="95%" stopColor="var(--accent-success)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.04)" />
-                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: '#64748B', fontSize: 11 }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fill: '#64748B', fontSize: 11 }} />
+                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-tertiary)', fontSize: 11 }} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fill: 'var(--text-tertiary)', fontSize: 11 }} />
                 <Tooltip
                   contentStyle={{ backgroundColor: 'rgba(11,14,20,0.95)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10 }}
                   itemStyle={{ color: '#fff', fontSize: 12 }}
-                  labelStyle={{ color: '#94A3B8', fontSize: 11, marginBottom: 4 }}
+                  labelStyle={{ color: 'var(--text-tertiary)', fontSize: 11, marginBottom: 4 }}
                 />
-                <Area type="monotone" dataKey="resolved" stroke="#10B981" strokeWidth={2} fillOpacity={1} fill="url(#gradResolved2)" />
-                <Area type="monotone" dataKey="alerts" stroke="#3B82F6" strokeWidth={2.5} fillOpacity={1} fill="url(#gradAlerts)" />
+                <Area type="monotone" dataKey="resolved" stroke="var(--accent-success)" strokeWidth={2} fillOpacity={1} fill="url(#gradResolved2)" />
+                <Area type="monotone" dataKey="alerts" stroke="var(--brand-primary)" strokeWidth={2.5} fillOpacity={1} fill="url(#gradAlerts)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
         </motion.div>
 
         {/* Radar */}
-        <motion.div variants={itemVariants} className="glass-card" style={{ padding: 24 }}>
+        <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: 24 }}>
           <h3 className="text-h3" style={{ marginBottom: 4 }}>Operational Readiness</h3>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-tertiary)', marginBottom: 16 }}>Performance across key dimensions</p>
           <div style={{ height: 260, width: '100%' }}>
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={radarMetrics}>
                 <PolarGrid stroke="rgba(255,255,255,0.06)" />
-                <PolarAngleAxis dataKey="metric" tick={{ fill: '#94A3B8', fontSize: 11 }} />
+                <PolarAngleAxis dataKey="metric" tick={{ fill: 'var(--text-tertiary)', fontSize: 11 }} />
                 <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
-                <Radar name="Score" dataKey="value" stroke="#3B82F6" fill="#3B82F6" fillOpacity={0.15} strokeWidth={2} />
+                <Radar name="Score" dataKey="value" stroke="var(--brand-primary)" fill="var(--brand-primary)" fillOpacity={0.15} strokeWidth={2} />
               </RadarChart>
             </ResponsiveContainer>
           </div>
@@ -193,14 +193,14 @@ const Reports: React.FC = () => {
       {/* Charts Row 2 */}
       <div className="grid gap-6 mb-8" style={{ gridTemplateColumns: '1fr 1fr' }}>
         {/* Category Breakdown */}
-        <motion.div variants={itemVariants} className="glass-card" style={{ padding: 24 }}>
+        <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: 24 }}>
           <h3 className="text-h3" style={{ marginBottom: 4 }}>Fraud Categories</h3>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-tertiary)', marginBottom: 20 }}>Distribution by fraud type (YTD)</p>
           <div style={{ height: 220 }}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={categoryBreakdown} layout="vertical" margin={{ left: 10 }}>
-                <XAxis type="number" axisLine={false} tickLine={false} tick={{ fill: '#64748B', fontSize: 10 }} />
-                <YAxis type="category" dataKey="category" axisLine={false} tickLine={false} tick={{ fill: '#94A3B8', fontSize: 11 }} width={130} />
+                <XAxis type="number" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-tertiary)', fontSize: 10 }} />
+                <YAxis type="category" dataKey="category" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-tertiary)', fontSize: 11 }} width={130} />
                 <Tooltip
                   contentStyle={{ backgroundColor: 'rgba(11,14,20,0.95)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8 }}
                   itemStyle={{ color: '#fff', fontSize: 12 }}
@@ -217,20 +217,20 @@ const Reports: React.FC = () => {
         </motion.div>
 
         {/* Hourly Pattern */}
-        <motion.div variants={itemVariants} className="glass-card" style={{ padding: 24 }}>
+        <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: 24 }}>
           <h3 className="text-h3" style={{ marginBottom: 4 }}>Hourly Activity Pattern</h3>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-tertiary)', marginBottom: 20 }}>Average fraud alerts by hour of day</p>
           <div style={{ height: 220 }}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={hourlyPattern}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.04)" />
-                <XAxis dataKey="hour" axisLine={false} tickLine={false} tick={{ fill: '#64748B', fontSize: 9 }} interval={3} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fill: '#64748B', fontSize: 10 }} />
+                <XAxis dataKey="hour" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-tertiary)', fontSize: 9 }} interval={3} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fill: 'var(--text-tertiary)', fontSize: 10 }} />
                 <Tooltip
                   contentStyle={{ backgroundColor: 'rgba(11,14,20,0.95)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8 }}
                   itemStyle={{ color: '#fff', fontSize: 12 }}
                 />
-                <Line type="monotone" dataKey="alerts" stroke="#8B5CF6" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="alerts" stroke="var(--brand-primary)" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -238,7 +238,7 @@ const Reports: React.FC = () => {
       </div>
 
       {/* Generated Reports Table */}
-      <motion.div variants={itemVariants} className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
+      <motion.div variants={itemVariants} className="liquid-glass-card mesh-bg" style={{ padding: 0, overflow: 'hidden' }}>
         <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-subtle)' }} className="flex justify-between items-center">
           <div>
             <h3 className="text-h3" style={{ marginBottom: 2 }}>Generated Reports</h3>
@@ -276,7 +276,7 @@ const Reports: React.FC = () => {
                     <span style={{
                       fontSize: '0.7rem', fontWeight: 600, padding: '3px 10px', borderRadius: 6,
                       background: r.status === 'Ready' ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)',
-                      color: r.status === 'Ready' ? '#34D399' : '#FBBF24',
+                      color: r.status === 'Ready' ? 'var(--accent-success)' : 'var(--brand-primary-light)',
                       border: `1px solid ${r.status === 'Ready' ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)'}`,
                     }}>{r.status}</span>
                   </td>
@@ -284,7 +284,7 @@ const Reports: React.FC = () => {
                     <div className="flex gap-2">
                       <button style={{
                         background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-                        borderRadius: 6, padding: '5px 8px', cursor: 'pointer', color: '#64748B',
+                        borderRadius: 6, padding: '5px 8px', cursor: 'pointer', color: 'var(--text-tertiary)',
                         display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.7rem'
                       }}>
                         <Eye size={12} /> View
@@ -309,3 +309,7 @@ const Reports: React.FC = () => {
 };
 
 export default Reports;
+
+
+
+

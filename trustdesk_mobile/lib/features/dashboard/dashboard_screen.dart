@@ -1,11 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 import '../../core/theme.dart';
 import '../../shared/glass_container.dart';
 import '../../shared/bottom_nav.dart';
+import '../../core/providers/wallet_provider.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -35,6 +36,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
 
   @override
   Widget build(BuildContext context) {
+    final walletState = ref.watch(walletProvider);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -109,7 +112,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
                 const SizedBox(height: 24),
 
                 // Quick Stats Row
-                _buildQuickStats(),
+                _buildQuickStats(walletState),
                 const SizedBox(height: 24),
 
                 // Panic Button
@@ -123,7 +126,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
                 // Live Feed Section
                 _buildLiveFeedHeader(),
                 const SizedBox(height: 12),
-                _buildLiveFeedItems(),
+                _buildLiveFeedItems(walletState),
               ],
             ),
           ),
@@ -186,7 +189,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
                       ],
                     ),
                     const SizedBox(height: 6),
-                    Text(
+                    const Text(
                       'All endpoints secured • Last scan 4 min ago',
                       style: TextStyle(color: AppTheme.textMuted, fontSize: 13),
                     ),
@@ -200,28 +203,31 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
     );
   }
 
-  Widget _buildQuickStats() {
+  Widget _buildQuickStats(WalletState state) {
+    final formatCurrency = NumberFormat.simpleCurrency(name: 'USD');
     return Row(
       children: [
+        Expanded(child: _buildMiniStat('Total\nBalance', formatCurrency.format(state.totalBalance), AppTheme.primary)),
+        const SizedBox(width: 12),
+        Expanded(child: _buildMiniStat('Active\nCards', '${state.cards.where((c) => c.status == 'active').length}', AppTheme.success)),
+        const SizedBox(width: 12),
         Expanded(child: _buildMiniStat('Threats\nBlocked', '247', AppTheme.danger)),
-        const SizedBox(width: 12),
-        Expanded(child: _buildMiniStat('Devices\nSecured', '12', AppTheme.primary)),
-        const SizedBox(width: 12),
-        Expanded(child: _buildMiniStat('Uptime', '99.9%', AppTheme.success)),
       ],
     );
   }
 
   Widget _buildMiniStat(String label, String value, Color color) {
     return GlassContainer(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
       child: Column(
         children: [
           Text(
             value,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: color,
-              fontSize: 24,
+              fontSize: 20,
               fontWeight: FontWeight.w900,
             ),
           ),

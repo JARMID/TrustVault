@@ -53,8 +53,44 @@ export function useWallet(): WalletHookReturn {
         setIsLoading(false);
       }
     }
-    
+
     fetchData();
+
+    // ── Real-time subscriptions ──────────────────────────────────────────────
+    if (!isSupabaseReady()) return;
+
+    const channel = supabase!
+      .channel('wallet-realtime')
+      // Wallet balance changes (e.g. after a transfer settles)
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'wallets' }, (payload) => {
+        if (payload.eventType === 'UPDATE') {
+          setWallets((prev) =>
+            prev.map((w) => (w.id === (payload.new as DbWallet).id ? (payload.new as DbWallet) : w))
+          );
+        } else if (payload.eventType === 'INSERT') {
+          setWallets((prev) => [payload.new as DbWallet, ...prev]);
+        }
+      })
+      // Card status changes (freeze / unfreeze from another device)
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'virtual_cards' }, (payload) => {
+        setCards((prev) =>
+          prev.map((c) => (c.id === (payload.new as DbVirtualCard).id ? (payload.new as DbVirtualCard) : c))
+        );
+      })
+      // Incoming / outgoing transactions
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'transactions' }, (payload) => {
+        setTransactions((prev) => [payload.new as DbTransaction, ...prev]);
+      })
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'transactions' }, (payload) => {
+        setTransactions((prev) =>
+          prev.map((t) => (t.id === (payload.new as DbTransaction).id ? (payload.new as DbTransaction) : t))
+        );
+      })
+      .subscribe();
+
+    return () => {
+      supabase!.removeChannel(channel);
+    };
   }, []);
 
   const totalBalance = wallets
@@ -122,3 +158,4 @@ export function useWallet(): WalletHookReturn {
     filterTransactions,
   };
 }
+

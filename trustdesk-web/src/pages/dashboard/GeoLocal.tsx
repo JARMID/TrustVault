@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-/* ── Mock Geo Events ── */
+/* â”€â”€ Mock Geo Events â”€â”€ */
 const mockGeoEvents = [
   { id: 'GEO-01', lat: 36.7538, lng: 3.0588, severity: 9, name: 'Algiers Central Hub', type: 'Unauthorized Access', time: '2 min ago', status: 'active' },
   { id: 'GEO-02', lat: 36.7320, lng: 3.0870, severity: 4, name: 'Hydra Branch Node', type: 'Routine Scan', time: '8 min ago', status: 'resolved' },
@@ -16,24 +16,24 @@ const mockGeoEvents = [
   { id: 'GEO-08', lat: 36.9200, lng: 7.7700, severity: 6, name: 'Annaba Edge Node', type: 'Anomaly Detected', time: '3 min ago', status: 'warning' },
 ];
 
-/* ── Severity Color Mapping ── */
+/* â”€â”€ Severity Color Mapping â”€â”€ */
 const getSeverityColor = (severity: number): string => {
-  if (severity >= 8) return '#EF4444';
-  if (severity >= 6) return '#F59E0B';
-  if (severity >= 4) return '#3B82F6';
-  return '#10B981';
+  if (severity >= 8) return 'var(--accent-danger)';
+  if (severity >= 6) return 'var(--brand-primary)';
+  if (severity >= 4) return 'var(--brand-primary)';
+  return 'var(--accent-success)';
 };
 
 const getStatusBadge = (status: string) => {
   const map: Record<string, { bg: string; text: string; label: string }> = {
-    active: { bg: 'rgba(239, 68, 68, 0.15)', text: '#F87171', label: 'ACTIVE' },
-    warning: { bg: 'rgba(245, 158, 11, 0.15)', text: '#FBBF24', label: 'WARNING' },
-    resolved: { bg: 'rgba(16, 185, 129, 0.15)', text: '#34D399', label: 'RESOLVED' },
+    active: { bg: 'rgba(239, 68, 68, 0.15)', text: 'var(--accent-danger)', label: 'ACTIVE' },
+    warning: { bg: 'rgba(245, 158, 11, 0.15)', text: 'var(--brand-primary-light)', label: 'WARNING' },
+    resolved: { bg: 'rgba(16, 185, 129, 0.15)', text: 'var(--accent-success)', label: 'RESOLVED' },
   };
   return map[status] || map.resolved;
 };
 
-/* ── Animated Map View ── */
+/* â”€â”€ Animated Map View â”€â”€ */
 const FlyToCenter: React.FC<{ center: [number, number]; zoom: number }> = ({ center, zoom }) => {
   const map = useMap();
   useEffect(() => {
@@ -42,7 +42,7 @@ const FlyToCenter: React.FC<{ center: [number, number]; zoom: number }> = ({ cen
   return null;
 };
 
-/* ── Main Component ── */
+/* â”€â”€ Main Component â”€â”€ */
 export default function GeoLocal() {
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
   const [mapCenter, setMapCenter] = useState<[number, number]>([35.5, 3.0]);
@@ -112,10 +112,10 @@ export default function GeoLocal() {
       {/* Stats Row */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         {[
-          { label: 'Active Nodes', value: mockGeoEvents.length, icon: <Signal size={16} />, color: '#3B82F6' },
-          { label: 'Active Threats', value: activeCount, icon: <AlertCircle size={16} />, color: '#EF4444' },
-          { label: 'Warnings', value: warningCount, icon: <Activity size={16} />, color: '#F59E0B' },
-          { label: 'Coverage', value: '97.3%', icon: <Wifi size={16} />, color: '#10B981' },
+          { label: 'Active Nodes', value: mockGeoEvents.length, icon: <Signal size={16} />, color: 'var(--brand-primary)' },
+          { label: 'Active Threats', value: activeCount, icon: <AlertCircle size={16} />, color: 'var(--accent-danger)' },
+          { label: 'Warnings', value: warningCount, icon: <Activity size={16} />, color: 'var(--brand-primary)' },
+          { label: 'Coverage', value: '97.3%', icon: <Wifi size={16} />, color: 'var(--accent-success)' },
         ].map((stat) => (
           <motion.div
             key={stat.label}
@@ -151,7 +151,7 @@ export default function GeoLocal() {
           {/* Map Header */}
           <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', zIndex: 1000 }}>
             <div className="flex items-center gap-2">
-              <MapPin size={16} style={{ color: '#3B82F6' }} />
+              <MapPin size={16} style={{ color: 'var(--brand-primary)' }} />
               <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Live Threat Map</span>
               <span style={{ fontSize: '0.65rem', fontFamily: 'monospace', color: 'var(--text-tertiary)', padding: '2px 8px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px' }}>
                 {filteredEvents.length} nodes
@@ -231,11 +231,11 @@ export default function GeoLocal() {
                       <Popup>
                         <div style={{ background: 'transparent', color: '#fff', minWidth: '200px' }}>
                           <div style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>{event.name}</div>
-                          <div style={{ fontSize: '0.75rem', color: '#94A3B8', marginBottom: '6px' }}>{event.type}</div>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', marginBottom: '6px' }}>{event.type}</div>
                           <div style={{ display: 'flex', gap: '8px', fontSize: '0.7rem' }}>
                             <span style={{ color }}>Severity: {event.severity}/10</span>
-                            <span style={{ color: '#64748B' }}>•</span>
-                            <span style={{ color: '#64748B' }}>{event.time}</span>
+                            <span style={{ color: 'var(--text-tertiary)' }}>â€¢</span>
+                            <span style={{ color: 'var(--text-tertiary)' }}>{event.time}</span>
                           </div>
                         </div>
                       </Popup>
@@ -253,10 +253,10 @@ export default function GeoLocal() {
             }}>
               <div style={{ fontSize: '0.65rem', fontWeight: 600, color: 'var(--text-tertiary)', letterSpacing: '0.1em', marginBottom: '8px' }}>THREAT LEVEL</div>
               {[
-                { label: 'Critical (8-10)', color: '#EF4444' },
-                { label: 'High (6-7)', color: '#F59E0B' },
-                { label: 'Medium (4-5)', color: '#3B82F6' },
-                { label: 'Low (1-3)', color: '#10B981' },
+                { label: 'Critical (8-10)', color: 'var(--accent-danger)' },
+                { label: 'High (6-7)', color: 'var(--brand-primary)' },
+                { label: 'Medium (4-5)', color: 'var(--brand-primary)' },
+                { label: 'Low (1-3)', color: 'var(--accent-success)' },
               ].map(item => (
                 <div key={item.label} className="flex items-center gap-2" style={{ marginBottom: '4px' }}>
                   <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, boxShadow: `0 0 6px ${item.color}60` }} />
@@ -277,7 +277,7 @@ export default function GeoLocal() {
             style={{ padding: '16px 20px' }}
           >
             <h3 style={{ fontSize: '0.85rem', fontWeight: 600, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Navigation size={14} style={{ color: '#3B82F6' }} />
+              <Navigation size={14} style={{ color: 'var(--brand-primary)' }} />
               Recent Captures
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '480px', overflowY: 'auto', paddingRight: '4px' }}>
@@ -355,14 +355,14 @@ export default function GeoLocal() {
             style={{ padding: '16px 20px' }}
           >
             <h3 style={{ fontSize: '0.85rem', fontWeight: 600, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Shield size={14} style={{ color: '#10B981' }} />
+              <Shield size={14} style={{ color: 'var(--accent-success)' }} />
               Sensor Health
             </h3>
             <div className="flex flex-col gap-3">
               {[
-                { label: 'GPS Accuracy', value: '±2.4m', color: '#10B981' },
-                { label: 'Signal Strength', value: '-42 dBm', color: '#3B82F6' },
-                { label: 'Last Sync', value: '< 1s ago', color: '#10B981' },
+                { label: 'GPS Accuracy', value: 'Â±2.4m', color: 'var(--accent-success)' },
+                { label: 'Signal Strength', value: '-42 dBm', color: 'var(--brand-primary)' },
+                { label: 'Last Sync', value: '< 1s ago', color: 'var(--accent-success)' },
               ].map(metric => (
                 <div key={metric.label} className="flex items-center justify-between" style={{
                   padding: '10px 12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px',
@@ -379,3 +379,5 @@ export default function GeoLocal() {
     </div>
   );
 }
+
+

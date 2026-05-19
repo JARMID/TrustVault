@@ -1,278 +1,226 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Bell, AlertTriangle, Shield, CheckCircle, Info, Clock } from 'lucide-react';
+import {
+  Bell, X, CheckCheck, Shield, CreditCard, Send, AlertTriangle,
+  TrendingUp, Clock, ChevronRight
+} from 'lucide-react';
+import { useNotifications } from '../../hooks/useNotifications';
 
-interface Notification {
-  id: string;
-  type: 'critical' | 'warning' | 'success' | 'info';
-  title: string;
-  message: string;
-  time: string;
-  read: boolean;
-}
-
-interface NotificationPanelProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const MOCK_NOTIFICATIONS: Notification[] = [
-  { id: '1', type: 'critical', title: 'Suspicious Transaction Blocked', message: 'Unauthorized $2,450 withdrawal attempt detected. Wallet auto-frozen pending review.', time: '2 min ago', read: false },
-  { id: '2', type: 'warning', title: 'Anomalous Transaction Pattern', message: 'Unusual spending velocity detected on virtual card ending in 4821.', time: '15 min ago', read: false },
-  { id: '3', type: 'success', title: 'Fraud Alert #1847 Resolved', message: 'Disputed charge confirmed legitimate by cardholder verification.', time: '1 hour ago', read: false },
-  { id: '4', type: 'info', title: 'System Update Available', message: 'TrustVault v2.4.1 is ready for deployment. Review changelog.', time: '3 hours ago', read: true },
-  { id: '5', type: 'warning', title: 'Card Network Latency', message: 'Visa processing gateway showing elevated response times (>800ms).', time: '5 hours ago', read: true },
-  { id: '6', type: 'success', title: 'Daily Backup Complete', message: 'All system databases and audit logs backed up successfully.', time: '8 hours ago', read: true },
-];
-
-const TYPE_CONFIG = {
-  critical: { icon: AlertTriangle, color: '#EF4444', bg: 'rgba(239,68,68,0.08)', border: 'rgba(239,68,68,0.2)' },
-  warning: { icon: Shield, color: '#F59E0B', bg: 'rgba(245,158,11,0.08)', border: 'rgba(245,158,11,0.2)' },
-  success: { icon: CheckCircle, color: '#10B981', bg: 'rgba(16,185,129,0.08)', border: 'rgba(16,185,129,0.2)' },
-  info: { icon: Info, color: '#3B82F6', bg: 'rgba(59,130,246,0.08)', border: 'rgba(59,130,246,0.2)' },
+/* ── Notification Icon Map ── */
+const typeIcon: Record<string, { icon: React.ReactNode; color: string }> = {
+  security: { icon: <Shield size={14} />, color: 'var(--accent-danger)' },
+  system: { icon: <Shield size={14} />, color: 'var(--brand-primary)' },
+  transaction: { icon: <Send size={14} />, color: 'var(--brand-primary)' },
+  card: { icon: <CreditCard size={14} />, color: 'var(--accent-success)' },
+  alert: { icon: <AlertTriangle size={14} />, color: 'var(--brand-primary)' },
+  promotion: { icon: <TrendingUp size={14} />, color: 'var(--accent-success)' },
 };
 
-const NotificationPanel: React.FC<NotificationPanelProps> = ({ isOpen, onClose }) => {
-  const [notifications, setNotifications] = useState(MOCK_NOTIFICATIONS);
-  const unreadCount = notifications.filter(n => !n.read).length;
+const NotificationPanel: React.FC = () => {
+  const { notifications, unreadCount, markAsRead, markAllAsRead } = useNotifications();
+  const [isOpen, setIsOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
 
-  const markAllRead = () => {
-    setNotifications(prev => prev.map(n => ({ ...n, read: true })));
-  };
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
 
-  const clearAll = () => {
-    setNotifications([]);
-  };
-
-  const dismissOne = (id: string) => {
-    setNotifications(prev => prev.filter(n => n.id !== id));
+  const formatTime = (dateStr: string) => {
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffMin = Math.floor(diffMs / 60000);
+    if (diffMin < 1) return 'Just now';
+    if (diffMin < 60) return `${diffMin}m ago`;
+    const diffHr = Math.floor(diffMin / 60);
+    if (diffHr < 24) return `${diffHr}h ago`;
+    const diffDay = Math.floor(diffHr / 24);
+    if (diffDay < 7) return `${diffDay}d ago`;
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={onClose}
+    <div ref={panelRef} style={{ position: 'relative' }}>
+      {/* Bell trigger */}
+      <motion.button
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          position: 'relative', width: '38px', height: '38px', borderRadius: '10px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: isOpen ? 'var(--brand-primary-bg)' : 'var(--bg-inset)',
+          border: `1px solid ${isOpen ? 'rgba(91,95,237,0.15)' : 'var(--border-subtle)'}`,
+          cursor: 'pointer', color: isOpen ? 'var(--brand-primary)' : 'var(--text-secondary)',
+          transition: 'all 0.2s',
+        }}
+      >
+        <Bell size={16} />
+        {unreadCount > 0 && (
+          <motion.span
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
             style={{
-              position: 'fixed',
-              inset: 0,
-              background: 'rgba(0,0,0,0.4)',
-              zIndex: 90,
+              position: 'absolute', top: '-4px', right: '-4px',
+              width: '18px', height: '18px', borderRadius: '50%',
+              background: 'var(--accent-danger)', color: 'white', fontSize: '0.55rem', fontWeight: 800,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              border: '2px solid var(--bg-surface)',
             }}
-          />
+          >
+            {unreadCount > 9 ? '9+' : unreadCount}
+          </motion.span>
+        )}
+      </motion.button>
 
-          {/* Panel */}
+      {/* Panel dropdown */}
+      <AnimatePresence>
+        {isOpen && (
           <motion.div
-            initial={{ x: '100%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '100%', opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            initial={{ opacity: 0, y: 8, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             style={{
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              width: '420px',
-              maxWidth: '100vw',
-              background: 'rgba(11,14,20,0.97)',
-              backdropFilter: 'blur(24px)',
-              borderLeft: '1px solid rgba(255,255,255,0.06)',
-              zIndex: 100,
-              display: 'flex',
-              flexDirection: 'column',
-              boxShadow: '-20px 0 60px rgba(0,0,0,0.5)',
+              position: 'absolute', top: 'calc(100% + 8px)', right: 0,
+              width: '380px', maxHeight: '480px',
+              background: 'var(--bg-surface)', borderRadius: '16px',
+              border: '1px solid var(--border-subtle)',
+              boxShadow: '0 20px 60px -16px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04)',
+              overflow: 'hidden', zIndex: 100,
             }}
           >
             {/* Header */}
-            <div style={{
-              padding: '24px',
-              borderBottom: '1px solid rgba(255,255,255,0.06)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div style={{
-                  width: '40px', height: '40px', borderRadius: '12px',
-                  background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <Bell size={18} style={{ color: '#60A5FA' }} />
-                </div>
-                <div>
-                  <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'white' }}>Notifications</h2>
-                  <p style={{ fontSize: '0.7rem', color: '#64748B', fontFamily: 'monospace' }}>
-                    {unreadCount > 0 ? `${unreadCount} unread` : 'All caught up'}
-                  </p>
-                </div>
+            <div className="flex justify-between items-center" style={{ padding: '16px 20px', borderBottom: '1px solid var(--border-subtle)' }}>
+              <div>
+                <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-primary)' }}>Notifications</h4>
+                {unreadCount > 0 && (
+                  <p style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)' }}>{unreadCount} unread</p>
+                )}
               </div>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={onClose}
-                style={{
-                  width: '36px', height: '36px', borderRadius: '10px',
-                  background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)',
-                  color: '#94A3B8', cursor: 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}
-              >
-                <X size={16} />
-              </motion.button>
+              <div className="flex gap-2">
+                {unreadCount > 0 && (
+                  <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={markAllAsRead}
+                    style={{
+                      padding: '5px 10px', borderRadius: '8px', fontSize: '0.65rem', fontWeight: 600,
+                      background: 'var(--brand-primary-bg)', color: 'var(--brand-primary)',
+                      border: '1px solid rgba(91,95,237,0.12)', cursor: 'pointer',
+                      display: 'flex', alignItems: 'center', gap: '3px',
+                    }}
+                  >
+                    <CheckCheck size={11} /> Mark all read
+                  </motion.button>
+                )}
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    width: '28px', height: '28px', borderRadius: '8px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)',
+                    cursor: 'pointer', color: 'var(--text-tertiary)',
+                  }}
+                >
+                  <X size={12} />
+                </motion.button>
+              </div>
             </div>
 
-            {/* Actions */}
+            {/* Notification list */}
+            <div style={{ maxHeight: '380px', overflowY: 'auto' }}>
+              {notifications.length === 0 ? (
+                <div style={{ padding: '40px 20px', textAlign: 'center' }}>
+                  <Bell size={32} style={{ color: 'var(--text-tertiary)', margin: '0 auto 10px' }} />
+                  <p style={{ fontSize: '0.82rem', color: 'var(--text-tertiary)' }}>No notifications yet</p>
+                </div>
+              ) : (
+                notifications.map((notif, i) => {
+                  const { icon, color } = typeIcon[notif.type] || typeIcon['alert'];
+                  return (
+                    <motion.div
+                      key={notif.id}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.03 }}
+                      onClick={() => markAsRead(notif.id)}
+                      className="flex gap-3"
+                      style={{
+                        padding: '14px 20px', cursor: 'pointer',
+                        borderBottom: i < notifications.length - 1 ? '1px solid var(--border-subtle)' : 'none',
+                        background: notif.is_read ? 'transparent' : 'rgba(91,95,237,0.02)',
+                        transition: 'background 0.2s',
+                      }}
+                      onMouseOver={(e) => (e.currentTarget.style.background = 'var(--bg-inset)')}
+                      onMouseOut={(e) => (e.currentTarget.style.background = notif.is_read ? 'transparent' : 'rgba(91,95,237,0.02)')}
+                    >
+                      <div style={{
+                        width: '34px', height: '34px', borderRadius: '10px', flexShrink: 0,
+                        background: `${color}10`, border: `1px solid ${color}18`,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', color,
+                      }}>
+                        {icon}
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div className="flex justify-between items-start gap-2">
+                          <p style={{
+                            fontSize: '0.78rem', color: 'var(--text-primary)', lineHeight: 1.3,
+                            fontWeight: notif.is_read ? 500 : 600,
+                          }}>
+                            {notif.title}
+                          </p>
+                          {!notif.is_read && (
+                            <div style={{
+                              width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0,
+                              background: 'var(--brand-primary)', marginTop: '6px',
+                            }} />
+                          )}
+                        </div>
+                        {notif.message && (
+                          <p style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)', marginTop: '2px', lineHeight: 1.4 }}>
+                            {notif.message}
+                          </p>
+                        )}
+                        <div className="flex items-center gap-1 mt-1" style={{ fontSize: '0.6rem', color: 'var(--text-tertiary)' }}>
+                          <Clock size={9} /> {formatTime(notif.created_at)}
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })
+              )}
+            </div>
+
+            {/* Footer */}
             {notifications.length > 0 && (
-              <div style={{
-                padding: '12px 24px',
-                display: 'flex',
-                gap: '12px',
-                borderBottom: '1px solid rgba(255,255,255,0.04)',
-              }}>
+              <div style={{ padding: '10px 20px', borderTop: '1px solid var(--border-subtle)', textAlign: 'center' }}>
                 <button
-                  onClick={markAllRead}
                   style={{
-                    background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.15)',
-                    color: '#60A5FA', fontSize: '0.7rem', fontWeight: 600,
-                    padding: '6px 14px', borderRadius: '8px', cursor: 'pointer',
-                    transition: 'all 0.2s',
+                    background: 'none', border: 'none', cursor: 'pointer',
+                    fontSize: '0.72rem', fontWeight: 600, color: 'var(--brand-primary)',
+                    display: 'inline-flex', alignItems: 'center', gap: '4px',
                   }}
                 >
-                  Mark all read
-                </button>
-                <button
-                  onClick={clearAll}
-                  style={{
-                    background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-                    color: '#64748B', fontSize: '0.7rem', fontWeight: 600,
-                    padding: '6px 14px', borderRadius: '8px', cursor: 'pointer',
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  Clear all
+                  View All Notifications <ChevronRight size={12} />
                 </button>
               </div>
             )}
-
-            {/* Notification List */}
-            <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
-              <AnimatePresence>
-                {notifications.length === 0 ? (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    style={{
-                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                      padding: '60px 24px', color: '#475569', textAlign: 'center',
-                    }}
-                  >
-                    <Bell size={40} style={{ opacity: 0.2, marginBottom: '16px' }} />
-                    <p style={{ fontSize: '0.9rem', fontWeight: 500 }}>No notifications</p>
-                    <p style={{ fontSize: '0.75rem', marginTop: '4px' }}>You're all caught up!</p>
-                  </motion.div>
-                ) : (
-                  notifications.map((notif, i) => {
-                    const config = TYPE_CONFIG[notif.type];
-                    const Icon = config.icon;
-                    return (
-                      <motion.div
-                        key={notif.id}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20, height: 0 }}
-                        transition={{ delay: i * 0.03, duration: 0.2 }}
-                        style={{
-                          padding: '16px',
-                          borderRadius: '12px',
-                          marginBottom: '8px',
-                          background: notif.read ? 'rgba(255,255,255,0.01)' : config.bg,
-                          border: `1px solid ${notif.read ? 'rgba(255,255,255,0.04)' : config.border}`,
-                          cursor: 'pointer',
-                          transition: 'all 0.2s',
-                          position: 'relative',
-                        }}
-                        onMouseOver={e => {
-                          e.currentTarget.style.background = config.bg;
-                          e.currentTarget.style.borderColor = config.border;
-                        }}
-                        onMouseOut={e => {
-                          e.currentTarget.style.background = notif.read ? 'rgba(255,255,255,0.01)' : config.bg;
-                          e.currentTarget.style.borderColor = notif.read ? 'rgba(255,255,255,0.04)' : config.border;
-                        }}
-                      >
-                        {/* Unread dot */}
-                        {!notif.read && (
-                          <div style={{
-                            position: 'absolute', top: '16px', right: '16px',
-                            width: '6px', height: '6px', borderRadius: '50%',
-                            background: config.color, boxShadow: `0 0 6px ${config.color}`,
-                          }} />
-                        )}
-                        <div style={{ display: 'flex', gap: '12px' }}>
-                          <div style={{
-                            width: '36px', height: '36px', borderRadius: '10px',
-                            background: config.bg, border: `1px solid ${config.border}`,
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            flexShrink: 0,
-                          }}>
-                            <Icon size={16} style={{ color: config.color }} />
-                          </div>
-                          <div style={{ flex: 1, minWidth: 0 }}>
-                            <h4 style={{
-                              fontSize: '0.8rem', fontWeight: notif.read ? 500 : 600,
-                              color: notif.read ? '#94A3B8' : 'white',
-                              marginBottom: '4px',
-                            }}>
-                              {notif.title}
-                            </h4>
-                            <p style={{
-                              fontSize: '0.72rem', color: '#64748B',
-                              lineHeight: 1.5, marginBottom: '8px',
-                            }}>
-                              {notif.message}
-                            </p>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                              <Clock size={10} style={{ color: '#475569' }} />
-                              <span style={{ fontSize: '0.65rem', color: '#475569', fontFamily: 'monospace' }}>
-                                {notif.time}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        {/* Dismiss button */}
-                        <button
-                          onClick={(e) => { e.stopPropagation(); dismissOne(notif.id); }}
-                          style={{
-                            position: 'absolute', top: '8px', right: '8px',
-                            width: '20px', height: '20px', borderRadius: '6px',
-                            background: 'transparent', border: 'none',
-                            color: '#475569', cursor: 'pointer',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            opacity: 0,
-                            transition: 'opacity 0.2s',
-                          }}
-                          onMouseOver={e => e.currentTarget.style.opacity = '1'}
-                          onMouseOut={e => e.currentTarget.style.opacity = '0'}
-                        >
-                          <X size={12} />
-                        </button>
-                      </motion.div>
-                    );
-                  })
-                )}
-              </AnimatePresence>
-            </div>
           </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
 export default NotificationPanel;
+
+
+
+

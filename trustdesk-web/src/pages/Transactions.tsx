@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { useWallet, type TransactionFilters } from '../hooks/useWallet';
 
-/* ── category helpers ── */
+/* â”€â”€ category helpers â”€â”€ */
 const categoryIcon: Record<string, React.ReactNode> = {
   shopping: <ShoppingBag size={15} />,
   transport: <Car size={15} />,
@@ -19,14 +19,14 @@ const categoryIcon: Record<string, React.ReactNode> = {
   other: <MoreHorizontal size={15} />,
 };
 const categoryColor: Record<string, string> = {
-  shopping: '#818CF8',
-  transport: '#00C6AE',
-  food: '#F59E0B',
-  utilities: '#EF4444',
-  health: '#10B981',
+  shopping: 'var(--brand-primary)',
+  transport: 'var(--accent-success)',
+  food: 'var(--brand-primary)',
+  utilities: 'var(--accent-danger)',
+  health: 'var(--accent-success)',
   transfer: '#A78BFA',
-  salary: '#34D399',
-  other: '#64748B',
+  salary: 'var(--accent-success)',
+  other: 'var(--text-tertiary)',
 };
 
 const typeOptions = [
@@ -91,15 +91,15 @@ const TransactionsPage: React.FC = () => {
       {/* Summary Row */}
       <div className="grid gap-5 mb-6" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
         {[
-          { label: 'Total Income', value: `+${totalIncome.toLocaleString()} DZD`, color: '#34D399', icon: <ArrowDownRight size={16} /> },
-          { label: 'Total Expenses', value: `-${totalExpenses.toLocaleString()} DZD`, color: '#EF4444', icon: <ArrowUpRight size={16} /> },
-          { label: 'Net Flow', value: `${(totalIncome - totalExpenses).toLocaleString()} DZD`, color: '#00C6AE', icon: <ArrowLeftRight size={16} /> },
+          { label: 'Total Income', value: `+${totalIncome.toLocaleString()} DZD`, color: 'var(--accent-success)', icon: <ArrowDownRight size={16} /> },
+          { label: 'Total Expenses', value: `-${totalExpenses.toLocaleString()} DZD`, color: 'var(--accent-danger)', icon: <ArrowUpRight size={16} /> },
+          { label: 'Net Flow', value: `${(totalIncome - totalExpenses).toLocaleString()} DZD`, color: 'var(--accent-success)', icon: <ArrowLeftRight size={16} /> },
         ].map((stat) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="glass-card"
+            className="liquid-glass-card mesh-bg"
             style={{ padding: '20px 24px' }}
           >
             <div className="flex items-center gap-2 mb-2">
@@ -118,8 +118,8 @@ const TransactionsPage: React.FC = () => {
       </div>
 
       {/* Filters Bar */}
-      <div className="glass-card flex items-center gap-3 mb-5" style={{ padding: '12px 20px' }}>
-        <div className="flex items-center gap-2 flex-1" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '10px', padding: '8px 14px', border: '1px solid var(--border-subtle)' }}>
+      <div className="liquid-glass-card mesh-bg flex items-center gap-3 mb-5" style={{ padding: '12px 20px' }}>
+        <div className="flex items-center gap-2 flex-1" style={{ background: 'var(--bg-inset)', borderRadius: '10px', padding: '8px 14px', border: '1px solid var(--border-subtle)' }}>
           <Search size={15} style={{ color: 'var(--text-tertiary)' }} />
           <input
             value={search}
@@ -140,9 +140,9 @@ const TransactionsPage: React.FC = () => {
           style={{
             display: 'flex', alignItems: 'center', gap: '6px',
             padding: '8px 14px', borderRadius: '10px', cursor: 'pointer', fontSize: '0.78rem', fontWeight: 600,
-            background: showFilters ? 'rgba(0,198,174,0.08)' : 'rgba(255,255,255,0.03)',
-            color: showFilters ? '#00C6AE' : 'var(--text-secondary)',
-            border: `1px solid ${showFilters ? 'rgba(0,198,174,0.15)' : 'var(--border-subtle)'}`,
+            background: showFilters ? 'rgba(0, 198, 174,0.06)' : 'var(--bg-inset)',
+            color: showFilters ? 'var(--brand-primary)' : 'var(--text-secondary)',
+            border: `1px solid ${showFilters ? 'rgba(0, 198, 174,0.15)' : 'var(--border-subtle)'}`,
           }}
         >
           <Filter size={14} /> Filters <ChevronDown size={12} style={{ transform: showFilters ? 'rotate(180deg)' : 'none', transition: '0.2s' }} />
@@ -165,7 +165,7 @@ const TransactionsPage: React.FC = () => {
                   onChange={(e) => { setter(e.target.value); setPage(1); }}
                   style={{
                     padding: '8px 14px', borderRadius: '10px', fontSize: '0.78rem', fontWeight: 500,
-                    background: 'rgba(255,255,255,0.03)', color: 'var(--text-secondary)',
+                    background: 'var(--bg-inset)', color: 'var(--text-secondary)',
                     border: '1px solid var(--border-subtle)', cursor: 'pointer', outline: 'none',
                     appearance: 'none', WebkitAppearance: 'none', paddingRight: '32px',
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
@@ -184,7 +184,7 @@ const TransactionsPage: React.FC = () => {
       </AnimatePresence>
 
       {/* Transactions List */}
-      <div className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
+      <div className="liquid-glass-card mesh-bg" style={{ padding: 0, overflow: 'hidden' }}>
         {/* Table Header */}
         <div className="flex items-center" style={{
           padding: '12px 20px', borderBottom: '1px solid var(--border-subtle)',
@@ -208,7 +208,7 @@ const TransactionsPage: React.FC = () => {
             </motion.div>
           ) : (
             paginated.map((txn, i) => {
-              const catColor = categoryColor[txn.category] || '#64748B';
+              const catColor = categoryColor[txn.category] || 'var(--text-tertiary)';
               return (
                 <motion.div
                   key={txn.id}
@@ -221,7 +221,7 @@ const TransactionsPage: React.FC = () => {
                     borderBottom: i < paginated.length - 1 ? '1px solid var(--border-subtle)' : 'none',
                     cursor: 'pointer', transition: 'background 0.2s',
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.015)')}
+                  onMouseOver={(e) => (e.currentTarget.style.background = 'var(--bg-inset)')}
                   onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}
                 >
                   {/* Transaction */}
@@ -235,7 +235,7 @@ const TransactionsPage: React.FC = () => {
                     </div>
                     <div>
                       <p style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.25 }}>{txn.description}</p>
-                      <p style={{ fontSize: '0.65rem', color: 'var(--text-tertiary)' }}>{txn.counterparty || '—'}</p>
+                      <p style={{ fontSize: '0.65rem', color: 'var(--text-tertiary)' }}>{txn.counterparty || 'â€”'}</p>
                     </div>
                   </div>
 
@@ -263,7 +263,7 @@ const TransactionsPage: React.FC = () => {
                   <div style={{ flex: 1, textAlign: 'right' }}>
                     <span style={{
                       fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)',
-                      color: txn.amount > 0 ? '#34D399' : 'var(--text-primary)',
+                      color: txn.amount > 0 ? 'var(--accent-success)' : 'var(--text-primary)',
                     }}>
                       {txn.amount > 0 ? '+' : ''}{txn.amount.toLocaleString()} {txn.currency}
                     </span>
@@ -274,9 +274,9 @@ const TransactionsPage: React.FC = () => {
                     <span style={{
                       display: 'inline-block', padding: '3px 8px', borderRadius: '6px',
                       fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em',
-                      background: txn.status === 'completed' ? 'rgba(16,185,129,0.08)' : txn.status === 'pending' ? 'rgba(245,158,11,0.08)' : 'rgba(239,68,68,0.08)',
-                      color: txn.status === 'completed' ? '#34D399' : txn.status === 'pending' ? '#F59E0B' : '#EF4444',
-                      border: `1px solid ${txn.status === 'completed' ? 'rgba(16,185,129,0.15)' : txn.status === 'pending' ? 'rgba(245,158,11,0.15)' : 'rgba(239,68,68,0.15)'}`,
+                      background: txn.status === 'completed' ? 'rgba(16,185,129,0.08)' : txn.status === 'pending' ? 'rgba(245,158,11,0.08)' : 'rgba(239, 68, 68,0.08)',
+                      color: txn.status === 'completed' ? 'var(--accent-success)' : txn.status === 'pending' ? 'var(--brand-primary)' : 'var(--accent-danger)',
+                      border: `1px solid ${txn.status === 'completed' ? 'rgba(16,185,129,0.15)' : txn.status === 'pending' ? 'rgba(245,158,11,0.15)' : 'rgba(239, 68, 68,0.15)'}`,
                     }}>
                       {txn.status}
                     </span>
@@ -293,7 +293,7 @@ const TransactionsPage: React.FC = () => {
             padding: '12px 20px', borderTop: '1px solid var(--border-subtle)',
           }}>
             <span style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)' }}>
-              Showing {(page - 1) * ITEMS_PER_PAGE + 1}–{Math.min(page * ITEMS_PER_PAGE, filtered.length)} of {filtered.length}
+              Showing {(page - 1) * ITEMS_PER_PAGE + 1}â€“{Math.min(page * ITEMS_PER_PAGE, filtered.length)} of {filtered.length}
             </span>
             <div className="flex gap-2">
               <motion.button
@@ -302,7 +302,7 @@ const TransactionsPage: React.FC = () => {
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 style={{
                   width: '32px', height: '32px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-subtle)', cursor: page <= 1 ? 'default' : 'pointer',
+                  background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)', cursor: page <= 1 ? 'default' : 'pointer',
                   color: page <= 1 ? 'var(--text-tertiary)' : 'var(--text-secondary)', opacity: page <= 1 ? 0.4 : 1,
                 }}
               >
@@ -314,7 +314,7 @@ const TransactionsPage: React.FC = () => {
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 style={{
                   width: '32px', height: '32px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-subtle)', cursor: page >= totalPages ? 'default' : 'pointer',
+                  background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)', cursor: page >= totalPages ? 'default' : 'pointer',
                   color: page >= totalPages ? 'var(--text-tertiary)' : 'var(--text-secondary)', opacity: page >= totalPages ? 0.4 : 1,
                 }}
               >
@@ -330,3 +330,8 @@ const TransactionsPage: React.FC = () => {
 };
 
 export default TransactionsPage;
+
+
+
+
+

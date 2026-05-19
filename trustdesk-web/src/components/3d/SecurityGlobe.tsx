@@ -49,7 +49,7 @@ const Hotspot: React.FC<{ position: [number, number, number], color: string, lab
   return (
     <group>
       {clickEffect > 0 && <Ripple key={clickEffect} position={position} color={color} />}
-      {color === '#EF4444' && <Ripple position={position} color={color} continuous={true} />}
+      {color === 'var(--accent-danger)' && <Ripple position={position} color={color} continuous={true} />}
       <mesh 
         ref={meshRef}
         position={position}
@@ -80,7 +80,7 @@ const Hotspot: React.FC<{ position: [number, number, number], color: string, lab
             }}>
               <div style={{ color: color, marginBottom: '4px', fontSize: '9px', letterSpacing: '0.1em' }}>NODE IDENTIFIED</div>
               <div style={{ fontWeight: 600 }}>{label}</div>
-              <div style={{ marginTop: '4px', color: '#94A3B8', fontSize: '9px' }}>Lat: {position[0].toFixed(2)} Lng: {position[1].toFixed(2)}</div>
+              <div style={{ marginTop: '4px', color: 'var(--text-tertiary)', fontSize: '9px' }}>Lat: {position[0].toFixed(2)} Lng: {position[1].toFixed(2)}</div>
             </div>
           </Html>
         )}
@@ -190,10 +190,10 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
         radius * Math.sin(phi) * Math.sin(theta)
       ];
       const r = Math.random();
-      let color = '#00C6AE';
+      let color = 'var(--accent-success)';
       let label = `NODE-${Math.floor(Math.random() * 9000) + 1000}`;
-      if (r > 0.8) { color = '#EF4444'; label = `THREAT-${Math.floor(Math.random() * 900) + 100}`; }
-      else if (r > 0.5) { color = '#10B981'; label = `SECURE-${Math.floor(Math.random() * 90) + 10}`; }
+      if (r > 0.8) { color = 'var(--accent-danger)'; label = `THREAT-${Math.floor(Math.random() * 900) + 100}`; }
+      else if (r > 0.5) { color = 'var(--accent-success)'; label = `SECURE-${Math.floor(Math.random() * 90) + 10}`; }
       
       hotspotsData.push({ pos, color, label });
     }
@@ -224,7 +224,7 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
       
       if (hotspots.length > 0) {
         const randomHotspot = hotspots[Math.floor(Math.random() * hotspots.length)];
-        const newArc = { id: Date.now() + Math.random(), start: randomHotspot.pos, end: pos, color: '#f59e0b' };
+        const newArc = { id: Date.now() + Math.random(), start: randomHotspot.pos, end: pos, color: '#00C6AE' };
         setUserArcs(prev => [...prev, newArc]);
         
         setTimeout(() => {
@@ -246,7 +246,7 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
       <mesh>
         <sphereGeometry args={[2.55, 32, 32]} />
         <meshBasicMaterial 
-          color="#00d4ff" 
+          color="#00C6AE" 
           transparent 
           opacity={0.05} 
           side={THREE.BackSide}
@@ -299,7 +299,7 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
       </mesh>
       <mesh rotation={[Math.PI / 1.8, 0.5, 0.3]}>
         <ringGeometry args={[3.3, 3.31, 64]} />
-        <meshBasicMaterial color="#D4A853" transparent opacity={0.1} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#00C6AE" transparent opacity={0.1} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );
@@ -339,7 +339,7 @@ const SatelliteOrb: React.FC<{ index: number, angle: number }> = ({ index, angle
     <group position={[3.6 * Math.cos(angle), Math.sin(angle * 2) * 0.5, 3.6 * Math.sin(angle)]}>
       <mesh ref={meshRef}>
         <octahedronGeometry args={[0.08, 0]} />
-        <meshBasicMaterial color={index % 2 === 0 ? "#D4A853" : "#00C6AE"} wireframe />
+        <meshBasicMaterial color="#00C6AE" wireframe />
       </mesh>
       <mesh>
         <sphereGeometry args={[0.02, 16, 16]} />
@@ -483,14 +483,14 @@ const ScrollRotator: React.FC<{ scrollYProgress?: any, children: React.ReactNode
 const SecurityGlobe: React.FC<{ scrollYProgress?: any }> = ({ scrollYProgress }) => {
   const [manualScans, setManualScans] = useState(0);
   const [status, setStatus] = useState('SECURE');
-  const [statusColor, setStatusColor] = useState('#10b981');
+  const [statusColor, setStatusColor] = useState('var(--accent-success)');
   const [shake, setShake] = useState(0);
   const [isGlitching, setIsGlitching] = useState(false);
 
   const handleGlobeClick = () => {
     setManualScans(prev => prev + 1);
     setStatus('SCANNING...');
-    setStatusColor('#F59E0B');
+    setStatusColor('var(--brand-primary)');
     setShake(2);
     setIsGlitching(true);
     
@@ -500,7 +500,7 @@ const SecurityGlobe: React.FC<{ scrollYProgress?: any }> = ({ scrollYProgress })
     }, 400);
     setTimeout(() => {
       setStatus('SECURE');
-      setStatusColor('#10b981');
+      setStatusColor('var(--accent-success)');
     }, 1500);
   };
 
@@ -567,11 +567,23 @@ const SecurityGlobe: React.FC<{ scrollYProgress?: any }> = ({ scrollYProgress })
         />
       </Canvas>
 
-      {/* HUD Overlay: Top-right telemetry */}
+      {/* HUD Overlay: Top-right telemetry — fades out as user scrolls */}
       <div style={{
-        position: 'absolute', top: '15%', right: '5%',
-        pointerEvents: 'none', zIndex: 10,
-      }}>
+        position: 'absolute', top: '12%', right: '3%',
+        pointerEvents: 'none', zIndex: 2,
+        opacity: scrollYProgress ? `var(--hud-opacity, 1)` : 1,
+        transition: 'opacity 0.3s ease',
+        maxWidth: '180px',
+      }}
+        ref={(el) => {
+          if (el && scrollYProgress) {
+            const unsubscribe = scrollYProgress.on('change', (v: number) => {
+              el.style.opacity = String(Math.max(0, 1 - v * 5));
+            });
+            (el as any).__unsub = unsubscribe;
+          }
+        }}
+      >
         <div style={{
           background: 'rgba(2, 6, 23, 0.7)',
           backdropFilter: 'blur(12px)',
@@ -582,17 +594,17 @@ const SecurityGlobe: React.FC<{ scrollYProgress?: any }> = ({ scrollYProgress })
           boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px', paddingBottom: '8px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#00C6AE', boxShadow: '0 0 10px #00C6AE', animation: 'pulse-glow 2s infinite' }} />
+            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-success)', boxShadow: '0 0 10px #00C6AE', animation: 'pulse-glow 2s infinite' }} />
             <span style={{ fontSize: '0.65rem', fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.15em', color: 'rgba(0,198,174,0.9)' }}>VAULT_ENGINE</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontFamily: "'JetBrains Mono', monospace", fontSize: '0.75rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span style={{ color: 'rgba(255,255,255,0.4)' }}>NODES</span>
-              <span style={{ color: '#00C6AE', fontWeight: 600 }}>14,204</span>
+              <span style={{ color: 'var(--accent-success)', fontWeight: 600 }}>14,204</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span style={{ color: 'rgba(255,255,255,0.4)' }}>MANUAL SCANS</span>
-              <span style={{ color: '#f59e0b', fontWeight: 600 }}>{manualScans}</span>
+              <span style={{ color: '#00C6AE', fontWeight: 600 }}>{manualScans}</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', paddingTop: '4px', borderTop: '1px dotted rgba(255,255,255,0.1)' }}>
               <span style={{ color: 'rgba(255,255,255,0.4)' }}>STATUS</span>
@@ -606,3 +618,7 @@ const SecurityGlobe: React.FC<{ scrollYProgress?: any }> = ({ scrollYProgress })
 };
 
 export default SecurityGlobe;
+
+
+
+

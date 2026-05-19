@@ -3,7 +3,7 @@ import {
   Activity, MapPin, 
   Globe, Zap, Radio
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SecurityGlobe from '../components/3d/SecurityGlobe';
 
 const MOCK_SIGNALS = [
@@ -42,7 +42,7 @@ const Community: React.FC = () => {
         <div className="flex items-center gap-6">
           <h1 className="text-h2 leading-tight" style={{ width: '140px' }}>Global<br/>Signal<br/>Network</h1>
           
-          <div className="flex gap-2 bg-black/20 p-1 rounded-full border" style={{ borderColor: 'var(--border-strong)' }}>
+          <div className="flex gap-2 bg-inset p-1 rounded-full border" style={{ borderColor: 'var(--border-strong)' }}>
             {filters.map(f => (
               <button 
                 key={f.id}
@@ -60,7 +60,7 @@ const Community: React.FC = () => {
         </div>
 
         <div className="flex gap-4">
-          <div className="glass-card flex items-center gap-4 px-6 py-3" style={{ borderRadius: '24px', padding: '8px 24px' }}>
+          <div className="liquid-glass-card mesh-bg flex items-center gap-4 px-6 py-3" style={{ borderRadius: '24px', padding: '8px 24px' }}>
             <div className="flex items-center gap-2 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
               <Globe size={16} /> Global View
             </div>
@@ -75,7 +75,7 @@ const Community: React.FC = () => {
       <div className="grid gap-6 flex-1 min-h-0 pb-6" style={{ gridTemplateColumns: '320px 1fr' }}>
         
         {/* Left Sidebar - Signal Feed */}
-        <div className="glass-card flex flex-col overflow-hidden" style={{ padding: 0 }}>
+        <div className="liquid-glass-card mesh-bg flex flex-col overflow-hidden" style={{ padding: 0 }}>
           <div style={{ padding: '24px', borderBottom: '1px solid var(--border-subtle)' }} className="flex justify-between items-center">
             <h3 className="text-sm font-bold tracking-widest uppercase" style={{ color: 'var(--text-secondary)' }}>Live Feed</h3>
             <Radio size={16} className="text-blue-400 animate-pulse" />
@@ -97,7 +97,7 @@ const Community: React.FC = () => {
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
                   key={signal.id} 
-                  className="p-4 rounded-xl border transition-all cursor-pointer group hover:bg-white/5" 
+                  className="p-4 rounded-xl border transition-all cursor-pointer group hover:bg-surface" 
                   style={{ background: 'rgba(0,0,0,0.2)', borderColor: 'var(--border-subtle)' }} 
                   onMouseOver={e => e.currentTarget.style.borderColor = color} 
                   onMouseOut={e => e.currentTarget.style.borderColor = 'var(--border-subtle)'}
@@ -125,7 +125,7 @@ const Community: React.FC = () => {
         </div>
 
         {/* Right Area - Map Visualization */}
-        <div className="glass-card relative overflow-hidden flex flex-col" style={{ padding: 0 }}>
+        <div className="liquid-glass-card mesh-bg relative overflow-hidden flex flex-col" style={{ padding: 0 }}>
           
           {/* Map Base */}
           <div className="absolute inset-0 z-0">
@@ -135,18 +135,18 @@ const Community: React.FC = () => {
           {/* Overlays */}
           <div className="absolute top-6 left-6 pointer-events-none z-10">
             <h2 className="text-2xl font-bold tracking-tight text-white mb-2">Live Topography</h2>
-            <p className="text-sm text-gray-400 font-mono flex items-center gap-2">
+            <p className="text-sm text-tertiary font-mono flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Threat Engine Active
             </p>
           </div>
 
           <div className="absolute bottom-6 right-6 pointer-events-none flex gap-4 z-10">
-            <div className="glass-card" style={{ padding: '16px 24px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(12px)' }}>
-              <div className="text-xs tracking-widest uppercase text-gray-500 mb-1">Critical Zones</div>
+            <div className="liquid-glass-card mesh-bg" style={{ padding: '16px 24px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(12px)' }}>
+              <div className="text-xs tracking-widest uppercase text-tertiary mb-1">Critical Zones</div>
               <div className="text-3xl font-light text-red-500">3</div>
             </div>
-            <div className="glass-card" style={{ padding: '16px 24px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(12px)' }}>
-              <div className="text-xs tracking-widest uppercase text-gray-500 mb-1">Anomalies Detected</div>
+            <div className="liquid-glass-card mesh-bg" style={{ padding: '16px 24px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(12px)' }}>
+              <div className="text-xs tracking-widest uppercase text-tertiary mb-1">Anomalies Detected</div>
               <div className="text-3xl font-light text-yellow-500">12</div>
             </div>
           </div>
@@ -158,3 +158,7 @@ const Community: React.FC = () => {
 };
 
 export default Community;
+
+
+
+

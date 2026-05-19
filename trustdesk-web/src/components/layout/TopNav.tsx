@@ -1,19 +1,15 @@
 import React from 'react';
-import { Search, Bell, ChevronDown, Shield } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Search, ChevronDown } from 'lucide-react';
+import NotificationPanel from '../ui/NotificationPanel';
 import Avatar from '../ui/Avatar';
 
 interface TopNavProps {
-  onOpenNotifications: () => void;
-  onOpenCommandPalette: () => void;
-  notificationCount?: number;
-}
+    onOpenCommandPalette: () => void;
+  }
 
 const TopNav: React.FC<TopNavProps> = ({
-  onOpenNotifications,
-  onOpenCommandPalette,
-  notificationCount = 3,
-}) => {
+    onOpenCommandPalette,
+  }) => {
   return (
     <header style={{
       height: 'var(--header-height)',
@@ -21,107 +17,83 @@ const TopNav: React.FC<TopNavProps> = ({
       top: 0,
       right: 0,
       left: 'var(--sidebar-width)',
-      background: 'rgba(8, 10, 16, 0.7)',
+      background: 'var(--bg-surface-translucent, rgba(5, 5, 5, 0.75))',
       backdropFilter: 'blur(24px)',
-      borderBottom: '1px solid rgba(255,255,255,0.04)',
+      borderBottom: '1px solid var(--border-white-5)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      padding: '0 32px',
+      padding: '0 28px',
       zIndex: 30
     }}>
       {/* Search Bar — opens CommandPalette */}
       <div
         onClick={onOpenCommandPalette}
         style={{
-          width: '420px',
+          width: '400px',
           position: 'relative',
           cursor: 'pointer',
         }}
       >
-        <Search size={16} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#475569', transition: 'color 0.2s' }} />
+        <Search size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-tertiary)', transition: 'color 0.2s' }} />
         <div
           style={{
             width: '100%',
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.06)',
-            color: '#475569',
-            padding: '9px 60px 9px 42px',
+            background: 'var(--bg-inset)',
+            border: '1px solid var(--border-subtle)',
+            color: 'var(--text-tertiary)',
+            padding: '9px 60px 9px 40px',
             borderRadius: '10px',
             fontSize: '0.8rem',
             transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
             userSelect: 'none',
           }}
           onMouseOver={e => {
-            e.currentTarget.style.borderColor = 'rgba(0,198,174,0.3)';
-            e.currentTarget.style.background = 'rgba(0,0,0,0.4)';
+            e.currentTarget.style.borderColor = 'var(--brand-primary)';
+            e.currentTarget.style.background = 'var(--bg-surface)';
+            e.currentTarget.style.boxShadow = '0 0 0 3px var(--brand-primary-glow)';
           }}
           onMouseOut={e => {
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
-            e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+            e.currentTarget.style.borderColor = 'var(--border-subtle)';
+            e.currentTarget.style.background = 'var(--bg-inset)';
+            e.currentTarget.style.boxShadow = 'none';
           }}
         >
           Search transactions, clients, commands…
         </div>
         <div style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', gap: '3px', pointerEvents: 'none' }}>
-          <kbd style={{ fontSize: '0.6rem', fontFamily: 'monospace', padding: '2px 5px', borderRadius: '4px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', color: '#475569', lineHeight: 1 }}>⌘</kbd>
-          <kbd style={{ fontSize: '0.6rem', fontFamily: 'monospace', padding: '2px 5px', borderRadius: '4px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', color: '#475569', lineHeight: 1 }}>K</kbd>
+          <kbd style={{ fontSize: '0.6rem', fontFamily: 'var(--font-mono)', padding: '2px 5px', borderRadius: '4px', background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)', color: 'var(--text-tertiary)', lineHeight: 1 }}>⌘</kbd>
+          <kbd style={{ fontSize: '0.6rem', fontFamily: 'var(--font-mono)', padding: '2px 5px', borderRadius: '4px', background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)', color: 'var(--text-tertiary)', lineHeight: 1 }}>K</kbd>
         </div>
       </div>
 
       {/* Right Actions */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        {/* Vault Secure indicator */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        {/* Status indicator */}
         <div style={{
-          display: 'flex', alignItems: 'center', gap: '8px',
-          padding: '6px 12px', borderRadius: '20px',
-          background: 'rgba(0, 198, 174, 0.06)', border: '1px solid rgba(0, 198, 174, 0.12)',
+          display: 'flex', alignItems: 'center', gap: '6px',
+          padding: '6px 12px', borderRadius: 'var(--radius-full)',
+          background: 'var(--accent-success-bg)', border: '1px solid rgba(34,197,94,0.12)',
         }}>
-          <Shield size={11} style={{ color: '#00C6AE' }} />
-          <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#00C6AE', boxShadow: '0 0 6px #00C6AE' }} />
-          <span style={{ fontSize: '0.65rem', fontWeight: 600, color: '#00E8CC', fontFamily: 'monospace', letterSpacing: '0.04em' }}>VAULT SECURE</span>
+          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-success)' }} />
+          <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--accent-success)', letterSpacing: '0.02em' }}>All systems active</span>
         </div>
 
         {/* Notification Bell */}
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.92 }}
-          onClick={onOpenNotifications}
-          style={{
-            position: 'relative', width: '38px', height: '38px', borderRadius: '10px',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)',
-            cursor: 'pointer', color: '#64748B', transition: 'all 0.2s'
-          }}
-          onMouseOver={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#94A3B8'; }}
-          onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#64748B'; }}
-        >
-          <Bell size={17} />
-          {notificationCount > 0 && (
-            <motion.span
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{ repeat: Infinity, duration: 2.5 }}
-              style={{
-                position: 'absolute', top: '7px', right: '8px', width: '7px', height: '7px',
-                background: '#EF4444', borderRadius: '50%', boxShadow: '0 0 6px rgba(239, 68, 68, 0.6)',
-                border: '1.5px solid rgba(8, 10, 16, 0.9)'
-              }}
-            />
-          )}
-        </motion.button>
+        <NotificationPanel />
 
         {/* User Profile */}
         <div
           style={{
-            display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer',
             padding: '4px 8px', borderRadius: '10px', transition: 'background 0.2s',
           }}
-          onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}
+          onMouseOver={e => e.currentTarget.style.background = 'var(--bg-inset)'}
           onMouseOut={e => e.currentTarget.style.background = 'transparent'}
         >
           <div style={{ textAlign: 'right' }}>
-            <p style={{ fontSize: '0.8rem', fontWeight: 600, color: 'white', lineHeight: 1.2 }}>Vault Admin</p>
-            <p style={{ fontSize: '0.65rem', color: '#64748B' }}>Administrator</p>
+            <p style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.2 }}>Vault Admin</p>
+            <p style={{ fontSize: '0.65rem', color: 'var(--text-tertiary)' }}>Administrator</p>
           </div>
           <Avatar
             name="Vault Admin"
@@ -129,7 +101,7 @@ const TopNav: React.FC<TopNavProps> = ({
             size="sm"
             status="online"
           />
-          <ChevronDown size={14} style={{ color: '#475569' }} />
+          <ChevronDown size={14} style={{ color: 'var(--text-tertiary)' }} />
         </div>
       </div>
     </header>
@@ -137,3 +109,8 @@ const TopNav: React.FC<TopNavProps> = ({
 };
 
 export default TopNav;
+
+
+
+
+

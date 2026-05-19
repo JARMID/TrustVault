@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { ScanFace, MapPin, BrainCircuit, Camera, RefreshCcw, CheckCircle2, Fingerprint, ShieldCheck } from 'lucide-react';
 import { useToast } from '../components/ui/Toast';
 
+const cV = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.08 } } };
+const iV = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } } };
+
 export default function Ekyc() {
   const { addToast } = useToast();
   const [scanning, setScanning] = useState(false);
@@ -46,201 +49,184 @@ export default function Ekyc() {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-screen overflow-y-auto p-6 lg:p-10 relative">
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.05), transparent 50%), radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05), transparent 50%)'
-      }} />
-      
-      <div className="relative z-10 max-w-6xl mx-auto w-full">
-        <header className="mb-10">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-bold tracking-tight text-white mb-2 flex items-center gap-3"
-          >
-            <ScanFace className="w-10 h-10 text-cyan-400" />
-            E-KYC Studio
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-slate-400 text-lg"
-          >
+    <div style={{ position: 'relative' }}>
+      {/* Ambient background glows */}
+      <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(56,189,248,0.04) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '45vw', height: '45vw', background: 'radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 70%)', filter: 'blur(100px)', pointerEvents: 'none', zIndex: 0 }} />
+
+      <motion.div variants={cV} initial="hidden" animate="show" style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        {/* Header */}
+        <div style={{ marginBottom: '32px' }}>
+          <motion.div variants={iV} className="flex items-center gap-3 mb-2">
+            <h1 className="text-h1 gradient-text">E-KYC Studio</h1>
+            <ScanFace size={28} style={{ color: 'var(--brand-primary)' }} />
+          </motion.div>
+          <motion.p variants={iV} style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', maxWidth: '600px' }}>
             Advanced identity verification powered by Neural Network Processing (NNP), Auto Capture, and Geo Local Auto.
           </motion.p>
-        </header>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+
           {/* Capture Auto Module */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-[#0f172a]/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="flex justify-between items-center mb-6 relative z-10">
-              <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-                <Camera className="w-5 h-5 text-blue-400" />
-                Capture Auto
+          <motion.div variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: '24px', position: 'relative', overflow: 'hidden' }}>
+            <div className="flex justify-between items-center" style={{ marginBottom: '20px' }}>
+              <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Camera size={18} style={{ color: 'var(--brand-primary)' }} /> Capture Auto
               </h2>
-              {captureStatus === 'done' && <CheckCircle2 className="w-5 h-5 text-emerald-400" />}
+              {captureStatus === 'done' && <CheckCircle2 size={18} style={{ color: '#16A34A' }} />}
             </div>
-            <div className="h-48 border-2 border-dashed border-slate-700 rounded-xl flex items-center justify-center relative overflow-hidden mb-6 bg-slate-900/50">
+
+            <div style={{ height: '180px', border: '2px dashed var(--border-subtle)', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', marginBottom: '20px', background: 'var(--bg-inset)' }}>
               {captureStatus === 'idle' && (
-                <div className="text-slate-500 flex flex-col items-center">
-                  <Fingerprint className="w-10 h-10 mb-2 opacity-50" />
-                  <p>Awaiting Document & Face</p>
+                <div style={{ color: 'var(--text-tertiary)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <Fingerprint size={36} style={{ opacity: 0.4, marginBottom: '8px' }} />
+                  <p style={{ fontSize: '0.82rem' }}>Awaiting Document & Face</p>
                 </div>
               )}
               {captureStatus === 'capturing' && (
-                <div className="absolute inset-0 bg-blue-500/10 flex items-center justify-center">
-                  <div className="w-full h-1 bg-blue-500 absolute top-0 animate-[scan_2s_ease-in-out_infinite]" />
-                  <span className="text-blue-400 animate-pulse font-medium tracking-widest text-sm uppercase">Capturing...</span>
+                <div style={{ position: 'absolute', inset: 0, background: 'rgba(59,130,246,0.04)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ width: '100%', height: '2px', background: 'var(--brand-primary)', position: 'absolute', top: 0, animation: 'scan 2s ease-in-out infinite' }} />
+                  <span style={{ color: 'var(--brand-primary)', fontWeight: 600, letterSpacing: '0.1em', fontSize: '0.78rem', textTransform: 'uppercase' }} className="animate-pulse">Capturing...</span>
                 </div>
               )}
               {captureStatus === 'analyzing' && (
-                <div className="flex flex-col items-center">
-                  <RefreshCcw className="w-8 h-8 text-indigo-400 animate-spin mb-2" />
-                  <span className="text-indigo-300 font-medium tracking-widest text-sm uppercase">Analyzing Match</span>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <RefreshCcw size={28} style={{ color: 'var(--brand-primary)' }} className="animate-spin" />
+                  <span style={{ color: 'var(--brand-primary)', fontWeight: 600, letterSpacing: '0.1em', fontSize: '0.78rem', textTransform: 'uppercase', marginTop: '8px' }}>Analyzing Match</span>
                 </div>
               )}
               {captureStatus === 'done' && (
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mb-2">
-                    <ShieldCheck className="w-8 h-8 text-emerald-400" />
+                <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(22,163,74,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
+                    <ShieldCheck size={28} style={{ color: '#16A34A' }} />
                   </div>
-                  <span className="text-emerald-400 font-medium">Biometrics Secured</span>
+                  <span style={{ color: '#16A34A', fontWeight: 600, fontSize: '0.85rem' }}>Biometrics Secured</span>
                 </motion.div>
               )}
             </div>
-            <button 
+
+            <button
               onClick={startAutoCapture}
               disabled={captureStatus !== 'idle'}
-              className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium transition-all disabled:opacity-50 relative z-10"
+              style={{
+                width: '100%', padding: '14px', borderRadius: '12px', fontWeight: 600, fontSize: '0.85rem', cursor: captureStatus !== 'idle' ? 'not-allowed' : 'pointer', transition: 'all 0.3s',
+                background: captureStatus !== 'idle' ? 'var(--bg-inset)' : 'var(--brand-primary)', color: captureStatus !== 'idle' ? 'var(--text-tertiary)' : 'white',
+                border: captureStatus !== 'idle' ? '1px solid var(--border-subtle)' : 'none',
+                boxShadow: captureStatus === 'idle' ? '0 4px 16px rgba(59,130,246,0.25)' : 'none',
+              }}
             >
               {captureStatus === 'idle' ? 'Initiate Auto Capture' : 'Processing...'}
             </button>
           </motion.div>
 
           {/* Geo Local Auto Module */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="bg-[#0f172a]/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="flex justify-between items-center mb-6 relative z-10">
-              <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-emerald-400" />
-                Geo Local Auto
+          <motion.div variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: '24px', position: 'relative', overflow: 'hidden' }}>
+            <div className="flex justify-between items-center" style={{ marginBottom: '20px' }}>
+              <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MapPin size={18} style={{ color: '#16A34A' }} /> Geo Local Auto
               </h2>
-              {geoStatus === 'verified' && <CheckCircle2 className="w-5 h-5 text-emerald-400" />}
+              {geoStatus === 'verified' && <CheckCircle2 size={18} style={{ color: '#16A34A' }} />}
             </div>
-            
-            <div className="h-48 rounded-xl bg-slate-900 border border-slate-800 relative overflow-hidden mb-6 flex items-center justify-center">
-              {/* Pseudo-map background */}
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at center, #10b981 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
-              
+
+            <div style={{ height: '180px', borderRadius: '14px', background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)', position: 'relative', overflow: 'hidden', marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {/* Grid pattern */}
+              <div style={{ position: 'absolute', inset: 0, opacity: 0.12, backgroundImage: 'radial-gradient(circle at center, var(--text-tertiary) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+
               {geoStatus === 'idle' && (
-                <div className="relative z-10 text-slate-500 flex flex-col items-center">
-                  <MapPin className="w-10 h-10 mb-2 opacity-50" />
-                  <p>Location Unknown</p>
+                <div style={{ position: 'relative', zIndex: 10, color: 'var(--text-tertiary)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <MapPin size={36} style={{ opacity: 0.4, marginBottom: '8px' }} />
+                  <p style={{ fontSize: '0.82rem' }}>Location Unknown</p>
                 </div>
               )}
               {geoStatus === 'locating' && (
-                <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin mb-3" />
-                  <span className="text-emerald-400 animate-pulse font-medium tracking-widest text-sm uppercase">Triangulating</span>
+                <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ width: '50px', height: '50px', borderRadius: '50%', border: '2px solid #16A34A', borderTopColor: 'transparent', marginBottom: '12px' }} className="animate-spin" />
+                  <span style={{ color: '#16A34A', fontWeight: 600, letterSpacing: '0.1em', fontSize: '0.78rem', textTransform: 'uppercase' }} className="animate-pulse">Triangulating</span>
                 </div>
               )}
               {geoStatus === 'verified' && (
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="relative z-10 flex flex-col items-center"
-                >
-                  <div className="w-4 h-4 bg-emerald-400 rounded-full shadow-[0_0_20px_rgba(16,185,129,1)] mb-2 relative">
-                    <div className="absolute inset-0 bg-emerald-400 rounded-full animate-ping opacity-75" />
+                <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ width: '14px', height: '14px', background: '#16A34A', borderRadius: '50%', boxShadow: '0 0 20px rgba(22,163,74,0.6)', marginBottom: '8px', position: 'relative' }}>
+                    <div style={{ position: 'absolute', inset: 0, background: '#16A34A', borderRadius: '50%', opacity: 0.5 }} className="animate-ping" />
                   </div>
-                  <span className="text-emerald-400 font-medium">Paris, France (Verified)</span>
-                  <span className="text-xs text-slate-400 mt-1">IP & GPS match confirmed</span>
+                  <span style={{ color: '#16A34A', fontWeight: 600, fontSize: '0.85rem' }}>Algiers, Algeria (Verified)</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)', marginTop: '4px' }}>IP & GPS match confirmed</span>
                 </motion.div>
               )}
             </div>
 
-            <button 
+            <button
               onClick={startGeoLocalAuto}
               disabled={geoStatus !== 'idle'}
-              className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-medium transition-all disabled:opacity-50 relative z-10"
+              style={{
+                width: '100%', padding: '14px', borderRadius: '12px', fontWeight: 600, fontSize: '0.85rem', cursor: geoStatus !== 'idle' ? 'not-allowed' : 'pointer', transition: 'all 0.3s',
+                background: geoStatus !== 'idle' ? 'var(--bg-inset)' : '#16A34A', color: geoStatus !== 'idle' ? 'var(--text-tertiary)' : 'white',
+                border: geoStatus !== 'idle' ? '1px solid var(--border-subtle)' : 'none',
+                boxShadow: geoStatus === 'idle' ? '0 4px 16px rgba(22,163,74,0.25)' : 'none',
+              }}
             >
               {geoStatus === 'idle' ? 'Verify Location' : 'Verified'}
             </button>
           </motion.div>
 
           {/* NNP Analysis Module */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-[#0f172a]/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="flex justify-between items-center mb-6 relative z-10">
-              <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-                <BrainCircuit className="w-5 h-5 text-purple-400" />
-                NNP Analysis
+          <motion.div variants={iV} className="liquid-glass-card mesh-bg" style={{ padding: '24px', position: 'relative', overflow: 'hidden' }}>
+            <div className="flex justify-between items-center" style={{ marginBottom: '20px' }}>
+              <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <BrainCircuit size={18} style={{ color: 'var(--brand-primary)' }} /> NNP Analysis
               </h2>
-              {nnpScore === 98 && <CheckCircle2 className="w-5 h-5 text-emerald-400" />}
+              {nnpScore === 98 && <CheckCircle2 size={18} style={{ color: '#16A34A' }} />}
             </div>
-            
-            <div className="h-48 rounded-xl bg-slate-900 border border-slate-800 relative overflow-hidden mb-6 flex flex-col items-center justify-center p-4">
-              <div className="text-4xl font-bold text-white mb-2">
+
+            <div style={{ height: '180px', borderRadius: '14px', background: 'var(--bg-inset)', border: '1px solid var(--border-subtle)', position: 'relative', overflow: 'hidden', marginBottom: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
+              <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
                 {nnpScore !== null ? `${nnpScore}%` : '--'}
               </div>
-              <p className="text-sm text-slate-400 mb-4 text-center">Neural Network Profile Confidence Score</p>
-              
-              <div className="w-full h-3 bg-slate-800 rounded-full overflow-hidden">
-                <motion.div 
-                  className="h-full bg-gradient-to-r from-purple-600 to-cyan-400"
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-tertiary)', marginBottom: '16px', textAlign: 'center' }}>Neural Network Profile Confidence Score</p>
+
+              <div style={{ width: '100%', height: '10px', background: 'var(--border-subtle)', borderRadius: '999px', overflow: 'hidden' }}>
+                <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: nnpScore ? `${nnpScore}%` : '0%' }}
-                  transition={{ ease: "easeOut" }}
+                  transition={{ ease: 'easeOut' }}
+                  style={{ height: '100%', background: 'linear-gradient(90deg, var(--brand-primary), var(--brand-primary))', borderRadius: '999px', boxShadow: '0 0 12px rgba(139,92,246,0.3)' }}
                 />
               </div>
             </div>
 
-            <button 
+            <button
               onClick={runNNP}
               disabled={scanning || nnpScore !== null}
-              className="w-full py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-xl font-medium transition-all disabled:opacity-50 relative z-10 flex items-center justify-center gap-2"
+              style={{
+                width: '100%', padding: '14px', borderRadius: '12px', fontWeight: 600, fontSize: '0.85rem', cursor: scanning || nnpScore !== null ? 'not-allowed' : 'pointer', transition: 'all 0.3s', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                background: scanning || nnpScore !== null ? 'var(--bg-inset)' : 'var(--brand-primary)', color: scanning || nnpScore !== null ? 'var(--text-tertiary)' : 'white',
+                border: scanning || nnpScore !== null ? '1px solid var(--border-subtle)' : 'none',
+                boxShadow: !scanning && nnpScore === null ? '0 4px 16px rgba(139,92,246,0.25)' : 'none',
+              }}
             >
               {scanning ? (
                 <>
-                  <RefreshCcw className="w-4 h-4 animate-spin" />
+                  <RefreshCcw size={16} className="animate-spin" />
                   Processing NNP...
                 </>
               ) : nnpScore !== null ? 'Analysis Complete' : 'Run NNP Engine'}
             </button>
           </motion.div>
         </div>
+      </motion.div>
 
-      </div>
-      
-      {/* Add a scanline animation globally for the effect */}
       <style>{`
         @keyframes scan {
           0% { transform: translateY(0); }
-          50% { transform: translateY(192px); }
+          50% { transform: translateY(180px); }
           100% { transform: translateY(0); }
         }
       `}</style>
     </div>
   );
 }
+
+
+
+

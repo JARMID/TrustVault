@@ -19,3 +19,4 @@ export const supabase = SUPABASE_URL
 
 /** Returns true when Supabase is configured and available */
 export const isSupabaseReady = (): boolean => !!supabase;
+

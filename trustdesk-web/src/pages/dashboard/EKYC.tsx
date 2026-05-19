@@ -157,18 +157,18 @@ export default function EKYC() {
                 <AreaChart data={mockTraffic} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="colorVerif" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#3B82F6" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="var(--brand-primary)" stopOpacity={0.3}/>
+                      <stop offset="95%" stopColor="var(--brand-primary)" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
-                  <XAxis dataKey="time" stroke="#64748B" fontSize={12} tickLine={false} axisLine={false} />
-                  <YAxis stroke="#64748B" fontSize={12} tickLine={false} axisLine={false} />
+                  <XAxis dataKey="time" stroke="var(--text-tertiary)" fontSize={12} tickLine={false} axisLine={false} />
+                  <YAxis stroke="var(--text-tertiary)" fontSize={12} tickLine={false} axisLine={false} />
                   <RechartsTooltip 
-                    contentStyle={{ backgroundColor: '#0F172A', border: '1px solid #334155', borderRadius: '8px' }}
-                    itemStyle={{ color: '#E2E8F0' }}
+                    contentStyle={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid #334155', borderRadius: '8px' }}
+                    itemStyle={{ color: 'var(--text-secondary)' }}
                   />
-                  <Area type="monotone" dataKey="verifications" stroke="#3B82F6" strokeWidth={2} fillOpacity={1} fill="url(#colorVerif)" />
+                  <Area type="monotone" dataKey="verifications" stroke="var(--brand-primary)" strokeWidth={2} fillOpacity={1} fill="url(#colorVerif)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -211,3 +211,5 @@ export default function EKYC() {
     </div>
   );
 }
+
+

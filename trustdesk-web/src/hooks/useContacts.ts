@@ -81,3 +81,4 @@ export function useContacts(): ContactsHookReturn {
 
   return { contacts, isLoading, addContact, removeContact, toggleFavorite };
 }
+

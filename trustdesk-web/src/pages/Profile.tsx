@@ -35,10 +35,10 @@ const DEFAULT_PROFILE: ProfileData = {
 };
 
 const ROLE_COLORS: Record<string, { bg: string; text: string; border: string }> = {
-  administrator: { bg: 'rgba(239,68,68,0.1)', text: '#F87171', border: 'rgba(239,68,68,0.2)' },
+  administrator: { bg: 'rgba(239, 68, 68,0.1)', text: 'var(--accent-danger)', border: 'rgba(239, 68, 68,0.2)' },
   analyst: { bg: 'rgba(59,130,246,0.1)', text: '#60A5FA', border: 'rgba(59,130,246,0.2)' },
-  operator: { bg: 'rgba(16,185,129,0.1)', text: '#34D399', border: 'rgba(16,185,129,0.2)' },
-  viewer: { bg: 'rgba(148,163,184,0.1)', text: '#94A3B8', border: 'rgba(148,163,184,0.2)' },
+  operator: { bg: 'rgba(16,185,129,0.1)', text: 'var(--accent-success)', border: 'rgba(16,185,129,0.2)' },
+  viewer: { bg: 'rgba(148,163,184,0.1)', text: 'var(--text-tertiary)', border: 'rgba(148,163,184,0.2)' },
 };
 
 const Profile: React.FC = () => {
@@ -102,7 +102,7 @@ const Profile: React.FC = () => {
             </div>
             <div>
               <h1 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'white' }}>Profile</h1>
-              <p style={{ fontSize: '0.75rem', color: '#64748B', fontFamily: 'monospace' }}>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', fontFamily: 'monospace' }}>
                 Manage your identity & preferences
               </p>
             </div>
@@ -187,8 +187,8 @@ const Profile: React.FC = () => {
                     <Shield size={10} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
                     {profile.role}
                   </span>
-                  <span style={{ fontSize: '0.7rem', color: '#475569' }}>•</span>
-                  <span style={{ fontSize: '0.72rem', color: '#64748B' }}>{profile.department}</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)' }}>â€¢</span>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--text-tertiary)' }}>{profile.department}</span>
                 </div>
               </div>
               <div>
@@ -201,7 +201,7 @@ const Profile: React.FC = () => {
                       style={{
                         padding: '8px 16px', borderRadius: '10px',
                         background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)',
-                        color: '#94A3B8', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer',
+                        color: 'var(--text-tertiary)', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer',
                       }}
                     >
                       Cancel
@@ -228,7 +228,7 @@ const Profile: React.FC = () => {
                     style={{
                       padding: '8px 16px', borderRadius: '10px',
                       background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)',
-                      color: '#94A3B8', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer',
+                      color: 'var(--text-tertiary)', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer',
                       display: 'flex', alignItems: 'center', gap: '6px',
                     }}
                   >
@@ -241,7 +241,7 @@ const Profile: React.FC = () => {
             {/* Bio */}
             <div style={{ marginBottom: '24px' }}>
               <label style={{
-                fontSize: '0.68rem', fontWeight: 600, color: '#475569',
+                fontSize: '0.68rem', fontWeight: 600, color: 'var(--text-tertiary)',
                 fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.06em',
                 display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px',
               }}>
@@ -259,7 +259,7 @@ const Profile: React.FC = () => {
                   }}
                 />
               ) : (
-                <p style={{ fontSize: '0.82rem', color: '#94A3B8', lineHeight: 1.7 }}>
+                <p style={{ fontSize: '0.82rem', color: 'var(--text-tertiary)', lineHeight: 1.7 }}>
                   {profile.bio}
                 </p>
               )}
@@ -281,7 +281,7 @@ const Profile: React.FC = () => {
                     padding: '16px',
                   }}>
                     <label style={{
-                      fontSize: '0.65rem', fontWeight: 600, color: '#475569',
+                      fontSize: '0.65rem', fontWeight: 600, color: 'var(--text-tertiary)',
                       fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.06em',
                       display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px',
                     }}>
@@ -294,7 +294,7 @@ const Profile: React.FC = () => {
                         style={inputStyle}
                       />
                     ) : (
-                      <p style={{ fontSize: '0.82rem', color: '#CBD5E1', fontWeight: 500 }}>
+                      <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', fontWeight: 500 }}>
                         {profile[field.key]}
                       </p>
                     )}
@@ -386,10 +386,10 @@ const Profile: React.FC = () => {
               Recent Activity
             </h3>
             {[
-              { action: 'Updated security policy', time: '2 minutes ago', icon: Shield, color: '#3B82F6' },
-              { action: 'Resolved fraud alert FA-4201', time: '15 minutes ago', icon: Check, color: '#10B981' },
-              { action: 'Generated monthly report', time: '1 hour ago', icon: FileText, color: '#8B5CF6' },
-              { action: 'Modified zone access rules', time: '3 hours ago', icon: MapPin, color: '#F59E0B' },
+              { action: 'Updated security policy', time: '2 minutes ago', icon: Shield, color: 'var(--brand-primary)' },
+              { action: 'Resolved fraud alert FA-4201', time: '15 minutes ago', icon: Check, color: 'var(--accent-success)' },
+              { action: 'Generated monthly report', time: '1 hour ago', icon: FileText, color: 'var(--brand-primary)' },
+              { action: 'Modified zone access rules', time: '3 hours ago', icon: MapPin, color: 'var(--brand-primary)' },
               { action: 'Reviewed community signal', time: '5 hours ago', icon: User, color: '#06B6D4' },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -409,8 +409,8 @@ const Profile: React.FC = () => {
                     <Icon size={14} style={{ color: item.color }} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <p style={{ fontSize: '0.78rem', color: '#CBD5E1', fontWeight: 500 }}>{item.action}</p>
-                    <p style={{ fontSize: '0.68rem', color: '#475569', fontFamily: 'monospace' }}>{item.time}</p>
+                    <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{item.action}</p>
+                    <p style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)', fontFamily: 'monospace' }}>{item.time}</p>
                   </div>
                 </div>
               );
@@ -427,7 +427,7 @@ const Profile: React.FC = () => {
               fontSize: '0.85rem', fontWeight: 600, color: 'white', marginBottom: '16px',
               display: 'flex', alignItems: 'center', gap: '8px',
             }}>
-              <Monitor size={16} style={{ color: '#10B981' }} />
+              <Monitor size={16} style={{ color: 'var(--accent-success)' }} />
               Active Sessions
             </h3>
             {[
@@ -452,25 +452,25 @@ const Profile: React.FC = () => {
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexShrink: 0,
                   }}>
-                    <Icon size={16} style={{ color: session.current ? '#34D399' : '#64748B' }} />
+                    <Icon size={16} style={{ color: session.current ? 'var(--accent-success)' : 'var(--text-tertiary)' }} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <p style={{ fontSize: '0.78rem', color: '#CBD5E1', fontWeight: 500 }}>{session.device}</p>
+                      <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: 500 }}>{session.device}</p>
                       {session.current && (
                         <span style={{
                           fontSize: '0.6rem', padding: '1px 6px', borderRadius: 4,
-                          background: 'rgba(16,185,129,0.15)', color: '#34D399',
+                          background: 'rgba(16,185,129,0.15)', color: 'var(--accent-success)',
                           fontWeight: 700, fontFamily: 'monospace',
                         }}>CURRENT</span>
                       )}
                     </div>
-                    <p style={{ fontSize: '0.68rem', color: '#475569' }}>
-                      {session.browser} · <span style={{ fontFamily: 'monospace' }}>{session.ip}</span>
+                    <p style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)' }}>
+                      {session.browser} Â· <span style={{ fontFamily: 'monospace' }}>{session.ip}</span>
                     </p>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <p style={{ fontSize: '0.68rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <p style={{ fontSize: '0.68rem', color: 'var(--text-tertiary)', display: 'flex', alignItems: 'center', gap: '4px' }}>
                       <Clock size={10} /> {session.lastActive}
                     </p>
                   </div>
@@ -483,8 +483,8 @@ const Profile: React.FC = () => {
               onClick={() => addToast({ type: 'warning', title: 'Sessions revoked', message: 'All other sessions have been signed out.' })}
               style={{
                 width: '100%', marginTop: '12px', padding: '10px', borderRadius: '10px',
-                background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.15)',
-                color: '#F87171', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer',
+                background: 'rgba(239, 68, 68,0.06)', border: '1px solid rgba(239, 68, 68,0.15)',
+                color: 'var(--accent-danger)', fontSize: '0.75rem', fontWeight: 600, cursor: 'pointer',
                 fontFamily: "'Inter', sans-serif",
               }}
             >
@@ -498,3 +498,6 @@ const Profile: React.FC = () => {
 };
 
 export default Profile;
+
+
+

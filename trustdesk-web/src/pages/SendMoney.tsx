@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Send, ArrowLeft, Search, Star, Clock, CheckCircle, AlertCircle, Users,
+  Send, ArrowLeft, Search, Star, Clock, CheckCircle, Users,
   ChevronRight, Shield, Lock, Fingerprint, Zap,
 } from 'lucide-react';
 import { useWallet } from '../hooks/useWallet';
 import { useContacts } from '../hooks/useContacts';
-import { useToast } from '../components/ui/Toast';
 import type { DbContact } from '../types/database';
 
 type Step = 'recipient' | 'amount' | 'confirm' | 'success';
@@ -14,8 +13,7 @@ type Step = 'recipient' | 'amount' | 'confirm' | 'success';
 const SendMoneyPage: React.FC = () => {
   const { wallets, primaryWallet } = useWallet();
   const { contacts: allContacts } = useContacts();
-  const { addToast } = useToast();
-
+  
   const [step, setStep] = useState<Step>('recipient');
   const [search, setSearch] = useState('');
   const [selectedContact, setSelectedContact] = useState<DbContact | null>(null);
@@ -47,17 +45,17 @@ const SendMoneyPage: React.FC = () => {
     setNote('');
   };
 
-  /* ── Contact Avatar ── */
+  /* â”€â”€ Contact Avatar â”€â”€ */
   const Avatar: React.FC<{ name: string; size?: number }> = ({ name, size = 40 }) => {
     const initials = name.split(' ').map((n) => n[0]).join('').slice(0, 2);
     const hue = name.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % 360;
     return (
       <div style={{
         width: size, height: size, borderRadius: '50%',
-        background: `linear-gradient(135deg, hsl(${hue}, 65%, 40%), hsl(${hue + 30}, 65%, 25%))`,
+        background: `linear-gradient(135deg, hsl(${hue}, 65%, 55%), hsl(${hue + 30}, 65%, 42%))`,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontSize: size * 0.35, fontWeight: 700, color: 'white', letterSpacing: '0.02em',
-        border: '2px solid rgba(255,255,255,0.08)',
+        border: '2px solid rgba(255,255,255,0.2)',
       }}>
         {initials}
       </div>
@@ -80,14 +78,14 @@ const SendMoneyPage: React.FC = () => {
       )}
 
       <AnimatePresence mode="wait">
-        {/* ── STEP 1: Recipient ── */}
+        {/* â”€â”€ STEP 1: Recipient â”€â”€ */}
         {step === 'recipient' && (
           <motion.div key="recipient" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}>
             <h1 className="text-h1 mb-2">Send Money</h1>
             <p className="text-sm mb-6">Choose a recipient to send funds to</p>
 
             {/* Search */}
-            <div className="glass-card flex items-center gap-3 mb-5" style={{ padding: '12px 18px' }}>
+            <div className="liquid-glass-card mesh-bg flex items-center gap-3 mb-5" style={{ padding: '12px 18px' }}>
               <Search size={16} style={{ color: 'var(--text-tertiary)' }} />
               <input
                 value={search}
@@ -101,7 +99,7 @@ const SendMoneyPage: React.FC = () => {
             {favorites.length > 0 && !search && (
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <Star size={13} style={{ color: '#F59E0B' }} />
+                  <Star size={13} style={{ color: 'var(--brand-primary)' }} />
                   <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Favorites</span>
                 </div>
                 <div className="flex gap-4">
@@ -134,7 +132,7 @@ const SendMoneyPage: React.FC = () => {
                   {search ? `Results (${contacts.length})` : 'Recent'}
                 </span>
               </div>
-              <div className="glass-card" style={{ padding: 0, overflow: 'hidden' }}>
+              <div className="liquid-glass-card mesh-bg" style={{ padding: 0, overflow: 'hidden' }}>
                 {(search ? contacts : recent).map((c, i, arr) => (
                   <motion.button
                     key={c.id}
@@ -146,7 +144,7 @@ const SendMoneyPage: React.FC = () => {
                       borderBottom: i < arr.length - 1 ? '1px solid var(--border-subtle)' : 'none',
                       textAlign: 'left', transition: 'background 0.2s',
                     }}
-                    onMouseOver={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.02)')}
+                    onMouseOver={(e) => (e.currentTarget.style.background = 'var(--bg-inset)')}
                     onMouseOut={(e) => (e.currentTarget.style.background = 'transparent')}
                   >
                     <Avatar name={c.name} />
@@ -167,7 +165,7 @@ const SendMoneyPage: React.FC = () => {
           </motion.div>
         )}
 
-        {/* ── STEP 2: Amount ── */}
+        {/* â”€â”€ STEP 2: Amount â”€â”€ */}
         {step === 'amount' && selectedContact && (
           <motion.div key="amount" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}>
             <div className="text-center mb-8">
@@ -177,7 +175,7 @@ const SendMoneyPage: React.FC = () => {
             </div>
 
             {/* Amount Input */}
-            <div className="glass-card text-center" style={{ padding: '32px 24px', marginBottom: '16px' }}>
+            <div className="liquid-glass-card mesh-bg text-center" style={{ padding: '32px 24px', marginBottom: '16px' }}>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Amount</span>
               <div className="flex items-center justify-center gap-2" style={{ margin: '12px 0' }}>
                 <input
@@ -202,9 +200,9 @@ const SendMoneyPage: React.FC = () => {
                     onClick={() => setAmount(String(v))}
                     style={{
                       padding: '6px 14px', borderRadius: '8px', fontSize: '0.72rem', fontWeight: 600, cursor: 'pointer',
-                      background: amount === String(v) ? 'rgba(0,198,174,0.1)' : 'rgba(255,255,255,0.03)',
-                      color: amount === String(v) ? '#00C6AE' : 'var(--text-secondary)',
-                      border: `1px solid ${amount === String(v) ? 'rgba(0,198,174,0.2)' : 'rgba(255,255,255,0.06)'}`,
+                      background: amount === String(v) ? 'var(--brand-primary-bg)' : 'var(--bg-inset)',
+                      color: amount === String(v) ? 'var(--brand-primary)' : 'var(--text-secondary)',
+                      border: `1px solid ${amount === String(v) ? 'rgba(0, 198, 174,0.2)' : 'var(--border-subtle)'}`,
                     }}
                   >
                     {v.toLocaleString()}
@@ -214,25 +212,25 @@ const SendMoneyPage: React.FC = () => {
             </div>
 
             {/* Wallet selector */}
-            <div className="glass-card mb-4" style={{ padding: '16px 18px' }}>
+            <div className="liquid-glass-card mesh-bg mb-4" style={{ padding: '16px 18px' }}>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px', display: 'block' }}>From</span>
               <select
                 value={selectedWalletId}
                 onChange={(e) => setSelectedWalletId(e.target.value)}
                 style={{
                   width: '100%', padding: '8px 12px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 600,
-                  background: 'rgba(255,255,255,0.03)', color: 'var(--text-primary)',
+                  background: 'var(--bg-inset)', color: 'var(--text-primary)',
                   border: '1px solid var(--border-subtle)', outline: 'none', cursor: 'pointer',
                 }}
               >
                 {wallets.filter((w) => w.status === 'active').map((w) => (
-                  <option key={w.id} value={w.id}>{w.name} — {w.balance.toLocaleString()} {w.currency}</option>
+                  <option key={w.id} value={w.id}>{w.name} â€” {w.balance.toLocaleString()} {w.currency}</option>
                 ))}
               </select>
             </div>
 
             {/* Note */}
-            <div className="glass-card mb-6" style={{ padding: '16px 18px' }}>
+            <div className="liquid-glass-card mesh-bg mb-6" style={{ padding: '16px 18px' }}>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px', display: 'block' }}>Note (optional)</span>
               <input
                 value={note}
@@ -252,17 +250,17 @@ const SendMoneyPage: React.FC = () => {
               Continue <ChevronRight size={16} />
             </motion.button>
             {selectedWallet && numAmount > selectedWallet.balance && (
-              <p style={{ fontSize: '0.72rem', color: '#EF4444', textAlign: 'center', marginTop: '8px' }}>Insufficient balance</p>
+              <p style={{ fontSize: '0.72rem', color: 'var(--accent-danger)', textAlign: 'center', marginTop: '8px' }}>Insufficient balance</p>
             )}
           </motion.div>
         )}
 
-        {/* ── STEP 3: Confirm ── */}
+        {/* â”€â”€ STEP 3: Confirm â”€â”€ */}
         {step === 'confirm' && selectedContact && (
           <motion.div key="confirm" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}>
             <h2 className="text-h2 text-center mb-6">Confirm Transfer</h2>
 
-            <div className="glass-card mb-6" style={{ padding: '24px', textAlign: 'center' }}>
+            <div className="liquid-glass-card mesh-bg mb-6" style={{ padding: '24px', textAlign: 'center' }}>
               <Avatar name={selectedContact.name} size={56} />
               <p style={{ fontSize: '1rem', fontWeight: 700, marginTop: '8px' }}>{selectedContact.name}</p>
               <div style={{ marginTop: '16px', fontSize: '2.4rem', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>
@@ -278,7 +276,7 @@ const SendMoneyPage: React.FC = () => {
               </div>
               <div className="flex justify-between mt-2" style={{ fontSize: '0.78rem' }}>
                 <span style={{ color: 'var(--text-tertiary)' }}>Fee</span>
-                <span style={{ fontWeight: 600, color: '#34D399' }}>Free</span>
+                <span style={{ fontWeight: 600, color: 'var(--accent-success)' }}>Free</span>
               </div>
             </div>
 
@@ -291,7 +289,7 @@ const SendMoneyPage: React.FC = () => {
               ].map((b) => (
                 <div key={b.label} className="flex items-center gap-1" style={{
                   padding: '4px 10px', borderRadius: '6px', fontSize: '0.6rem', fontWeight: 600,
-                  background: 'rgba(0,198,174,0.06)', color: '#00C6AE', border: '1px solid rgba(0,198,174,0.12)',
+                  background: 'rgba(0,198,174,0.06)', color: 'var(--accent-success)', border: '1px solid rgba(0,198,174,0.12)',
                 }}>
                   {b.icon} {b.label}
                 </div>
@@ -319,20 +317,20 @@ const SendMoneyPage: React.FC = () => {
           </motion.div>
         )}
 
-        {/* ── STEP 4: Success ── */}
+        {/* â”€â”€ STEP 4: Success â”€â”€ */}
         {step === 'success' && selectedContact && (
           <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: 'center', paddingTop: '40px' }}>
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 12 }}
+              transition={{ type: 'spring' as const, stiffness: 200, damping: 12 }}
               style={{
                 width: '80px', height: '80px', borderRadius: '50%', margin: '0 auto 24px',
                 background: 'rgba(16,185,129,0.1)', border: '2px solid rgba(16,185,129,0.2)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
             >
-              <CheckCircle size={40} style={{ color: '#34D399' }} />
+              <CheckCircle size={40} style={{ color: 'var(--accent-success)' }} />
             </motion.div>
 
             <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '8px' }}>Transfer Successful!</h2>
@@ -340,7 +338,7 @@ const SendMoneyPage: React.FC = () => {
               {numAmount.toLocaleString()} DZD sent to {selectedContact.name}
             </p>
 
-            <div className="glass-card" style={{ padding: '20px', marginBottom: '24px', textAlign: 'left' }}>
+            <div className="liquid-glass-card mesh-bg" style={{ padding: '20px', marginBottom: '24px', textAlign: 'left' }}>
               <div className="flex justify-between mb-2" style={{ fontSize: '0.78rem' }}>
                 <span style={{ color: 'var(--text-tertiary)' }}>Reference</span>
                 <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>TXN-{Math.random().toString(36).slice(2, 8).toUpperCase()}</span>
@@ -367,3 +365,11 @@ const SendMoneyPage: React.FC = () => {
 };
 
 export default SendMoneyPage;
+
+
+
+
+
+
+
+

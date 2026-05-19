@@ -40,12 +40,12 @@ export default function BugReports() {
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={mockErrorTimeline}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
-                  <XAxis dataKey="time" stroke="#64748B" fontSize={12} tickLine={false} axisLine={false} />
-                  <YAxis stroke="#64748B" fontSize={12} tickLine={false} axisLine={false} />
+                  <XAxis dataKey="time" stroke="var(--text-tertiary)" fontSize={12} tickLine={false} axisLine={false} />
+                  <YAxis stroke="var(--text-tertiary)" fontSize={12} tickLine={false} axisLine={false} />
                   <RechartsTooltip 
-                    contentStyle={{ backgroundColor: '#0F172A', border: '1px solid #334155', borderRadius: '8px' }}
+                    contentStyle={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid #334155', borderRadius: '8px' }}
                   />
-                  <Line type="monotone" dataKey="errors" stroke="#F43F5E" strokeWidth={3} dot={{ r: 4, fill: '#0F172A', stroke: '#F43F5E', strokeWidth: 2 }} activeDot={{ r: 6 }} />
+                  <Line type="monotone" dataKey="errors" stroke="#F43F5E" strokeWidth={3} dot={{ r: 4, fill: 'var(--bg-secondary)', stroke: '#F43F5E', strokeWidth: 2 }} activeDot={{ r: 6 }} />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -96,3 +96,5 @@ export default function BugReports() {
     </div>
   );
 }
+
+

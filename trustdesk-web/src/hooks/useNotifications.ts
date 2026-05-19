@@ -69,3 +69,4 @@ export function useNotifications(): NotificationsHookReturn {
 
   return { notifications, unreadCount, markAsRead, markAllAsRead, deleteNotification, getByPriority };
 }
+

@@ -57,7 +57,7 @@ const getSeverityStyles = (severity: Severity) => {
     case 'CRITICAL': return 'bg-red-500/10 text-red-500 border-red-500/20';
     case 'HIGH': return 'bg-orange-500/10 text-orange-500 border-orange-500/20';
     case 'MEDIUM': return 'bg-blue-300/10 text-blue-300 border-blue-300/20';
-    case 'LOW': return 'bg-gray-500/10 text-gray-400 border-gray-500/20';
+    case 'LOW': return 'bg-gray-500/10 text-tertiary border-gray-500/20';
     default: return '';
   }
 };
@@ -149,7 +149,7 @@ const Triage: React.FC = () => {
         <div className="flex items-center gap-6">
           <h1 className="text-h2 leading-tight" style={{ width: '120px' }}>Fraud<br/>Triage<br/>Console</h1>
           
-          <div className="flex gap-2 bg-black/20 p-1 rounded-full border" style={{ borderColor: 'var(--border-strong)' }}>
+          <div className="flex gap-2 bg-inset p-1 rounded-full border" style={{ borderColor: 'var(--border-strong)' }}>
             {filters.map(f => (
               <button 
                 key={f}
@@ -205,7 +205,7 @@ const Triage: React.FC = () => {
         {/* Col 1: Fraud Alert List */}
         <div className="flex flex-col gap-3 overflow-y-auto pr-2" style={{ paddingRight: '8px' }}>
           {isLoading ? (
-            <div className="flex flex-col items-center justify-center p-10 mt-10 text-gray-500">
+            <div className="flex flex-col items-center justify-center p-10 mt-10 text-tertiary">
                <Loader2 className="animate-spin mb-4" size={32} />
                <p className="text-sm">Loading Fraud Alerts...</p>
             </div>
@@ -227,11 +227,11 @@ const Triage: React.FC = () => {
                   key={inc.id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 30 }}
+                  transition={{ delay: i * 0.1, type: "spring" as const, stiffness: 300, damping: 30 }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedAlert(inc)}
-                  className="glass-card cursor-pointer transition-all hover:bg-white/5"
+                  className="liquid-glass-card mesh-bg cursor-pointer transition-all hover:bg-surface"
                   style={{ 
                     padding: '16px',
                     border: isSelected ? '1px solid rgba(59, 130, 246, 0.4)' : '1px solid var(--border-subtle)',
@@ -247,7 +247,7 @@ const Triage: React.FC = () => {
                 </div>
                 
                 <div className="flex items-center gap-3 mb-4">
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(239,68,68,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-danger)' }}>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(239, 68, 68,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-danger)' }}>
                     <AlertOctagon size={16} />
                   </div>
                   <div>
@@ -272,9 +272,9 @@ const Triage: React.FC = () => {
         </div>
 
         {/* Col 2: Alert Details */}
-        <div className="glass-card flex-col flex overflow-y-auto" style={{ padding: '0', position: 'relative' }}>
+        <div className="liquid-glass-card mesh-bg flex-col flex overflow-y-auto" style={{ padding: '0', position: 'relative' }}>
           {!selectedAlert ? (
-            <div className="flex flex-col items-center justify-center h-full text-gray-500 gap-3 min-h-[400px]">
+            <div className="flex flex-col items-center justify-center h-full text-tertiary gap-3 min-h-[400px]">
               <AlertOctagon size={48} className="opacity-20" />
               <p>Select a fraud alert to view details</p>
             </div>
@@ -292,7 +292,7 @@ const Triage: React.FC = () => {
               <div style={{ padding: '32px', borderBottom: '1px solid var(--border-subtle)', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '4px', background: 'linear-gradient(90deg, var(--accent-danger), transparent)' }}></div>
                 <div className="flex items-start gap-4 mb-6">
-              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-danger)', boxShadow: '0 0 20px rgba(239,68,68,0.15)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(239, 68, 68,0.1)', border: '1px solid rgba(239, 68, 68,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-danger)', boxShadow: '0 0 20px rgba(239, 68, 68,0.15)' }}>
                 <AlertOctagon size={24} />
               </div>
               <div style={{ flex: 1 }}>
@@ -334,7 +334,7 @@ const Triage: React.FC = () => {
                     </div>
                     <div style={{ marginTop: '-4px' }}>
                       <h4 className="text-sm font-semibold" style={{ color: item.color || 'var(--text-primary)' }}>{item.title}</h4>
-                      <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>{item.time} {item.source && `• ${item.source}`}</p>
+                      <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>{item.time} {item.source && `â€¢ ${item.source}`}</p>
                     </div>
                   </div>
                 ))}
@@ -352,7 +352,7 @@ const Triage: React.FC = () => {
                     </div>
                     <div className="text-center w-full">
                       <p className="text-sm font-medium w-full text-ellipsis overflow-hidden whitespace-nowrap px-2" style={{ color: 'var(--text-secondary)' }}>{ev.name}</p>
-                      <p className="text-[10px] mt-1" style={{ color: 'var(--text-tertiary)' }}>{ev.size} • {ev.type}</p>
+                      <p className="text-[10px] mt-1" style={{ color: 'var(--text-tertiary)' }}>{ev.size} â€¢ {ev.type}</p>
                     </div>
                   </div>
                 ))}
@@ -451,3 +451,7 @@ const Triage: React.FC = () => {
 };
 
 export default Triage;
+
+
+
+

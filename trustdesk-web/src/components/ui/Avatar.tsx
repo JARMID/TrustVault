@@ -7,18 +7,18 @@ import React from 'react';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AVATAR_GRADIENTS = [
-  ['#3B82F6', '#8B5CF6'],  // Blue → Purple
-  ['#10B981', '#3B82F6'],  // Teal → Blue
-  ['#F59E0B', '#EF4444'],  // Amber → Red
-  ['#EC4899', '#8B5CF6'],  // Pink → Purple
-  ['#6366F1', '#3B82F6'],  // Indigo → Blue
-  ['#14B8A6', '#0EA5E9'],  // Teal → Sky
-  ['#F43F5E', '#FB923C'],  // Rose → Orange
-  ['#8B5CF6', '#EC4899'],  // Purple → Pink
-  ['#0EA5E9', '#6366F1'],  // Sky → Indigo
-  ['#22C55E', '#14B8A6'],  // Green → Teal
-  ['#EF4444', '#F59E0B'],  // Red → Amber
-  ['#A855F7', '#3B82F6'],  // Violet → Blue
+  ['var(--brand-primary)', 'var(--accent-danger)'],  // Gold → Red
+  ['var(--accent-success)', 'var(--brand-primary)'],  // Teal → Gold
+  ['var(--brand-primary)', 'var(--brand-secondary)'],  // Gold → Secondary
+  ['var(--accent-danger)', 'var(--brand-primary)'],  // Red → Gold
+  ['var(--brand-secondary)', 'var(--accent-success)'],  // Secondary → Teal
+  ['var(--accent-success)', 'var(--brand-secondary)'],  // Teal → Secondary
+  ['var(--brand-primary)', 'var(--accent-success)'],  // Gold → Teal
+  ['var(--accent-danger)', 'var(--brand-secondary)'],  // Red → Secondary
+  ['var(--brand-secondary)', 'var(--brand-primary)'],  // Secondary → Gold
+  ['var(--accent-success)', 'var(--accent-danger)'],  // Teal → Red
+  ['var(--brand-primary)', 'var(--accent-danger)'],  // Gold → Red
+  ['var(--brand-secondary)', 'var(--accent-success)'],  // Secondary → Teal
 ] as const;
 
 type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -46,10 +46,10 @@ const SIZE_MAP: Record<AvatarSize, { container: number; font: string; status: nu
 };
 
 const STATUS_COLORS: Record<StatusType, string> = {
-  online: '#10B981',
-  offline: '#64748B',
-  away: '#F59E0B',
-  busy: '#EF4444',
+  online: 'var(--accent-success)',
+  offline: 'var(--text-tertiary)',
+  away: 'var(--brand-primary)',
+  busy: 'var(--accent-danger)',
   none: 'transparent',
 };
 
@@ -141,7 +141,7 @@ const Avatar: React.FC<AvatarProps> = ({
         color: 'white',
         fontWeight: 700,
         fontSize: specs.font,
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: 'var(--font-sans)',
         letterSpacing: '0.02em',
         textShadow: '0 1px 3px rgba(0,0,0,0.3)',
         overflow: 'hidden',
@@ -176,7 +176,7 @@ const Avatar: React.FC<AvatarProps> = ({
           height: specs.status,
           borderRadius: '50%',
           background: STATUS_COLORS[status],
-          border: '2px solid #0B0E14',
+          border: '2px solid var(--bg-primary)',
           boxShadow: status === 'online' ? `0 0 8px ${STATUS_COLORS[status]}` : 'none',
           zIndex: 2,
         }} />
@@ -193,3 +193,6 @@ const Avatar: React.FC<AvatarProps> = ({
 };
 
 export default Avatar;
+
+
+

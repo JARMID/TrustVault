@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastProvider } from './components/ui/Toast';
+import { SmoothScrollProvider } from './components/ui/SmoothScroll';
 import Layout from './components/layout/Layout';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
@@ -12,6 +13,7 @@ import Community from './pages/Community';
 import Reports from './pages/Reports';
 import Profile from './pages/Profile';
 import SettingsPage from './pages/Settings';
+import UserSecurity from './pages/UserSecurity';
 import Ekyc from './pages/Ekyc';
 import Labels from './pages/Labels';
 import Bugs from './pages/Bugs';
@@ -21,10 +23,13 @@ import ThreatMap from './pages/dashboard/ThreatMap';
 import WalletPage from './pages/Wallet';
 import TransactionsPage from './pages/Transactions';
 import SendMoneyPage from './pages/SendMoney';
+import AnalyticsPage from './pages/Analytics';
+import CardsPage from './pages/Cards';
 
 function App() {
   return (
     <BrowserRouter>
+      <SmoothScrollProvider>
       <ToastProvider>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -38,6 +43,8 @@ function App() {
             <Route path="wallet" element={<WalletPage />} />
             <Route path="transactions" element={<TransactionsPage />} />
             <Route path="send" element={<SendMoneyPage />} />
+            <Route path="analytics" element={<AnalyticsPage />} />
+            <Route path="cards" element={<CardsPage />} />
             <Route path="incidents" element={<Triage />} />
             <Route path="security" element={<Security />} />
             <Route path="ekyc" element={<Ekyc />} />
@@ -48,6 +55,7 @@ function App() {
             <Route path="reports" element={<Reports />} />
             <Route path="profile" element={<Profile />} />
             <Route path="settings" element={<SettingsPage />} />
+            <Route path="user-security" element={<UserSecurity />} />
             <Route path="map" element={<ThreatMap />} />
             <Route index element={<Navigate to="dashboard" replace />} />
           </Route>
@@ -58,8 +66,10 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ToastProvider>
+      </SmoothScrollProvider>
     </BrowserRouter>
   );
 }
 
 export default App;
+

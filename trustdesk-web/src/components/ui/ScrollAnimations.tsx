@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue } from 'framer-motion';
 
 /* ── Parallax Section ── */
 export const ParallaxSection: React.FC<{
@@ -82,14 +82,14 @@ export const AnimatedCounter: React.FC<{ value: string; label: string }> = ({ va
       <div style={{
         fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 800,
         fontFamily: "'JetBrains Mono', monospace",
-        background: 'linear-gradient(135deg, #00C6AE, #00E8CC)',
+        background: 'linear-gradient(135deg, var(--accent-success), var(--brand-primary))',
         WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
         marginBottom: '8px',
       }}>
         {prefix}{isInView ? display.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) : '0'}{suffix}
       </div>
       <div style={{
-        fontSize: '0.75rem', color: '#64748B', fontFamily: 'monospace',
+        fontSize: '0.75rem', color: 'var(--text-tertiary)', fontFamily: 'monospace',
         letterSpacing: '0.1em', textTransform: 'uppercase',
       }}>
         {label}
@@ -116,7 +116,7 @@ export const ScrollProgress: React.FC = () => {
   return (
     <motion.div style={{
       position: 'fixed', top: 0, left: 0, right: 0, height: '2px', zIndex: 200,
-      background: 'linear-gradient(90deg, #00C6AE, #00E8CC, #D4A853)',
+      background: 'linear-gradient(90deg, var(--accent-success), var(--brand-primary))',
       transformOrigin: '0%', scaleX,
     }} />
   );
@@ -130,26 +130,36 @@ export const MagneticButton: React.FC<{
   onClick?: () => void;
 }> = ({ children, className, style, onClick }) => {
   const ref = useRef<HTMLButtonElement>(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+  
+  // Use MotionValues for high-performance 60fps animation without React re-renders
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.5 });
+  const springY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.5 });
 
   const handleMouse = (e: React.MouseEvent) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
-    const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
-    setPos({ x, y });
+    const targetX = (e.clientX - rect.left - rect.width / 2) * 0.2;
+    const targetY = (e.clientY - rect.top - rect.height / 2) * 0.2;
+    x.set(targetX);
+    y.set(targetY);
+  };
+
+  const reset = () => {
+    x.set(0);
+    y.set(0);
   };
 
   return (
     <motion.button
       ref={ref}
       className={className}
-      style={style}
+      style={{ ...style, x: springX, y: springY }}
       onClick={onClick}
       onMouseMove={handleMouse}
-      onMouseLeave={() => setPos({ x: 0, y: 0 })}
-      animate={{ x: pos.x, y: pos.y }}
-      transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+      onMouseLeave={reset}
     >
       {children}
     </motion.button>
@@ -177,8 +187,8 @@ export const ParticleField: React.FC = () => {
           style={{
             position: 'absolute', left: `${p.x}%`, top: `${p.y}%`,
             width: p.size, height: p.size, borderRadius: '50%',
-            background: 'rgba(0, 198, 174, 0.4)',
-            boxShadow: `0 0 ${p.size * 3}px rgba(0, 198, 174, 0.2)`,
+            background: 'var(--accent-success)',
+            boxShadow: `0 0 ${p.size * 3}px rgba(0,198,174,0.12)`,
             willChange: 'transform, opacity',
           }}
           animate={{ y: [0, -30, 0], opacity: [0.2, 0.6, 0.2] }}
@@ -188,3 +198,7 @@ export const ParticleField: React.FC = () => {
     </div>
   );
 };
+
+
+
+

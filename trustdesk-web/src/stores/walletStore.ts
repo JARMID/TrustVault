@@ -59,3 +59,4 @@ export const useWalletStore = create<WalletState>()((set) => ({
   setTransactions: (recentTransactions) => set({ recentTransactions }),
   setLoadingBalance: (isLoadingBalance) => set({ isLoadingBalance }),
 }));
+

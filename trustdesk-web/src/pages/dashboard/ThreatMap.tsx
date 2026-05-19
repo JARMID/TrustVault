@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-/* ── Global Threat Data ── */
+/* â”€â”€ Global Threat Data â”€â”€ */
 const globalThreats = [
   // Algeria
   { id: 'T-001', lat: 36.7538, lng: 3.0588, severity: 9, name: 'Algiers HQ', type: 'APT Attack Vector', region: 'North Africa' },
@@ -26,13 +26,13 @@ const globalThreats = [
 ];
 
 const getSeverityColor = (severity: number): string => {
-  if (severity >= 8) return '#EF4444';
-  if (severity >= 6) return '#F59E0B';
-  if (severity >= 4) return '#3B82F6';
-  return '#10B981';
+  if (severity >= 8) return 'var(--accent-danger)';
+  if (severity >= 6) return 'var(--brand-primary)';
+  if (severity >= 4) return 'var(--brand-primary)';
+  return 'var(--accent-success)';
 };
 
-/* ── Map Controller ── */
+/* â”€â”€ Map Controller â”€â”€ */
 const MapController: React.FC<{ center: [number, number]; zoom: number }> = ({ center, zoom }) => {
   const map = useMap();
   useEffect(() => {
@@ -83,8 +83,8 @@ export default function ThreatMap() {
           <div className="flex items-center gap-3 mb-2">
             <h1 className="text-h1">Global Threat Map</h1>
             <div className="flex items-center gap-2 px-3 py-1 rounded-full" style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-              <Radio size={12} style={{ color: '#F87171', animation: 'pulse 1.5s infinite' }} />
-              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#F87171', letterSpacing: '0.05em' }}>{criticalCount} CRITICAL</span>
+              <Radio size={12} style={{ color: 'var(--accent-danger)', animation: 'pulse 1.5s infinite' }} />
+              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--accent-danger)', letterSpacing: '0.05em' }}>{criticalCount} CRITICAL</span>
             </div>
           </div>
           <p className="text-sm" style={{ color: 'var(--text-secondary)', maxWidth: '500px' }}>
@@ -146,7 +146,7 @@ export default function ThreatMap() {
         <MapContainer
           center={center}
           zoom={zoom}
-          style={{ height: '100%', width: '100%', background: '#050a12' }}
+          style={{ height: '100%', width: '100%', background: 'var(--bg-primary)' }}
           zoomControl={false}
           attributionControl={false}
         >
@@ -175,10 +175,10 @@ export default function ThreatMap() {
                   <Popup>
                     <div style={{ minWidth: '220px' }}>
                       <div style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>{threat.name}</div>
-                      <div style={{ fontSize: '0.75rem', color: '#94A3B8', marginBottom: '8px' }}>{threat.type}</div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', marginBottom: '8px' }}>{threat.type}</div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem' }}>
                         <span style={{ color }}>Severity: {threat.severity}/10</span>
-                        <span style={{ color: '#64748B' }}>{threat.region}</span>
+                        <span style={{ color: 'var(--text-tertiary)' }}>{threat.region}</span>
                       </div>
                     </div>
                   </Popup>
@@ -194,9 +194,9 @@ export default function ThreatMap() {
           display: 'flex', gap: '8px',
         }}>
           {[
-            { icon: <Shield size={12} />, label: `${filteredThreats.length} Nodes`, color: '#3B82F6' },
-            { icon: <AlertTriangle size={12} />, label: `${criticalCount} Critical`, color: '#EF4444' },
-            { icon: <Radar size={12} />, label: 'Scanning', color: '#10B981' },
+            { icon: <Shield size={12} />, label: `${filteredThreats.length} Nodes`, color: 'var(--brand-primary)' },
+            { icon: <AlertTriangle size={12} />, label: `${criticalCount} Critical`, color: 'var(--accent-danger)' },
+            { icon: <Radar size={12} />, label: 'Scanning', color: 'var(--accent-success)' },
           ].map(stat => (
             <div key={stat.label} style={{
               background: 'rgba(10, 14, 26, 0.9)', border: '1px solid rgba(255,255,255,0.08)',
@@ -217,10 +217,10 @@ export default function ThreatMap() {
         }}>
           <div style={{ fontSize: '0.62rem', fontWeight: 700, color: 'var(--text-tertiary)', letterSpacing: '0.12em', marginBottom: '8px' }}>SEVERITY</div>
           {[
-            { label: 'Critical', color: '#EF4444' },
-            { label: 'High', color: '#F59E0B' },
-            { label: 'Medium', color: '#3B82F6' },
-            { label: 'Low', color: '#10B981' },
+            { label: 'Critical', color: 'var(--accent-danger)' },
+            { label: 'High', color: 'var(--brand-primary)' },
+            { label: 'Medium', color: 'var(--brand-primary)' },
+            { label: 'Low', color: 'var(--accent-success)' },
           ].map(item => (
             <div key={item.label} className="flex items-center gap-2" style={{ marginBottom: '3px' }}>
               <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: item.color, boxShadow: `0 0 5px ${item.color}50` }} />
@@ -242,3 +242,5 @@ export default function ThreatMap() {
     </div>
   );
 }
+
+
