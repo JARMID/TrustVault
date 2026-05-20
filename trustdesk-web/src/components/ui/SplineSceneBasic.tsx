@@ -119,7 +119,7 @@ export function SplineSceneBasic() {
         {/* ── Right: Spline 3D scene ── */}
         <div className="flex-1 relative">
           <SplineScene
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
             className="w-full h-full"
           />
         </div>

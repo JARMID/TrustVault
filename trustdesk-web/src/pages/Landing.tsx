@@ -370,22 +370,128 @@ const LandingInner: React.FC = () => {
               {/* Bento 2.0 Asymmetrical Grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[320px]">
                 {features.map((f, i) => {
-                  // Asymmetrical spanning logic
                   const isLarge = i === 0 || i === 3;
                   return (
                   <Reveal key={i} delay={i * 0.08} direction="up" className={isLarge ? "md:col-span-2" : "md:col-span-1"}>
-                    <div className="liquid-glass-card h-full flex flex-col justify-between group overflow-hidden relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="vault-feature-icon relative z-10 bg-white/5 border border-white/10 group-hover:border-[var(--brand-primary)] group-hover:text-[var(--brand-primary)] transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-                        {f.icon}
+                    {isLarge ? (
+                      <div className="liquid-glass-card h-full flex md:flex-row flex-col justify-between group overflow-hidden relative p-8">
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
+                        <div className="flex flex-col justify-between h-full relative z-10 md:max-w-[55%]">
+                          <div className="vault-feature-icon bg-white/5 border border-white/10 group-hover:border-[var(--brand-primary)] group-hover:text-[var(--brand-primary)] transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.5)] mb-4">
+                            {f.icon}
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold font-display tracking-tight text-white mb-2">{f.title}</h3>
+                            <p className="text-sm text-slate-400 leading-relaxed">{f.desc}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="relative md:w-[40%] h-full flex items-center justify-center overflow-hidden">
+                          <img 
+                            src={i === 0 ? "/cyber_virtual_cards.png" : "/ekyc_biometric_preview.png"} 
+                            alt={f.title} 
+                            className="w-full h-auto object-contain transform group-hover:scale-110 transition-transform duration-500 select-none pointer-events-none drop-shadow-[0_10px_30px_rgba(0,198,174,0.2)]" 
+                          />
+                        </div>
                       </div>
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-bold font-display tracking-tight text-white mb-2">{f.title}</h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">{f.desc}</p>
+                    ) : (
+                      <div className="liquid-glass-card h-full flex flex-col justify-between group overflow-hidden relative p-8">
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="vault-feature-icon relative z-10 bg-white/5 border border-white/10 group-hover:border-[var(--brand-primary)] group-hover:text-[var(--brand-primary)] transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                          {f.icon}
+                        </div>
+                        <div className="relative z-10">
+                          <h3 className="text-xl font-bold font-display tracking-tight text-white mb-2">{f.title}</h3>
+                          <p className="text-sm text-slate-400 leading-relaxed">{f.desc}</p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </Reveal>
                 )})}
+              </div>
+            </div>
+          </section>
+
+          <div className="vault-glow-divider" />
+
+          {/* ── REAL-TIME AI SOC & ANOMALY TRIAGE ── */}
+          <section className="vault-section-opaque" style={{ padding: '120px 0', position: 'relative', zIndex: 20 }}>
+            <div className="vault-container">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* Left: Administrative / SOC details */}
+                <Reveal direction="left">
+                  <div className="vault-section-tag">◆ Administrative Command</div>
+                  <h2 className="vault-section-title" style={{ marginBottom: 24 }}>
+                    Real-time AI SOC & <br />
+                    <GradientText>Anomaly Triage</GradientText>
+                  </h2>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--vault-text-secondary, rgba(200,210,230,0.65))', lineHeight: 1.8, marginBottom: 32 }}>
+                    Beyond the consumer wallet, TrustDesk equips administrators with a complete Security Operations Center (SOC). Monitor real-time transaction velocity, coordinate biometric validation, and triage security incidents with deep threat telemetry.
+                  </p>
+                  
+                  <div className="flex flex-col gap-6">
+                    {[
+                      {
+                        title: 'Dynamic Threat Scoring',
+                        desc: 'Automated ML engines evaluate system anomalies, scoring risks from 0.00 to 1.00 for immediate, zero-latency defense routing.',
+                        metric: 'Risk Index ML',
+                        icon: <Cpu size={18} />
+                      },
+                      {
+                        title: 'WebSocket Panic Relay',
+                        desc: 'Instant panic triggers from mobile clients broadcast live GPS coordinates to administrative command maps in under 50ms.',
+                        metric: 'WSS Payload <50ms',
+                        icon: <Send size={18} />
+                      },
+                      {
+                        title: 'Immutable Audit Ledger',
+                        desc: 'Every sensitive operation is permanently sealed in an ISO 27001 & PCI-DSS compliant audit log with high-res telemetry.',
+                        metric: 'ISO 27001 Compliant',
+                        icon: <ShieldCheck size={18} />
+                      }
+                    ].map((feat, idx) => (
+                      <div key={idx} className="flex gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02] backdrop-blur-md group hover:border-[rgba(0,198,174,0.3)] transition-all duration-300">
+                        <div className="flex-1">
+                          <h4 className="text-white font-bold text-base mb-1 flex items-center gap-2">
+                            <span className="text-[var(--vault-primary,#00C6AE)] flex-shrink-0">{feat.icon}</span>
+                            {feat.title}
+                          </h4>
+                          <p className="text-sm leading-relaxed" style={{ color: 'var(--vault-text-secondary, rgba(200,210,230,0.65))' }}>{feat.desc}</p>
+                        </div>
+                        <div className="flex flex-col justify-center items-end text-right min-w-[120px]">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--vault-primary,#00C6AE)] bg-[rgba(0,198,174,0.08)] px-2.5 py-1 rounded-full border border-[rgba(0,198,174,0.15)]">
+                            {feat.metric}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </Reveal>
+
+                {/* Right: SOC Threat Triage Telemetry Image */}
+                <Reveal direction="right" className="relative group">
+                  <div className="absolute -inset-1.5 bg-gradient-to-r from-[var(--vault-primary,#00C6AE)] to-[#0072FF] rounded-2xl blur-xl opacity-20 group-hover:opacity-35 transition-opacity duration-700" />
+                  <div className="relative liquid-glass-card overflow-hidden rounded-2xl border border-white/10 p-2 bg-black/60 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                    <img 
+                      src="/ai_threat_triage.png" 
+                      alt="Real-time AI Threat Triage Map" 
+                      className="w-full h-auto object-cover rounded-xl select-none pointer-events-none transform group-hover:scale-[1.02] transition-transform duration-700" 
+                    />
+                    
+                    {/* Glowing HUD elements on top of the image to make it ultra-premium */}
+                    <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/75 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-md">
+                      <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500 absolute" style={{ top: '9px', left: '15px' }} />
+                      <span className="text-[10px] font-mono tracking-widest uppercase font-bold" style={{ color: '#F87171' }}>LIVE SOC MAP</span>
+                    </div>
+
+                    <div className="absolute bottom-4 right-4 bg-black/80 px-4 py-2 rounded-lg border border-white/10 backdrop-blur-md font-mono text-[9px]" style={{ color: 'rgba(200,210,230,0.7)' }}>
+                      <div className="flex gap-2 justify-between"><span className="text-slate-500">SERVER STATUS:</span> <span className="text-[var(--vault-primary,#00C6AE)]">ACTIVE</span></div>
+                      <div className="flex gap-2 justify-between"><span className="text-slate-500">ACTIVE LOGS:</span> <span>1,249 / MIN</span></div>
+                    </div>
+                  </div>
+                </Reveal>
               </div>
             </div>
           </section>
@@ -458,27 +564,83 @@ const LandingInner: React.FC = () => {
             </div>
           </section>
 
-          {/* â•â• FINAL CTA â•â• */}
-          <section className="vault-cta-section vault-section-opaque" style={{ padding: '112px 0', position: 'relative', zIndex: 20 }}>
-            <div className="vault-container" style={{ textAlign: 'center' }}>
-              <Reveal>
-                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 64, height: 64, borderRadius: 16, background: 'var(--vault-primary-glow)', border: '1px solid rgba(0,198,174,0.2)', marginBottom: 24 }}>
-                  <Shield size={32} style={{ color: 'var(--vault-primary)' }} />
+          {/* ── FINAL CTA UPGRADE ── */}
+          <section className="vault-cta-section vault-section-opaque" style={{ padding: '120px 0', position: 'relative', zIndex: 20, overflow: 'hidden' }}>
+            {/* Ambient decorative glowing backdrops */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(0,198,174,0.08)_0%,transparent_70%)] blur-[80px] pointer-events-none" />
+            
+            <div className="vault-container relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                {/* Left side text and actions */}
+                <div className="lg:col-span-7 text-left">
+                  <Reveal direction="left">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 mb-6 shadow-lg">
+                      <Shield size={24} style={{ color: 'var(--vault-primary)' }} />
+                    </div>
+                    <h2 className="vault-section-title text-left" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1.1, marginBottom: 20 }}>
+                      Ready to Secure <br />
+                      <GradientText>Your Financial Future?</GradientText>
+                    </h2>
+                    <p style={{ fontSize: '1.05rem', color: 'var(--vault-text-secondary, rgba(200,210,230,0.65))', lineHeight: 1.8, marginBottom: 36, maxWidth: '580px' }}>
+                      Step into the future of bank-grade digital wallet management. Open your secure TrustVault today and leverage AI-powered threat triage, dynamic virtual card encryption, and zero-fee global transfers.
+                    </p>
+                    
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginBottom: 32 }}>
+                      <MagneticButton className="vault-btn vault-btn-large" onClick={() => navigate('/app/dashboard')}>
+                        <Fingerprint size={22} style={{ color: 'var(--vault-bg)' }} />
+                        <span>Open Your Vault</span>
+                        <ChevronRight size={18} style={{ opacity: 0.7 }} />
+                      </MagneticButton>
+                      <button className="vault-btn vault-btn-ghost" onClick={() => navigate('/docs')}>
+                        Read Architecture Docs
+                      </button>
+                    </div>
+
+                    {/* Trust details */}
+                    <div className="flex flex-wrap gap-x-8 gap-y-4 text-xs font-mono text-slate-500">
+                      <div className="flex items-center gap-2">
+                        <Lock size={12} className="text-[var(--vault-primary,#00C6AE)]" />
+                        <span>AES-256-GCM Hardware Sealed</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Scan size={12} className="text-[var(--vault-primary,#00C6AE)]" />
+                        <span>Instant eKYC Biometrics</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <ShieldCheck size={12} className="text-[var(--vault-primary,#00C6AE)]" />
+                        <span>PCI-DSS Level 1 Compliant</span>
+                      </div>
+                    </div>
+                  </Reveal>
                 </div>
-                <h2 className="vault-section-title">Ready to Secure Your Finances?</h2>
-                <p style={{ fontSize: '1rem', color: 'var(--vault-text-secondary)', marginBottom: 40, lineHeight: 1.7, maxWidth: 440, margin: '0 auto 40px auto' }}>
-                  Open your TrustVault and take command of your financial security with bank-grade encryption and AI-powered protection.
-                </p>
-                <MagneticButton className="vault-btn vault-btn-large" onClick={() => navigate('/app/dashboard')}>
-                  <Fingerprint size={24} style={{ color: 'var(--vault-bg)' }} />
-                  <span>Open Your Vault</span>
-                  <ChevronRight size={20} style={{ opacity: 0.7 }} />
-                </MagneticButton>
-              </Reveal>
+
+                {/* Right side high-fidelity vault cylinder render */}
+                <div className="lg:col-span-5 flex justify-center lg:justify-end">
+                  <Reveal direction="right" className="relative group">
+                    {/* Glowing aura */}
+                    <div className="absolute -inset-4 bg-[radial-gradient(circle,rgba(0,198,174,0.15)_0%,transparent_70%)] rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+                    
+                    <div className="relative max-w-[360px] lg:max-w-full">
+                      <img 
+                        src="/trustvault_hero_3d.png" 
+                        alt="TrustVault Cyber Cylinder Vault Render" 
+                        className="w-full h-auto object-contain select-none pointer-events-none transform group-hover:translate-y-[-10px] group-hover:rotate-1 transition-all duration-700 ease-out drop-shadow-[0_20px_40px_rgba(0,198,174,0.25)]"
+                      />
+                      
+                      {/* Interactive overlay tag */}
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black/85 border border-[rgba(0,198,174,0.3)] backdrop-blur-md px-4 py-2 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-2.5">
+                        <span className="w-2 h-2 rounded-full bg-[var(--vault-primary,#00C6AE)] animate-ping" />
+                        <span className="w-2 h-2 rounded-full bg-[var(--vault-primary,#00C6AE)] absolute" style={{ left: '16px' }} />
+                        <span className="text-[9px] font-mono tracking-widest text-[var(--vault-primary,#00C6AE)] uppercase font-bold">CRYPTO-ENGINE: ONLINE</span>
+                      </div>
+                    </div>
+                  </Reveal>
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* â•â• CINEMATIC FOOTER â•â• */}
+          {/* ── CINEMATIC FOOTER ── */}
           <CinematicFooter />
         </div>
       </div>
