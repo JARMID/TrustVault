@@ -176,15 +176,15 @@ export const InteractiveFooter: React.FC = () => {
   const linksData = {
     product: [
       { label: 'Smart Cards', path: '/#features' },
-      { label: 'Cryptographic Vaults', path: '/#features' },
-      { label: 'BEYN Network Integration', path: '/enterprise' },
-      { label: 'Security Hardware', path: '/#security' },
+      { label: 'Cryptographic Vaults', path: '/security-architecture' },
+      { label: 'BEYN Core Network', path: '/network' },
+      { label: 'Use Cases & ROI', path: '/use-cases' },
     ],
     resources: [
-      { label: 'Developer Hub', path: '/enterprise' },
-      { label: 'System Status', path: '#' },
-      { label: 'Security Whitepaper', path: '#' },
-      { label: 'API Reference', path: '#' },
+      { label: 'Developer API', path: '/enterprise' },
+      { label: 'System Status', path: '/network' },
+      { label: 'Security Architecture', path: '/security-architecture' },
+      { label: 'Enterprise SDK', path: '/enterprise' },
     ],
     company: [
       { label: 'About JARMID', path: '/company' },

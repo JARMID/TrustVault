@@ -11,6 +11,9 @@ import Login from './pages/Login';
 import Pricing from './pages/Pricing';
 import Enterprise from './pages/Enterprise';
 import Company from './pages/Company';
+import SecurityArchitecture from './pages/SecurityArchitecture';
+import Network from './pages/Network';
+import UseCases from './pages/UseCases';
 import DashboardHome from './pages/Dashboard';
 import Triage from './pages/Triage';
 import Security from './pages/Security';
@@ -75,6 +78,9 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/enterprise" element={<Enterprise />} />
             <Route path="/company" element={<Company />} />
+            <Route path="/security-architecture" element={<SecurityArchitecture />} />
+            <Route path="/network" element={<Network />} />
+            <Route path="/use-cases" element={<UseCases />} />
 
             {/* Protected /app/* routes */}
             <Route
