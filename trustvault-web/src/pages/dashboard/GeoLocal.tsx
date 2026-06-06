@@ -42,10 +42,12 @@ export default function GeoLocal() {
   const [filter, setFilter] = useState<'all' | 'active' | 'warning' | 'resolved'>('all');
 
   const geoEvents = useMemo(() => {
+    let seed = 999;
+    const pseudoRandom = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
     return alerts.map(alert => ({
       id: alert.id,
-      lat: alert.latitude || 36.7538 + (Math.random() - 0.5),
-      lng: alert.longitude || 3.0588 + (Math.random() - 0.5),
+      lat: alert.latitude || 36.7538 + (pseudoRandom() - 0.5),
+      lng: alert.longitude || 3.0588 + (pseudoRandom() - 0.5),
       severity: alert.priority === 'critical' ? 9 : alert.priority === 'high' ? 7 : alert.priority === 'normal' ? 4 : 2,
       name: alert.category ? `${alert.category.charAt(0).toUpperCase() + alert.category.slice(1)} Node` : 'Unknown Node',
       type: alert.type.replace('_', ' ').toUpperCase(),

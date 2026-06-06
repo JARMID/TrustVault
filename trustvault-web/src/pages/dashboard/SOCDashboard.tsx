@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Shield, AlertTriangle, Crosshair, Users, Activity, Radar, ArrowUpRight, Lock, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -90,11 +90,7 @@ const SOCDashboard: React.FC = () => {
   const navigate = useNavigate();
   const { alerts, loading } = useTriage();
   const [liveNodes, setLiveNodes] = useState(1240);
-  const [activeThreats, setActiveThreats] = useState(0);
-
-  useEffect(() => {
-    setActiveThreats(alerts.filter(a => a.priority === 'critical' || a.priority === 'high').length);
-  }, [alerts]);
+  const activeThreats = useMemo(() => alerts.filter(a => a.priority === 'critical' || a.priority === 'high').length, [alerts]);
 
   useEffect(() => {
     const interval = setInterval(() => {

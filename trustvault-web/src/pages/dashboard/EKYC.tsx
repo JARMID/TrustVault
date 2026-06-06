@@ -10,10 +10,12 @@ export default function EKYC() {
 
   // Derive eKYC traffic from audit logs
   const trafficData = useMemo(() => {
+    let seed = 42;
+    const pseudoRandom = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
     // Generate a basic traffic timeline based on logs
     const timeline: Record<string, number> = {};
     for (let i = 0; i < 24; i += 4) {
-      timeline[`${i.toString().padStart(2, '0')}:00`] = Math.floor(Math.random() * 50); // baseline
+      timeline[`${i.toString().padStart(2, '0')}:00`] = Math.floor(pseudoRandom() * 50); // baseline
     }
     
     logs.forEach(log => {
@@ -30,6 +32,8 @@ export default function EKYC() {
 
   // Derive verifications from logs
   const verifications = useMemo(() => {
+    let seed = 88;
+    const pseudoRandom = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
     // We filter logs that might be eKYC related or just map all recent logs as proxy if none exist yet
     const kycLogs = logs.slice(0, 15).map(log => {
       const isSuccess = log.action !== 'failed_login' && log.action !== 'lockdown';
@@ -38,7 +42,7 @@ export default function EKYC() {
         user: log.user_id.substring(0, 8),
         type: log.action.replace('_', ' ').toUpperCase(),
         status: isSuccess ? 'verified' : 'rejected',
-        confidence: isSuccess ? (Math.random() * 10 + 90).toFixed(1) : (Math.random() * 40 + 30).toFixed(1),
+        confidence: isSuccess ? (pseudoRandom() * 10 + 90).toFixed(1) : (pseudoRandom() * 40 + 30).toFixed(1),
         time: new Date(log.created_at).toLocaleTimeString(),
         reason: isSuccess ? undefined : 'Flagged by system'
       };

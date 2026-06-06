@@ -32,7 +32,14 @@ export default function BugReports() {
     
     // Add some realistic noise if no real errors
     if (errorLogs.length === 0) {
-       Object.keys(timelineMap).forEach(key => timelineMap[key] = Math.floor(Math.random() * 5));
+       // Since useMemo might re-run, we use a seeded random logic or just static fallback data
+       // to avoid pure-render errors from Math.random().
+       let seed = 12345;
+       const pseudoRandom = () => {
+         seed = (seed * 9301 + 49297) % 233280;
+         return seed / 233280;
+       };
+       Object.keys(timelineMap).forEach(key => timelineMap[key] = Math.floor(pseudoRandom() * 5));
     }
     
     return Object.keys(timelineMap).map(time => ({ time, errors: timelineMap[time] }));
