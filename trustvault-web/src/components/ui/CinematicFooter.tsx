@@ -293,7 +293,7 @@ const linksData = {
     { label: 'Use Cases & ROI', path: '/use-cases' },
   ],
   resources: [
-    { label: 'Developer API', path: '/enterprise' },
+    { label: 'Integrations', path: '/enterprise' },
     { label: 'System Status', path: '/network' },
     { label: 'Security Architecture', path: '/security-architecture' },
     { label: 'Enterprise SDK', path: '/enterprise' },
@@ -308,7 +308,7 @@ const linksData = {
     { label: 'Privacy Policy', path: '#' },
     { label: 'Terms of Service', path: '#' },
     { label: 'Cookie Preferences', path: '#' },
-    { label: 'Compliance Audit', path: '#' },
+    { label: 'Compliance Audit', path: '/compliance' },
   ],
 };
 

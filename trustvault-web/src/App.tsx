@@ -14,6 +14,7 @@ import Company from './pages/Company';
 import SecurityArchitecture from './pages/SecurityArchitecture';
 import Network from './pages/Network';
 import UseCases from './pages/UseCases';
+import Compliance from './pages/Compliance';
 import DashboardHome from './pages/Dashboard';
 import Triage from './pages/Triage';
 import Security from './pages/Security';
@@ -81,6 +82,7 @@ function App() {
             <Route path="/security-architecture" element={<SecurityArchitecture />} />
             <Route path="/network" element={<Network />} />
             <Route path="/use-cases" element={<UseCases />} />
+            <Route path="/compliance" element={<Compliance />} />
 
             {/* Protected /app/* routes */}
             <Route

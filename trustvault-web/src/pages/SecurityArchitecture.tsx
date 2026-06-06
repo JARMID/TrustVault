@@ -38,11 +38,12 @@ export const SecurityArchitecture: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--vault-bg)] font-sans text-[var(--vault-text)] overflow-hidden selection:bg-[var(--vault-primary)] selection:text-black">
+    <div className="min-h-screen font-sans text-[var(--text-primary)] overflow-x-hidden selection:bg-[var(--brand-primary)] selection:text-black">
+      <div className="relative z-10 bg-[var(--bg-primary)] pb-20">
       <LandingHeader scrollToFeatures={() => navigate('/#features')} scrollToSecurity={() => navigate('/#security')} />
       
       {/* Background gradients */}
-      <div className="absolute top-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-[var(--vault-primary)] blur-[180px] opacity-[0.06] pointer-events-none" />
+      <div className="absolute top-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-[var(--brand-primary)] blur-[180px] opacity-[0.06] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[45%] h-[45%] rounded-full bg-emerald-500 blur-[150px] opacity-[0.04] pointer-events-none" />
 
       {/* Hero Section */}
@@ -63,7 +64,7 @@ export const SecurityArchitecture: React.FC = () => {
           className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight max-w-4xl mx-auto"
         >
           Absolute Cryptographic <br className="hidden sm:inline" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--vault-primary)] to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-primary)] to-blue-500">
             Certainty
           </span>
         </motion.h1>
@@ -72,7 +73,7 @@ export const SecurityArchitecture: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-[var(--vault-text-secondary)] leading-relaxed max-w-2xl mx-auto mb-16"
+          className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto mb-16"
         >
           TrustVault replaces implicit trust with explicit cryptographic verification. Explore the infrastructure designed to protect billions in digital assets.
         </motion.p>
@@ -104,7 +105,7 @@ export const SecurityArchitecture: React.FC = () => {
       <section className="py-24 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Core Principles</h2>
-          <p className="text-[var(--vault-text-secondary)] max-w-xl mx-auto">
+          <p className="text-[var(--text-secondary)] max-w-xl mx-auto">
             Our defensive architecture relies on mathematics, not perimeter firewalls.
           </p>
         </div>
@@ -123,7 +124,7 @@ export const SecurityArchitecture: React.FC = () => {
                   {pillar.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{pillar.title}</h3>
-                <p className="text-sm text-[var(--vault-text-secondary)] leading-relaxed">
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                   {pillar.description}
                 </p>
               </SpotlightCard>
@@ -139,7 +140,7 @@ export const SecurityArchitecture: React.FC = () => {
             <div>
               <div className="vault-section-tag mb-6">◆ Certified & Audited</div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6">Independently Verified</h2>
-              <p className="text-[var(--vault-text-secondary)] leading-relaxed mb-8">
+              <p className="text-[var(--text-secondary)] leading-relaxed mb-8">
                 TrustVault undergoes rigorous third-party penetration testing and compliance audits quarterly. Our infrastructure meets or exceeds the strictest global financial regulations.
               </p>
               
@@ -165,7 +166,7 @@ export const SecurityArchitecture: React.FC = () => {
                 <div key={cert} className="aspect-square rounded-[30px] border border-[rgba(255,255,255,0.08)] bg-white/5 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center hover:bg-white/10 transition-colors cursor-default">
                   <Shield size={40} className="text-[var(--brand-primary)] mb-4 opacity-80" />
                   <h4 className="font-bold text-lg mb-1">{cert}</h4>
-                  <span className="text-[10px] text-[var(--vault-text-secondary)] uppercase tracking-wider font-mono">Certified</span>
+                  <span className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wider font-mono">Certified</span>
                 </div>
               ))}
             </div>
@@ -173,6 +174,7 @@ export const SecurityArchitecture: React.FC = () => {
         </div>
       </section>
 
+      </div>
       <CinematicFooter />
     </div>
   );

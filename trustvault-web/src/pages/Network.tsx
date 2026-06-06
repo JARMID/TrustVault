@@ -24,11 +24,12 @@ export const Network: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--vault-bg)] font-sans text-[var(--vault-text)] overflow-hidden selection:bg-[var(--vault-primary)] selection:text-black">
+    <div className="min-h-screen font-sans text-[var(--text-primary)] overflow-x-hidden selection:bg-[var(--brand-primary)] selection:text-black">
+      <div className="relative z-10 bg-[var(--bg-primary)] pb-20">
       <LandingHeader scrollToFeatures={() => navigate('/#features')} scrollToSecurity={() => navigate('/#security')} />
       
       {/* Background gradients */}
-      <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[var(--vault-primary)] blur-[180px] opacity-[0.05] pointer-events-none" />
+      <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[var(--brand-primary)] blur-[180px] opacity-[0.05] pointer-events-none" />
 
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
@@ -50,7 +51,7 @@ export const Network: React.FC = () => {
               className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
             >
               Engineered for <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--vault-primary)] to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-primary)] to-emerald-400">
                 Low-Latency
               </span>
             </motion.h1>
@@ -59,7 +60,7 @@ export const Network: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-[var(--vault-text-secondary)] leading-relaxed mb-10"
+              className="text-lg text-[var(--text-secondary)] leading-relaxed mb-10"
             >
               The TrustVault API operates on dedicated dark-fiber routes directly peered with global banking hubs, executing complex state machine transitions in under 50ms.
             </motion.p>
@@ -94,7 +95,7 @@ export const Network: React.FC = () => {
                     <Activity className="text-emerald-400" size={18} />
                     <h3 className="font-bold">Live Regional Latency</h3>
                   </div>
-                  <div className="text-[10px] font-mono text-[var(--vault-text-secondary)] uppercase tracking-wider px-3 py-1 bg-white/5 rounded-full border border-white/10">
+                  <div className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-wider px-3 py-1 bg-white/5 rounded-full border border-white/10">
                     Updated Live
                   </div>
                 </div>
@@ -112,7 +113,7 @@ export const Network: React.FC = () => {
                         <span className="font-mono text-xs">{node.region}</span>
                       </div>
                       <div className="flex items-center gap-4">
-                        <span className="text-xs text-[var(--vault-text-secondary)] hidden sm:block">{node.status}</span>
+                        <span className="text-xs text-[var(--text-secondary)] hidden sm:block">{node.status}</span>
                         <span className={`font-mono text-sm font-bold ${node.ping < 50 ? 'text-emerald-400' : 'text-amber-400'}`}>
                           {node.ping}ms
                         </span>
@@ -132,24 +133,25 @@ export const Network: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-[rgba(255,255,255,0.05)]">
             <div className="text-center px-4">
               <h4 className="text-4xl font-bold mb-2 text-[var(--brand-primary)]">99.999%</h4>
-              <p className="text-xs text-[var(--vault-text-secondary)] uppercase tracking-widest font-bold">Uptime SLA</p>
+              <p className="text-xs text-[var(--text-secondary)] uppercase tracking-widest font-bold">Uptime SLA</p>
             </div>
             <div className="text-center px-4">
               <h4 className="text-4xl font-bold mb-2">{'<'}50ms</h4>
-              <p className="text-xs text-[var(--vault-text-secondary)] uppercase tracking-widest font-bold">API Latency</p>
+              <p className="text-xs text-[var(--text-secondary)] uppercase tracking-widest font-bold">API Latency</p>
             </div>
             <div className="text-center px-4">
               <h4 className="text-4xl font-bold mb-2">2M+</h4>
-              <p className="text-xs text-[var(--vault-text-secondary)] uppercase tracking-widest font-bold">Reqs / Second</p>
+              <p className="text-xs text-[var(--text-secondary)] uppercase tracking-widest font-bold">Reqs / Second</p>
             </div>
             <div className="text-center px-4">
               <h4 className="text-4xl font-bold mb-2 text-emerald-400">0</h4>
-              <p className="text-xs text-[var(--vault-text-secondary)] uppercase tracking-widest font-bold">Maintenance Windows</p>
+              <p className="text-xs text-[var(--text-secondary)] uppercase tracking-widest font-bold">Maintenance Windows</p>
             </div>
           </div>
         </div>
       </section>
 
+      </div>
       <CinematicFooter />
     </div>
   );

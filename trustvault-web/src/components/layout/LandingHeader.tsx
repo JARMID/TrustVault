@@ -3,7 +3,6 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
-import { BeynLogo } from '../ui/BeynLogo';
 
 export const LandingHeader: React.FC<{
   scrollToFeatures: () => void;
@@ -46,14 +45,11 @@ export const LandingHeader: React.FC<{
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 shadow-lg group-hover:shadow-[var(--brand-primary-glow)] transition-all duration-300 overflow-hidden">
-          <BeynLogo size={24} className="group-hover:scale-110 transition-transform duration-300" />
+          <img src="/vault_logo.png" alt="TrustVault Logo" className="w-8 h-8 object-contain" />
         </div>
         <div className="flex flex-col justify-center">
           <span className="text-lg font-display font-bold tracking-widest text-white leading-none">
             TRUST<span className="text-[var(--brand-primary)] font-medium">VAULT</span>
-          </span>
-          <span className="text-[0.6rem] text-[var(--vault-text-secondary)] tracking-widest uppercase mt-0.5 ml-0.5 flex items-center gap-1 font-mono">
-            by <span className="text-[var(--brand-primary)] font-bold">Beyn</span>
           </span>
         </div>
       </div>

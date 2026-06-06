@@ -242,11 +242,12 @@ export const Enterprise: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--vault-bg)] font-sans text-[var(--vault-text)] overflow-hidden selection:bg-[var(--vault-primary)] selection:text-black">
+    <div className="min-h-screen font-sans text-[var(--text-primary)] overflow-x-hidden selection:bg-[var(--brand-primary)] selection:text-black">
+      <div className="relative z-10 bg-[var(--bg-primary)] pb-20">
       <LandingHeader scrollToFeatures={() => navigate('/')} scrollToSecurity={() => navigate('/')} />
       
       {/* Background gradients */}
-      <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] rounded-full bg-[var(--vault-primary)] blur-[160px] opacity-[0.07] pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] rounded-full bg-[var(--brand-primary)] blur-[160px] opacity-[0.07] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-15%] w-[45%] h-[45%] rounded-full bg-blue-500 blur-[160px] opacity-[0.06] pointer-events-none" />
 
       {/* Hero Section */}
@@ -268,7 +269,7 @@ export const Enterprise: React.FC = () => {
             className="text-5xl md:text-7.5xl font-bold tracking-tight mb-8 leading-tight"
           >
             Scale with absolute <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--vault-primary)] to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-primary)] to-blue-500">
               Cryptographic Certainty
             </span>
           </motion.h1>
@@ -277,7 +278,7 @@ export const Enterprise: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-[var(--vault-text-secondary)] leading-relaxed"
+            className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed"
           >
             Build your corporate credit programs, escrow vaults, and ledger rules on BEYN's high-speed consensus core. Designed for high-frequency financial platforms.
           </motion.p>
@@ -296,7 +297,7 @@ export const Enterprise: React.FC = () => {
               <div className="w-3 h-3 rounded-full bg-rose-500" />
               <div className="w-3 h-3 rounded-full bg-amber-500" />
               <div className="w-3 h-3 rounded-full bg-emerald-500" />
-              <span className="text-xs text-[var(--vault-text-secondary)] font-mono ml-4 flex items-center gap-1.5">
+              <span className="text-xs text-[var(--text-secondary)] font-mono ml-4 flex items-center gap-1.5">
                 <Terminal size={12} /> API Sandbox
               </span>
             </div>
@@ -313,7 +314,7 @@ export const Enterprise: React.FC = () => {
                   className={`px-3 py-1 rounded-md text-xs font-mono transition-all ${
                     activeTab === tab 
                       ? 'bg-[var(--brand-primary)] text-[#070B14] font-bold' 
-                      : 'text-[var(--vault-text-secondary)] hover:text-white'
+                      : 'text-[var(--text-secondary)] hover:text-white'
                   }`}
                 >
                   {codeSnippets[tab].title.split(' ')[0]}
@@ -350,7 +351,7 @@ export const Enterprise: React.FC = () => {
             {/* Console Output */}
             <div className="md:col-span-5 p-6 bg-[#04070d] flex flex-col justify-between min-h-[200px]">
               <div>
-                <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--vault-text-secondary)] mb-4 font-mono">Console Output</div>
+                <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4 font-mono">Console Output</div>
                 <AnimatePresence mode="wait">
                   {running && (
                     <motion.div
@@ -360,7 +361,7 @@ export const Enterprise: React.FC = () => {
                       className="flex flex-col items-center justify-center py-12 gap-3"
                     >
                       <div className="w-6 h-6 border-2 border-[var(--brand-primary)]/20 border-t-[var(--brand-primary)] rounded-full animate-spin" />
-                      <div className="text-xs font-mono text-[var(--vault-text-secondary)]">Resolving signature...</div>
+                      <div className="text-xs font-mono text-[var(--text-secondary)]">Resolving signature...</div>
                     </motion.div>
                   )}
                   {runFinished && !running && (
@@ -373,7 +374,7 @@ export const Enterprise: React.FC = () => {
                     </motion.pre>
                   )}
                   {!running && !runFinished && (
-                    <div className="text-xs font-mono text-[var(--vault-text-secondary)] italic py-12 text-center">
+                    <div className="text-xs font-mono text-[var(--text-secondary)] italic py-12 text-center">
                       Click "Run Code" to execute provisioning script.
                     </div>
                   )}
@@ -394,7 +395,7 @@ export const Enterprise: React.FC = () => {
       <section className="py-20 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
         <div className="mb-16 text-center md:text-left">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Enterprise Infrastructure</h2>
-          <p className="text-[var(--vault-text-secondary)] max-w-xl">
+          <p className="text-[var(--text-secondary)] max-w-xl">
             Custom dedicated platforms deployed specifically to isolate your operations from multi-tenant risks.
           </p>
         </div>
@@ -413,7 +414,7 @@ export const Enterprise: React.FC = () => {
                   {cap.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{cap.title}</h3>
-                <p className="text-sm text-[var(--vault-text-secondary)] leading-relaxed">
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
                   {cap.description}
                 </p>
               </SpotlightCard>
@@ -431,7 +432,7 @@ export const Enterprise: React.FC = () => {
             <div className="text-center max-w-xl mx-auto mb-12">
               <div className="vault-section-tag mx-auto mb-4">◆ Consultation</div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Request custom demo</h2>
-              <p className="text-[var(--vault-text-secondary)] text-sm">
+              <p className="text-[var(--text-secondary)] text-sm">
                 Discuss custom HSM requirements, compliance needs, or ledger integrations with a senior engineer.
               </p>
             </div>
@@ -448,7 +449,7 @@ export const Enterprise: React.FC = () => {
                     <Check size={28} />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Request Submitted</h3>
-                  <p className="text-[var(--vault-text-secondary)] text-sm max-w-sm mx-auto mb-8">
+                  <p className="text-[var(--text-secondary)] text-sm max-w-sm mx-auto mb-8">
                     Thank you. A senior solutions engineer from BEYN will reach out to you within 2 business hours.
                   </p>
                   <button
@@ -471,7 +472,7 @@ export const Enterprise: React.FC = () => {
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--vault-text-secondary)] mb-2">Full Name</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-2">Full Name</label>
                       <input
                         type="text"
                         required
@@ -482,7 +483,7 @@ export const Enterprise: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--vault-text-secondary)] mb-2">Work Email</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-2">Work Email</label>
                       <input
                         type="email"
                         required
@@ -496,7 +497,7 @@ export const Enterprise: React.FC = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--vault-text-secondary)] mb-2">Company Name</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-2">Company Name</label>
                       <input
                         type="text"
                         required
@@ -507,7 +508,7 @@ export const Enterprise: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--vault-text-secondary)] mb-2">Company Size</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-2">Company Size</label>
                       <select
                         value={formData.size}
                         onChange={(e) => setFormData({ ...formData, size: e.target.value })}
@@ -522,7 +523,7 @@ export const Enterprise: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--vault-text-secondary)] mb-2">Requirements / Message</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-2">Requirements / Message</label>
                     <textarea
                       required
                       rows={4}
@@ -554,6 +555,7 @@ export const Enterprise: React.FC = () => {
         </div>
       </section>
 
+      </div>
       <CinematicFooter />
     </div>
   );

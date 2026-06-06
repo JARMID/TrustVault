@@ -10,14 +10,14 @@ import { SpotlightCard } from '../components/ui/SpotlightCard';
 const personalPlans = [
   {
     name: 'Standard',
-    icon: <Shield size={24} className="text-[var(--vault-text-secondary)]" />,
+    icon: <Shield size={24} className="text-[var(--text-secondary)]" />,
     price: 'Free',
     period: 'forever',
     description: 'Essential digital banking for everyday secure spending.',
     features: ['1 Virtual Card', 'Basic Spending Analytics', 'Standard Encryption', 'Email Support'],
     buttonText: 'Get Started',
     popular: false,
-    color: 'var(--vault-text-secondary)',
+    color: 'var(--text-secondary)',
   },
   {
     name: 'Plus',
@@ -57,14 +57,14 @@ const businessPlans = [
   },
   {
     name: 'Scale',
-    icon: <Building2 size={24} className="text-[var(--vault-primary)]" />,
+    icon: <Building2 size={24} className="text-[var(--brand-primary)]" />,
     price: '$199',
     period: 'per month',
     description: 'Advanced controls and workflows for mid-market companies.',
     features: ['Up to 500 Employee Cards', 'Multi-signature Approvals', 'Custom Spending Limits', 'Dedicated Account Manager', 'API Access'],
     buttonText: 'Upgrade to Scale',
     popular: true,
-    color: 'var(--vault-primary)',
+    color: 'var(--brand-primary)',
   },
   {
     name: 'Enterprise',
@@ -90,11 +90,12 @@ const PricingInner: React.FC = () => {
   const activePlans = billingCycle === 'personal' ? personalPlans : businessPlans;
 
   return (
-    <div className="min-h-screen bg-[var(--vault-bg)] font-sans text-[var(--vault-text)] overflow-hidden selection:bg-[var(--vault-primary)] selection:text-black">
+    <div className="min-h-screen font-sans text-[var(--text-primary)] overflow-x-hidden selection:bg-[var(--brand-primary)] selection:text-black">
+      <div className="relative z-10 bg-[var(--bg-primary)] pb-20">
       <LandingHeader scrollToFeatures={() => navigate('/')} scrollToSecurity={() => navigate('/')} />
       
       {/* Background Orbs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[var(--vault-primary)] blur-[150px] opacity-10 pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[var(--brand-primary)] blur-[150px] opacity-10 pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500 blur-[150px] opacity-10 pointer-events-none" />
 
       <main className="pt-32 pb-24 px-6 md:px-12 relative z-10 max-w-7xl mx-auto min-h-[80vh]">
@@ -107,16 +108,16 @@ const PricingInner: React.FC = () => {
         >
           <div className="vault-section-tag mx-auto mb-6">◆ Transparent Pricing</div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-            Plans that scale with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--vault-primary)] to-blue-500">your needs</span>
+            Plans that scale with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-primary)] to-blue-500">your needs</span>
           </h1>
-          <p className="text-[var(--vault-text-secondary)] text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto mb-10">
             From everyday personal security to enterprise-grade SOC infrastructure. No hidden fees.
           </p>
 
           {/* Toggle Switch */}
           <div className="inline-flex items-center p-1 bg-[rgba(255,255,255,0.05)] rounded-full border border-[rgba(255,255,255,0.05)] backdrop-blur-md relative">
             <div 
-              className="absolute inset-y-1 rounded-full bg-[var(--vault-primary)] transition-all duration-300 ease-in-out"
+              className="absolute inset-y-1 rounded-full bg-[var(--brand-primary)] transition-all duration-300 ease-in-out"
               style={{
                 left: billingCycle === 'personal' ? '4px' : '50%',
                 width: 'calc(50% - 4px)'
@@ -125,7 +126,7 @@ const PricingInner: React.FC = () => {
             <button
               onClick={() => setBillingCycle('personal')}
               className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-bold transition-colors ${
-                billingCycle === 'personal' ? 'text-black' : 'text-[var(--vault-text-secondary)] hover:text-[var(--vault-text)]'
+                billingCycle === 'personal' ? 'text-black' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
               Personal
@@ -133,7 +134,7 @@ const PricingInner: React.FC = () => {
             <button
               onClick={() => setBillingCycle('business')}
               className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-bold transition-colors ${
-                billingCycle === 'business' ? 'text-black' : 'text-[var(--vault-text-secondary)] hover:text-[var(--vault-text)]'
+                billingCycle === 'business' ? 'text-black' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
               Business
@@ -154,7 +155,7 @@ const PricingInner: React.FC = () => {
               >
                 <SpotlightCard className={`h-full flex flex-col p-8 rounded-3xl border ${
                   plan.popular 
-                    ? 'border-[var(--vault-primary)]/40 bg-[rgba(255,255,255,0.03)]' 
+                    ? 'border-[var(--brand-primary)]/40 bg-[rgba(255,255,255,0.03)]' 
                     : 'border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.01)]'
                 }`}>
                   {plan.popular && (
@@ -176,9 +177,9 @@ const PricingInner: React.FC = () => {
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2">
                       <span className="text-5xl font-bold">{plan.price}</span>
-                      <span className="text-[var(--vault-text-secondary)] text-sm">{plan.period}</span>
+                      <span className="text-[var(--text-secondary)] text-sm">{plan.period}</span>
                     </div>
-                    <p className="text-[var(--vault-text-secondary)] text-sm mt-4 min-h-[40px]">
+                    <p className="text-[var(--text-secondary)] text-sm mt-4 min-h-[40px]">
                       {plan.description}
                     </p>
                   </div>
@@ -189,7 +190,7 @@ const PricingInner: React.FC = () => {
                     {plan.features.map((feature, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-3 group">
                         <CheckCircle2 size={20} style={{ color: plan.color }} className="shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                        <span className="text-sm font-medium text-[var(--vault-text)] group-hover:text-[var(--vault-primary)] transition-colors">{feature}</span>
+                        <span className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -198,7 +199,7 @@ const PricingInner: React.FC = () => {
                     className="w-full py-4 rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98]"
                     style={{
                       backgroundColor: plan.popular ? plan.color : 'rgba(255,255,255,0.05)',
-                      color: plan.popular ? 'black' : 'var(--vault-text)',
+                      color: plan.popular ? 'black' : 'var(--text-primary)',
                       border: plan.popular ? 'none' : '1px solid rgba(255,255,255,0.1)'
                     }}
                   >
@@ -209,8 +210,84 @@ const PricingInner: React.FC = () => {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Feature Comparison Table */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-32 max-w-5xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold mb-12 text-center">Compare All Features</h2>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr>
+                  <th className="py-6 px-6 border-b border-[rgba(255,255,255,0.05)] w-1/3"></th>
+                  <th className="py-6 px-6 border-b border-[rgba(255,255,255,0.05)] text-center font-bold">Standard</th>
+                  <th className="py-6 px-6 border-b border-[rgba(255,255,255,0.05)] text-center font-bold text-[var(--brand-primary)]">Plus</th>
+                  <th className="py-6 px-6 border-b border-[rgba(255,255,255,0.05)] text-center font-bold text-amber-400">Metal</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                {/* Security */}
+                <tr>
+                  <td colSpan={4} className="py-6 px-6 text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] bg-[rgba(255,255,255,0.01)]">Security</td>
+                </tr>
+                <tr className="border-b border-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.01)] transition-colors">
+                  <td className="py-4 px-6 text-[var(--text-primary)]">Zero-Trust Architecture</td>
+                  <td className="py-4 px-6 text-center"><CheckCircle2 size={16} className="mx-auto text-[var(--text-secondary)]" /></td>
+                  <td className="py-4 px-6 text-center"><CheckCircle2 size={16} className="mx-auto text-[var(--brand-primary)]" /></td>
+                  <td className="py-4 px-6 text-center"><CheckCircle2 size={16} className="mx-auto text-amber-400" /></td>
+                </tr>
+                <tr className="border-b border-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.01)] transition-colors">
+                  <td className="py-4 px-6 text-[var(--text-primary)]">Hardware Key Support (YubiKey)</td>
+                  <td className="py-4 px-6 text-center text-[var(--text-secondary)]">—</td>
+                  <td className="py-4 px-6 text-center"><CheckCircle2 size={16} className="mx-auto text-[var(--brand-primary)]" /></td>
+                  <td className="py-4 px-6 text-center"><CheckCircle2 size={16} className="mx-auto text-amber-400" /></td>
+                </tr>
+                <tr className="border-b border-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.01)] transition-colors">
+                  <td className="py-4 px-6 text-[var(--text-primary)]">Burner Cards (Self-Destructing)</td>
+                  <td className="py-4 px-6 text-center text-[var(--text-secondary)]">—</td>
+                  <td className="py-4 px-6 text-center"><CheckCircle2 size={16} className="mx-auto text-[var(--brand-primary)]" /></td>
+                  <td className="py-4 px-6 text-center"><CheckCircle2 size={16} className="mx-auto text-amber-400" /></td>
+                </tr>
+                {/* Finance */}
+                <tr>
+                  <td colSpan={4} className="py-6 px-6 text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] bg-[rgba(255,255,255,0.01)]">Finance</td>
+                </tr>
+                <tr className="border-b border-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.01)] transition-colors">
+                  <td className="py-4 px-6 text-[var(--text-primary)]">Virtual Cards Included</td>
+                  <td className="py-4 px-6 text-center text-[var(--text-secondary)]">1</td>
+                  <td className="py-4 px-6 text-center text-[var(--brand-primary)] font-bold">5</td>
+                  <td className="py-4 px-6 text-center text-amber-400 font-bold">Unlimited</td>
+                </tr>
+                <tr className="border-b border-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.01)] transition-colors">
+                  <td className="py-4 px-6 text-[var(--text-primary)]">FX Rate Markup</td>
+                  <td className="py-4 px-6 text-center text-[var(--text-secondary)]">1.5%</td>
+                  <td className="py-4 px-6 text-center text-[var(--brand-primary)]">0.5%</td>
+                  <td className="py-4 px-6 text-center text-amber-400 font-bold">0% (Interbank)</td>
+                </tr>
+                {/* Support */}
+                <tr>
+                  <td colSpan={4} className="py-6 px-6 text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] bg-[rgba(255,255,255,0.01)]">Support</td>
+                </tr>
+                <tr className="border-b border-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.01)] transition-colors">
+                  <td className="py-4 px-6 text-[var(--text-primary)]">Priority Level</td>
+                  <td className="py-4 px-6 text-center text-[var(--text-secondary)]">Standard Email</td>
+                  <td className="py-4 px-6 text-center text-[var(--brand-primary)]">24/7 Live Chat</td>
+                  <td className="py-4 px-6 text-center text-amber-400 font-bold">Dedicated Concierge</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
+
       </main>
 
+      </div>
       <CinematicFooter />
     </div>
   );

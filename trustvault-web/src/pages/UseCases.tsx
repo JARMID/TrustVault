@@ -38,10 +38,11 @@ export const UseCases: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--vault-bg)] font-sans text-[var(--vault-text)] overflow-hidden selection:bg-[var(--vault-primary)] selection:text-black">
+    <div className="min-h-screen font-sans text-[var(--text-primary)] overflow-x-hidden selection:bg-[var(--brand-primary)] selection:text-black">
+      <div className="relative z-10 bg-[var(--bg-primary)] pb-20">
       <LandingHeader scrollToFeatures={() => navigate('/#features')} scrollToSecurity={() => navigate('/#security')} />
       
-      <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--vault-primary)] blur-[180px] opacity-[0.04] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--brand-primary)] blur-[180px] opacity-[0.04] pointer-events-none" />
 
       <section className="pt-40 pb-20 px-6 md:px-12 relative z-10 max-w-7xl mx-auto text-center">
         <motion.div
@@ -60,7 +61,7 @@ export const UseCases: React.FC = () => {
           className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
         >
           Powering the <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--vault-primary)] to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-primary)] to-blue-500">
             Next Economy
           </span>
         </motion.h1>
@@ -69,7 +70,7 @@ export const UseCases: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-[var(--vault-text-secondary)] leading-relaxed max-w-2xl mx-auto mb-16"
+          className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto mb-16"
         >
           From Fortune 500 logistics firms to explosive tech startups, industry leaders rely on TrustVault to handle their most complex capital flows.
         </motion.p>
@@ -87,12 +88,12 @@ export const UseCases: React.FC = () => {
                   {useCase.icon}
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{useCase.title}</h3>
-                <p className="text-sm text-[var(--vault-text-secondary)] leading-relaxed mb-8 flex-1">
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-8 flex-1">
                   {useCase.description}
                 </p>
                 <div className="pt-6 border-t border-[rgba(255,255,255,0.05)]">
                   <div className="text-3xl font-bold text-[var(--brand-primary)] mb-1">{useCase.metric}</div>
-                  <div className="text-xs uppercase tracking-wider text-[var(--vault-text-secondary)] font-bold">{useCase.metricLabel}</div>
+                  <div className="text-xs uppercase tracking-wider text-[var(--text-secondary)] font-bold">{useCase.metricLabel}</div>
                 </div>
               </SpotlightCard>
             </motion.div>
@@ -100,6 +101,7 @@ export const UseCases: React.FC = () => {
         </div>
       </section>
 
+      </div>
       <CinematicFooter />
     </div>
   );

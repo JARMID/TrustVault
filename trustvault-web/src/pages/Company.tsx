@@ -77,11 +77,12 @@ export const Company: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--vault-bg)] font-sans text-[var(--vault-text)] overflow-hidden selection:bg-[var(--vault-primary)] selection:text-black">
-      <LandingHeader scrollToFeatures={() => navigate('/')} scrollToSecurity={() => navigate('/')} />
-      
-      {/* Background gradients */}
-      <div className="absolute top-[-10%] right-[-10%] w-[45%] h-[45%] rounded-full bg-[var(--vault-primary)] blur-[160px] opacity-[0.07] pointer-events-none" />
+    <div className="min-h-screen font-sans text-[var(--text-primary)] overflow-x-hidden selection:bg-[var(--brand-primary)] selection:text-black">
+      <div className="relative z-10 bg-[var(--bg-primary)] pb-20">
+        <LandingHeader scrollToFeatures={() => navigate('/')} scrollToSecurity={() => navigate('/')} />
+        
+        {/* Background gradients */}
+      <div className="absolute top-[-10%] right-[-10%] w-[45%] h-[45%] rounded-full bg-[var(--brand-primary)] blur-[160px] opacity-[0.07] pointer-events-none" />
       <div className="absolute top-[30%] left-[-15%] w-[45%] h-[45%] rounded-full bg-blue-500 blur-[160px] opacity-[0.06] pointer-events-none" />
 
       {/* Hero Section */}
@@ -104,7 +105,7 @@ export const Company: React.FC = () => {
           >
             <span>Building</span>
             <BeynLogo size={72} className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--vault-primary)] via-emerald-400 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--brand-primary)] via-emerald-400 to-blue-500">
               Bridges
             </span>
           </motion.h1>
@@ -113,7 +114,7 @@ export const Company: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-[var(--vault-text-secondary)] leading-relaxed mb-10"
+            className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed mb-10"
           >
             Since 2004, BEYN has been accelerating the digital transformation of banks and financial institutions globally. We deliver innovative, robust, and scalable solutions that enrich client relationships and reduce operational costs.
           </motion.p>
@@ -124,7 +125,7 @@ export const Company: React.FC = () => {
       <section className="py-20 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
         <div className="mb-16 text-center md:text-left">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Core Principles</h2>
-          <p className="text-[var(--vault-text-secondary)] max-w-xl">
+          <p className="text-[var(--text-secondary)] max-w-xl">
             Our commitment to engineering integrity guides every line of code and hardware configuration we ship.
           </p>
         </div>
@@ -144,11 +145,11 @@ export const Company: React.FC = () => {
                     {pillar.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{pillar.title}</h3>
-                  <p className="text-sm text-[var(--vault-text-secondary)] leading-relaxed mb-6">
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6">
                     {pillar.description}
                   </p>
                 </div>
-                <div className="text-xs text-[var(--vault-primary)] font-semibold border-t border-[rgba(255,255,255,0.05)] pt-4 mt-auto">
+                <div className="text-xs text-[var(--brand-primary)] font-semibold border-t border-[rgba(255,255,255,0.05)] pt-4 mt-auto">
                   {pillar.detail}
                 </div>
               </SpotlightCard>
@@ -163,23 +164,23 @@ export const Company: React.FC = () => {
           <div className="lg:col-span-5">
             <div className="vault-section-tag mb-6">◆ BEYN Core Network</div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Global Fiber Infrastructure</h2>
-            <p className="text-[var(--vault-text-secondary)] mb-6 leading-relaxed">
+            <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
               TrustVault is not just software. It operates on direct peering links to key banking terminals across Europe and North America.
             </p>
             
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <CheckCircle size={18} className="text-[var(--vault-primary)] mt-1 shrink-0" />
+                <CheckCircle size={18} className="text-[var(--brand-primary)] mt-1 shrink-0" />
                 <div>
                   <h4 className="font-bold text-sm">Direct Core Routing</h4>
-                  <p className="text-xs text-[var(--vault-text-secondary)]">Bypassing standard internet relays to guarantee transaction settlement under 100ms.</p>
+                  <p className="text-xs text-[var(--text-secondary)]">Bypassing standard internet relays to guarantee transaction settlement under 100ms.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <CheckCircle size={18} className="text-[var(--vault-primary)] mt-1 shrink-0" />
+                <CheckCircle size={18} className="text-[var(--brand-primary)] mt-1 shrink-0" />
                 <div>
                   <h4 className="font-bold text-sm">Anycast Shielding</h4>
-                  <p className="text-xs text-[var(--vault-text-secondary)]">Distributed edge proxying automatically shielding database structures from DDOS vectors.</p>
+                  <p className="text-xs text-[var(--text-secondary)]">Distributed edge proxying automatically shielding database structures from DDOS vectors.</p>
                 </div>
               </div>
             </div>
@@ -196,9 +197,9 @@ export const Company: React.FC = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--vault-text-secondary)]">Node Cluster Status</span>
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--text-secondary)]">Node Cluster Status</span>
                 </div>
-                <span className="text-[10px] font-mono text-[var(--vault-text-secondary)]">7/7 Peered</span>
+                <span className="text-[10px] font-mono text-[var(--text-secondary)]">7/7 Peered</span>
               </div>
 
               {/* Map SVG */}
@@ -237,7 +238,7 @@ export const Company: React.FC = () => {
               <div className="grid grid-cols-5 gap-2 text-center z-10">
                 {['LON-1', 'PAR-2', 'NYC-1', 'FRA-4', 'SGP-2'].map((node, i) => (
                   <div key={node} className="p-2 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                    <div className="text-[9px] font-mono text-[var(--vault-text-secondary)] mb-1">{node}</div>
+                    <div className="text-[9px] font-mono text-[var(--text-secondary)] mb-1">{node}</div>
                     <div className={`text-[8px] font-bold ${nodesActive[i] ? 'text-emerald-400' : 'text-rose-500'}`}>
                       {nodesActive[i] ? 'ACTIVE' : 'STALL'}
                     </div>
@@ -253,7 +254,7 @@ export const Company: React.FC = () => {
       <section className="py-20 px-6 md:px-12 relative z-10 max-w-7xl mx-auto">
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Timeline</h2>
-          <p className="text-[var(--vault-text-secondary)] max-w-md mx-auto">
+          <p className="text-[var(--text-secondary)] max-w-md mx-auto">
             From design boards to verified production status. Select a phase to review details.
           </p>
         </div>
@@ -283,19 +284,19 @@ export const Company: React.FC = () => {
                       {isActive && (
                         <span className="absolute inset-0 rounded-full animate-ping bg-[var(--brand-primary-glow)] opacity-30" />
                       )}
-                      <div className={isActive ? 'text-[#070B14]' : 'text-[var(--vault-text-secondary)]'}>
+                      <div className={isActive ? 'text-[#070B14]' : 'text-[var(--text-secondary)]'}>
                         {ev.icon}
                       </div>
                     </motion.div>
                   </div>
 
-                  <span className={`font-mono text-xs font-bold mb-1 tracking-wider ${isActive ? 'text-[var(--vault-primary)]' : 'text-[var(--vault-text-secondary)]'}`}>
+                  <span className={`font-mono text-xs font-bold mb-1 tracking-wider ${isActive ? 'text-[var(--brand-primary)]' : 'text-[var(--text-secondary)]'}`}>
                     {ev.year}
                   </span>
                   <h4 className="font-bold text-lg mb-2 group-hover:text-white transition-colors">{ev.title}</h4>
                   
                   {/* Mobile details (always visible) or desktop animated details */}
-                  <p className="text-xs text-[var(--vault-text-secondary)] leading-relaxed hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {ev.description}
                   </p>
                 </div>
@@ -314,12 +315,12 @@ export const Company: React.FC = () => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[var(--vault-primary)]/15 text-[var(--vault-primary)]">
+                  <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[var(--brand-primary)]/15 text-[var(--brand-primary)]">
                     {timelineEvents[activeTimelineIdx].year}
                   </span>
                   <h3 className="text-2xl font-bold">{timelineEvents[activeTimelineIdx].title}</h3>
                 </div>
-                <p className="text-base text-[var(--vault-text-secondary)] leading-relaxed">
+                <p className="text-base text-[var(--text-secondary)] leading-relaxed">
                   {timelineEvents[activeTimelineIdx].description}
                 </p>
               </motion.div>
@@ -336,7 +337,7 @@ export const Company: React.FC = () => {
           
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Let's build trust together</h2>
-            <p className="text-[var(--vault-text-secondary)] max-w-lg mx-auto mb-10 text-sm md:text-base leading-relaxed">
+            <p className="text-[var(--text-secondary)] max-w-lg mx-auto mb-10 text-sm md:text-base leading-relaxed">
               Explore the developer APIs or review our compliance reports. Our engineering team is here to assist.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -358,6 +359,7 @@ export const Company: React.FC = () => {
         </div>
       </section>
 
+      </div>
       <CinematicFooter />
     </div>
   );
