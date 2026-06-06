@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Shield, Cpu, Layers, Globe, Users, Clock, Lock, Award, ArrowRight, Server, Compass, CheckCircle } from 'lucide-react';
 import { LandingHeader } from '../components/layout/LandingHeader';
-import { InteractiveFooter } from '../components/layout/InteractiveFooter';
+import { CinematicFooter } from '../components/ui/CinematicFooter';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
 const pillars = [
@@ -356,7 +356,7 @@ export const Company: React.FC = () => {
         </div>
       </section>
 
-      <InteractiveFooter />
+      <CinematicFooter />
     </div>
   );
 };

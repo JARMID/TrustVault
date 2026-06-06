@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Shield, Lock, Key, Server, Cpu, Layers, Fingerprint, Eye, ArrowRight, Activity, HardDrive } from 'lucide-react';
 import { LandingHeader } from '../components/layout/LandingHeader';
-import { InteractiveFooter } from '../components/layout/InteractiveFooter';
+import CinematicFooter from '../components/ui/CinematicFooter';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
 const securityPillars = [
@@ -183,7 +183,7 @@ export const SecurityArchitecture: React.FC = () => {
         </div>
       </section>
 
-      <InteractiveFooter />
+      <CinematicFooter />
     </div>
   );
 };

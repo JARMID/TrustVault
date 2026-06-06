@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Briefcase, Building2, Globe2, ShieldCheck, TrendingUp, Users } from 'lucide-react';
 import { LandingHeader } from '../components/layout/LandingHeader';
-import { InteractiveFooter } from '../components/layout/InteractiveFooter';
+import CinematicFooter from '../components/ui/CinematicFooter';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
 const cases = [
@@ -100,7 +100,7 @@ export const UseCases: React.FC = () => {
         </div>
       </section>
 
-      <InteractiveFooter />
+      <CinematicFooter />
     </div>
   );
 };

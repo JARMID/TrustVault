@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Shield, Cpu, Code, Terminal, Play, Check, Copy, Server, HardDrive, ShieldAlert, PhoneCall, ArrowRight, HeartPulse } from 'lucide-react';
 import { LandingHeader } from '../components/layout/LandingHeader';
-import { InteractiveFooter } from '../components/layout/InteractiveFooter';
+import { CinematicFooter } from '../components/ui/CinematicFooter';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
 const TypingEffect = ({ text, speed = 5 }: { text: string, speed?: number }) => {
@@ -554,7 +554,7 @@ export const Enterprise: React.FC = () => {
         </div>
       </section>
 
-      <InteractiveFooter />
+      <CinematicFooter />
     </div>
   );
 };

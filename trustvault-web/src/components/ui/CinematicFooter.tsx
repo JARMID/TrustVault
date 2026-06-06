@@ -285,19 +285,39 @@ const MarqueeSlide = () => (
 // ─────────────────────────────────────────────────────────────
 // MAIN COMPONENT
 // ─────────────────────────────────────────────────────────────
-const footerLinks = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms of Service', href: '#' },
-  { label: 'Documentation', href: '#' },
-  { label: 'API Reference', href: '#' },
-  { label: 'Support', href: '#' },
-];
+const linksData = {
+  product: [
+    { label: 'Smart Cards', path: '/#features' },
+    { label: 'Cryptographic Vaults', path: '/security-architecture' },
+    { label: 'BEYN Core Network', path: '/network' },
+    { label: 'Use Cases & ROI', path: '/use-cases' },
+  ],
+  resources: [
+    { label: 'Developer API', path: '/enterprise' },
+    { label: 'System Status', path: '/network' },
+    { label: 'Security Architecture', path: '/security-architecture' },
+    { label: 'Enterprise SDK', path: '/enterprise' },
+  ],
+  company: [
+    { label: 'About JARMID', path: '/company' },
+    { label: 'Our Manifesto', path: '/company' },
+    { label: 'Press Kit', path: '#' },
+    { label: 'Careers', path: '#' },
+  ],
+  legal: [
+    { label: 'Privacy Policy', path: '#' },
+    { label: 'Terms of Service', path: '#' },
+    { label: 'Cookie Preferences', path: '#' },
+    { label: 'Compliance Audit', path: '#' },
+  ],
+};
 
 export function CinematicFooter() {
   const wrapperRef   = useRef<HTMLDivElement>(null);
   const giantTextRef = useRef<HTMLDivElement>(null);
   const headingRef   = useRef<HTMLHeadingElement>(null);
   const linksRef     = useRef<HTMLDivElement>(null);
+  const columnsRef   = useRef<HTMLDivElement>(null);
   const bottomRef    = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -319,7 +339,7 @@ export function CinematicFooter() {
 
         // Staggered content reveal
         gsap.fromTo(
-          [headingRef.current, linksRef.current, bottomRef.current],
+          [headingRef.current, linksRef.current, columnsRef.current, bottomRef.current],
           { y: 60, opacity: 0 },
           {
             y: 0, opacity: 1, stagger: 0.12, ease: 'power3.out',
@@ -329,7 +349,7 @@ export function CinematicFooter() {
       } else {
         // Fallback for reduced motion: just ensure everything is visible
         gsap.set(giantTextRef.current, { y: '0vh', scale: 1, opacity: 1 });
-        gsap.set([headingRef.current, linksRef.current, bottomRef.current], { y: 0, opacity: 1 });
+        gsap.set([headingRef.current, linksRef.current, columnsRef.current, bottomRef.current], { y: 0, opacity: 1 });
       }
     }, wrapperRef);
 
@@ -484,21 +504,45 @@ export function CinematicFooter() {
                 </MagneticBtn>
               </div>
 
-              {/* Secondary link pills */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
-                {footerLinks.map((link) => (
-                  <MagneticBtn
-                    key={link.label}
-                    as="a"
-                    href={link.href}
-                    className="td-glass-pill"
-                    style={{
-                      padding: '8px 20px', borderRadius: '100px',
-                      fontSize: '0.75rem', fontWeight: 500,
-                    }}
-                  >
-                    {link.label}
-                  </MagneticBtn>
+              {/* 4-Column Links Grid */}
+              <div 
+                ref={columnsRef}
+                style={{ 
+                  display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', 
+                  gap: '2rem', width: '100%', maxWidth: '800px', marginTop: '3rem',
+                  textAlign: 'left'
+                }}
+              >
+                {Object.entries(linksData).map(([category, items]) => (
+                  <div key={category} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      {category}
+                    </h4>
+                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', margin: 0, padding: 0, listStyle: 'none' }}>
+                      {items.map((link) => (
+                        <li key={link.label}>
+                          <a 
+                            href={link.path}
+                            className="td-footer-link"
+                            style={{ 
+                              fontSize: '0.9rem', color: 'var(--text-secondary)', textDecoration: 'none',
+                              transition: 'color 0.2s ease', display: 'inline-block'
+                            }}
+                            onMouseEnter={(e) => {
+                              (e.currentTarget as HTMLElement).style.color = 'var(--brand-primary)';
+                              (e.currentTarget as HTMLElement).style.transform = 'translateX(2px)';
+                            }}
+                            onMouseLeave={(e) => {
+                              (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)';
+                              (e.currentTarget as HTMLElement).style.transform = 'translateX(0)';
+                            }}
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
             </div>

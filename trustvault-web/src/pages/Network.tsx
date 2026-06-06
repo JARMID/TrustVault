@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Activity, Globe2, Zap, Server, Code2, ArrowRight } from 'lucide-react';
 import { LandingHeader } from '../components/layout/LandingHeader';
-import { InteractiveFooter } from '../components/layout/InteractiveFooter';
+import CinematicFooter from '../components/ui/CinematicFooter';
 
 export const Network: React.FC = () => {
   const navigate = useNavigate();
@@ -143,7 +143,7 @@ export const Network: React.FC = () => {
         </div>
       </section>
 
-      <InteractiveFooter />
+      <CinematicFooter />
     </div>
   );
 };
