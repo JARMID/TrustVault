@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle2, Shield, Zap, Crown, Building2, Globe2, Briefcase } from 'lucide-react';
 import { LandingHeader } from '../components/layout/LandingHeader';
-import { CinematicFooter } from '../components/ui/CinematicFooter';
+import { InteractiveFooter } from '../components/layout/InteractiveFooter';
 
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
@@ -211,7 +211,7 @@ const PricingInner: React.FC = () => {
         </div>
       </main>
 
-      <CinematicFooter />
+      <InteractiveFooter />
     </div>
   );
 };
