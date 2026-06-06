@@ -5,6 +5,7 @@ import { Shield, Cpu, Layers, Globe, Users, Clock, Lock, Award, ArrowRight, Serv
 import { LandingHeader } from '../components/layout/LandingHeader';
 import { CinematicFooter } from '../components/ui/CinematicFooter';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
+import { BeynLogo } from '../components/ui/BeynLogo';
 
 const pillars = [
   {
@@ -35,27 +36,27 @@ const pillars = [
 
 const timelineEvents = [
   {
-    year: 'Q1 2024',
-    title: 'The Blueprint',
-    description: 'JARMID drafts the architecture for a completely isolated virtual card provider utilizing secure enclaves.',
+    year: '2004',
+    title: 'Foundation',
+    description: 'Beyn is founded with a mission to transform the performance of banks and financial institutions through digital innovation.',
     icon: <Compass size={16} />
   },
   {
-    year: 'Q3 2024',
-    title: 'BEYN Network Peering',
-    description: 'Direct fiber link established with the BEYN banking network, bringing card generation times under 100ms.',
-    icon: <Server size={16} />
+    year: '2010s',
+    title: 'International Expansion',
+    description: 'BEYN expands its presence across Europe, North Africa, and West Africa, delivering robust digital solutions.',
+    icon: <Globe size={16} />
   },
   {
-    year: 'Q1 2025',
-    title: 'PCI-DSS Level 1 & SOC 2',
-    description: 'Successful external audits, achieving full bank-grade certification for cardholder data environments.',
+    year: '2020',
+    title: 'Top 10 Banking Solution',
+    description: 'Selected among the 10 best digital banking solution providers by Banking CIO Outlook.',
     icon: <Award size={16} />
   },
   {
-    year: 'Q3 2025',
-    title: 'TrustVault Launch',
-    description: 'Public release of the digital wallet, smart cards, and advanced developer API integration.',
+    year: 'Present',
+    title: 'Building Bridges',
+    description: 'Continuing to pioneer secure, fast, and scalable financial infrastructure for the digital era.',
     icon: <Shield size={16} />
   }
 ];
@@ -92,18 +93,19 @@ export const Company: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="vault-section-tag mx-auto mb-6"
           >
-            ◆ About Us
+            ◆ About Beyn
           </motion.div>
           
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
+            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
           >
-            Engineered by <br className="hidden sm:inline" />
+            <span>Building</span>
+            <BeynLogo size={72} className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--vault-primary)] via-emerald-400 to-blue-500">
-              JARMID
+              Bridges
             </span>
           </motion.h1>
 
@@ -113,7 +115,7 @@ export const Company: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-[var(--vault-text-secondary)] leading-relaxed mb-10"
           >
-            We are a collective of security engineers, financial architects, and visual designers dedicated to building the most secure, tactile, and beautifully responsive digital asset environment in existence.
+            Since 2004, BEYN has been accelerating the digital transformation of banks and financial institutions globally. We deliver innovative, robust, and scalable solutions that enrich client relationships and reduce operational costs.
           </motion.p>
         </div>
       </section>

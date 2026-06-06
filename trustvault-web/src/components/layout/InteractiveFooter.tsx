@@ -187,7 +187,7 @@ export const InteractiveFooter: React.FC = () => {
       { label: 'Enterprise SDK', path: '/enterprise' },
     ],
     company: [
-      { label: 'About JARMID', path: '/company' },
+      { label: 'About Beyn', path: '/company' },
       { label: 'Our Manifesto', path: '/company' },
       { label: 'Press Kit', path: '#' },
       { label: 'Careers', path: '#' },
@@ -360,7 +360,7 @@ export const InteractiveFooter: React.FC = () => {
         {/* Bottom Section: Copyright + Uptime Badge + Engine info */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-xs text-[var(--vault-text-secondary)] font-medium">
-            © {currentYear} TrustVault. Engineered by JARMID. All rights reserved.
+            © {currentYear} TrustVault. Engineered by Beyn. All rights reserved.
           </div>
 
           <div className="flex items-center gap-6">

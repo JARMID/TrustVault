@@ -299,7 +299,7 @@ const linksData = {
     { label: 'Enterprise SDK', path: '/enterprise' },
   ],
   company: [
-    { label: 'About JARMID', path: '/company' },
+    { label: 'About Beyn', path: '/company' },
     { label: 'Our Manifesto', path: '/company' },
     { label: 'Press Kit', path: '#' },
     { label: 'Careers', path: '#' },
@@ -580,7 +580,7 @@ export function CinematicFooter() {
                     textTransform: 'uppercase',
                   }}
                 >
-                  © {new Date().getFullYear()} TrustVault · Engineered by JARMID
+                  © {new Date().getFullYear()} TrustVault · Engineered by Beyn
                 </span>
               </div>
 
@@ -606,7 +606,7 @@ export function CinematicFooter() {
                   by
                 </span>
                 <span style={{ fontWeight: 900, fontSize: '0.78rem', color: 'var(--brand-primary)', letterSpacing: '0.05em' }}>
-                  JARMID
+                  Beyn
                 </span>
               </div>
 

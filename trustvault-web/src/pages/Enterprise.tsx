@@ -26,7 +26,7 @@ const TypingEffect = ({ text, speed = 5 }: { text: string, speed?: number }) => 
 const codeSnippets = {
   typescript: {
     title: 'TypeScript SDK',
-    code: `import { TrustVault } from '@jarmid/trustvault-sdk';
+    code: `import { TrustVault } from '@BEYN/trustvault-sdk';
 
 const vault = new TrustVault({
   apiKey: process.env.TRUSTVAULT_API_KEY,
@@ -35,7 +35,7 @@ const vault = new TrustVault({
 
 // Provision a virtual Visa card with auto-replenish
 const card = await vault.cards.create({
-  holderName: 'JARMID ENTERPRISE',
+  holderName: 'BEYN ENTERPRISE',
   type: 'visa',
   currency: 'USD',
   limit: {
@@ -56,7 +56,7 @@ const card = await vault.cards.create({
 console.log(\`Card active: \${card.id} [\${card.maskedNumber}]\`);`,
     output: `{
   "id": "card_ent_82fa7b2a",
-  "holderName": "JARMID ENTERPRISE",
+  "holderName": "BEYN ENTERPRISE",
   "type": "visa",
   "maskedNumber": "4111 22XX XXXX 9081",
   "status": "active",
@@ -88,7 +88,7 @@ client = TrustVault(
 
 # Provision virtual card
 card = client.cards.create(
-    holder_name="JARMID ENTERPRISE",
+    holder_name="BEYN ENTERPRISE",
     card_type="visa",
     currency="USD",
     limit={
@@ -109,7 +109,7 @@ card = client.cards.create(
 print(f"Card active: {card.id} [{card.masked_number}]")`,
     output: `{
   "id": "card_ent_82fa7b2a",
-  "holderName": "JARMID ENTERPRISE",
+  "holderName": "BEYN ENTERPRISE",
   "type": "visa",
   "maskedNumber": "4111 22XX XXXX 9081",
   "status": "active",
@@ -132,11 +132,11 @@ print(f"Card active: {card.id} [{card.masked_number}]")`,
   },
   curl: {
     title: 'cURL API',
-    code: `curl -X POST https://api.trustvault.jarmid.com/v1/cards \\
+    code: `curl -X POST https://api.trustvault.BEYN.com/v1/cards \\
   -H "Authorization: Bearer tv_prod_key_771b9" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "holderName": "JARMID ENTERPRISE",
+    "holderName": "BEYN ENTERPRISE",
     "type": "visa",
     "currency": "USD",
     "limit": {
@@ -155,7 +155,7 @@ print(f"Card active: {card.id} [{card.masked_number}]")`,
   }'`,
     output: `{
   "id": "card_ent_82fa7b2a",
-  "holderName": "JARMID ENTERPRISE",
+  "holderName": "BEYN ENTERPRISE",
   "type": "visa",
   "maskedNumber": "4111 22XX XXXX 9081",
   "status": "active",
@@ -279,7 +279,7 @@ export const Enterprise: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-[var(--vault-text-secondary)] leading-relaxed"
           >
-            Build your corporate credit programs, escrow vaults, and ledger rules on JARMID's high-speed consensus core. Designed for high-frequency financial platforms.
+            Build your corporate credit programs, escrow vaults, and ledger rules on BEYN's high-speed consensus core. Designed for high-frequency financial platforms.
           </motion.p>
         </div>
 
@@ -449,7 +449,7 @@ export const Enterprise: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Request Submitted</h3>
                   <p className="text-[var(--vault-text-secondary)] text-sm max-w-sm mx-auto mb-8">
-                    Thank you. A senior solutions engineer from JARMID will reach out to you within 2 business hours.
+                    Thank you. A senior solutions engineer from BEYN will reach out to you within 2 business hours.
                   </p>
                   <button
                     onClick={() => {
