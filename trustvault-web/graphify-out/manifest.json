@@ -1,0 +1,607 @@
+{
+  "D:\\TrustDesk\\trustvault-web\\components.json": {
+    "mtime": 1780591505.8338516,
+    "ast_hash": "d2922b530154b9895e967519bcd21142",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\database_schema.sql": {
+    "mtime": 1779033176.0124874,
+    "ast_hash": "9f17550ab3e28a565b10e5204b184e86",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\eslint.config.js": {
+    "mtime": 1774914673.2435803,
+    "ast_hash": "b8893da386a89dfd3672dad848f4ec7e",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\package.json": {
+    "mtime": 1780614505.4242342,
+    "ast_hash": "e5eb67b1806211c629350d695d54fc0b",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\supabase_schema.sql": {
+    "mtime": 1779306151.1845524,
+    "ast_hash": "43046ca8fb8a4a89cd43647662eb3003",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\test.mjs": {
+    "mtime": 1777481970.5625226,
+    "ast_hash": "3ed64eff19f3b78265fce469847caa5e",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\tsconfig.app.json": {
+    "mtime": 1779303421.037175,
+    "ast_hash": "8c6d49a1d1040204de0fd5991e3296f5",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\tsconfig.json": {
+    "mtime": 1774914673.3040924,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\tsconfig.node.json": {
+    "mtime": 1774914673.3121731,
+    "ast_hash": "eec85c9d7c6b599801557f1afd86672c",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\vite.config.ts": {
+    "mtime": 1779204653.424172,
+    "ast_hash": "4f75776435f811ced7d767f12b8cfc15",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\electron\\main.js": {
+    "mtime": 1774930233.9695635,
+    "ast_hash": "6052c3b463b039a3baa78023a88faab3",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\electron\\preload.js": {
+    "mtime": 1774930235.9801924,
+    "ast_hash": "06823d863ca585b58578c796f7b7c1f5",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\firebase-messaging-sw.js": {
+    "mtime": 1780621173.6701863,
+    "ast_hash": "dd0431bab420b6cf9f59322ddfc93fb8",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\App.tsx": {
+    "mtime": 1780374133.0039048,
+    "ast_hash": "d0c6999e807a90d90c632415ae44f817",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\main.tsx": {
+    "mtime": 1779226844.980167,
+    "ast_hash": "9d8e0ced97b8808fbcedf3205ecb3e37",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\3d\\SecurityGlobe.tsx": {
+    "mtime": 1780379162.7690573,
+    "ast_hash": "a051972a62f3fef0f756b48eaa7ec982",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\layout\\LandingHeader.tsx": {
+    "mtime": 1780629381.9320886,
+    "ast_hash": "40985a42e4c859aed79c22194cd20a19",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\layout\\Layout.tsx": {
+    "mtime": 1780614822.4771404,
+    "ast_hash": "777baa99b174162e006117f687c77716",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\layout\\Sidebar.tsx": {
+    "mtime": 1780565298.7413971,
+    "ast_hash": "da633c3aa207457bcc012de6b57fe642",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\layout\\TopNav.tsx": {
+    "mtime": 1780603796.5953846,
+    "ast_hash": "02d014866cff46a7c322d8688e97a6f2",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\AISupportWidget.tsx": {
+    "mtime": 1780611908.8979678,
+    "ast_hash": "4687ec83dc75165b751e61eec1aff77e",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\Avatar.tsx": {
+    "mtime": 1779226844.8675945,
+    "ast_hash": "42aedae2b5808bf6ff38d1e1a4a1eb97",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\Badge.tsx": {
+    "mtime": 1779227729.735186,
+    "ast_hash": "273cce5176463fa7bcfe711194854cd4",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\card.tsx": {
+    "mtime": 1779227729.7378924,
+    "ast_hash": "0c7e0579445f9560c881572cd37896a7",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\CinematicFooter.tsx": {
+    "mtime": 1780565323.4819658,
+    "ast_hash": "ff882eb817d0dec854abec054dbde288",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\CommandPalette.tsx": {
+    "mtime": 1780379205.2718039,
+    "ast_hash": "26fa66f66c0e69baf498aff0009a412a",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\container-scroll-animation.tsx": {
+    "mtime": 1780379314.7811131,
+    "ast_hash": "7b6641d56c54834fc61778c018c358e5",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\ContainerScroll.tsx": {
+    "mtime": 1779226844.8737104,
+    "ast_hash": "3c1f848748354a626be98798bc5f063d",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\EMVChip3D.tsx": {
+    "mtime": 1780591633.8744898,
+    "ast_hash": "3d3ab5c21b82b5177f1d990c1994c897",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\FintechHeroWidget.tsx": {
+    "mtime": 1779231461.5725956,
+    "ast_hash": "fd2970b57b4eba667242b43e2ffe581f",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\InfiniteMarquee.tsx": {
+    "mtime": 1779226844.874712,
+    "ast_hash": "95eb70d65d0114ab30262d6b994953f8",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\MagneticButton.tsx": {
+    "mtime": 1780565321.4605248,
+    "ast_hash": "0fc0a08da150cebaad735753b56e1915",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\motion-footer.tsx": {
+    "mtime": 1779226844.875713,
+    "ast_hash": "1fab3f6006275262f85b6ef54f78efca",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\NotificationPanel.tsx": {
+    "mtime": 1779226844.8767126,
+    "ast_hash": "01a305e1f3a45ecf40bb3ad48448acb4",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\ScrollAnimations.tsx": {
+    "mtime": 1780591680.87308,
+    "ast_hash": "19393fee9d868f66c65e6a844c5dbbc3",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\Skeleton.tsx": {
+    "mtime": 1780550886.2807233,
+    "ast_hash": "b5825802e92cd0fbf6be5d6fb501d9d9",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\SmoothScroll.tsx": {
+    "mtime": 1779226844.8787127,
+    "ast_hash": "d0a60882c6b9b9fbad95deb648235c10",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\SplineSceneBasic.tsx": {
+    "mtime": 1780629337.0425615,
+    "ast_hash": "3afaa881b850c8bf824e6993bfa8c174",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\splite.tsx": {
+    "mtime": 1779226844.880712,
+    "ast_hash": "88a26d7b57be763ddbfa1e9ec6b34334",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\Spotlight.tsx": {
+    "mtime": 1779226844.880712,
+    "ast_hash": "c41f5d74e13e8ce71c646aa75f0c9da2",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\SpotlightCard.tsx": {
+    "mtime": 1779226844.8817115,
+    "ast_hash": "e4ef430034e3cab82fd75823554e3e33",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\TextReveal.tsx": {
+    "mtime": 1779227729.7493856,
+    "ast_hash": "683684f7f1ccd60b4c01aed3555c910f",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\TiltCard.tsx": {
+    "mtime": 1780565332.7087286,
+    "ast_hash": "87718770fb206b566abacab8a1719662",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\Toast.tsx": {
+    "mtime": 1779227729.7524462,
+    "ast_hash": "765c10ca87d73edb0899dda863076ada",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\components\\ui\\Tooltip.tsx": {
+    "mtime": 1779226844.883227,
+    "ast_hash": "de3a72581fb142b40d08200d30b095cc",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useAuditLogs.ts": {
+    "mtime": 1780550072.618107,
+    "ast_hash": "8c1f9f404caf2bb8547f5087fab2e25b",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useBehavioralBiometrics.ts": {
+    "mtime": 1780614766.4834645,
+    "ast_hash": "6af7f55c57693674074dbd3c72a1879e",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useCommunitySignals.ts": {
+    "mtime": 1779816507.2346542,
+    "ast_hash": "875687286b9bbd7a954105a3b05b3e4d",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useContacts.ts": {
+    "mtime": 1779810322.6848407,
+    "ast_hash": "e12b3e0fa8ce52f0ee866ea1c9ebd1a0",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useDeviceFingerprint.ts": {
+    "mtime": 1780614800.7914436,
+    "ast_hash": "7c01b159bd68927e0df2568be7ff46fb",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useFCM.ts": {
+    "mtime": 1780621188.5700016,
+    "ast_hash": "19e8766b9df2f96811c62ab97abd0d01",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useNotifications.ts": {
+    "mtime": 1779810334.1393301,
+    "ast_hash": "5996d0f72ee6f9db3ccae8dac4499f8f",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\usePrivacyShield.ts": {
+    "mtime": 1780614799.1726396,
+    "ast_hash": "dd29e595dd91f8184a6158e7624db2a8",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useTriage.ts": {
+    "mtime": 1780565334.7415402,
+    "ast_hash": "00ae4ac23fd8be752bee8d0215c620b2",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useVault.ts": {
+    "mtime": 1780565351.6184714,
+    "ast_hash": "e508652220b0ad94d793924668307f62",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\hooks\\useWallet.ts": {
+    "mtime": 1779810344.6382904,
+    "ast_hash": "46613f786f94b4785990faa81f0b616c",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\lib\\api.ts": {
+    "mtime": 1779226844.9348698,
+    "ast_hash": "cad1cbfa19bafaaaba2a9d8048f751d6",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\lib\\firebase.ts": {
+    "mtime": 1780621163.8405173,
+    "ast_hash": "298bd0723ee72ef85d2ff07771f1f911",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\lib\\queryClient.ts": {
+    "mtime": 1779226844.9368684,
+    "ast_hash": "aa6213b481c174a7b0e8fda419d91a5e",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\lib\\supabase.ts": {
+    "mtime": 1779306143.3277464,
+    "ast_hash": "ebac5b7ebb628aee29a5f19f0d5b13ad",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\lib\\utils.ts": {
+    "mtime": 1780591536.7061274,
+    "ast_hash": "5beeb546ae893d0774e790a62264e30d",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Analytics.tsx": {
+    "mtime": 1780550168.2993495,
+    "ast_hash": "f07d100b64bae2b6c51db7a6a4ad630b",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Budget.tsx": {
+    "mtime": 1780550255.7435465,
+    "ast_hash": "4de52def8b3f3e861eac86c66713f308",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Bugs.tsx": {
+    "mtime": 1780550344.2582693,
+    "ast_hash": "b4b9abadc7a08666bcc304af60275806",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Cards.tsx": {
+    "mtime": 1780612556.605618,
+    "ast_hash": "4e3e561ffa8eba74e376c95709a390d7",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Community.tsx": {
+    "mtime": 1780616716.1053693,
+    "ast_hash": "30bdd2cdfa5d244a6a56af3830110c23",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Dashboard.tsx": {
+    "mtime": 1780617387.270401,
+    "ast_hash": "0e56ad3c3fe6ca2474c87b831bb8a118",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\DeviceTrust.tsx": {
+    "mtime": 1780614862.6287796,
+    "ast_hash": "7982cadff8782526c94de200ffcd1d2e",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Docs.tsx": {
+    "mtime": 1779226844.9527774,
+    "ast_hash": "c3fcb83878035cbe00f392fca7753030",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\DocumentVault.tsx": {
+    "mtime": 1780617886.8209238,
+    "ast_hash": "a504d739a893e7d08c48101809c06902",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Ekyc.tsx": {
+    "mtime": 1780618808.7213748,
+    "ast_hash": "0cbab4eecfca79ca5e3dd57ec78e1f69",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Labels.tsx": {
+    "mtime": 1779226844.954283,
+    "ast_hash": "72792cd909c7f4ddd7efd053a0b6f4be",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Landing.tsx": {
+    "mtime": 1780629552.4864726,
+    "ast_hash": "ec3879f6420af19e0290c23f7952cf26",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Login.tsx": {
+    "mtime": 1780612364.6215444,
+    "ast_hash": "a221c6785547a6722e0dcfe224455fe9",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\NotFound.tsx": {
+    "mtime": 1780617296.6299872,
+    "ast_hash": "d50f16657fbb4aa3c9aac833cd5a9e65",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\PredictiveAI.tsx": {
+    "mtime": 1780612421.9580336,
+    "ast_hash": "113ad9a00e4fac9f822073b504f3eec3",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Pricing.tsx": {
+    "mtime": 1780379134.8146694,
+    "ast_hash": "5246ddb293ba8aa7c1dac7ed2fda68fe",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Profile.tsx": {
+    "mtime": 1780611653.629881,
+    "ast_hash": "60b5c43e053b255f7c316eb8de109223",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Reports.tsx": {
+    "mtime": 1779226844.962562,
+    "ast_hash": "6fe88855a6f17b9ee3da333160b17cf2",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Security.tsx": {
+    "mtime": 1780617839.3225374,
+    "ast_hash": "76d73f4f7f3cc4bb6ca7baae07b38ebb",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\SendMoney.tsx": {
+    "mtime": 1780612444.3932352,
+    "ast_hash": "c3db18afbe6fc1c566deaa4680f7db57",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Settings.tsx": {
+    "mtime": 1780616678.3576994,
+    "ast_hash": "992584fbd2eb9f4cfc4a2de44f1e2968",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Transactions.tsx": {
+    "mtime": 1779227729.7971606,
+    "ast_hash": "615936281a555908949d1f733921f0a2",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Triage.tsx": {
+    "mtime": 1780612219.3934257,
+    "ast_hash": "044c2edf0ab809a0f9fd07672745cc1a",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\UserSecurity.tsx": {
+    "mtime": 1779816809.2418964,
+    "ast_hash": "82ef5d976a1d729ac660ac2497d97b87",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\Wallet.tsx": {
+    "mtime": 1780591645.550753,
+    "ast_hash": "cf299fb04b9608173858f6d96a7afc96",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\dashboard\\Bugs.tsx": {
+    "mtime": 1780550317.7417865,
+    "ast_hash": "32fedb08a9e661fba3ccf0dd36aafad2",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\dashboard\\EKYC.tsx": {
+    "mtime": 1780565353.6537764,
+    "ast_hash": "399c49d4ff5d73279f6b058ea98ff282",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\dashboard\\GeoLocal.tsx": {
+    "mtime": 1780550275.0513012,
+    "ast_hash": "fc4f33d89ad219cffd67c2793fd54b89",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\dashboard\\SOCDashboard.tsx": {
+    "mtime": 1780550109.0091066,
+    "ast_hash": "96d47b7c66ea4ebac82870b1106e2425",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\dashboard\\Tags.tsx": {
+    "mtime": 1780617932.46305,
+    "ast_hash": "fb40a3a272b8ff096f9614106054bd23",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\pages\\dashboard\\ThreatMap.tsx": {
+    "mtime": 1779226844.9446704,
+    "ast_hash": "6af542cb9c4d35d75b7f770eb61af995",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\stores\\authStore.ts": {
+    "mtime": 1780611613.4453373,
+    "ast_hash": "4ffcabad4bc8aa38556ea8fcb4525175",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\stores\\uiStore.ts": {
+    "mtime": 1780602820.2492552,
+    "ast_hash": "8094c9faecae451ffb4c4a94a6659dae",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\stores\\walletStore.ts": {
+    "mtime": 1779226844.97516,
+    "ast_hash": "1e6e95d59f77bb8760ffc443289b154a",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\types\\database.ts": {
+    "mtime": 1779226844.9761658,
+    "ast_hash": "2c2afabcbb7739774991e82faf8c5173",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\index.html": {
+    "mtime": 1779205980.981226,
+    "ast_hash": "5b29b276c079d2b22507c09cf665de51",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\lint-results.txt": {
+    "mtime": 1777796125.9009066,
+    "ast_hash": "361a99997a0066e6b7ffeafd9d688aee",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\lint_output.txt": {
+    "mtime": 1780379018.4997747,
+    "ast_hash": "0e8d6dda94fa3e98e6ab661ffc711cad",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\lint_utf8.txt": {
+    "mtime": 1780379027.6238668,
+    "ast_hash": "b994c1b1efd46af7f70402d9a81f2e7e",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\README.md": {
+    "mtime": 1774914673.3297198,
+    "ast_hash": "f6e3faf55d738cf2affe1b44195f27cf",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\assets\\Guide_bibliographique_Normes_APA_7th_Zotero_240221_163947.pdf": {
+    "mtime": 1779283160.6873887,
+    "ast_hash": "885cabcaf55b27394fe9a8510094de35",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\ai_threat_triage.png": {
+    "mtime": 1780628777.0128105,
+    "ast_hash": "3731a07bf53a610fc045d6b83b52797b",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\cyber_virtual_cards.png": {
+    "mtime": 1780628798.8386617,
+    "ast_hash": "4005e9a40cc7a5a9e2da858d2762ad96",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\ekyc_biometric_preview.png": {
+    "mtime": 1780629607.561229,
+    "ast_hash": "c4e7a7f82b16e2aa677e4a7439ab753d",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\favicon.svg": {
+    "mtime": 1774914673.405576,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\icons.svg": {
+    "mtime": 1774914673.4317389,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\logo3d.png": {
+    "mtime": 1777310170.6226048,
+    "ast_hash": "b225cb28bf4a2e4d24304e9ed3b0066a",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\trustdesk-logo.png": {
+    "mtime": 1777313422.3738399,
+    "ast_hash": "2578d553b6633e14d3f16a94d9ed45c3",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\trustdesk_3d_logo.png": {
+    "mtime": 1777313422.3738399,
+    "ast_hash": "2578d553b6633e14d3f16a94d9ed45c3",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\trustvault_hero_3d.png": {
+    "mtime": 1780629633.5539176,
+    "ast_hash": "7317b9629e4ca3b4485e7f0ff3c891c8",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\trustvault_logo.png": {
+    "mtime": 1778125217.771382,
+    "ast_hash": "9434b8651fcdd98a034cb8e56a2c4c8a",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\vault_logo.png": {
+    "mtime": 1778123831.398904,
+    "ast_hash": "33f0dc0571e40861d20037dd9b160c7d",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\assets\\ekyc_biometric_scan.png": {
+    "mtime": 1779311327.4071438,
+    "ast_hash": "e85d5421f5ce41df70f430382f0485a0",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\assets\\ekyc_id_card.png": {
+    "mtime": 1779311086.4240477,
+    "ast_hash": "68a0810fc25373faa6401253df7133ff",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\assets\\ekyc_passport_scan.png": {
+    "mtime": 1779313805.1923523,
+    "ast_hash": "02fb9698e689ee5aa0c5531e16a302f9",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\assets\\hero.png": {
+    "mtime": 1774914673.3612337,
+    "ast_hash": "5cf2b0762834cdddc0dd3ec1397b5011",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\assets\\logob.png": {
+    "mtime": 1779309966.3380356,
+    "ast_hash": "57a5651657da4b35c5aeecfa5c38b537",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\assets\\react.svg": {
+    "mtime": 1774914673.4571004,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\src\\assets\\vite.svg": {
+    "mtime": 1774914673.477336,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": ""
+  },
+  "D:\\TrustDesk\\trustvault-web\\public\\logo-animated.mp4": {
+    "mtime": 1777331567.299044,
+    "ast_hash": "c0ecc019e37fac2e65eea3a102e1fce3",
+    "semantic_hash": ""
+  }
+}

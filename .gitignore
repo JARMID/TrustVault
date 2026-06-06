@@ -36,3 +36,6 @@ skills/
 .env
 node_modules/
 vendor/
+
+# Allow all files inside the supplementary directory to be tracked
+!/supplementary/**

@@ -1,0 +1,157 @@
+﻿
+> trustdesk-web@0.0.0 lint
+> eslint .
+
+
+D:\TrustDesk\trustdesk-web\src\components\3d\SecurityGlobe.tsx
+  583:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\TrustDesk\trustdesk-web\src\components\layout\Sidebar.tsx
+  16:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\TrustDesk\trustdesk-web\src\components\ui\CinematicFooter.tsx
+  202:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  208:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  238:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\TrustDesk\trustdesk-web\src\components\ui\CommandPalette.tsx
+    7:18  error    'CreditCard' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+    7:30  error    'ShieldAlert' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+    7:55  error    'Loader2' is defined but never used                                                                                 @typescript-eslint/no-unused-vars
+    8:3   error    'RefreshCw' is defined but never used                                                                               @typescript-eslint/no-unused-vars
+    8:14  error    'CheckCircle2' is defined but never used                                                                            @typescript-eslint/no-unused-vars
+    8:28  error    'AlertTriangle' is defined but never used                                                                           @typescript-eslint/no-unused-vars
+  324:6   warning  React Hook useEffect has a missing dependency: 'handleAICommand'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\TrustDesk\trustdesk-web\src\components\ui\container-scroll-animation.tsx
+  9:27  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+D:\TrustDesk\trustdesk-web\src\pages\Analytics.tsx
+   82:31  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+   90:24  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+  116:27  error  '_i' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  118:35  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\pages\Analytics.tsx:118:35
+  116 |     return months.map((m, _i) => ({
+  117 |       month: m,
+> 118 |       income: Math.round(120000 + Math.random() * 80000),
+      |                                   ^^^^^^^^^^^^^ Cannot call impure function
+  119 |       expenses: Math.round(60000 + Math.random() * 50000),
+  120 |     }));
+  121 |   }, []);  react-hooks/purity
+  119:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\pages\Analytics.tsx:119:36
+  117 |       month: m,
+  118 |       income: Math.round(120000 + Math.random() * 80000),
+> 119 |       expenses: Math.round(60000 + Math.random() * 50000),
+      |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  120 |     }));
+  121 |   }, []);
+  122 |                                     react-hooks/purity
+  141:33  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\pages\Analytics.tsx:141:33
+  139 |     return days.map(d => ({
+  140 |       day: d,
+> 141 |       amount: Math.round(2000 + Math.random() * 15000),
+      |                                 ^^^^^^^^^^^^^ Cannot call impure function
+  142 |     }));
+  143 |   }, []);
+  144 |                                                                           react-hooks/purity
+
+D:\TrustDesk\trustdesk-web\src\pages\Budget.tsx
+  90:11  error  'transactions' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Cards.tsx
+  2:18  error  'AnimatePresence' is defined but never used  @typescript-eslint/no-unused-vars
+  4:45  error  'Settings' is defined but never used         @typescript-eslint/no-unused-vars
+  5:3   error  'Globe' is defined but never used            @typescript-eslint/no-unused-vars
+  5:10  error  'ShoppingBag' is defined but never used      @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Dashboard.tsx
+    3:107  error  'BarChart' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+    3:117  error  'Bar' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+    7:10   error  'SplineSceneBasic' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  129:22   error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\pages\Dashboard.tsx:129:22
+  127 |       let timeStr = 'Recently';
+  128 |       try {
+> 129 |         const diff = Date.now() - new Date(t.created_at).getTime();
+      |                      ^^^^^^^^^^ Cannot call impure function
+  130 |         if (diff < 3600000) timeStr = `${Math.floor(diff / 60000)} min ago`;
+  131 |         else if (diff < 86400000) timeStr = `${Math.floor(diff / 3600000)}h ago`;
+  132 |         else timeStr = `${Math.floor(diff / 86400000)}d ago`;  react-hooks/purity
+  133:16   error  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  133:19   error  Empty block statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      no-empty
+  318:282  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+
+D:\TrustDesk\trustdesk-web\src\pages\DeviceTrust.tsx
+   2:10  error  'motion' is defined but never used              @typescript-eslint/no-unused-vars
+   4:46  error  'AlertTriangle' is defined but never used       @typescript-eslint/no-unused-vars
+   4:98  error  'ChevronRight' is defined but never used        @typescript-eslint/no-unused-vars
+  86:9   error  'getRiskBg' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Ekyc.tsx
+  3:89  error  'ShieldCheck' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\PredictiveAI.tsx
+   3:55   error  'CreditCard' is defined but never used              @typescript-eslint/no-unused-vars
+   3:67   error  'ArrowRight' is defined but never used              @typescript-eslint/no-unused-vars
+   4:86   error  'PieChart' is defined but never used                @typescript-eslint/no-unused-vars
+   4:96   error  'Pie' is defined but never used                     @typescript-eslint/no-unused-vars
+   4:101  error  'Cell' is defined but never used                    @typescript-eslint/no-unused-vars
+  16:7    error  'CATEGORY_DATA' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Pricing.tsx
+  4:35  error  'Zap' is defined but never used    @typescript-eslint/no-unused-vars
+  4:48  error  'Globe' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Security.tsx
+  7:7  error  'iV' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\SendMoney.tsx
+  376:88  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\TrustDesk\trustdesk-web\src\pages\SendMoney.tsx:376:88
+  374 |               <div className="flex justify-between mb-2" style={{ fontSize: '0.78rem' }}>
+  375 |                 <span style={{ color: 'var(--text-tertiary)' }}>Reference</span>
+> 376 |                 <span style={{ fontWeight: 600, fontFamily: 'var(--font-mono)' }}>TXN-{Math.random().toString(36).slice(2, 8).toUpperCase()}</span>
+      |                                                                                        ^^^^^^^^^^^^^ Cannot call impure function
+  377 |               </div>
+  378 |               <div className="flex justify-between" style={{ fontSize: '0.78rem' }}>
+  379 |                 <span style={{ color: 'var(--text-tertiary)' }}>Date</span>  react-hooks/purity
+
+D:\TrustDesk\trustdesk-web\src\pages\Triage.tsx
+  3:3   error  'Search' is defined but never used        @typescript-eslint/no-unused-vars
+  4:9   error  'FileText' is defined but never used      @typescript-eslint/no-unused-vars
+  4:19  error  'Map' is defined but never used           @typescript-eslint/no-unused-vars
+  4:24  error  'FileJson' is defined but never used      @typescript-eslint/no-unused-vars
+  5:3   error  'Lock' is defined but never used          @typescript-eslint/no-unused-vars
+  5:9   error  'UserPlus' is defined but never used      @typescript-eslint/no-unused-vars
+  5:34  error  'AlertOctagon' is defined but never used  @typescript-eslint/no-unused-vars
+  5:48  error  'FileOutput' is defined but never used    @typescript-eslint/no-unused-vars
+  5:60  error  'Loader2' is defined but never used       @typescript-eslint/no-unused-vars
+
+D:\TrustDesk\trustdesk-web\src\pages\Wallet.tsx
+  158:50  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+D:\TrustDesk\trustdesk-web\src\pages\dashboard\SOCDashboard.tsx
+    2:88  error    'MapPin' is defined but never used                                                                                  @typescript-eslint/no-unused-vars
+  124:6   warning  React Hook useEffect has a missing dependency: 'incidentCounter'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 59 problems (57 errors, 2 warnings)
+

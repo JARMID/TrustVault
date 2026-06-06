@@ -1,0 +1,2450 @@
+{
+  "communities": {
+    "0": [
+      "doc_claude_opus_4_7",
+      "rat_claude_opus_4_7__third_party_mcp_app__tools_need_opt_in",
+      "rat_claude_opus_4_7_after_search",
+      "rat_claude_opus_4_7_ask_user_input_v0",
+      "rat_claude_opus_4_7_bash_tool",
+      "rat_claude_opus_4_7_connector_directory_first",
+      "rat_claude_opus_4_7_content_safety",
+      "rat_claude_opus_4_7_conversation_search",
+      "rat_claude_opus_4_7_create_file",
+      "rat_claude_opus_4_7_critical_browser_storage_restriction",
+      "rat_claude_opus_4_7_data_scope",
+      "rat_claude_opus_4_7_design_guidance",
+      "rat_claude_opus_4_7_do_not_use_artifacts_for",
+      "rat_claude_opus_4_7_end_conversation",
+      "rat_claude_opus_4_7_error_handling",
+      "rat_claude_opus_4_7_explicit_triggers",
+      "rat_claude_opus_4_7_fetch_sports_data",
+      "rat_claude_opus_4_7_html",
+      "rat_claude_opus_4_7_image_search",
+      "rat_claude_opus_4_7_key_design_pattern",
+      "rat_claude_opus_4_7_limitations",
+      "rat_claude_opus_4_7_many_queries_benefits_from_images",
+      "rat_claude_opus_4_7_markdown",
+      "rat_claude_opus_4_7_memory_user_edits",
+      "rat_claude_opus_4_7_message_compose_v1",
+      "rat_claude_opus_4_7_multi_visualization_responses",
+      "rat_claude_opus_4_7_places_map_display_v0",
+      "rat_claude_opus_4_7_places_search",
+      "rat_claude_opus_4_7_present_files",
+      "rat_claude_opus_4_7_proactive_triggers",
+      "rat_claude_opus_4_7_react",
+      "rat_claude_opus_4_7_recent_chats",
+      "rat_claude_opus_4_7_recipe_display_v0",
+      "rat_claude_opus_4_7_search_mcp_registry",
+      "rat_claude_opus_4_7_specification_triggers",
+      "rat_claude_opus_4_7_step_1___is_a_connected_mcp_tool_a_fit",
+      "rat_claude_opus_4_7_step_2___did_the_person_ask_for_a_file",
+      "rat_claude_opus_4_7_step_3___visualizer",
+      "rat_claude_opus_4_7_storage_api",
+      "rat_claude_opus_4_7_str_replace",
+      "rat_claude_opus_4_7_suggest_connectors",
+      "rat_claude_opus_4_7_tool_search",
+      "rat_claude_opus_4_7_usage_examples",
+      "rat_claude_opus_4_7_use_artifacts_for",
+      "rat_claude_opus_4_7_using_the_end_conversation_tool",
+      "rat_claude_opus_4_7_view",
+      "rat_claude_opus_4_7_visualize_read_me",
+      "rat_claude_opus_4_7_visualize_show_widget",
+      "rat_claude_opus_4_7_weather_fetch",
+      "rat_claude_opus_4_7_web_fetch",
+      "rat_claude_opus_4_7_web_search",
+      "rat_claude_opus_4_7_what_not_to_do",
+      "rat_claude_opus_4_7_what_this_should_feel_like"
+    ],
+    "1": [
+      "trustdesk_api_composer_allow_plugins_pestphp_pest_plugin",
+      "trustdesk_api_composer_allow_plugins_php_http_discovery",
+      "trustdesk_api_composer_autoload",
+      "trustdesk_api_composer_autoload_dev",
+      "trustdesk_api_composer_autoload_dev_psr_4",
+      "trustdesk_api_composer_autoload_psr_4",
+      "trustdesk_api_composer_config",
+      "trustdesk_api_composer_config_allow_plugins",
+      "trustdesk_api_composer_config_optimize_autoloader",
+      "trustdesk_api_composer_config_preferred_install",
+      "trustdesk_api_composer_config_sort_packages",
+      "trustdesk_api_composer_description",
+      "trustdesk_api_composer_extra",
+      "trustdesk_api_composer_extra_laravel",
+      "trustdesk_api_composer_json",
+      "trustdesk_api_composer_keywords",
+      "trustdesk_api_composer_laravel_dont_discover",
+      "trustdesk_api_composer_license",
+      "trustdesk_api_composer_minimum_stability",
+      "trustdesk_api_composer_name",
+      "trustdesk_api_composer_prefer_stable",
+      "trustdesk_api_composer_psr_4_app",
+      "trustdesk_api_composer_psr_4_database_factories",
+      "trustdesk_api_composer_psr_4_database_seeders",
+      "trustdesk_api_composer_psr_4_tests",
+      "trustdesk_api_composer_require",
+      "trustdesk_api_composer_require_dev",
+      "trustdesk_api_composer_require_dev_fakerphp_faker",
+      "trustdesk_api_composer_require_dev_laravel_pail",
+      "trustdesk_api_composer_require_dev_laravel_pint",
+      "trustdesk_api_composer_require_dev_laravel_sail",
+      "trustdesk_api_composer_require_dev_mockery_mockery",
+      "trustdesk_api_composer_require_dev_nunomaduro_collision",
+      "trustdesk_api_composer_require_dev_phpunit_phpunit",
+      "trustdesk_api_composer_require_laravel_framework",
+      "trustdesk_api_composer_require_laravel_sanctum",
+      "trustdesk_api_composer_require_laravel_tinker",
+      "trustdesk_api_composer_require_php",
+      "trustdesk_api_composer_schema",
+      "trustdesk_api_composer_scripts",
+      "trustdesk_api_composer_scripts_dev",
+      "trustdesk_api_composer_scripts_post_autoload_dump",
+      "trustdesk_api_composer_scripts_post_create_project_cmd",
+      "trustdesk_api_composer_scripts_post_root_package_install",
+      "trustdesk_api_composer_scripts_post_update_cmd",
+      "trustdesk_api_composer_scripts_pre_package_uninstall",
+      "trustdesk_api_composer_scripts_setup",
+      "trustdesk_api_composer_scripts_test",
+      "trustdesk_api_composer_type"
+    ],
+    "2": [
+      "core_providers_wallet_provider_dart",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_actioncard3d",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_actioncard3dstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_animatedbuilder",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildactioncard",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildactiongrid",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildanimatedelement",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildlivefeedheader",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildlivefeeditems",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildministat",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildpanicbutton",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildprotectionbanner",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_buildquickstats",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_color",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_column",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_dashboardscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_dashboardscreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_expanded",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_feeditem",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_gesturedetector",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_initstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_opacity",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_padding",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_row",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_text",
+      "d_trustdesk_trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_transform",
+      "package_intl_intl_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_package_go_router_go_router_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_shared_bottom_nav_dart",
+      "trustdesk_mobile_lib_features_dashboard_dashboard_screen_dart_shared_glass_container_dart"
+    ],
+    "3": [
+      "pages_landing_ambientherobackground",
+      "pages_landing_dashboardmockup",
+      "pages_landing_encryptionvisualizer",
+      "pages_landing_features",
+      "pages_landing_landing",
+      "pages_landing_landinginner",
+      "pages_landing_stats",
+      "pages_landing_theme",
+      "pages_landing_themecontext",
+      "pages_landing_themeprovider",
+      "pages_landing_themetoggle",
+      "pages_landing_trustedby",
+      "pages_landing_usetheme",
+      "trustdesk_web_src_components_ui_cinematicfooter_tsx",
+      "trustdesk_web_src_components_ui_infinitemarquee_tsx",
+      "trustdesk_web_src_components_ui_motion_footer_tsx",
+      "trustdesk_web_src_components_ui_scrollanimations_tsx",
+      "trustdesk_web_src_components_ui_spotlightcard_tsx",
+      "trustdesk_web_src_components_ui_textreveal_tsx",
+      "trustdesk_web_src_pages_landing_tsx",
+      "ui_cinematicfooter_cinematicfooter",
+      "ui_cinematicfooter_footerlinks",
+      "ui_cinematicfooter_magbtnprops",
+      "ui_cinematicfooter_magneticbtn",
+      "ui_cinematicfooter_marqueeslide",
+      "ui_infinitemarquee_infinitemarquee",
+      "ui_infinitemarquee_marqueeitem",
+      "ui_scrollanimations_animatedcounter",
+      "ui_scrollanimations_horizontalscroll",
+      "ui_scrollanimations_magneticbutton",
+      "ui_scrollanimations_parallaxsection",
+      "ui_scrollanimations_particle_data",
+      "ui_scrollanimations_particlefield",
+      "ui_scrollanimations_reveal",
+      "ui_scrollanimations_scrollprogress",
+      "ui_spotlightcard_spotlightcard",
+      "ui_textreveal_gradienttext",
+      "ui_textreveal_textreveal"
+    ],
+    "4": [
+      "core_providers_panic_provider_dart",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_animatedbuilder",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_builddeployedstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_buildpanicbutton",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_buildprotocolitem",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_emergencygridpainter",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_gesturedetector",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_icon",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_initstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_onholdend",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_onholdstart",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_padding",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_paint",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_panicscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_panicscreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_row",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_shouldrepaint",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_spacer",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_text",
+      "d_trustdesk_trustdesk_mobile_lib_features_panic_panic_screen_dart_triggerpanic",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_dart_math",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_dart_ui",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_shared_bottom_nav_dart",
+      "trustdesk_mobile_lib_features_panic_panic_screen_dart_shared_glass_container_dart"
+    ],
+    "5": [
+      "pages_devicetrust_devicetrust",
+      "pages_devicetrust_dummy_sessions",
+      "pages_documentvault_categories",
+      "pages_documentvault_documentvault",
+      "pages_documentvault_mock_docs",
+      "pages_ekyc_cv",
+      "pages_ekyc_ekyc",
+      "pages_ekyc_iv",
+      "pages_labels_containervariants",
+      "pages_labels_initial_labels",
+      "pages_labels_itemvariants",
+      "pages_labels_label",
+      "pages_labels_labels",
+      "pages_wallet_containervariants",
+      "pages_wallet_itemvariants",
+      "pages_wallet_quickaction",
+      "pages_wallet_virtualcardwidget",
+      "pages_wallet_walletpage",
+      "trustdesk_web_src_components_ui_toast_tsx",
+      "trustdesk_web_src_pages_devicetrust_tsx",
+      "trustdesk_web_src_pages_documentvault_tsx",
+      "trustdesk_web_src_pages_ekyc_tsx",
+      "trustdesk_web_src_pages_labels_tsx",
+      "trustdesk_web_src_pages_wallet_tsx",
+      "ui_toast_colors",
+      "ui_toast_icons",
+      "ui_toast_toast",
+      "ui_toast_toastcontext",
+      "ui_toast_toastcontexttype",
+      "ui_toast_toastprovider",
+      "ui_toast_toasttype",
+      "ui_toast_usetoast"
+    ],
+    "6": [
+      "trustdesk_web_package_dependencies",
+      "trustdesk_web_package_dependencies_axios",
+      "trustdesk_web_package_dependencies_clsx",
+      "trustdesk_web_package_dependencies_date_fns",
+      "trustdesk_web_package_dependencies_framer_motion",
+      "trustdesk_web_package_dependencies_gsap",
+      "trustdesk_web_package_dependencies_leaflet",
+      "trustdesk_web_package_dependencies_lenis",
+      "trustdesk_web_package_dependencies_lucide_react",
+      "trustdesk_web_package_dependencies_motion",
+      "trustdesk_web_package_dependencies_react",
+      "trustdesk_web_package_dependencies_react_dom",
+      "trustdesk_web_package_dependencies_react_leaflet",
+      "trustdesk_web_package_dependencies_react_router_dom",
+      "trustdesk_web_package_dependencies_react_three_drei",
+      "trustdesk_web_package_dependencies_react_three_fiber",
+      "trustdesk_web_package_dependencies_react_three_postprocessing",
+      "trustdesk_web_package_dependencies_recharts",
+      "trustdesk_web_package_dependencies_remotion",
+      "trustdesk_web_package_dependencies_splinetool_react_spline",
+      "trustdesk_web_package_dependencies_splinetool_runtime",
+      "trustdesk_web_package_dependencies_supabase_supabase_js",
+      "trustdesk_web_package_dependencies_tailwindcss",
+      "trustdesk_web_package_dependencies_tailwindcss_vite",
+      "trustdesk_web_package_dependencies_tanstack_react_query",
+      "trustdesk_web_package_dependencies_three",
+      "trustdesk_web_package_dependencies_types_leaflet",
+      "trustdesk_web_package_dependencies_zustand"
+    ],
+    "7": [
+      "core_providers_signal_provider_dart",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_animatedbuilder",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_buildemptystate",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_buildradarbanner",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_buildthreatstat",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_column",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_communityscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_communityscreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_getsignalicon",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_getthreatcolor",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_getthreatlevel",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_icon",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_initstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_padding",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_community_community_screen_dart_text",
+      "trustdesk_mobile_lib_features_community_community_screen_dart",
+      "trustdesk_mobile_lib_features_community_community_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_community_community_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_community_community_screen_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_features_community_community_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_community_community_screen_dart_shared_bottom_nav_dart",
+      "trustdesk_mobile_lib_features_community_community_screen_dart_shared_glass_container_dart"
+    ],
+    "8": [
+      "skills_lock_json",
+      "trustdesk_skills_lock_design_md_computedhash",
+      "trustdesk_skills_lock_design_md_source",
+      "trustdesk_skills_lock_design_md_sourcetype",
+      "trustdesk_skills_lock_enhance_prompt_computedhash",
+      "trustdesk_skills_lock_enhance_prompt_source",
+      "trustdesk_skills_lock_enhance_prompt_sourcetype",
+      "trustdesk_skills_lock_react_components_computedhash",
+      "trustdesk_skills_lock_react_components_source",
+      "trustdesk_skills_lock_react_components_sourcetype",
+      "trustdesk_skills_lock_remotion_computedhash",
+      "trustdesk_skills_lock_remotion_source",
+      "trustdesk_skills_lock_remotion_sourcetype",
+      "trustdesk_skills_lock_shadcn_ui_computedhash",
+      "trustdesk_skills_lock_shadcn_ui_source",
+      "trustdesk_skills_lock_shadcn_ui_sourcetype",
+      "trustdesk_skills_lock_skills",
+      "trustdesk_skills_lock_skills_design_md",
+      "trustdesk_skills_lock_skills_enhance_prompt",
+      "trustdesk_skills_lock_skills_react_components",
+      "trustdesk_skills_lock_skills_remotion",
+      "trustdesk_skills_lock_skills_shadcn_ui",
+      "trustdesk_skills_lock_skills_stitch_loop",
+      "trustdesk_skills_lock_stitch_loop_computedhash",
+      "trustdesk_skills_lock_stitch_loop_source",
+      "trustdesk_skills_lock_stitch_loop_sourcetype",
+      "trustdesk_skills_lock_version"
+    ],
+    "9": [
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_align",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_buildactionrow",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_buildactivityitem",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_builddivider",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_buildsectionheader",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_buildstatcard",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_buildtogglerow",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_container",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_icon",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_material",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_padding",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_profilescreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_profilescreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_row",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_profile_profile_screen_dart_text",
+      "trustdesk_mobile_lib_features_profile_profile_screen_dart",
+      "trustdesk_mobile_lib_features_profile_profile_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_profile_profile_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_profile_profile_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_profile_profile_screen_dart_package_go_router_go_router_dart",
+      "trustdesk_mobile_lib_features_profile_profile_screen_dart_shared_bottom_nav_dart",
+      "trustdesk_mobile_lib_features_profile_profile_screen_dart_shared_glass_container_dart"
+    ],
+    "10": [
+      "core_providers_incident_provider_dart",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_buildministat",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_center",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_expanded",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_gesturedetector",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_getprioritycolor",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_icon",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_incidentsscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_incidentsscreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_initstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_showreportsheet",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_spacer",
+      "d_trustdesk_trustdesk_mobile_lib_features_incidents_incidents_screen_dart_text",
+      "trustdesk_mobile_lib_features_incidents_incidents_screen_dart",
+      "trustdesk_mobile_lib_features_incidents_incidents_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_incidents_incidents_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_incidents_incidents_screen_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_features_incidents_incidents_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_incidents_incidents_screen_dart_shared_bottom_nav_dart",
+      "trustdesk_mobile_lib_features_incidents_incidents_screen_dart_shared_glass_container_dart"
+    ],
+    "11": [
+      "trustdesk_web_tsconfig_app_compileroptions",
+      "trustdesk_web_tsconfig_app_compileroptions_allowimportingtsextensions",
+      "trustdesk_web_tsconfig_app_compileroptions_baseurl",
+      "trustdesk_web_tsconfig_app_compileroptions_erasablesyntaxonly",
+      "trustdesk_web_tsconfig_app_compileroptions_jsx",
+      "trustdesk_web_tsconfig_app_compileroptions_lib",
+      "trustdesk_web_tsconfig_app_compileroptions_module",
+      "trustdesk_web_tsconfig_app_compileroptions_moduledetection",
+      "trustdesk_web_tsconfig_app_compileroptions_moduleresolution",
+      "trustdesk_web_tsconfig_app_compileroptions_noemit",
+      "trustdesk_web_tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "trustdesk_web_tsconfig_app_compileroptions_nouncheckedsideeffectimports",
+      "trustdesk_web_tsconfig_app_compileroptions_nounusedlocals",
+      "trustdesk_web_tsconfig_app_compileroptions_nounusedparameters",
+      "trustdesk_web_tsconfig_app_compileroptions_paths",
+      "trustdesk_web_tsconfig_app_compileroptions_skiplibcheck",
+      "trustdesk_web_tsconfig_app_compileroptions_strict",
+      "trustdesk_web_tsconfig_app_compileroptions_target",
+      "trustdesk_web_tsconfig_app_compileroptions_tsbuildinfofile",
+      "trustdesk_web_tsconfig_app_compileroptions_types",
+      "trustdesk_web_tsconfig_app_compileroptions_usedefineforclassfields",
+      "trustdesk_web_tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "trustdesk_web_tsconfig_app_include",
+      "trustdesk_web_tsconfig_app_json",
+      "trustdesk_web_tsconfig_app_paths"
+    ],
+    "12": [
+      "doc_design",
+      "doc_site",
+      "rat_design_1__visual_theme___atmosphere",
+      "rat_design_2__color_palette___roles",
+      "rat_design_3__typography_rules",
+      "rat_design_4__component_stylings",
+      "rat_design_5__layout_principles",
+      "rat_design_6__motion___animation",
+      "rat_design_buttons",
+      "rat_design_cards___containers",
+      "rat_design_core_surfaces",
+      "rat_design_design_system__trustdesk",
+      "rat_design_inputs___forms",
+      "rat_design_navigation",
+      "rat_design_primary_accents",
+      "rat_design_semantic_colors",
+      "rat_design_status_badges",
+      "rat_design_tables",
+      "rat_design_text_hierarchy",
+      "rat_site_1__vision",
+      "rat_site_2__infrastructure",
+      "rat_site_3__screens_roadmap",
+      "rat_site_4__tech_stack_int_gr_e",
+      "rat_site_site_vision___roadmap"
+    ],
+    "13": [
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_animatedbuilder",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_buildpeercard",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_buildradar",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_buildstatustext",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_container",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_initstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_p2phandshakescreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_p2phandshakescreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_padding",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_simulatediscoveryflow",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_text",
+      "trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart",
+      "trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_dart_math",
+      "trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_package_go_router_go_router_dart",
+      "trustdesk_mobile_lib_features_p2p_p2p_handshake_screen_dart_shared_glass_container_dart"
+    ],
+    "14": [
+      "7e11656f0b_input_android_target_ndk_api",
+      "7e11656f0b_input_assets",
+      "7e11656f0b_input_c_compiler_ar",
+      "7e11656f0b_input_c_compiler_cc",
+      "7e11656f0b_input_c_compiler_ld",
+      "7e11656f0b_input_code_assets_android",
+      "7e11656f0b_input_code_assets_c_compiler",
+      "7e11656f0b_input_code_assets_link_mode_preference",
+      "7e11656f0b_input_code_assets_target_architecture",
+      "7e11656f0b_input_code_assets_target_os",
+      "7e11656f0b_input_config",
+      "7e11656f0b_input_config_build_asset_types",
+      "7e11656f0b_input_config_extensions",
+      "7e11656f0b_input_config_linking_enabled",
+      "7e11656f0b_input_extensions_code_assets",
+      "7e11656f0b_input_out_dir_shared",
+      "7e11656f0b_input_out_file",
+      "7e11656f0b_input_package_name",
+      "7e11656f0b_input_package_root",
+      "7e11656f0b_input_user_defines",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_7e11656f0b_input_json"
+    ],
+    "15": [
+      "818cf290f6_input_android_target_ndk_api",
+      "818cf290f6_input_assets",
+      "818cf290f6_input_c_compiler_ar",
+      "818cf290f6_input_c_compiler_cc",
+      "818cf290f6_input_c_compiler_ld",
+      "818cf290f6_input_code_assets_android",
+      "818cf290f6_input_code_assets_c_compiler",
+      "818cf290f6_input_code_assets_link_mode_preference",
+      "818cf290f6_input_code_assets_target_architecture",
+      "818cf290f6_input_code_assets_target_os",
+      "818cf290f6_input_config",
+      "818cf290f6_input_config_build_asset_types",
+      "818cf290f6_input_config_extensions",
+      "818cf290f6_input_config_linking_enabled",
+      "818cf290f6_input_extensions_code_assets",
+      "818cf290f6_input_out_dir_shared",
+      "818cf290f6_input_out_file",
+      "818cf290f6_input_package_name",
+      "818cf290f6_input_package_root",
+      "818cf290f6_input_user_defines",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_818cf290f6_input_json"
+    ],
+    "16": [
+      "c62a97a4df_input_android_target_ndk_api",
+      "c62a97a4df_input_assets",
+      "c62a97a4df_input_c_compiler_ar",
+      "c62a97a4df_input_c_compiler_cc",
+      "c62a97a4df_input_c_compiler_ld",
+      "c62a97a4df_input_code_assets_android",
+      "c62a97a4df_input_code_assets_c_compiler",
+      "c62a97a4df_input_code_assets_link_mode_preference",
+      "c62a97a4df_input_code_assets_target_architecture",
+      "c62a97a4df_input_code_assets_target_os",
+      "c62a97a4df_input_config",
+      "c62a97a4df_input_config_build_asset_types",
+      "c62a97a4df_input_config_extensions",
+      "c62a97a4df_input_config_linking_enabled",
+      "c62a97a4df_input_extensions_code_assets",
+      "c62a97a4df_input_out_dir_shared",
+      "c62a97a4df_input_out_file",
+      "c62a97a4df_input_package_name",
+      "c62a97a4df_input_package_root",
+      "c62a97a4df_input_user_defines",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_c62a97a4df_input_json"
+    ],
+    "17": [
+      "trustdesk_web_src_types_database_ts",
+      "types_database_alertactiontype",
+      "types_database_dbalertaction",
+      "types_database_dbauditlog",
+      "types_database_dbemergencylockdown",
+      "types_database_dbfraudalertevidence",
+      "types_database_dbuser",
+      "types_database_dbwalletfreeze",
+      "types_database_fraudalertcategory",
+      "types_database_fraudalertpriority",
+      "types_database_fraudalertstatus",
+      "types_database_fraudalerttype",
+      "types_database_freezescope",
+      "types_database_freezestatus",
+      "types_database_lockdowntrigger",
+      "types_database_notificationpriority",
+      "types_database_notificationtype",
+      "types_database_resolutiontype",
+      "types_database_transactioncategory",
+      "types_database_transactionstatus",
+      "types_database_transactiontype"
+    ],
+    "18": [
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_buildauthoption",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_gesturedetector",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_gridpainter",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_initstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_loginscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_loginscreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_paint",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_positioned",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_shouldrepaint",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_auth_login_screen_dart_text",
+      "trustdesk_mobile_lib_features_auth_login_screen_dart",
+      "trustdesk_mobile_lib_features_auth_login_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_auth_login_screen_dart_dart_ui",
+      "trustdesk_mobile_lib_features_auth_login_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_auth_login_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_auth_login_screen_dart_package_go_router_go_router_dart"
+    ],
+    "19": [
+      "layout_topnav_topnav",
+      "layout_topnav_topnavprops",
+      "lib_supabase_issupabaseready",
+      "pages_login_login",
+      "pages_notfound_audit_id",
+      "pages_notfound_notfound",
+      "src_app_app",
+      "src_app_protectedroute",
+      "stores_authstore_authstate",
+      "stores_authstore_fetchprofile",
+      "stores_authstore_useauthstore",
+      "stores_authstore_userprofile",
+      "trustdesk_web_src_app_tsx",
+      "trustdesk_web_src_components_layout_topnav_tsx",
+      "trustdesk_web_src_components_ui_smoothscroll_tsx",
+      "trustdesk_web_src_lib_supabase_ts",
+      "trustdesk_web_src_pages_login_tsx",
+      "trustdesk_web_src_pages_notfound_tsx",
+      "trustdesk_web_src_stores_authstore_ts",
+      "ui_smoothscroll_smoothscrollprovider"
+    ],
+    "20": [
+      "trustdesk_web_tsconfig_node_compileroptions",
+      "trustdesk_web_tsconfig_node_compileroptions_allowimportingtsextensions",
+      "trustdesk_web_tsconfig_node_compileroptions_erasablesyntaxonly",
+      "trustdesk_web_tsconfig_node_compileroptions_lib",
+      "trustdesk_web_tsconfig_node_compileroptions_module",
+      "trustdesk_web_tsconfig_node_compileroptions_moduledetection",
+      "trustdesk_web_tsconfig_node_compileroptions_moduleresolution",
+      "trustdesk_web_tsconfig_node_compileroptions_noemit",
+      "trustdesk_web_tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "trustdesk_web_tsconfig_node_compileroptions_nouncheckedsideeffectimports",
+      "trustdesk_web_tsconfig_node_compileroptions_nounusedlocals",
+      "trustdesk_web_tsconfig_node_compileroptions_nounusedparameters",
+      "trustdesk_web_tsconfig_node_compileroptions_skiplibcheck",
+      "trustdesk_web_tsconfig_node_compileroptions_strict",
+      "trustdesk_web_tsconfig_node_compileroptions_target",
+      "trustdesk_web_tsconfig_node_compileroptions_tsbuildinfofile",
+      "trustdesk_web_tsconfig_node_compileroptions_types",
+      "trustdesk_web_tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "trustdesk_web_tsconfig_node_include",
+      "trustdesk_web_tsconfig_node_json"
+    ],
+    "21": [
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_aratmscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_aratmscreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_buildarmarker",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_buildbottomcontrolpanel",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_buildcontrolicon",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_buildhudheader",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_column",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_icon",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_text",
+      "trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart",
+      "trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_package_go_router_go_router_dart",
+      "trustdesk_mobile_lib_features_ar_atm_ar_atm_screen_dart_shared_glass_container_dart"
+    ],
+    "22": [
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_container",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_fadetransition",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_icon",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_initstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_paint",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_shouldrepaint",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_splashgridpainter",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_splashscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_splashscreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_splash_splash_screen_dart_text",
+      "trustdesk_mobile_lib_features_splash_splash_screen_dart",
+      "trustdesk_mobile_lib_features_splash_splash_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_splash_splash_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_splash_splash_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_splash_splash_screen_dart_package_go_router_go_router_dart"
+    ],
+    "23": [
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_builddocumenttile",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_buildstorageinfo",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_buildunlockscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_buildvaultcontent",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_center",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_listview",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_text",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_vaultscreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_vault_vault_screen_dart_vaultscreenstate",
+      "trustdesk_mobile_lib_features_vault_vault_screen_dart",
+      "trustdesk_mobile_lib_features_vault_vault_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_vault_vault_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_vault_vault_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_vault_vault_screen_dart_package_go_router_go_router_dart",
+      "trustdesk_mobile_lib_features_vault_vault_screen_dart_shared_glass_container_dart"
+    ],
+    "24": [
+      "trustdesk_web_package_devdependencies",
+      "trustdesk_web_package_devdependencies_concurrently",
+      "trustdesk_web_package_devdependencies_cross_env",
+      "trustdesk_web_package_devdependencies_electron",
+      "trustdesk_web_package_devdependencies_electron_builder",
+      "trustdesk_web_package_devdependencies_eslint",
+      "trustdesk_web_package_devdependencies_eslint_js",
+      "trustdesk_web_package_devdependencies_eslint_plugin_react_hooks",
+      "trustdesk_web_package_devdependencies_eslint_plugin_react_refresh",
+      "trustdesk_web_package_devdependencies_globals",
+      "trustdesk_web_package_devdependencies_types_node",
+      "trustdesk_web_package_devdependencies_types_react",
+      "trustdesk_web_package_devdependencies_types_react_dom",
+      "trustdesk_web_package_devdependencies_typescript",
+      "trustdesk_web_package_devdependencies_typescript_eslint",
+      "trustdesk_web_package_devdependencies_vite",
+      "trustdesk_web_package_devdependencies_vitejs_plugin_react",
+      "trustdesk_web_package_devdependencies_wait_on"
+    ],
+    "25": [
+      "d_trustdesk_trustdesk_mobile_lib_core_router_dart_customtransitionpage",
+      "d_trustdesk_trustdesk_mobile_lib_core_router_dart_fadetransition",
+      "features_ar_atm_ar_atm_screen_dart",
+      "features_auth_login_screen_dart",
+      "features_community_community_screen_dart",
+      "features_dashboard_dashboard_screen_dart",
+      "features_incidents_incidents_screen_dart",
+      "features_p2p_p2p_handshake_screen_dart",
+      "features_panic_panic_screen_dart",
+      "features_profile_profile_screen_dart",
+      "features_splash_splash_screen_dart",
+      "features_stealth_stealth_mode_screen_dart",
+      "features_vault_vault_screen_dart",
+      "trustdesk_mobile_lib_core_router_dart",
+      "trustdesk_mobile_lib_core_router_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_core_router_dart_package_go_router_go_router_dart"
+    ],
+    "26": [
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_buildduresspinconfig",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_buildheader",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_buildsettingtile",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_scaffold",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_sizedbox",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_stealthmodescreen",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_stealthmodescreenstate",
+      "d_trustdesk_trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_text",
+      "trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart",
+      "trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_core_theme_dart",
+      "trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_package_go_router_go_router_dart",
+      "trustdesk_mobile_lib_features_stealth_stealth_mode_screen_dart_shared_glass_container_dart"
+    ],
+    "27": [
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_buildnavitem",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_buildpanicitem",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_container",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_corebottomnav",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_gesturedetector",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_navitem",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_onitemtapped",
+      "d_trustdesk_trustdesk_mobile_lib_shared_bottom_nav_dart_sizedbox",
+      "trustdesk_mobile_lib_shared_bottom_nav_dart",
+      "trustdesk_mobile_lib_shared_bottom_nav_dart_core_theme_dart",
+      "trustdesk_mobile_lib_shared_bottom_nav_dart_dart_ui",
+      "trustdesk_mobile_lib_shared_bottom_nav_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_shared_bottom_nav_dart_package_flutter_services_dart",
+      "trustdesk_mobile_lib_shared_bottom_nav_dart_package_go_router_go_router_dart"
+    ],
+    "28": [
+      "pages_profile_default_profile",
+      "pages_profile_profile",
+      "pages_profile_profiledata",
+      "pages_profile_role_colors",
+      "trustdesk_web_src_components_ui_avatar_tsx",
+      "trustdesk_web_src_pages_profile_tsx",
+      "ui_avatar_avatar",
+      "ui_avatar_avatar_gradients",
+      "ui_avatar_avatarprops",
+      "ui_avatar_avatarsize",
+      "ui_avatar_getgradient",
+      "ui_avatar_getinitials",
+      "ui_avatar_size_map",
+      "ui_avatar_status_colors",
+      "ui_avatar_statustype"
+    ],
+    "29": [
+      "doc_readme",
+      "rat_readme_about_laravel",
+      "rat_readme_code_of_conduct",
+      "rat_readme_contributing",
+      "rat_readme_expanding_the_eslint_configuration",
+      "rat_readme_laravel_sponsors",
+      "rat_readme_launch_screen_assets",
+      "rat_readme_learning_laravel",
+      "rat_readme_license",
+      "rat_readme_premium_partners",
+      "rat_readme_react___typescript___vite",
+      "rat_readme_react_compiler",
+      "rat_readme_security_vulnerabilities",
+      "rat_readme_trustdesk_mobile"
+    ],
+    "30": [
+      "pages_dashboard_statcard",
+      "pages_dashboard_vaultcard",
+      "trustdesk_web_src_components_ui_container_scroll_animation_tsx",
+      "trustdesk_web_src_components_ui_containerscroll_tsx",
+      "trustdesk_web_src_components_ui_splinescenebasic_tsx",
+      "trustdesk_web_src_components_ui_splite_tsx",
+      "trustdesk_web_src_pages_dashboard_tsx",
+      "ui_containerscroll_containerscroll",
+      "ui_containerscroll_scrollcard",
+      "ui_containerscroll_scrollheader",
+      "ui_splinescenebasic_splinescenebasic",
+      "ui_splite_spline",
+      "ui_splite_splinescene",
+      "ui_splite_splinesceneprops"
+    ],
+    "31": [
+      "trustdesk_api_package_devdependencies",
+      "trustdesk_api_package_devdependencies_axios",
+      "trustdesk_api_package_devdependencies_concurrently",
+      "trustdesk_api_package_devdependencies_laravel_vite_plugin",
+      "trustdesk_api_package_devdependencies_tailwindcss",
+      "trustdesk_api_package_devdependencies_tailwindcss_vite",
+      "trustdesk_api_package_devdependencies_vite",
+      "trustdesk_api_package_json",
+      "trustdesk_api_package_private",
+      "trustdesk_api_package_schema",
+      "trustdesk_api_package_scripts",
+      "trustdesk_api_package_scripts_build",
+      "trustdesk_api_package_scripts_dev",
+      "trustdesk_api_package_type"
+    ],
+    "32": [
+      "3d_securityglobe_animatedarc",
+      "3d_securityglobe_hotspot",
+      "3d_securityglobe_mousetracker",
+      "3d_securityglobe_particles",
+      "3d_securityglobe_radarrings",
+      "3d_securityglobe_ripple",
+      "3d_securityglobe_satelliteorb",
+      "3d_securityglobe_satellites",
+      "3d_securityglobe_scanbeam",
+      "3d_securityglobe_scrollrotator",
+      "3d_securityglobe_securityglobe",
+      "3d_securityglobe_wireframeglobe",
+      "trustdesk_web_src_components_3d_securityglobe_tsx"
+    ],
+    "33": [
+      "controllers_walletfreezecontroller_walletfreezecontroller",
+      "controllers_walletfreezecontroller_walletfreezecontroller_freeze",
+      "controllers_walletfreezecontroller_walletfreezecontroller_status",
+      "controllers_walletfreezecontroller_walletfreezecontroller_unfreeze",
+      "models_walletfreeze_walletfreeze",
+      "models_walletfreeze_walletfreeze_actionbyuser",
+      "models_walletfreeze_walletfreeze_casts",
+      "models_walletfreeze_walletfreeze_emergencylockdown",
+      "models_walletfreeze_walletfreeze_fraudalert",
+      "models_walletfreeze_walletfreeze_user",
+      "trustdesk_api_app_http_controllers_walletfreezecontroller_php",
+      "trustdesk_api_app_models_walletfreeze_php"
+    ],
+    "34": [
+      "d_trustdesk_trustdesk_mobile_dart_tool_flutter_build_dart_plugin_registrant_dart_pluginregistrant",
+      "d_trustdesk_trustdesk_mobile_dart_tool_flutter_build_dart_plugin_registrant_dart_register",
+      "package_geolocator_android_geolocator_android_dart",
+      "package_geolocator_apple_geolocator_apple_dart",
+      "package_geolocator_linux_geolocator_linux_dart",
+      "package_package_info_plus_package_info_plus_dart",
+      "package_path_provider_android_path_provider_android_dart",
+      "package_path_provider_foundation_path_provider_foundation_dart",
+      "package_path_provider_linux_path_provider_linux_dart",
+      "package_path_provider_windows_path_provider_windows_dart",
+      "trustdesk_mobile_dart_tool_flutter_build_dart_plugin_registrant_dart",
+      "trustdesk_mobile_dart_tool_flutter_build_dart_plugin_registrant_dart_dart_io"
+    ],
+    "35": [
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_wallet_provider_dart_copywith",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_wallet_provider_dart_dbvirtualcard",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_wallet_provider_dart_dispose",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_wallet_provider_dart_fetchinitialdata",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_wallet_provider_dart_setuprealtime",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_wallet_provider_dart_walletnotifier",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_wallet_provider_dart_walletstate",
+      "dart_async",
+      "models_wallet_models_dart",
+      "trustdesk_mobile_lib_core_providers_wallet_provider_dart",
+      "trustdesk_mobile_lib_core_providers_wallet_provider_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_core_providers_wallet_provider_dart_package_supabase_flutter_supabase_flutter_dart"
+    ],
+    "36": [
+      "core_config_dart",
+      "core_router_dart",
+      "d_trustdesk_trustdesk_mobile_lib_main_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_main_dart_main",
+      "d_trustdesk_trustdesk_mobile_lib_main_dart_providerscope",
+      "d_trustdesk_trustdesk_mobile_lib_main_dart_trustdeskapp",
+      "package_firebase_core_firebase_core_dart",
+      "trustdesk_mobile_lib_main_dart",
+      "trustdesk_mobile_lib_main_dart_core_theme_dart",
+      "trustdesk_mobile_lib_main_dart_package_flutter_material_dart",
+      "trustdesk_mobile_lib_main_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_main_dart_package_supabase_flutter_supabase_flutter_dart"
+    ],
+    "37": [
+      "layout_layout_layout",
+      "layout_sidebar_adminnavitems",
+      "layout_sidebar_clientnavitems",
+      "layout_sidebar_motionlink",
+      "layout_sidebar_sidebar",
+      "trustdesk_web_src_components_layout_layout_tsx",
+      "trustdesk_web_src_components_layout_sidebar_tsx",
+      "trustdesk_web_src_components_ui_commandpalette_tsx",
+      "ui_commandpalette_commanditem",
+      "ui_commandpalette_commandpalette",
+      "ui_commandpalette_commandpaletteprops",
+      "ui_commandpalette_nnpresult"
+    ],
+    "38": [
+      "hooks_usewallet_usewallet",
+      "pages_cards_cardspage",
+      "pages_cards_cardvisual",
+      "pages_cards_toggle",
+      "pages_dashboard_dashboard",
+      "pages_transactions_categorycolor",
+      "pages_transactions_categoryicon",
+      "pages_transactions_statusoptions",
+      "pages_transactions_transactionspage",
+      "pages_transactions_typeoptions",
+      "trustdesk_web_src_pages_cards_tsx",
+      "trustdesk_web_src_pages_transactions_tsx"
+    ],
+    "39": [
+      "pages_security_cv",
+      "pages_security_iv",
+      "pages_security_mock_logs",
+      "pages_security_security",
+      "pages_security_threat_stats",
+      "pages_settings_settings",
+      "trustdesk_web_src_components_ui_tiltcard_tsx",
+      "trustdesk_web_src_pages_security_tsx",
+      "trustdesk_web_src_pages_settings_tsx",
+      "ui_tiltcard_tiltcard",
+      "ui_tiltcard_tiltcardprops"
+    ],
+    "40": [
+      "models_user_user",
+      "models_user_user_casts",
+      "models_user_user_communitysignals",
+      "models_user_user_devices",
+      "models_user_user_emergencylockdowns",
+      "models_user_user_fraudalerts",
+      "models_user_user_isadmin",
+      "models_user_user_isagent",
+      "models_user_user_trustedcontacts",
+      "models_user_user_walletfreezes",
+      "trustdesk_api_app_models_user_php"
+    ],
+    "41": [
+      "controllers_fraudalertcontroller_fraudalertcontroller",
+      "controllers_fraudalertcontroller_fraudalertcontroller_index",
+      "controllers_fraudalertcontroller_fraudalertcontroller_show",
+      "controllers_fraudalertcontroller_fraudalertcontroller_store",
+      "controllers_fraudalertcontroller_fraudalertcontroller_update",
+      "controllers_fraudalertcontroller_fraudalertcontroller_uploadevidence",
+      "models_fraudalertevidence_fraudalertevidence",
+      "models_fraudalertevidence_fraudalertevidence_fraudalert",
+      "trustdesk_api_app_http_controllers_fraudalertcontroller_php",
+      "trustdesk_api_app_models_fraudalertevidence_php"
+    ],
+    "42": [
+      "controllers_authcontroller_authcontroller",
+      "controllers_authcontroller_authcontroller_login",
+      "controllers_authcontroller_authcontroller_logout",
+      "controllers_authcontroller_authcontroller_register",
+      "services_auditservice_auditservice",
+      "services_auditservice_auditservice_critical",
+      "services_auditservice_auditservice_historyfor",
+      "services_auditservice_auditservice_log",
+      "trustdesk_api_app_http_controllers_authcontroller_php",
+      "trustdesk_api_app_services_auditservice_php"
+    ],
+    "43": [
+      "hooks_usecommunitysignals_communitysignal",
+      "hooks_usecommunitysignals_usecommunitysignals",
+      "lib_api_api",
+      "lib_api_token",
+      "pages_community_community",
+      "pages_community_itemvariants",
+      "pages_community_listvariants",
+      "trustdesk_web_src_hooks_usecommunitysignals_ts",
+      "trustdesk_web_src_lib_api_ts",
+      "trustdesk_web_src_pages_community_tsx"
+    ],
+    "44": [
+      "doc_cahier_des_charges",
+      "rat_cahier_des_charges_1__contexte___probl_matique",
+      "rat_cahier_des_charges_2__solution_propos_e",
+      "rat_cahier_des_charges_3__p_rim_tre",
+      "rat_cahier_des_charges_4__architecture_globale",
+      "rat_cahier_des_charges_5__phases_du_projet",
+      "rat_cahier_des_charges_6__gouvernance_et_conformit",
+      "rat_cahier_des_charges_cadrage_du_projet___trustdesk",
+      "rat_cahier_des_charges_exclu",
+      "rat_cahier_des_charges_inclus"
+    ],
+    "45": [
+      "package_json",
+      "trustdesk_package_dependencies",
+      "trustdesk_package_dependencies_framer_motion",
+      "trustdesk_package_dependencies_gsap",
+      "trustdesk_package_dependencies_lenis",
+      "trustdesk_package_dependencies_motion",
+      "trustdesk_package_dependencies_react_three_fiber",
+      "trustdesk_package_dependencies_remotion",
+      "trustdesk_package_dependencies_remotion_cli",
+      "trustdesk_package_dependencies_three"
+    ],
+    "46": [
+      "pages_bugs_bugs",
+      "pages_bugs_categorydata",
+      "pages_bugs_containervariants",
+      "pages_bugs_errorfrequency",
+      "pages_bugs_getseveritystyle",
+      "pages_bugs_getstatusstyle",
+      "pages_bugs_itemvariants",
+      "pages_bugs_recentbugs",
+      "pages_bugs_terminal_logs",
+      "trustdesk_web_src_pages_bugs_tsx"
+    ],
+    "47": [
+      "pages_reports_auditlog",
+      "pages_reports_categorybreakdown",
+      "pages_reports_containervariants",
+      "pages_reports_hourlypattern",
+      "pages_reports_itemvariants",
+      "pages_reports_kpis",
+      "pages_reports_monthlytrend",
+      "pages_reports_radarmetrics",
+      "pages_reports_reports",
+      "trustdesk_web_src_pages_reports_tsx"
+    ],
+    "48": [
+      "controllers_fraudtriagecontroller_fraudtriagecontroller",
+      "controllers_fraudtriagecontroller_fraudtriagecontroller_action",
+      "controllers_fraudtriagecontroller_fraudtriagecontroller_dashboard",
+      "controllers_fraudtriagecontroller_fraudtriagecontroller_queue",
+      "models_alertaction_alertaction",
+      "models_alertaction_alertaction_agent",
+      "models_alertaction_alertaction_fraudalert",
+      "trustdesk_api_app_http_controllers_fraudtriagecontroller_php",
+      "trustdesk_api_app_models_alertaction_php"
+    ],
+    "49": [
+      "models_fraudalert_fraudalert",
+      "models_fraudalert_fraudalert_actions",
+      "models_fraudalert_fraudalert_assignedagent",
+      "models_fraudalert_fraudalert_calculateriskscore",
+      "models_fraudalert_fraudalert_casts",
+      "models_fraudalert_fraudalert_evidence",
+      "models_fraudalert_fraudalert_user",
+      "models_fraudalert_fraudalert_walletfreezes",
+      "trustdesk_api_app_models_fraudalert_php"
+    ],
+    "50": [
+      "dart_tool_package_config_configversion",
+      "dart_tool_package_config_flutterroot",
+      "dart_tool_package_config_flutterversion",
+      "dart_tool_package_config_generator",
+      "dart_tool_package_config_generatorversion",
+      "dart_tool_package_config_packages",
+      "dart_tool_package_config_pubcache",
+      "trustdesk_mobile_dart_tool_package_config_json"
+    ],
+    "51": [
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_panic_provider_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_panic_provider_dart_panicnotifier",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_panic_provider_dart_panicstate",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_panic_provider_dart_reset",
+      "trustdesk_mobile_lib_core_providers_panic_provider_dart",
+      "trustdesk_mobile_lib_core_providers_panic_provider_dart_api_provider_dart",
+      "trustdesk_mobile_lib_core_providers_panic_provider_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_core_providers_panic_provider_dart_package_geolocator_geolocator_dart"
+    ],
+    "52": [
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_signal_provider_dart_exception",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_signal_provider_dart_fetchsignals",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_signal_provider_dart_signalnotifier",
+      "models_community_signal_dart",
+      "trustdesk_mobile_lib_core_providers_signal_provider_dart",
+      "trustdesk_mobile_lib_core_providers_signal_provider_dart_api_provider_dart",
+      "trustdesk_mobile_lib_core_providers_signal_provider_dart_package_flutter_riverpod_flutter_riverpod_dart",
+      "trustdesk_mobile_lib_core_providers_signal_provider_dart_package_geolocator_geolocator_dart"
+    ],
+    "53": [
+      "d_trustdesk_trustdesk_mobile_lib_shared_glass_container_dart_build",
+      "d_trustdesk_trustdesk_mobile_lib_shared_glass_container_dart_gesturedetector",
+      "d_trustdesk_trustdesk_mobile_lib_shared_glass_container_dart_glasscontainer",
+      "d_trustdesk_trustdesk_mobile_lib_shared_glass_container_dart_glowglasscard",
+      "trustdesk_mobile_lib_shared_glass_container_dart",
+      "trustdesk_mobile_lib_shared_glass_container_dart_core_theme_dart",
+      "trustdesk_mobile_lib_shared_glass_container_dart_dart_ui",
+      "trustdesk_mobile_lib_shared_glass_container_dart_package_flutter_material_dart"
+    ],
+    "54": [
+      "lib_utils_cn",
+      "trustdesk_web_src_components_ui_spotlight_tsx",
+      "trustdesk_web_src_lib_utils_ts",
+      "ui_spotlight_aceternityspotlight",
+      "ui_spotlight_aceternityspotlightprops",
+      "ui_spotlight_spotlight",
+      "ui_spotlight_spotlightprops",
+      "ui_spotlight_springconfig"
+    ],
+    "55": [
+      "lib_mockdata_mockcards",
+      "lib_mockdata_mockcontacts",
+      "lib_mockdata_mockmonthlyflow",
+      "lib_mockdata_mocknotifications",
+      "lib_mockdata_mockspendingbycategory",
+      "lib_mockdata_mocktransactions",
+      "lib_mockdata_mockwallets",
+      "trustdesk_web_src_lib_mockdata_ts"
+    ],
+    "56": [
+      "pages_analytics_analyticspage",
+      "pages_analytics_catcolor",
+      "pages_analytics_caticon",
+      "pages_analytics_containervariants",
+      "pages_analytics_customtooltip",
+      "pages_analytics_itemvariants",
+      "pages_analytics_statcard",
+      "trustdesk_web_src_pages_analytics_tsx"
+    ],
+    "57": [
+      "hooks_usetriage_usetriage",
+      "pages_triage_getseveritystyles",
+      "pages_triage_miniworldmap",
+      "pages_triage_triage",
+      "trustdesk_web_src_hooks_usetriage_ts",
+      "trustdesk_web_src_pages_triage_tsx",
+      "types_database_dbfraudalert"
+    ],
+    "58": [
+      "pages_usersecurity_connected_apps",
+      "pages_usersecurity_cv",
+      "pages_usersecurity_iv",
+      "pages_usersecurity_login_history",
+      "pages_usersecurity_sessions",
+      "pages_usersecurity_usersecurity",
+      "trustdesk_web_src_pages_usersecurity_tsx"
+    ],
+    "59": [
+      "models_emergencylockdown_emergencylockdown",
+      "models_emergencylockdown_emergencylockdown_casts",
+      "models_emergencylockdown_emergencylockdown_device",
+      "models_emergencylockdown_emergencylockdown_resolvedbyagent",
+      "models_emergencylockdown_emergencylockdown_user",
+      "models_emergencylockdown_emergencylockdown_walletfreezes",
+      "trustdesk_api_app_models_emergencylockdown_php"
+    ],
+    "60": [
+      "trustdesk_web_package_scripts",
+      "trustdesk_web_package_scripts_build",
+      "trustdesk_web_package_scripts_dev",
+      "trustdesk_web_package_scripts_electron_build",
+      "trustdesk_web_package_scripts_electron_dev",
+      "trustdesk_web_package_scripts_lint",
+      "trustdesk_web_package_scripts_preview"
+    ],
+    "61": [
+      "trustdesk_web_src_components_ui_card_tsx",
+      "ui_card_card",
+      "ui_card_cardcontent",
+      "ui_card_carddescription",
+      "ui_card_cardfooter",
+      "ui_card_cardheader",
+      "ui_card_cardtitle"
+    ],
+    "62": [
+      "trustdesk_web_src_components_ui_skeleton_tsx",
+      "ui_skeleton_skeleton",
+      "ui_skeleton_skeletoncard",
+      "ui_skeleton_skeletonchart",
+      "ui_skeleton_skeletondashboard",
+      "ui_skeleton_skeletonprops",
+      "ui_skeleton_skeletontable"
+    ],
+    "63": [
+      "hooks_usecontacts_contactshookreturn",
+      "hooks_usecontacts_usecontacts",
+      "pages_sendmoney_sendmoneypage",
+      "pages_sendmoney_step",
+      "trustdesk_web_src_hooks_usecontacts_ts",
+      "trustdesk_web_src_pages_sendmoney_tsx",
+      "types_database_dbcontact"
+    ],
+    "64": [
+      "hooks_usenotifications_notificationshookreturn",
+      "hooks_usenotifications_usenotifications",
+      "trustdesk_web_src_components_ui_notificationpanel_tsx",
+      "trustdesk_web_src_hooks_usenotifications_ts",
+      "types_database_dbnotification",
+      "ui_notificationpanel_notificationpanel",
+      "ui_notificationpanel_typeicon"
+    ],
+    "65": [
+      "controllers_communitysignalcontroller_communitysignalcontroller",
+      "controllers_communitysignalcontroller_communitysignalcontroller_confirm",
+      "controllers_communitysignalcontroller_communitysignalcontroller_index",
+      "controllers_communitysignalcontroller_communitysignalcontroller_moderate",
+      "controllers_communitysignalcontroller_communitysignalcontroller_store",
+      "trustdesk_api_app_http_controllers_communitysignalcontroller_php"
+    ],
+    "66": [
+      "doc_kpi_dashboards",
+      "rat_kpi_dashboards_dashboard_1___triage__temps_r_el",
+      "rat_kpi_dashboards_dashboard_2___pilotage___kpi",
+      "rat_kpi_dashboards_kpi_op_rationnels",
+      "rat_kpi_dashboards_kpi_s_curit____qualit",
+      "rat_kpi_dashboards_proposition_de_tableaux_de_bord_et_kpi"
+    ],
+    "67": [
+      "requests_registerrequest_registerrequest",
+      "requests_registerrequest_registerrequest_authorize",
+      "requests_registerrequest_registerrequest_messages",
+      "requests_registerrequest_registerrequest_rules",
+      "requests_registerrequest_registerrequest_withvalidator",
+      "trustdesk_api_app_http_requests_registerrequest_php"
+    ],
+    "68": [
+      "requests_storefraudalertrequest_storefraudalertrequest",
+      "requests_storefraudalertrequest_storefraudalertrequest_authorize",
+      "requests_storefraudalertrequest_storefraudalertrequest_messages",
+      "requests_storefraudalertrequest_storefraudalertrequest_rules",
+      "requests_storefraudalertrequest_storefraudalertrequest_withvalidator",
+      "trustdesk_api_app_http_requests_storefraudalertrequest_php"
+    ],
+    "69": [
+      "flutterappdelegate",
+      "flutterimplicitenginedelegate",
+      "runner_appdelegate_appdelegate",
+      "runner_appdelegate_appdelegate_application",
+      "runner_appdelegate_appdelegate_didinitializeimplicitflutterengine",
+      "trustdesk_mobile_ios_runner_appdelegate_swift"
+    ],
+    "70": [
+      "d5326506fa5a1c6359b0d1fb9b8ec427_dart_build_result_build_end",
+      "d5326506fa5a1c6359b0d1fb9b8ec427_dart_build_result_build_start",
+      "d5326506fa5a1c6359b0d1fb9b8ec427_dart_build_result_code_assets",
+      "d5326506fa5a1c6359b0d1fb9b8ec427_dart_build_result_data_assets",
+      "d5326506fa5a1c6359b0d1fb9b8ec427_dart_build_result_dependencies",
+      "trustdesk_mobile_dart_tool_flutter_build_d5326506fa5a1c6359b0d1fb9b8ec427_dart_build_result_json"
+    ],
+    "71": [
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_incident_provider_dart_fetchincidents",
+      "d_trustdesk_trustdesk_mobile_lib_core_providers_incident_provider_dart_incidentnotifier",
+      "models_incident_dart",
+      "trustdesk_mobile_lib_core_providers_incident_provider_dart",
+      "trustdesk_mobile_lib_core_providers_incident_provider_dart_api_provider_dart",
+      "trustdesk_mobile_lib_core_providers_incident_provider_dart_package_flutter_riverpod_flutter_riverpod_dart"
+    ],
+    "72": [
+      "trustdesk_web_package_json",
+      "trustdesk_web_package_main",
+      "trustdesk_web_package_name",
+      "trustdesk_web_package_private",
+      "trustdesk_web_package_type",
+      "trustdesk_web_package_version"
+    ],
+    "73": [
+      "dashboard_geolocal_flytocenter",
+      "dashboard_geolocal_geolocal",
+      "dashboard_geolocal_getseveritycolor",
+      "dashboard_geolocal_getstatusbadge",
+      "dashboard_geolocal_mockgeoevents",
+      "trustdesk_web_src_pages_dashboard_geolocal_tsx"
+    ],
+    "74": [
+      "hooks_usewallet_transactionfilters",
+      "hooks_usewallet_wallethookreturn",
+      "trustdesk_web_src_hooks_usewallet_ts",
+      "types_database_dbtransaction",
+      "types_database_dbvirtualcard",
+      "types_database_dbwallet"
+    ],
+    "75": [
+      "appicon_appiconset_contents_images",
+      "appicon_appiconset_contents_info",
+      "appicon_appiconset_contents_info_author",
+      "appicon_appiconset_contents_info_version",
+      "trustdesk_mobile_ios_runner_assets_xcassets_appicon_appiconset_contents_json"
+    ],
+    "76": [
+      "controllers_emergencylockdowncontroller_emergencylockdowncontroller",
+      "controllers_emergencylockdowncontroller_emergencylockdowncontroller_activate",
+      "controllers_emergencylockdowncontroller_emergencylockdowncontroller_index",
+      "controllers_emergencylockdowncontroller_emergencylockdowncontroller_resolve",
+      "trustdesk_api_app_http_controllers_emergencylockdowncontroller_php"
+    ],
+    "77": [
+      "doc_acceptance_criteria",
+      "rat_acceptance_criteria_crit_res_d_acceptation_par_phase",
+      "rat_acceptance_criteria_phase_1___socle_signalement",
+      "rat_acceptance_criteria_phase_2___panic___coordination",
+      "rat_acceptance_criteria_phase_3___anti_vol_complet___audit"
+    ],
+    "78": [
+      "doc_playbooks",
+      "rat_playbooks_playbooks_et_proc_dures",
+      "rat_playbooks_sc_nario_a___activation_panic",
+      "rat_playbooks_sc_nario_b___vol_de_t_l_phone_confirm",
+      "rat_playbooks_sc_nario_c___faux_signalement___troll"
+    ],
+    "79": [
+      "doc_user_stories",
+      "rat_user_stories_module___panic",
+      "rat_user_stories_module___signalement_d_incidents",
+      "rat_user_stories_module___support___gestion",
+      "rat_user_stories_user_stories___trustdesk"
+    ],
+    "80": [
+      "launchimage_imageset_contents_images",
+      "launchimage_imageset_contents_info",
+      "launchimage_imageset_contents_info_author",
+      "launchimage_imageset_contents_info_version",
+      "trustdesk_mobile_ios_runner_assets_xcassets_launchimage_imageset_contents_json"
+    ],
+    "81": [
+      "models_communitysignal_communitysignal",
+      "models_communitysignal_communitysignal_casts",
+      "models_communitysignal_communitysignal_moderator",
+      "models_communitysignal_communitysignal_user",
+      "trustdesk_api_app_models_communitysignal_php"
+    ],
+    "82": [
+      "requests_activatelockdownrequest_activatelockdownrequest",
+      "requests_activatelockdownrequest_activatelockdownrequest_authorize",
+      "requests_activatelockdownrequest_activatelockdownrequest_rules",
+      "requests_activatelockdownrequest_activatelockdownrequest_withvalidator",
+      "trustdesk_api_app_http_requests_activatelockdownrequest_php"
+    ],
+    "83": [
+      "requests_loginrequest_loginrequest",
+      "requests_loginrequest_loginrequest_authorize",
+      "requests_loginrequest_loginrequest_rules",
+      "requests_loginrequest_loginrequest_withvalidator",
+      "trustdesk_api_app_http_requests_loginrequest_php"
+    ],
+    "84": [
+      "requests_storecommunitysignalrequest_storecommunitysignalrequest",
+      "requests_storecommunitysignalrequest_storecommunitysignalrequest_authorize",
+      "requests_storecommunitysignalrequest_storecommunitysignalrequest_rules",
+      "requests_storecommunitysignalrequest_storecommunitysignalrequest_withvalidator",
+      "trustdesk_api_app_http_requests_storecommunitysignalrequest_php"
+    ],
+    "85": [
+      "stores_walletstore_transaction",
+      "stores_walletstore_usewalletstore",
+      "stores_walletstore_virtualcard",
+      "stores_walletstore_walletstate",
+      "trustdesk_web_src_stores_walletstore_ts"
+    ],
+    "86": [
+      "d_trustdesk_trustdesk_mobile_lib_core_theme_dart_apptheme",
+      "d_trustdesk_trustdesk_mobile_lib_core_theme_dart_themedata",
+      "package_google_fonts_google_fonts_dart",
+      "trustdesk_mobile_lib_core_theme_dart",
+      "trustdesk_mobile_lib_core_theme_dart_package_flutter_material_dart"
+    ],
+    "87": [
+      "dashboard_socdashboard_generatemockincident",
+      "dashboard_socdashboard_kpicard",
+      "dashboard_socdashboard_socdashboard",
+      "dashboard_socdashboard_sparkline",
+      "trustdesk_web_src_pages_dashboard_socdashboard_tsx"
+    ],
+    "88": [
+      "dashboard_threatmap_getseveritycolor",
+      "dashboard_threatmap_globalthreats",
+      "dashboard_threatmap_mapcontroller",
+      "dashboard_threatmap_threatmap",
+      "trustdesk_web_src_pages_dashboard_threatmap_tsx"
+    ],
+    "89": [
+      "pages_predictiveai_category_data",
+      "pages_predictiveai_forecast_data",
+      "pages_predictiveai_predictiveai",
+      "pages_predictiveai_subscriptions",
+      "trustdesk_web_src_pages_predictiveai_tsx"
+    ],
+    "90": [
+      "trustdesk_web_src_components_ui_badge_tsx",
+      "ui_badge_badge",
+      "ui_badge_badgeprops",
+      "ui_badge_badgevariant",
+      "ui_badge_variantstyles"
+    ],
+    "91": [
+      "trustdesk_web_src_components_ui_fintechherowidget_tsx",
+      "ui_fintechherowidget_chip",
+      "ui_fintechherowidget_contactless",
+      "ui_fintechherowidget_fintechherowidget",
+      "ui_fintechherowidget_transactions"
+    ],
+    "92": [
+      "818cf290f6_output_assets_for_linking",
+      "818cf290f6_output_status",
+      "818cf290f6_output_timestamp",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_818cf290f6_output_json"
+    ],
+    "93": [
+      "config_env_dart",
+      "package_dio_dio_dart",
+      "trustdesk_mobile_lib_core_providers_api_provider_dart",
+      "trustdesk_mobile_lib_core_providers_api_provider_dart_package_flutter_riverpod_flutter_riverpod_dart"
+    ],
+    "94": [
+      "factories_userfactory_userfactory",
+      "factories_userfactory_userfactory_definition",
+      "factories_userfactory_userfactory_unverified",
+      "trustdesk_api_database_factories_userfactory_php"
+    ],
+    "95": [
+      "models_auditlog_auditlog",
+      "models_auditlog_auditlog_casts",
+      "models_auditlog_auditlog_user",
+      "trustdesk_api_app_models_auditlog_php"
+    ],
+    "96": [
+      "models_device_device",
+      "models_device_device_casts",
+      "models_device_device_user",
+      "trustdesk_api_app_models_device_php"
+    ],
+    "97": [
+      "flutterengine",
+      "plugins_generatedpluginregistrant_generatedpluginregistrant",
+      "plugins_generatedpluginregistrant_generatedpluginregistrant_registerwith",
+      "trustdesk_mobile_android_app_src_main_java_io_flutter_plugins_generatedpluginregistrant_java"
+    ],
+    "98": [
+      "providers_appserviceprovider_appserviceprovider",
+      "providers_appserviceprovider_appserviceprovider_boot",
+      "providers_appserviceprovider_appserviceprovider_register",
+      "trustdesk_api_app_providers_appserviceprovider_php"
+    ],
+    "99": [
+      "runnertests_runnertests_runnertests",
+      "runnertests_runnertests_runnertests_testexample",
+      "trustdesk_mobile_ios_runnertests_runnertests_swift",
+      "xctestcase"
+    ],
+    "100": [
+      "7e11656f0b_output_assets_for_linking",
+      "7e11656f0b_output_status",
+      "7e11656f0b_output_timestamp",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_7e11656f0b_output_json"
+    ],
+    "101": [
+      "c62a97a4df_output_assets_for_linking",
+      "c62a97a4df_output_status",
+      "c62a97a4df_output_timestamp",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_c62a97a4df_output_json"
+    ],
+    "102": [
+      "dart_tool_package_graph_configversion",
+      "dart_tool_package_graph_packages",
+      "dart_tool_package_graph_roots",
+      "trustdesk_mobile_dart_tool_package_graph_json"
+    ],
+    "103": [
+      "d_trustdesk_trustdesk_mobile_lib_core_models_wallet_models_dart_dbtransaction",
+      "d_trustdesk_trustdesk_mobile_lib_core_models_wallet_models_dart_dbvirtualcard",
+      "d_trustdesk_trustdesk_mobile_lib_core_models_wallet_models_dart_dbwallet",
+      "trustdesk_mobile_lib_core_models_wallet_models_dart"
+    ],
+    "104": [
+      "electron_main_app_browserwindow_ipcmain",
+      "electron_main_createwindow",
+      "electron_main_path",
+      "trustdesk_web_electron_main_js"
+    ],
+    "105": [
+      "dashboard_ekyc_ekyc",
+      "dashboard_ekyc_mocktraffic",
+      "dashboard_ekyc_mockverifications",
+      "trustdesk_web_src_pages_dashboard_ekyc_tsx"
+    ],
+    "106": [
+      "7e11656f0b_dependencies_dependencies_hash_file_environment",
+      "7e11656f0b_dependencies_dependencies_hash_file_file_system",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_7e11656f0b_dependencies_dependencies_hash_file_json"
+    ],
+    "107": [
+      "7e11656f0b_hook_dependencies_hash_file_environment",
+      "7e11656f0b_hook_dependencies_hash_file_file_system",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_7e11656f0b_hook_dependencies_hash_file_json"
+    ],
+    "108": [
+      "818cf290f6_dependencies_dependencies_hash_file_environment",
+      "818cf290f6_dependencies_dependencies_hash_file_file_system",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_818cf290f6_dependencies_dependencies_hash_file_json"
+    ],
+    "109": [
+      "c62a97a4df_hook_dependencies_hash_file_environment",
+      "c62a97a4df_hook_dependencies_hash_file_file_system",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_c62a97a4df_hook_dependencies_hash_file_json"
+    ],
+    "110": [
+      "d_trustdesk_trustdesk_mobile_lib_core_config_env_dart_envinfo",
+      "trustdesk_mobile_lib_core_config_env_dart",
+      "trustdesk_mobile_lib_core_config_env_dart_dart_io"
+    ],
+    "111": [
+      "dashboard_bugs_bugreports",
+      "dashboard_bugs_mockerrortimeline",
+      "trustdesk_web_src_pages_dashboard_bugs_tsx"
+    ],
+    "112": [
+      "dashboard_tags_mocktags",
+      "dashboard_tags_tagsmanagement",
+      "trustdesk_web_src_pages_dashboard_tags_tsx"
+    ],
+    "113": [
+      "extension_discovery_vs_code_entries",
+      "extension_discovery_vs_code_version",
+      "trustdesk_mobile_dart_tool_extension_discovery_vs_code_json"
+    ],
+    "114": [
+      "feature_exampletest_exampletest",
+      "feature_exampletest_exampletest_test_the_application_returns_a_successful_response",
+      "trustdesk_api_tests_feature_exampletest_php"
+    ],
+    "115": [
+      "middleware_securityheaders_securityheaders",
+      "middleware_securityheaders_securityheaders_handle",
+      "trustdesk_api_app_http_middleware_securityheaders_php"
+    ],
+    "116": [
+      "middleware_setlocale_setlocale",
+      "middleware_setlocale_setlocale_handle",
+      "trustdesk_api_app_http_middleware_setlocale_php"
+    ],
+    "117": [
+      "migrations_0001_01_01_000000_create_users_table_down",
+      "migrations_0001_01_01_000000_create_users_table_up",
+      "trustdesk_api_database_migrations_0001_01_01_000000_create_users_table_php"
+    ],
+    "118": [
+      "migrations_0001_01_01_000001_create_cache_table_down",
+      "migrations_0001_01_01_000001_create_cache_table_up",
+      "trustdesk_api_database_migrations_0001_01_01_000001_create_cache_table_php"
+    ],
+    "119": [
+      "migrations_2026_02_26_041923_create_devices_table_down",
+      "migrations_2026_02_26_041923_create_devices_table_up",
+      "trustdesk_api_database_migrations_2026_02_26_041923_create_devices_table_php"
+    ],
+    "120": [
+      "migrations_2026_02_26_041925_create_community_signals_table_down",
+      "migrations_2026_02_26_041925_create_community_signals_table_up",
+      "trustdesk_api_database_migrations_2026_02_26_041925_create_community_signals_table_php"
+    ],
+    "121": [
+      "migrations_2026_02_26_041927_create_notifications_table_down",
+      "migrations_2026_02_26_041927_create_notifications_table_up",
+      "trustdesk_api_database_migrations_2026_02_26_041927_create_notifications_table_php"
+    ],
+    "122": [
+      "models_trustedcontact_trustedcontact",
+      "models_trustedcontact_trustedcontact_user",
+      "trustdesk_api_app_models_trustedcontact_php"
+    ],
+    "123": [
+      "providers_ratelimitserviceprovider_ratelimitserviceprovider",
+      "providers_ratelimitserviceprovider_ratelimitserviceprovider_boot",
+      "trustdesk_api_app_providers_ratelimitserviceprovider_php"
+    ],
+    "124": [
+      "runner_generatedpluginregistrant_generatedpluginregistrant",
+      "runner_generatedpluginregistrant_generatedpluginregistrant_registerwithregistry",
+      "trustdesk_mobile_ios_runner_generatedpluginregistrant_m"
+    ],
+    "125": [
+      "flutterscenedelegate",
+      "runner_scenedelegate_scenedelegate",
+      "trustdesk_mobile_ios_runner_scenedelegate_swift"
+    ],
+    "126": [
+      "seeders_databaseseeder_databaseseeder",
+      "seeders_databaseseeder_databaseseeder_run",
+      "trustdesk_api_database_seeders_databaseseeder_php"
+    ],
+    "127": [
+      "stores_uistore_uistate",
+      "stores_uistore_useuistore",
+      "trustdesk_web_src_stores_uistore_ts"
+    ],
+    "128": [
+      "migrations_0001_01_01_000002_create_jobs_table_down",
+      "migrations_0001_01_01_000002_create_jobs_table_up",
+      "trustdesk_api_database_migrations_0001_01_01_000002_create_jobs_table_php"
+    ],
+    "129": [
+      "migrations_2026_02_26_041926_create_playbooks_table_down",
+      "migrations_2026_02_26_041926_create_playbooks_table_up",
+      "trustdesk_api_database_migrations_2026_02_26_041926_create_playbooks_table_php"
+    ],
+    "130": [
+      "migrations_2026_02_26_041927_create_audit_logs_table_down",
+      "migrations_2026_02_26_041927_create_audit_logs_table_up",
+      "trustdesk_api_database_migrations_2026_02_26_041927_create_audit_logs_table_php"
+    ],
+    "131": [
+      "migrations_2026_02_26_041927_create_trusted_contacts_table_down",
+      "migrations_2026_02_26_041927_create_trusted_contacts_table_up",
+      "trustdesk_api_database_migrations_2026_02_26_041927_create_trusted_contacts_table_php"
+    ],
+    "132": [
+      "migrations_2026_05_17_152400_create_trustvault_fintech_tables_down",
+      "migrations_2026_05_17_152400_create_trustvault_fintech_tables_up",
+      "trustdesk_api_database_migrations_2026_05_17_152400_create_trustvault_fintech_tables_php"
+    ],
+    "133": [
+      "d5326506fa5a1c6359b0d1fb9b8ec427_native_assets_format_version",
+      "d5326506fa5a1c6359b0d1fb9b8ec427_native_assets_native_assets",
+      "trustdesk_mobile_dart_tool_flutter_build_d5326506fa5a1c6359b0d1fb9b8ec427_native_assets_json"
+    ],
+    "134": [
+      "818cf290f6_hook_dependencies_hash_file_environment",
+      "818cf290f6_hook_dependencies_hash_file_file_system",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_818cf290f6_hook_dependencies_hash_file_json"
+    ],
+    "135": [
+      "c62a97a4df_dependencies_dependencies_hash_file_environment",
+      "c62a97a4df_dependencies_dependencies_hash_file_file_system",
+      "trustdesk_mobile_dart_tool_hooks_runner_objective_c_c62a97a4df_dependencies_dependencies_hash_file_json"
+    ],
+    "136": [
+      "lib_queryclient_queryclient",
+      "trustdesk_web_src_lib_queryclient_ts",
+      "trustdesk_web_src_main_tsx"
+    ],
+    "137": [
+      "pages_docs_categories",
+      "pages_docs_docs",
+      "trustdesk_web_src_pages_docs_tsx"
+    ],
+    "138": [
+      "pages_pricing_plans",
+      "pages_pricing_pricing",
+      "trustdesk_web_src_pages_pricing_tsx"
+    ],
+    "139": [
+      "trustdesk_web_tsconfig_files",
+      "trustdesk_web_tsconfig_json",
+      "trustdesk_web_tsconfig_references"
+    ],
+    "140": [
+      "trustdesk_web_src_components_ui_tooltip_tsx",
+      "ui_tooltip_tooltip",
+      "ui_tooltip_tooltipprops"
+    ],
+    "141": [
+      "trustdesk_api_tests_unit_exampletest_php",
+      "unit_exampletest_exampletest",
+      "unit_exampletest_exampletest_test_that_true_is_true"
+    ],
+    "142": [
+      "d_trustdesk_trustdesk_mobile_ios_flutter_flutter_export_environment_sh__entry",
+      "trustdesk_mobile_ios_flutter_flutter_export_environment_sh"
+    ],
+    "143": [
+      "d_trustdesk_trustdesk_mobile_lib_core_config_dart_appconfig",
+      "trustdesk_mobile_lib_core_config_dart"
+    ],
+    "144": [
+      "d_trustdesk_trustdesk_mobile_lib_core_models_incident_dart_incident",
+      "trustdesk_mobile_lib_core_models_incident_dart"
+    ],
+    "145": [
+      "models_notification_notification",
+      "trustdesk_api_app_models_notification_php"
+    ],
+    "146": [
+      "models_playbook_playbook",
+      "trustdesk_api_app_models_playbook_php"
+    ],
+    "147": [
+      "stitch_json",
+      "trustdesk_stitch_projectid"
+    ],
+    "148": [
+      "tests_testcase_testcase",
+      "trustdesk_api_tests_testcase_php"
+    ],
+    "149": [
+      "controllers_controller_controller",
+      "trustdesk_api_app_http_controllers_controller_php"
+    ],
+    "150": [
+      "trustdesk_api_resources_js_app_js",
+      "trustdesk_api_resources_js_bootstrap_js"
+    ],
+    "151": [
+      "d_trustdesk_trustdesk_mobile_lib_core_models_community_signal_dart_communitysignal",
+      "trustdesk_mobile_lib_core_models_community_signal_dart"
+    ],
+    "152": [
+      "trustdesk_mobile_android_app_src_main_kotlin_com_example_trustdesk_mobile_mainactivity_kt",
+      "trustdesk_mobile_mainactivity_mainactivity"
+    ],
+    "153": [
+      "electron_preload_contextbridge_ipcrenderer",
+      "trustdesk_web_electron_preload_js"
+    ],
+    "154": [
+      "verify_figma_mcp_ps1"
+    ],
+    "155": [
+      "trustdesk_api_vite_config_js"
+    ],
+    "156": [
+      "trustdesk_api_bootstrap_app_php"
+    ],
+    "157": [
+      "trustdesk_api_bootstrap_providers_php"
+    ],
+    "158": [
+      "trustdesk_api_bootstrap_cache_packages_php"
+    ],
+    "159": [
+      "trustdesk_api_bootstrap_cache_services_php"
+    ],
+    "160": [
+      "trustdesk_api_config_app_php"
+    ],
+    "161": [
+      "trustdesk_api_config_auth_php"
+    ],
+    "162": [
+      "trustdesk_api_config_cache_php"
+    ],
+    "163": [
+      "trustdesk_api_config_cors_php"
+    ],
+    "164": [
+      "trustdesk_api_config_database_php"
+    ],
+    "165": [
+      "trustdesk_api_config_filesystems_php"
+    ],
+    "166": [
+      "trustdesk_api_config_logging_php"
+    ],
+    "167": [
+      "trustdesk_api_config_mail_php"
+    ],
+    "168": [
+      "trustdesk_api_config_queue_php"
+    ],
+    "169": [
+      "trustdesk_api_config_sanctum_php"
+    ],
+    "170": [
+      "trustdesk_api_config_services_php"
+    ],
+    "171": [
+      "trustdesk_api_config_session_php"
+    ],
+    "172": [
+      "trustdesk_api_public_index_php"
+    ],
+    "173": [
+      "trustdesk_api_resources_views_welcome_blade_php"
+    ],
+    "174": [
+      "trustdesk_api_routes_api_php"
+    ],
+    "175": [
+      "trustdesk_api_routes_console_php"
+    ],
+    "176": [
+      "trustdesk_api_routes_web_php"
+    ],
+    "177": [
+      "trustdesk_api_storage_framework_views_00b9e302e53c87e08b233006f99408c1_php"
+    ],
+    "178": [
+      "trustdesk_api_storage_framework_views_0f03517c3dbfd1bad4c54baeb269ebf0_php"
+    ],
+    "179": [
+      "trustdesk_api_storage_framework_views_1ac1b1230d767398d9333a41e0b108b0_php"
+    ],
+    "180": [
+      "trustdesk_api_storage_framework_views_1e3049769bbd8f559c1c615710777041_php"
+    ],
+    "181": [
+      "trustdesk_api_storage_framework_views_23b9f648419d6aa4fec6bbd31da9b053_php"
+    ],
+    "182": [
+      "trustdesk_api_storage_framework_views_24593422487489555ebfe878306ba552_php"
+    ],
+    "183": [
+      "trustdesk_api_storage_framework_views_381dec1cbbd9c0110df14d39957d793c_php"
+    ],
+    "184": [
+      "trustdesk_api_storage_framework_views_3db8bd77a30a701bcd862333ca14e0bf_php"
+    ],
+    "185": [
+      "trustdesk_api_storage_framework_views_40470a96937df7e704602cc041b57cdd_php"
+    ],
+    "186": [
+      "trustdesk_api_storage_framework_views_4c740da2d185ae32a96df4715b0c0ec4_php"
+    ],
+    "187": [
+      "trustdesk_api_storage_framework_views_4f9d582af87b7e9291239e5f4088fd78_php"
+    ],
+    "188": [
+      "trustdesk_api_storage_framework_views_545b49d69a074d09ace835e82f28b189_php"
+    ],
+    "189": [
+      "trustdesk_api_storage_framework_views_558aba1e5d759b503a0e29a771a43caa_php"
+    ],
+    "190": [
+      "trustdesk_api_storage_framework_views_60fdb05f1bc643adef69d666aaa46037_php"
+    ],
+    "191": [
+      "trustdesk_api_storage_framework_views_630be46f89d524fc8f3b426c91f9a00f_php"
+    ],
+    "192": [
+      "trustdesk_api_storage_framework_views_63649c470c0d44455a30b43315bcd300_php"
+    ],
+    "193": [
+      "trustdesk_api_storage_framework_views_648c5e89280e9cf5393c1cf1ce219233_php"
+    ],
+    "194": [
+      "trustdesk_api_storage_framework_views_6f19c6b79553faa3cf47bb4f124e201e_php"
+    ],
+    "195": [
+      "trustdesk_api_storage_framework_views_6f372cd72ffe24e6ff73d43610ebd0c4_php"
+    ],
+    "196": [
+      "trustdesk_api_storage_framework_views_73d43e5119d11f8e7c1b1596d5607a61_php"
+    ],
+    "197": [
+      "trustdesk_api_storage_framework_views_80f0b2a6230572f52b07273a99b3fd8d_php"
+    ],
+    "198": [
+      "trustdesk_api_storage_framework_views_8798f3926f9783f0ad6e76148039afc6_php"
+    ],
+    "199": [
+      "trustdesk_api_storage_framework_views_8965ad5048f1028b93fb9c415adf22cf_php"
+    ],
+    "200": [
+      "trustdesk_api_storage_framework_views_898ee2a46d46c0934badf5b1b5463db2_php"
+    ],
+    "201": [
+      "trustdesk_api_storage_framework_views_8b4a57ae394ec3907904f2d082ad8a15_php"
+    ],
+    "202": [
+      "trustdesk_api_storage_framework_views_913c978ed4ea303cfc453b1eab287b5c_php"
+    ],
+    "203": [
+      "trustdesk_api_storage_framework_views_93f4992749d00cc27d90c4b30521f6e6_php"
+    ],
+    "204": [
+      "trustdesk_api_storage_framework_views_957aa845ca98989ccc350b31d57260ab_php"
+    ],
+    "205": [
+      "trustdesk_api_storage_framework_views_984a0bdeea549958f1af30733f2037b0_php"
+    ],
+    "206": [
+      "trustdesk_api_storage_framework_views_9e8da6e2fa12235a71bf06a93ef63031_php"
+    ],
+    "207": [
+      "trustdesk_api_storage_framework_views_a27166e254337989e7bd49796b60a0de_php"
+    ],
+    "208": [
+      "trustdesk_api_storage_framework_views_b25ee48207501b2309e124dc72ec76a8_php"
+    ],
+    "209": [
+      "trustdesk_api_storage_framework_views_bda529dae4e53e35e9a90ab720d1d94b_php"
+    ],
+    "210": [
+      "trustdesk_api_storage_framework_views_c55c05d9532590c7afbb03a48a2b92fd_php"
+    ],
+    "211": [
+      "trustdesk_api_storage_framework_views_c7e8e7cd8f42eb69225f1145582db1b4_php"
+    ],
+    "212": [
+      "trustdesk_api_storage_framework_views_cc63fd5eaf6a1535a27a68c080cf5119_php"
+    ],
+    "213": [
+      "trustdesk_api_storage_framework_views_e481ba44da531edaa28fa046daf15a6c_php"
+    ],
+    "214": [
+      "trustdesk_api_storage_framework_views_e4d1d2bbaa2a31007144726e6353921f_php"
+    ],
+    "215": [
+      "trustdesk_api_storage_framework_views_f1dd3bc8e2f3c5ca9741b0f685daeee7_php"
+    ],
+    "216": [
+      "trustdesk_api_storage_framework_views_f3ad7e602bd6271ae445d13ac531b72e_php"
+    ],
+    "217": [
+      "trustdesk_web_eslint_config_js"
+    ],
+    "218": [
+      "trustdesk_web_test_mjs"
+    ],
+    "219": [
+      "trustdesk_web_vite_config_ts"
+    ],
+    "220": [
+      "trustdesk_mobile_dart_tool_flutter_build_d5326506fa5a1c6359b0d1fb9b8ec427_outputs_json"
+    ],
+    "221": [
+      "trustdesk_mobile_android_build_gradle_kts"
+    ],
+    "222": [
+      "trustdesk_mobile_android_settings_gradle_kts"
+    ],
+    "223": [
+      "trustdesk_mobile_android_app_build_gradle_kts"
+    ],
+    "224": [
+      "trustdesk_mobile_ios_runner_generatedpluginregistrant_h"
+    ],
+    "225": [
+      "trustdesk_mobile_ios_runner_runner_bridging_header_h"
+    ],
+    "226": [
+      "doc_animation"
+    ],
+    "227": [
+      "doc_footer"
+    ],
+    "228": [
+      "doc_layers"
+    ],
+    "229": [
+      "doc_prompta"
+    ],
+    "230": [
+      "doc_prompta2"
+    ],
+    "231": [
+      "doc_scroll"
+    ],
+    "232": [
+      "doc_robots"
+    ],
+    "233": [
+      "doc_index"
+    ],
+    "234": [
+      "doc_lint_results"
+    ],
+    "235": [
+      "doc_analysis_options"
+    ],
+    "236": [
+      "doc_pubspec"
+    ],
+    "237": [
+      "doc_stderr"
+    ],
+    "238": [
+      "doc_stdout"
+    ],
+    "239": [
+      "img_trustdesk_3d_logo_1777313422370"
+    ],
+    "240": [
+      "img_ai_threat_triage"
+    ],
+    "241": [
+      "img_cyber_virtual_cards"
+    ],
+    "242": [
+      "img_ekyc_biometric_preview"
+    ],
+    "243": [
+      "img_logo3d"
+    ],
+    "244": [
+      "img_trustdesk_logo"
+    ],
+    "245": [
+      "img_trustdesk_3d_logo"
+    ],
+    "246": [
+      "img_trustvault_hero_3d"
+    ],
+    "247": [
+      "img_trustvault_logo"
+    ],
+    "248": [
+      "img_vault_logo"
+    ],
+    "249": [
+      "img_ekyc_biometric_scan"
+    ],
+    "250": [
+      "img_ekyc_id_card"
+    ],
+    "251": [
+      "img_ekyc_passport_scan"
+    ],
+    "252": [
+      "img_hero"
+    ],
+    "253": [
+      "img_react"
+    ],
+    "254": [
+      "img_vite"
+    ],
+    "255": [
+      "img_heatmap"
+    ],
+    "256": [
+      "img_logo"
+    ],
+    "257": [
+      "img_launchimage"
+    ],
+    "258": [
+      "img_launchimage_2x"
+    ],
+    "259": [
+      "img_launchimage_3x"
+    ]
+  },
+  "cohesion": {
+    "0": 0.03773584905660377,
+    "1": 0.04081632653061224,
+    "2": 0.05,
+    "3": 0.07396870554765292,
+    "4": 0.06060606060606061,
+    "5": 0.08266129032258064,
+    "6": 0.07142857142857142,
+    "7": 0.07407407407407407,
+    "8": 0.07407407407407407,
+    "9": 0.07692307692307693,
+    "10": 0.08,
+    "11": 0.08,
+    "12": 0.08333333333333333,
+    "13": 0.09090909090909091,
+    "14": 0.09523809523809523,
+    "15": 0.09523809523809523,
+    "16": 0.09523809523809523,
+    "17": 0.09523809523809523,
+    "18": 0.1,
+    "19": 0.1631578947368421,
+    "20": 0.1,
+    "21": 0.10526315789473684,
+    "22": 0.10526315789473684,
+    "23": 0.10526315789473684,
+    "24": 0.1111111111111111,
+    "25": 0.125,
+    "26": 0.125,
+    "27": 0.13333333333333333,
+    "28": 0.1619047619047619,
+    "29": 0.14285714285714285,
+    "30": 0.18681318681318682,
+    "31": 0.14285714285714285,
+    "32": 0.15384615384615385,
+    "33": 0.21212121212121213,
+    "34": 0.16666666666666666,
+    "35": 0.16666666666666666,
+    "36": 0.16666666666666666,
+    "37": 0.16666666666666666,
+    "38": 0.19696969696969696,
+    "39": 0.21818181818181817,
+    "40": 0.18181818181818182,
+    "41": 0.2222222222222222,
+    "42": 0.24444444444444444,
+    "43": 0.26666666666666666,
+    "44": 0.2,
+    "45": 0.2,
+    "46": 0.2,
+    "47": 0.2,
+    "48": 0.2222222222222222,
+    "49": 0.25,
+    "50": 0.25,
+    "51": 0.25,
+    "52": 0.25,
+    "53": 0.25,
+    "54": 0.2857142857142857,
+    "55": 0.25,
+    "56": 0.25,
+    "57": 0.38095238095238093,
+    "58": 0.2857142857142857,
+    "59": 0.3333333333333333,
+    "60": 0.2857142857142857,
+    "61": 0.2857142857142857,
+    "62": 0.2857142857142857,
+    "63": 0.47619047619047616,
+    "64": 0.42857142857142855,
+    "65": 0.3333333333333333,
+    "66": 0.3333333333333333,
+    "67": 0.4,
+    "68": 0.4,
+    "69": 0.3333333333333333,
+    "70": 0.3333333333333333,
+    "71": 0.3333333333333333,
+    "72": 0.3333333333333333,
+    "73": 0.3333333333333333,
+    "74": 0.6,
+    "75": 0.4,
+    "76": 0.4,
+    "77": 0.4,
+    "78": 0.4,
+    "79": 0.4,
+    "80": 0.4,
+    "81": 0.5,
+    "82": 0.5,
+    "83": 0.5,
+    "84": 0.5,
+    "85": 0.4,
+    "86": 0.4,
+    "87": 0.4,
+    "88": 0.4,
+    "89": 0.4,
+    "90": 0.4,
+    "91": 0.4,
+    "92": 0.5,
+    "93": 0.5,
+    "94": 0.5,
+    "95": 0.5,
+    "96": 0.5,
+    "97": 0.6666666666666666,
+    "98": 0.5,
+    "99": 0.5,
+    "100": 0.5,
+    "101": 0.5,
+    "102": 0.5,
+    "103": 0.5,
+    "104": 0.5,
+    "105": 0.5,
+    "106": 0.6666666666666666,
+    "107": 0.6666666666666666,
+    "108": 0.6666666666666666,
+    "109": 0.6666666666666666,
+    "110": 0.6666666666666666,
+    "111": 0.6666666666666666,
+    "112": 0.6666666666666666,
+    "113": 0.6666666666666666,
+    "114": 0.6666666666666666,
+    "115": 0.6666666666666666,
+    "116": 0.6666666666666666,
+    "117": 0.6666666666666666,
+    "118": 0.6666666666666666,
+    "119": 0.6666666666666666,
+    "120": 0.6666666666666666,
+    "121": 0.6666666666666666,
+    "122": 0.6666666666666666,
+    "123": 0.6666666666666666,
+    "124": 0.6666666666666666,
+    "125": 0.6666666666666666,
+    "126": 0.6666666666666666,
+    "127": 0.6666666666666666,
+    "128": 0.6666666666666666,
+    "129": 0.6666666666666666,
+    "130": 0.6666666666666666,
+    "131": 0.6666666666666666,
+    "132": 0.6666666666666666,
+    "133": 0.6666666666666666,
+    "134": 0.6666666666666666,
+    "135": 0.6666666666666666,
+    "136": 1.0,
+    "137": 0.6666666666666666,
+    "138": 0.6666666666666666,
+    "139": 0.6666666666666666,
+    "140": 0.6666666666666666,
+    "141": 0.6666666666666666,
+    "142": 1.0,
+    "143": 1.0,
+    "144": 1.0,
+    "145": 1.0,
+    "146": 1.0,
+    "147": 1.0,
+    "148": 1.0,
+    "149": 1.0,
+    "150": 1.0,
+    "151": 1.0,
+    "152": 1.0,
+    "153": 1.0,
+    "154": 1.0,
+    "155": 1.0,
+    "156": 1.0,
+    "157": 1.0,
+    "158": 1.0,
+    "159": 1.0,
+    "160": 1.0,
+    "161": 1.0,
+    "162": 1.0,
+    "163": 1.0,
+    "164": 1.0,
+    "165": 1.0,
+    "166": 1.0,
+    "167": 1.0,
+    "168": 1.0,
+    "169": 1.0,
+    "170": 1.0,
+    "171": 1.0,
+    "172": 1.0,
+    "173": 1.0,
+    "174": 1.0,
+    "175": 1.0,
+    "176": 1.0,
+    "177": 1.0,
+    "178": 1.0,
+    "179": 1.0,
+    "180": 1.0,
+    "181": 1.0,
+    "182": 1.0,
+    "183": 1.0,
+    "184": 1.0,
+    "185": 1.0,
+    "186": 1.0,
+    "187": 1.0,
+    "188": 1.0,
+    "189": 1.0,
+    "190": 1.0,
+    "191": 1.0,
+    "192": 1.0,
+    "193": 1.0,
+    "194": 1.0,
+    "195": 1.0,
+    "196": 1.0,
+    "197": 1.0,
+    "198": 1.0,
+    "199": 1.0,
+    "200": 1.0,
+    "201": 1.0,
+    "202": 1.0,
+    "203": 1.0,
+    "204": 1.0,
+    "205": 1.0,
+    "206": 1.0,
+    "207": 1.0,
+    "208": 1.0,
+    "209": 1.0,
+    "210": 1.0,
+    "211": 1.0,
+    "212": 1.0,
+    "213": 1.0,
+    "214": 1.0,
+    "215": 1.0,
+    "216": 1.0,
+    "217": 1.0,
+    "218": 1.0,
+    "219": 1.0,
+    "220": 1.0,
+    "221": 1.0,
+    "222": 1.0,
+    "223": 1.0,
+    "224": 1.0,
+    "225": 1.0,
+    "226": 1.0,
+    "227": 1.0,
+    "228": 1.0,
+    "229": 1.0,
+    "230": 1.0,
+    "231": 1.0,
+    "232": 1.0,
+    "233": 1.0,
+    "234": 1.0,
+    "235": 1.0,
+    "236": 1.0,
+    "237": 1.0,
+    "238": 1.0,
+    "239": 1.0,
+    "240": 1.0,
+    "241": 1.0,
+    "242": 1.0,
+    "243": 1.0,
+    "244": 1.0,
+    "245": 1.0,
+    "246": 1.0,
+    "247": 1.0,
+    "248": 1.0,
+    "249": 1.0,
+    "250": 1.0,
+    "251": 1.0,
+    "252": 1.0,
+    "253": 1.0,
+    "254": 1.0,
+    "255": 1.0,
+    "256": 1.0,
+    "257": 1.0,
+    "258": 1.0,
+    "259": 1.0
+  },
+  "gods": [
+    {
+      "id": "doc_claude_opus_4_7",
+      "label": "Doc: Claude Opus 4.7",
+      "degree": 52
+    },
+    {
+      "id": "ui_toast_usetoast",
+      "label": "useToast()",
+      "degree": 23
+    },
+    {
+      "id": "trustdesk_web_tsconfig_app_compileroptions",
+      "label": "compilerOptions",
+      "degree": 22
+    },
+    {
+      "id": "services_auditservice_auditservice",
+      "label": "AuditService",
+      "degree": 18
+    },
+    {
+      "id": "trustdesk_web_tsconfig_node_compileroptions",
+      "label": "compilerOptions",
+      "degree": 18
+    },
+    {
+      "id": "doc_design",
+      "label": "Doc: Design",
+      "degree": 18
+    },
+    {
+      "id": "hooks_usewallet_usewallet",
+      "label": "useWallet()",
+      "degree": 13
+    },
+    {
+      "id": "doc_readme",
+      "label": "Doc: Readme",
+      "degree": 13
+    },
+    {
+      "id": "models_walletfreeze_walletfreeze",
+      "label": "WalletFreeze",
+      "degree": 11
+    },
+    {
+      "id": "models_user_user",
+      "label": "User",
+      "degree": 10
+    }
+  ],
+  "surprises": [
+    {
+      "source": "React + TypeScript + Vite",
+      "target": "Doc: Readme",
+      "source_files": [
+        "trustdesk-web/README.md",
+        "trustdesk-api/README.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "rationale_for",
+      "why": "connects across different repos/directories; peripheral node `React + TypeScript + Vite` unexpectedly reaches hub `Doc: Readme`"
+    },
+    {
+      "source": "React Compiler",
+      "target": "Doc: Readme",
+      "source_files": [
+        "trustdesk-web/README.md",
+        "trustdesk-api/README.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "rationale_for",
+      "why": "connects across different repos/directories; peripheral node `React Compiler` unexpectedly reaches hub `Doc: Readme`"
+    },
+    {
+      "source": "Expanding the ESLint configuration",
+      "target": "Doc: Readme",
+      "source_files": [
+        "trustdesk-web/README.md",
+        "trustdesk-api/README.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "rationale_for",
+      "why": "connects across different repos/directories; peripheral node `Expanding the ESLint configuration` unexpectedly reaches hub `Doc: Readme`"
+    },
+    {
+      "source": "trustdesk_mobile",
+      "target": "Doc: Readme",
+      "source_files": [
+        "trustdesk_mobile/README.md",
+        "trustdesk-api/README.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "rationale_for",
+      "why": "connects across different repos/directories; peripheral node `trustdesk_mobile` unexpectedly reaches hub `Doc: Readme`"
+    },
+    {
+      "source": "Launch Screen Assets",
+      "target": "Doc: Readme",
+      "source_files": [
+        "trustdesk_mobile/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md",
+        "trustdesk-api/README.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "rationale_for",
+      "why": "connects across different repos/directories; peripheral node `Launch Screen Assets` unexpectedly reaches hub `Doc: Readme`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `DbContact` connect `Community 63` to `Community 17`, `Community 55`?",
+      "why": "High betweenness centrality (0.001) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `useToast()` connect `Community 5` to `Community 37`, `Community 38`, `Community 46`, `Community 28`, `Community 30`?",
+      "why": "High betweenness centrality (0.001) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 14 inferred relationships involving `AuditService` (e.g. with `.register()` and `.login()`) actually correct?",
+      "why": "`AuditService` has 14 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `@react-three/fiber`, `@remotion/cli`, `framer-motion` to the rest of the system?",
+      "why": "922 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.05 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Diagramme de Cas d'Utilisation – TrustDesk</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Times New Roman', serif; background: #f5f5f5; display: flex; justify-content: center; align-items: flex-start; padding: 30px; }
+  svg { background: white; border: 1px solid #ccc; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .actor-label { font-size: 13px; font-weight: bold; fill: #003366; text-anchor: middle; }
+  .uc-label { font-size: 11px; fill: #1a1a1a; text-anchor: middle; }
+  .title { font-size: 16px; font-weight: bold; fill: #003366; text-anchor: middle; }
+  .sys-label { font-size: 12px; font-style: italic; fill: #666; text-anchor: middle; }
+  .boundary-label { font-size: 13px; font-weight: bold; fill: #003366; text-anchor: middle; }
+</style>
+</head>
+<body>
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="450" y="35" class="title">Diagramme de Cas d'Utilisation Global – TrustDesk</text>
+  <line x1="80" y1="45" x2="820" y2="45" stroke="#003366" stroke-width="1.5"/>
+
+  <!-- System boundary -->
+  <rect x="210" y="60" width="480" height="600" rx="8" fill="#f8fbff" stroke="#003366" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="450" y="82" class="boundary-label">Système TrustDesk</text>
+
+  <!-- ===== USE CASES ===== -->
+  <!-- Auth cluster -->
+  <ellipse cx="450" cy="130" rx="90" ry="22" fill="#e8f4fd" stroke="#0066cc" stroke-width="1.5"/>
+  <text x="450" y="134" class="uc-label">S'inscrire / Se connecter</text>
+
+  <ellipse cx="450" cy="185" rx="85" ry="22" fill="#e8f4fd" stroke="#0066cc" stroke-width="1.5"/>
+  <text x="450" y="189" class="uc-label">Compléter le eKYC</text>
+
+  <!-- Wallet cluster -->
+  <ellipse cx="340" cy="270" rx="85" ry="22" fill="#e8f8f0" stroke="#00884b" stroke-width="1.5"/>
+  <text x="340" y="274" class="uc-label">Consulter le portefeuille</text>
+
+  <ellipse cx="560" cy="270" rx="85" ry="22" fill="#e8f8f0" stroke="#00884b" stroke-width="1.5"/>
+  <text x="560" y="274" class="uc-label">Effectuer un transfert P2P</text>
+
+  <ellipse cx="340" cy="340" rx="85" ry="22" fill="#e8f8f0" stroke="#00884b" stroke-width="1.5"/>
+  <text x="340" y="344" class="uc-label">Paiement par QR code</text>
+
+  <ellipse cx="560" cy="340" rx="85" ry="22" fill="#e8f8f0" stroke="#00884b" stroke-width="1.5"/>
+  <text x="560" y="344" class="uc-label">Gérer cartes virtuelles</text>
+
+  <!-- Analytics -->
+  <ellipse cx="450" cy="415" rx="90" ry="22" fill="#fff3e0" stroke="#ff8c00" stroke-width="1.5"/>
+  <text x="450" y="419" class="uc-label">Consulter insights financiers</text>
+
+  <!-- Admin cluster -->
+  <ellipse cx="340" cy="500" rx="88" ry="22" fill="#fce8f0" stroke="#cc0044" stroke-width="1.5"/>
+  <text x="340" y="504" class="uc-label">Gérer les clients / KYC</text>
+
+  <ellipse cx="560" cy="500" rx="88" ry="22" fill="#fce8f0" stroke="#cc0044" stroke-width="1.5"/>
+  <text x="560" y="504" class="uc-label">Gérer les incidents</text>
+
+  <!-- AI -->
+  <ellipse cx="450" cy="575" rx="90" ry="22" fill="#f0e8ff" stroke="#6600cc" stroke-width="1.5"/>
+  <text x="450" y="579" class="uc-label">Triage IA des transactions</text>
+
+  <!-- ===== ACTORS ===== -->
+  <!-- Client actor -->
+  <circle cx="95" cy="135" r="18" fill="#003366" stroke="none"/>
+  <line x1="95" y1="153" x2="95" y2="195" stroke="#003366" stroke-width="2"/>
+  <line x1="70" y1="170" x2="120" y2="170" stroke="#003366" stroke-width="2"/>
+  <line x1="95" y1="195" x2="75" y2="225" stroke="#003366" stroke-width="2"/>
+  <line x1="95" y1="195" x2="115" y2="225" stroke="#003366" stroke-width="2"/>
+  <text x="95" y="244" class="actor-label">Client</text>
+  <text x="95" y="260" font-size="10" fill="#666" text-anchor="middle">(Mobile)</text>
+
+  <!-- Admin actor -->
+  <circle cx="95" cy="470" r="18" fill="#cc0044" stroke="none"/>
+  <line x1="95" y1="488" x2="95" y2="530" stroke="#cc0044" stroke-width="2"/>
+  <line x1="70" y1="505" x2="120" y2="505" stroke="#cc0044" stroke-width="2"/>
+  <line x1="95" y1="530" x2="75" y2="560" stroke="#cc0044" stroke-width="2"/>
+  <line x1="95" y1="530" x2="115" y2="560" stroke="#cc0044" stroke-width="2"/>
+  <text x="95" y="578" class="actor-label">Administrateur</text>
+  <text x="95" y="594" font-size="10" fill="#666" text-anchor="middle">(Web)</text>
+
+  <!-- System/AI actor -->
+  <circle cx="805" cy="560" r="18" fill="#6600cc" stroke="none"/>
+  <line x1="805" y1="578" x2="805" y2="618" stroke="#6600cc" stroke-width="2"/>
+  <line x1="780" y1="595" x2="830" y2="595" stroke="#6600cc" stroke-width="2"/>
+  <line x1="805" y1="618" x2="785" y2="645" stroke="#6600cc" stroke-width="2"/>
+  <line x1="805" y1="618" x2="825" y2="645" stroke="#6600cc" stroke-width="2"/>
+  <text x="805" y="662" class="actor-label">Système IA</text>
+
+  <!-- ===== ASSOCIATIONS ===== -->
+  <!-- Client → use cases -->
+  <line x1="113" y1="140" x2="355" y2="130" stroke="#003366" stroke-width="1.2"/>
+  <line x1="113" y1="148" x2="360" y2="185" stroke="#003366" stroke-width="1.2"/>
+  <line x1="113" y1="155" x2="255" y2="270" stroke="#003366" stroke-width="1.2"/>
+  <line x1="113" y1="160" x2="475" y2="270" stroke="#003366" stroke-width="1.2"/>
+  <line x1="113" y1="165" x2="255" y2="340" stroke="#003366" stroke-width="1.2"/>
+  <line x1="113" y1="168" x2="475" y2="340" stroke="#003366" stroke-width="1.2"/>
+  <line x1="113" y1="172" x2="358" y2="415" stroke="#003366" stroke-width="1.2"/>
+
+  <!-- Admin → use cases -->
+  <line x1="113" y1="475" x2="252" y2="500" stroke="#cc0044" stroke-width="1.2"/>
+  <line x1="113" y1="480" x2="472" y2="500" stroke="#cc0044" stroke-width="1.2"/>
+  <line x1="113" y1="472" x2="450" y2="130" stroke="#cc0044" stroke-width="1" stroke-dasharray="5,3"/>
+
+  <!-- AI → triage -->
+  <line x1="787" y1="562" x2="540" y2="575" stroke="#6600cc" stroke-width="1.2"/>
+
+  <!-- Legend -->
+  <rect x="630" y="90" width="200" height="120" rx="4" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="730" y="110" font-size="12" font-weight="bold" fill="#003366" text-anchor="middle">Légende</text>
+  <ellipse cx="665" cy="128" rx="18" ry="10" fill="#e8f4fd" stroke="#0066cc" stroke-width="1.5"/>
+  <text x="700" y="132" font-size="10" fill="#333">Authentification/eKYC</text>
+  <ellipse cx="665" cy="150" rx="18" ry="10" fill="#e8f8f0" stroke="#00884b" stroke-width="1.5"/>
+  <text x="700" y="154" font-size="10" fill="#333">Portefeuille/Paiement</text>
+  <ellipse cx="665" cy="172" rx="18" ry="10" fill="#fce8f0" stroke="#cc0044" stroke-width="1.5"/>
+  <text x="700" y="176" font-size="10" fill="#333">Administration</text>
+  <ellipse cx="665" cy="194" rx="18" ry="10" fill="#f0e8ff" stroke="#6600cc" stroke-width="1.5"/>
+  <text x="700" y="198" font-size="10" fill="#333">Triage IA</text>
+</svg>
+</body>
+</html>
