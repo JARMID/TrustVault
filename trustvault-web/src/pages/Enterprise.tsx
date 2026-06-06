@@ -6,6 +6,23 @@ import { LandingHeader } from '../components/layout/LandingHeader';
 import { InteractiveFooter } from '../components/layout/InteractiveFooter';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
 
+const TypingEffect = ({ text, speed = 5 }: { text: string, speed?: number }) => {
+  const [displayed, setDisplayed] = useState('');
+  
+  useEffect(() => {
+    let i = 0;
+    setDisplayed('');
+    const interval = setInterval(() => {
+      setDisplayed(text.slice(0, i));
+      i++;
+      if (i > text.length) clearInterval(interval);
+    }, speed);
+    return () => clearInterval(interval);
+  }, [text, speed]);
+
+  return <>{displayed}</>;
+};
+
 const codeSnippets = {
   typescript: {
     title: 'TypeScript SDK',
@@ -352,7 +369,7 @@ export const Enterprise: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       className="text-[10px] font-mono text-blue-400 leading-relaxed overflow-x-auto"
                     >
-                      {codeSnippets[activeTab].output}
+                      <TypingEffect text={codeSnippets[activeTab].output} speed={2} />
                     </motion.pre>
                   )}
                   {!running && !runFinished && (

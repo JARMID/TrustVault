@@ -187,9 +187,9 @@ const PricingInner: React.FC = () => {
 
                   <ul className="flex-1 space-y-4 mb-8">
                     {plan.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-3">
-                        <CheckCircle2 size={20} style={{ color: plan.color }} className="shrink-0 mt-0.5" />
-                        <span className="text-sm font-medium text-[var(--vault-text)]">{feature}</span>
+                      <li key={fIdx} className="flex items-start gap-3 group">
+                        <CheckCircle2 size={20} style={{ color: plan.color }} className="shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                        <span className="text-sm font-medium text-[var(--vault-text)] group-hover:text-[var(--vault-primary)] transition-colors">{feature}</span>
                       </li>
                     ))}
                   </ul>

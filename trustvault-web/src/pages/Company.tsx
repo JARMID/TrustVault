@@ -216,6 +216,19 @@ export const Company: React.FC = () => {
                   <line x1="35" y1="40" x2="50" y2="20" stroke="var(--brand-primary)" strokeWidth="0.3" opacity="0.5" />
                   <line x1="50" y1="20" x2="65" y2="35" stroke="var(--brand-primary)" strokeWidth="0.3" opacity="0.5" />
                   <line x1="65" y1="35" x2="80" y2="15" stroke="var(--brand-primary)" strokeWidth="0.3" opacity="0.5" />
+                  {/* Data Packets */}
+                  <circle r="0.8" fill="#00ebd0" filter="drop-shadow(0 0 2px #00ebd0)">
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M 20 25 L 35 40" />
+                  </circle>
+                  <circle r="0.8" fill="#00ebd0" filter="drop-shadow(0 0 2px #00ebd0)">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 35 40 L 50 20" />
+                  </circle>
+                  <circle r="0.8" fill="#00ebd0" filter="drop-shadow(0 0 2px #00ebd0)">
+                    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 50 20 L 65 35" />
+                  </circle>
+                  <circle r="0.8" fill="#00ebd0" filter="drop-shadow(0 0 2px #00ebd0)">
+                    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 65 35 L 80 15" />
+                  </circle>
                 </svg>
               </div>
 

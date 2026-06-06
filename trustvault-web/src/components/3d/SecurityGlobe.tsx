@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import { useUIStore } from '../../stores/uiStore';
 
 /* ── Interactive Ripple ── */
-const Ripple: React.FC<{ position: [number, number, number], color: string, continuous?: boolean }> = ({ position, color, continuous = false }) => {
+const Ripple: React.FC<{ position: [number, number, number], color: string, continuous?: boolean, isDark: boolean }> = ({ position, color, continuous = false, isDark }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   useFrame((state, delta) => {
     if (meshRef.current) {
@@ -27,13 +27,13 @@ const Ripple: React.FC<{ position: [number, number, number], color: string, cont
   return (
     <mesh position={position} ref={meshRef}>
       <sphereGeometry args={[0.08, 32, 32]} />
-      <meshBasicMaterial color={color} transparent opacity={0.8} wireframe blending={THREE.AdditiveBlending} depthWrite={false} />
+      <meshBasicMaterial color={color} transparent opacity={isDark ? 0.8 : 0.6} wireframe blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending} depthWrite={false} />
     </mesh>
   );
 };
 
 /* ── Hotspot Component ── */
-const Hotspot: React.FC<{ position: [number, number, number], color: string, label: string }> = ({ position, color, label }) => {
+const Hotspot: React.FC<{ position: [number, number, number], color: string, label: string, isDark: boolean }> = ({ position, color, label, isDark }) => {
   const [hovered, setHovered] = useState(false);
   const [clickEffect, setClickEffect] = useState<number>(0);
   const meshRef = useRef<THREE.Mesh>(null);
@@ -49,8 +49,8 @@ const Hotspot: React.FC<{ position: [number, number, number], color: string, lab
 
   return (
     <group>
-      {clickEffect > 0 && <Ripple key={clickEffect} position={position} color={color} />}
-      {color === 'var(--accent-danger)' && <Ripple position={position} color={color} continuous={true} />}
+      {clickEffect > 0 && <Ripple key={clickEffect} position={position} color={color} isDark={isDark} />}
+      {color === 'var(--accent-danger)' && <Ripple position={position} color={color} continuous={true} isDark={isDark} />}
       <mesh 
         ref={meshRef}
         position={position}
@@ -253,7 +253,7 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
           transparent 
           opacity={isDark ? 0.05 : 0.08} 
           side={THREE.BackSide}
-          blending={THREE.AdditiveBlending}
+          blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
         />
       </mesh>
       
@@ -265,12 +265,12 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
       >
         <sphereGeometry args={[2.35, 32, 32]} />
         <meshPhongMaterial 
-          color={isDark ? "#0a1628" : "#f1f5f9"} 
-          emissive={isDark ? "#040b16" : "#e2e8f0"} 
+          color={isDark ? "#0a1628" : "#cbd5e1"} 
+          emissive={isDark ? "#040b16" : "#94a3b8"} 
           specular={new THREE.Color(isDark ? "#00C6AE" : "#3B82F6")} 
-          shininess={60} 
+          shininess={isDark ? 60 : 20} 
           transparent 
-          opacity={0.9} 
+          opacity={isDark ? 0.9 : 0.95} 
         />
       </mesh>
 
@@ -286,10 +286,10 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
       </points>
 
       {/* Interactive Hotspots */}
-      {hotspots.map((h, i) => <Hotspot key={`hs-${i}`} position={h.pos} color={h.color} label={h.label} />)}
+      {hotspots.map((h, i) => <Hotspot key={`hs-${i}`} position={h.pos} color={h.color} label={h.label} isDark={isDark} />)}
       
       {/* User Ripples */}
-      {userRipples.map(r => <Ripple key={`ur-${r.id}`} position={r.pos} color="#00f0ff" />)}
+      {userRipples.map(r => <Ripple key={`ur-${r.id}`} position={r.pos} color="#00f0ff" isDark={isDark} />)}
 
       {/* Animated Arcs */}
       {arcs.map((a, i) => <AnimatedArc key={`arc-${i}`} start={a.start} end={a.end} color={a.color} />)}
@@ -309,13 +309,13 @@ const WireframeGlobe: React.FC<{ onGlobeClick?: () => void }> = ({ onGlobeClick 
 };
 
 /* ── Scanning Beam ── */
-const ScanBeam: React.FC = () => {
+const ScanBeam: React.FC<{ isDark: boolean }> = ({ isDark }) => {
   const beamRef = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (beamRef.current) {
       beamRef.current.rotation.z = state.clock.elapsedTime * 0.8;
       const material = beamRef.current.material as THREE.MeshBasicMaterial;
-      material.opacity = 0.15 + Math.sin(state.clock.elapsedTime * 2) * 0.05;
+      material.opacity = (isDark ? 0.15 : 0.25) + Math.sin(state.clock.elapsedTime * 2) * 0.05;
     }
   });
 
@@ -323,14 +323,14 @@ const ScanBeam: React.FC = () => {
     <group position={[1.2, 0, 0]}>
       <mesh ref={beamRef} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[0.04, 7]} />
-        <meshBasicMaterial color="#00C6AE" transparent opacity={0.15} side={THREE.DoubleSide} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} />
+        <meshBasicMaterial color={isDark ? "#00C6AE" : "#3B82F6"} transparent opacity={isDark ? 0.15 : 0.25} side={THREE.DoubleSide} blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending} depthWrite={false} toneMapped={false} />
       </mesh>
     </group>
   );
 };
 
 /* ── Satellites ── */
-const SatelliteOrb: React.FC<{ index: number, angle: number }> = ({ index, angle }) => {
+const SatelliteOrb: React.FC<{ index: number, angle: number, isDark: boolean }> = ({ index, angle, isDark }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (meshRef.current) {
@@ -342,7 +342,7 @@ const SatelliteOrb: React.FC<{ index: number, angle: number }> = ({ index, angle
     <group position={[3.6 * Math.cos(angle), Math.sin(angle * 2) * 0.5, 3.6 * Math.sin(angle)]}>
       <mesh ref={meshRef}>
         <octahedronGeometry args={[0.08, 0]} />
-        <meshBasicMaterial color="#00C6AE" wireframe />
+        <meshBasicMaterial color={isDark ? "#00C6AE" : "#3B82F6"} wireframe />
       </mesh>
       <mesh>
         <sphereGeometry args={[0.02, 16, 16]} />
@@ -352,7 +352,7 @@ const SatelliteOrb: React.FC<{ index: number, angle: number }> = ({ index, angle
   );
 };
 
-const Satellites: React.FC = () => {
+const Satellites: React.FC<{ isDark: boolean }> = ({ isDark }) => {
   const groupRef = useRef<THREE.Group>(null);
   useFrame((state) => {
     if (groupRef.current) {
@@ -365,34 +365,34 @@ const Satellites: React.FC = () => {
     <group ref={groupRef}>
       {[0, 1, 2, 3, 4].map(i => {
         const angle = (i * Math.PI * 2) / 5;
-        return <SatelliteOrb key={i} index={i} angle={angle} />;
+        return <SatelliteOrb key={i} index={i} angle={angle} isDark={isDark} />;
       })}
     </group>
   );
 };
 
 /* ── Radar Rings ── */
-const RadarRings: React.FC = () => {
+const RadarRings: React.FC<{ isDark: boolean }> = ({ isDark }) => {
   const ringRef = useRef<THREE.Mesh>(null);
   useFrame((state) => {
     if (ringRef.current) {
       const scale = 1 + (state.clock.elapsedTime * 0.5) % 3;
       ringRef.current.scale.set(scale, scale, scale);
       const mat = ringRef.current.material as THREE.MeshBasicMaterial;
-      mat.opacity = 0.4 * (1 - (scale - 1) / 3);
+      mat.opacity = (isDark ? 0.4 : 0.6) * (1 - (scale - 1) / 3);
     }
   });
 
   return (
     <mesh ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
       <ringGeometry args={[3.0, 3.05, 64]} />
-      <meshBasicMaterial color="#00f0ff" transparent opacity={0.4} side={THREE.DoubleSide} blending={THREE.AdditiveBlending} depthWrite={false} />
+      <meshBasicMaterial color={isDark ? "#00f0ff" : "#3B82F6"} transparent opacity={isDark ? 0.4 : 0.6} side={THREE.DoubleSide} blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending} depthWrite={false} />
     </mesh>
   );
 };
 
 /* ── Floating Particles ── */
-const Particles: React.FC = () => {
+const Particles: React.FC<{ isDark: boolean }> = ({ isDark }) => {
   const pointsRef = useRef<THREE.Points>(null);
   const count = 50;
   
@@ -418,7 +418,7 @@ const Particles: React.FC = () => {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[particlesPosition, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.04} color="#00C6AE" transparent opacity={0.8} sizeAttenuation blending={THREE.AdditiveBlending} depthWrite={false} />
+      <pointsMaterial size={0.04} color={isDark ? "#00C6AE" : "#3B82F6"} transparent opacity={isDark ? 0.8 : 0.9} sizeAttenuation blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending} depthWrite={false} />
     </points>
   );
 };
@@ -544,10 +544,10 @@ const SecurityGlobe: React.FC<{ scrollYProgress?: any }> = ({ scrollYProgress })
 
         <ScrollRotator scrollYProgress={scrollYProgress}>
           <WireframeGlobe onGlobeClick={handleGlobeClick} />
-          <ScanBeam />
-          <Satellites />
-          <Particles />
-          <RadarRings />
+          <ScanBeam isDark={isDark} />
+          <Satellites isDark={isDark} />
+          <Particles isDark={isDark} />
+          <RadarRings isDark={isDark} />
         </ScrollRotator>
 
         {/* Post-processing Effects */}
