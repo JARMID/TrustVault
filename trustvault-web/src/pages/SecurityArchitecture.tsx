@@ -5,6 +5,7 @@ import { Shield, Lock, Key, Server, Cpu, Layers, Fingerprint, Eye, ArrowRight, A
 import { LandingHeader } from '../components/layout/LandingHeader';
 import CinematicFooter from '../components/ui/CinematicFooter';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
+import CrystalVault from '../components/3d/CrystalVault';
 
 const securityPillars = [
   {
@@ -86,25 +87,14 @@ export const SecurityArchitecture: React.FC = () => {
           <div className="aspect-[21/9] rounded-[40px] border border-[rgba(255,255,255,0.06)] bg-[#070B14] shadow-[0_30px_80px_-15px_rgba(0,198,174,0.15)] flex items-center justify-center relative overflow-hidden group">
             <div className="absolute inset-0 bg-grid-white/[0.02] pointer-events-none" />
             
-            {/* Animated Shield/Lock Composition */}
-            <div className="relative z-10 flex flex-col items-center">
-              <motion.div 
-                animate={{ rotateY: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-[var(--brand-primary)] blur-[60px] opacity-20 rounded-full" />
-                <Shield size={120} strokeWidth={1} className="text-[var(--brand-primary)] drop-shadow-[0_0_15px_rgba(0,198,174,0.5)]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Lock size={40} className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
-                </div>
-              </motion.div>
-              
-              <div className="mt-8 flex gap-4 text-xs font-mono text-[var(--brand-primary)] opacity-80">
-                <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> AES-GCM 256</span>
-                <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> ED25519 Keys</span>
-                <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> TLS 1.3 Strict</span>
-              </div>
+            {/* 3D Crystal Vault Component */}
+            <CrystalVault />
+            
+            {/* Status overlay */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-4 text-xs font-mono text-[var(--brand-primary)] opacity-80 backdrop-blur-md bg-black/40 px-6 py-3 rounded-full border border-[rgba(0,198,174,0.2)]">
+              <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> AES-GCM 256</span>
+              <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> ED25519 Keys</span>
+              <span className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> TLS 1.3 Strict</span>
             </div>
           </div>
         </motion.div>

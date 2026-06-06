@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Activity, Globe2, Zap, Server, Code2, ArrowRight } from 'lucide-react';
 import { LandingHeader } from '../components/layout/LandingHeader';
 import CinematicFooter from '../components/ui/CinematicFooter';
+import SecurityGlobe from '../components/3d/SecurityGlobe';
 
 export const Network: React.FC = () => {
   const navigate = useNavigate();
@@ -82,37 +83,43 @@ export const Network: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="p-8 rounded-[30px] border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] backdrop-blur-xl">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-2">
-                  <Activity className="text-emerald-400" size={18} />
-                  <h3 className="font-bold">Live Regional Latency</h3>
-                </div>
-                <div className="text-[10px] font-mono text-[var(--vault-text-secondary)] uppercase tracking-wider px-3 py-1 bg-white/5 rounded-full border border-white/10">
-                  Updated Live
-                </div>
+            <div className="p-8 rounded-[30px] border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] backdrop-blur-xl relative overflow-hidden group">
+              {/* Globe Background integration */}
+              <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-70 transition-opacity duration-1000 mix-blend-screen pointer-events-none" style={{ transform: 'scale(1.5) translateX(20%) translateY(-10%)' }}>
+                <SecurityGlobe />
               </div>
-
-              <div className="space-y-4">
-                {[
-                  { region: 'eu-west-2 (London)', ping: pings.lon, status: 'Optimal' },
-                  { region: 'us-east-1 (New York)', ping: pings.nyc, status: 'Optimal' },
-                  { region: 'ap-southeast-1 (Singapore)', ping: pings.sgp, status: 'Nominal' },
-                  { region: 'ap-northeast-1 (Tokyo)', ping: pings.tok, status: 'Nominal' },
-                ].map((node) => (
-                  <div key={node.region} className="flex items-center justify-between p-4 rounded-2xl bg-black/20 border border-white/5">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-2 h-2 rounded-full animate-pulse ${node.ping < 50 ? 'bg-emerald-500' : 'bg-amber-500'}`} />
-                      <span className="font-mono text-xs">{node.region}</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <span className="text-xs text-[var(--vault-text-secondary)] hidden sm:block">{node.status}</span>
-                      <span className={`font-mono text-sm font-bold ${node.ping < 50 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                        {node.ping}ms
-                      </span>
-                    </div>
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-2">
+                    <Activity className="text-emerald-400" size={18} />
+                    <h3 className="font-bold">Live Regional Latency</h3>
                   </div>
-                ))}
+                  <div className="text-[10px] font-mono text-[var(--vault-text-secondary)] uppercase tracking-wider px-3 py-1 bg-white/5 rounded-full border border-white/10">
+                    Updated Live
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    { region: 'eu-west-2 (London)', ping: pings.lon, status: 'Optimal' },
+                    { region: 'us-east-1 (New York)', ping: pings.nyc, status: 'Optimal' },
+                    { region: 'ap-southeast-1 (Singapore)', ping: pings.sgp, status: 'Nominal' },
+                    { region: 'ap-northeast-1 (Tokyo)', ping: pings.tok, status: 'Nominal' },
+                  ].map((node) => (
+                    <div key={node.region} className="flex items-center justify-between p-4 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-2 h-2 rounded-full animate-pulse ${node.ping < 50 ? 'bg-emerald-500' : 'bg-amber-500'}`} />
+                        <span className="font-mono text-xs">{node.region}</span>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <span className="text-xs text-[var(--vault-text-secondary)] hidden sm:block">{node.status}</span>
+                        <span className={`font-mono text-sm font-bold ${node.ping < 50 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                          {node.ping}ms
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
